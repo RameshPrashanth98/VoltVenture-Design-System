@@ -1,0 +1,15 @@
+# Claude Code local settings
+.claude/
+
+# Node.js
+node_modules/
+generated/
+
+# Dart/Flutter
+.dart_tool/
+build/
+*.g.dart
+
+# OS
+.DS_Store
+Thumbs.db

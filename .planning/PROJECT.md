@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A standalone npm package providing the foundational token layer for the VoltVenture ride-hailing app. v1 extracts and codifies all design decisions from the Foundations v0.1 spec into a React Native-ready token infrastructure — consumed by NativeWind and typed TypeScript constants, transformed by Style Dictionary from a W3C Design Tokens JSON source.
+A standalone package providing the foundational token layer for the VoltVenture ride-hailing app. v1 extracts and codifies all design decisions from the Foundations v0.1 spec into a Flutter-ready token infrastructure — consumed by Flutter ThemeData and typed Dart constants, transformed by Style Dictionary from a W3C Design Tokens JSON source.
 
 Components (Button, Card, Input, etc.) are a separate future phase. This project is the layer that makes them possible.
 
@@ -20,7 +20,7 @@ One change to a primitive propagates through every VoltVenture UI surface — pa
 
 **Token Infrastructure**
 - [ ] W3C Design Tokens JSON source files authored for all 12 foundation categories
-- [ ] Style Dictionary pipeline transforms tokens to: typed TypeScript constants, NativeWind/Tailwind config, React Native StyleSheet values
+- [ ] Style Dictionary pipeline transforms tokens to: typed Dart constants, Flutter ThemeData/ColorScheme/TextTheme objects
 - [ ] All output files are generated (not hand-written) — single source of truth enforced
 
 **Color Tokens**
@@ -30,7 +30,7 @@ One change to a primitive propagates through every VoltVenture UI surface — pa
 - [ ] Semantic color mapping: surface.*, text.*, action.*, border.*, status.live
 
 **Typography Tokens**
-- [ ] Font families: Manjari (display), Inter (body), JetBrains Mono (mono) — loaded via Expo Google Fonts
+- [ ] Font families: Manjari (display), Inter (body), JetBrains Mono (mono) — loaded via the `google_fonts` Flutter package or bundled `.ttf` assets in `pubspec.yaml`
 - [ ] Type scale: 14 styles (display.xl → overline) with correct size, line-height, weight, tracking
 - [ ] Typography rules enforced: tabular-nums for data, negative tracking only 28pt+, sentence case
 
@@ -61,7 +61,7 @@ One change to a primitive propagates through every VoltVenture UI surface — pa
 - [ ] Icon set: existing icon library integrated (exact library TBD during implementation)
 
 **Storybook Documentation**
-- [ ] Storybook Web with React Native Web renderer configured
+- [ ] Storybook Web (pure HTML/CSS stories — no RN renderer needed for token docs) configured
 - [ ] Token story for each of the 12 foundation categories
 - [ ] Color story: palette swatches with token names + hex values
 - [ ] Typography story: all 14 type styles rendered as specimens
@@ -91,7 +91,7 @@ One change to a primitive propagates through every VoltVenture UI surface — pa
 
 **Source of truth**: `voltventure-foundations.html` — a comprehensive foundations spec (v0.1) covering all 12 token categories with exact values, semantic mappings, naming architecture, W3C JSON export format, and brand rules. This file is the canonical reference for Phase 1 implementation.
 
-**Token naming convention**: `[category].[concept].[variant].[state]` — dot-separated, transforms to camelCase (JS), snake_case (Dart/XML), `--kebab-case` (CSS). No token named after its raw value.
+**Token naming convention**: `[category].[concept].[variant].[state]` — dot-separated, transforms to `snake_case` (Dart), camelCase (JS reference), `--kebab-case` (CSS reference). No token named after its raw value.
 
 **Three-tier token architecture**:
 - Tier 1 Primitive: raw values — nobody consumes directly
@@ -102,11 +102,11 @@ One change to a primitive propagates through every VoltVenture UI surface — pa
 
 ## Constraints
 
-- **Platform**: Expo (managed/bare) + React Native — density-independent points (pt/dp), never px in tokens
-- **Base unit**: 4pt — all spacing, sizing, radius are multiples of 4
-- **Touch target floor**: 48pt minimum — above platform minimums, tuned for in-vehicle use
-- **Token consumption**: NativeWind (Tailwind class names) + typed TS constants — no inline raw values in components
-- **No hardcoded values**: every component consumes a token; Style Dictionary enforces this via generated output
+- **Platform**: Flutter (iOS/Android) — density-independent logical pixels (dp), values stored as unitless numbers in tokens; never string units
+- **Base unit**: 4dp — all spacing, sizing, radius are multiples of 4
+- **Touch target floor**: 48dp minimum — above platform minimums, tuned for in-vehicle use
+- **Token consumption**: Flutter ThemeData/ColorScheme/TextTheme + typed Dart constants — no inline raw values in widgets
+- **No hardcoded values**: every widget consumes a token; Style Dictionary enforces this via generated Dart output
 - **WCAG 2.1 AA**: required for all text/background combinations
 - **Light mode**: default appearance; dark surfaces are emphasis blocks, not a theme
 - **Package shape**: standalone npm package imported by the VoltVenture app
@@ -115,13 +115,14 @@ One change to a primitive propagates through every VoltVenture UI surface — pa
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Style Dictionary as token pipeline | Industry standard; W3C JSON in, multiple outputs (RN, Tailwind, TS) out | — Pending |
-| NativeWind for Tailwind-in-RN | De-facto standard; avoids managing two styling systems | — Pending |
-| Storybook Web + RN Web renderer | Easier setup and sharing than native Storybook; tokens are visual not interactive | — Pending |
+| Style Dictionary as token pipeline | Industry standard; W3C JSON in, multiple outputs (Dart, ThemeData, TS reference) out | — Pending |
+| Flutter for component phases | Cross-platform (iOS/Android) with single codebase; better widget composition model than RN for design system work | — Pending |
+| Flutter ThemeData + ColorScheme | Native Flutter theming API; tokens map directly to ThemeData fields without a third-party styling library | — Pending |
+| Storybook Web (HTML/CSS only) | Token docs (swatches, rulers, specimens) are purely visual — no Flutter/RN renderer needed; easier to host and share | — Pending |
 | Existing icon library (not custom SVGs) | Custom icon component system is a separate concern from token foundations | — Pending |
 | No radius.none token | Brand principle: nothing in VoltVenture has a square corner | — Pending |
 | Electric green = background only on light | 1.36:1 contrast against white fails every WCAG threshold | — Pending |
-| Expo runtime | Simpler font loading (Expo Google Fonts), easier Storybook config | — Pending |
+| `google_fonts` Flutter package for fonts | Handles font loading declaration in pubspec; fallback is bundled .ttf assets | — Pending |
 
 ## Evolution
 
