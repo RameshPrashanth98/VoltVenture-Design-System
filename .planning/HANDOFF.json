@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-07-24",
+  "phase": "1",
+  "phase_name": "Token Pipeline & Dart Output",
+  "phase_dir": ".planning/phases/01-token-pipeline-dart-output",
+  "plan": null,
+  "task": null,
+  "total_tasks": null,
+  "status": "paused",
+  "current_activity": "gsd-discuss-phase 1 — mid-discussion, 2 of 4 areas complete",
+  "completed_tasks": [
+    {"id": 1, "name": "Research phase complete (FEATURES, STACK, ARCHITECTURE, PITFALLS)", "status": "done"},
+    {"id": 2, "name": "ROADMAP.md created with 3 phases", "status": "done"},
+    {"id": 3, "name": "discuss-phase area 1: SD Dart formatter decisions", "status": "done"},
+    {"id": 4, "name": "discuss-phase area 2: Dart output structure decisions", "status": "done"}
+  ],
+  "remaining_tasks": [
+    {"id": 5, "name": "discuss-phase area 3: Incomplete ColorScheme placeholder strategy", "status": "not_started"},
+    {"id": 6, "name": "discuss-phase area 4: Phase 1 done bar / verification", "status": "not_started"},
+    {"id": 7, "name": "Write 01-CONTEXT.md and commit", "status": "not_started"},
+    {"id": 8, "name": "Run gsd-plan-phase 1", "status": "not_started"}
+  ],
+  "blockers": [],
+  "human_actions_pending": [],
+  "decisions": [
+    {"decision": "Platform: Flutter (not React Native)", "rationale": "User confirmed Flutter for component phases", "phase": "0"},
+    {"decision": "Token pipeline: Style Dictionary v4 with W3C DTCG JSON source", "rationale": "Native $type/$value support, no custom parser needed", "phase": "0"},
+    {"decision": "SD Dart formatter: search community first before building from scratch", "rationale": "Could save days; pub.dev + GitHub search allocated before custom build", "phase": "1"},
+    {"decision": "All 4 type conversions need unit tests: Color hex→Color(0xFF), dimension→double, shadow→BoxShadow, lineHeight→multiplier", "rationale": "Silent failure modes; formatter correctness is load-bearing", "phase": "1"},
+    {"decision": "Custom formatter code lives in sd-transforms/ directory", "rationale": "Keeps pipeline logic separate from token source JSON and generated output", "phase": "1"},
+    {"decision": "Dart output: single voltventure_tokens.dart (not per-category barrel)", "rationale": "Simplest import pattern; fine for token-only scope", "phase": "1"},
+    {"decision": "Doc comments included in generated Dart file", "rationale": "IDE tooltips show token purpose without opening Storybook", "phase": "1"},
+    {"decision": "Primitive tokens private (_colorGreen500); only semantic tokens exported", "rationale": "Enforces three-tier architecture at Dart level; widgets cannot reach primitives directly", "phase": "1"}
+  ],
+  "uncommitted_files": [],
+  "next_action": "Resume gsd-discuss-phase 1 — continue with area 3 (Incomplete ColorScheme placeholder strategy), then area 4 (Phase 1 done bar), then write CONTEXT.md",
+  "context_notes": "Two more discussion areas remain before CONTEXT.md can be written and plan-phase can run. The biggest open question is what to put in required ColorScheme fields for tokens that are brand-decision deferred (error colors, secondary, etc.)."
+}
