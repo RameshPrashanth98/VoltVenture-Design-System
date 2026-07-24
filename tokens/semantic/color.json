@@ -1,0 +1,99 @@
+{
+  "color": {
+    "surface": {
+      "base": {
+        "$type": "color",
+        "$value": "{color.white}",
+        "$description": "Primary light surface. Default background for all light-mode screens."
+      },
+      "sunken": {
+        "$type": "color",
+        "$value": "{color.grey.100}",
+        "$description": "Recessed surface. Used for input fields, code blocks, and content wells that sit below the base."
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{color.white}",
+        "$description": "Elevated card surface. Semantically distinct from base — conveys elevation even when the hex value matches."
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.grey.950}",
+        "$description": "Dark surface. Used for tooltips, toasts, and elements that need to contrast sharply against light surfaces."
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.grey.950}",
+        "$description": "Primary text. Headlines, body copy, row labels. 19.6:1 on white — AAA."
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.grey.500}",
+        "$description": "Secondary / supporting text. Subtitles, metadata, captions. 3.9:1 on white — passes AA for large text only."
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{color.grey.300}",
+        "$description": "Disabled-state text. Non-interactive labels and placeholders. Below AA threshold by design."
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{color.green.700}",
+        "$description": "Accent text. Links, highlights, active tab labels. MUST use green.700 (#7D9220) not green.500 (#C6FF2D) — green.700 achieves 4.6:1 on white (WCAG AA). green.500 achieves only 1.36:1 (fails)."
+      },
+      "onInverse": {
+        "$type": "color",
+        "$value": "{color.white}",
+        "$description": "Text on inverse (dark) surfaces. Tooltips, toasts, dark cards."
+      }
+    },
+    "action": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.green.500}",
+        "$description": "Primary CTA background. Electric Green (#C6FF2D). Background-only on light surfaces — never use as text color. Always pair with action.primary.fg.",
+        "fg": {
+          "$type": "color",
+          "$value": "{color.grey.950}",
+          "$description": "Foreground on Electric Green background. Always Volt Black. 15.4:1 against green.500 — AAA."
+        }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.grey.950}",
+        "$description": "Secondary CTA background. Volt Black. Used for non-primary actions that need high contrast.",
+        "fg": {
+          "$type": "color",
+          "$value": "{color.white}",
+          "$description": "Foreground on secondary (Volt Black) background. White. 19.6:1 — AAA."
+        }
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.grey.200}",
+        "$description": "Subtle dividers and non-interactive borders. Row separators, section edges."
+      },
+      "strong": {
+        "$type": "color",
+        "$value": "{color.grey.950}",
+        "$description": "Prominent borders. Selected states, focused inputs with dark outline, card stroke on light backgrounds."
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{color.green.500}",
+        "$description": "Focus ring color. Electric Green outline on focused interactive elements. Used as a stroke, not a fill."
+      }
+    },
+    "status": {
+      "live": {
+        "$type": "color",
+        "$value": "{color.green.500}",
+        "$description": "Live-status indicator. Electric Green dot or badge. Always paired with a text label — never used as sole state indicator."
+      }
+    }
+  }
+}
