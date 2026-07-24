@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "timestamp": "2026-07-24T07:48:58Z",
+  "timestamp": "2026-07-24T10:00:00Z",
   "phase": "01",
   "phase_name": "Token Pipeline & Dart Output",
   "phase_dir": ".planning/phases/01-token-pipeline-dart-output",
-  "plan": 6,
-  "task": 1,
-  "total_tasks": 2,
+  "plan": 7,
+  "task": 0,
+  "total_tasks": 3,
   "status": "paused",
   "completed_tasks": [
     {"id": "01-01", "name": "Project Scaffold", "status": "done", "commit": "e3fee62"},
@@ -14,37 +14,40 @@
     {"id": "01-03", "name": "Primitive Tokens", "status": "done", "commit": "e49dcb0"},
     {"id": "01-04", "name": "Semantic Tokens", "status": "done", "commit": "35e5abc"},
     {"id": "01-05", "name": "Build Validators", "status": "done", "commit": "ac6535f"},
-    {"id": "01-06-task1", "name": "Dart constants formatter (formatter exists, config wiring BROKEN)", "status": "in_progress", "progress": "dart-constants.format.mjs committed but SD config outputs JS to .dart files"}
+    {"id": "01-06", "name": "Pipeline Wiring + Dart constants formatter", "status": "done", "commit": "15f8ab5"}
   ],
   "remaining_tasks": [
-    {"id": "01-06-task1-fix", "name": "Fix style-dictionary.config.mjs dart platform format wiring", "status": "not_started"},
-    {"id": "01-06-task2", "name": "Verify dart analyze + unresolved reference check", "status": "not_started"},
-    {"id": "01-07-task0", "name": "Checkpoint: verify GoogleFonts.manjari() availability", "status": "not_started"},
-    {"id": "01-07-task1", "name": "ThemeData formatter + dart/theme platform wiring", "status": "not_started"},
-    {"id": "01-07-task2", "name": "Final Phase 1 done-bar verification", "status": "not_started"}
+    {"id": "01-07-task0", "name": "Checkpoint: verify GoogleFonts.manjari() availability", "status": "not_started", "type": "human_checkpoint"},
+    {"id": "01-07-task1", "name": "ThemeData formatter (dart-theme.format.mjs) + dart/theme SD platform wiring", "status": "not_started"},
+    {"id": "01-07-task2", "name": "Final Phase 1 done-bar: npm run build:validate + npm run build:tokens + dart analyze lib/ + npm test", "status": "not_started"}
   ],
   "blockers": [
     {
-      "description": "lib/voltventure_tokens.dart and lib/voltventure_theme.dart contain JavaScript (ES6) content, not Dart. The SD config dart platform is not wired to the custom voltventure/dart/constants formatter.",
-      "type": "technical",
-      "workaround": "Fix format: field in style-dictionary.config.mjs dart platform entry to reference 'voltventure/dart/constants'"
+      "description": "`dart` command not in Git Bash PATH — `dart analyze lib/` for Task 2 must run in PowerShell or a Flutter-aware terminal",
+      "type": "human_action",
+      "workaround": "Open PowerShell, cd to project root, then run `dart analyze lib/`"
     }
   ],
   "human_actions_pending": [
     {
-      "action": "Respond to Task 0 checkpoint in Plan 01-07: run GoogleFonts.manjari() verification and type 'manjari-available' or 'manjari-missing'",
-      "context": "The ThemeData formatter has two code paths depending on whether GoogleFonts.manjari() exists in google_fonts ^6.2.0",
+      "action": "Task 0 checkpoint: verify GoogleFonts.manjari() availability in google_fonts ^6.2.0",
+      "context": "In a Flutter-aware terminal run: flutter pub get && dart run -e \"import 'package:google_fonts/google_fonts.dart'; void main() { print(GoogleFonts.manjari()); }\". Reply 'manjari-available' or 'manjari-missing'. The formatter (Task 1) has two code paths depending on the result.",
+      "blocking": true
+    },
+    {
+      "action": "Task 2: run `dart analyze lib/` in PowerShell after Task 1 completes",
+      "context": "dart not in Git Bash PATH. Must confirm 'No issues found!' for both voltventure_tokens.dart and voltventure_theme.dart.",
       "blocking": true
     }
   ],
   "decisions": [
-    {"decision": "Flutter platform (not React Native)", "rationale": "Confirmed platform decision", "phase": "01"},
-    {"decision": "ColorScheme.fromSeed().copyWith() — no red placeholders", "rationale": "D-07: avoids missing required ColorScheme fields", "phase": "01"},
-    {"decision": "Phase 1 done bar: dart analyze + npm run build + 4 unit tests", "rationale": "D-08: no device required", "phase": "01"},
-    {"decision": "Primitive tokens private (_prefix), semantic public", "rationale": "D-06", "phase": "01"}
+    {"decision": "ColorScheme.fromSeed(seedColor: colorActionPrimary, brightness: Brightness.light).copyWith(...) — no red placeholders", "rationale": "D-07: fromSeed fills all required ColorScheme fields; copyWith overrides only where explicit semantic tokens exist", "phase": "01"},
+    {"decision": "TextTheme uses GoogleFonts.manjari() / GoogleFonts.inter() method calls (not string fontFamily)", "rationale": "google_fonts package API; avoids Pitfall 12. Fallback: .ttf bundling if manjari-missing", "phase": "01"},
+    {"decision": "dart/theme SD platform absent until Plan 07 adds dart-theme.format.mjs", "rationale": "Prevents SD build failure; voltventure_theme.dart does not yet exist", "phase": "01"},
+    {"decision": "Phase 1 done bar: npm run build:validate + npm run build:tokens + dart analyze lib/ + npm test (no device)", "rationale": "D-08", "phase": "01"}
   ],
   "uncommitted_files": [".planning/STATE.md"],
   "untracked_files": ["voltventure-foundations (1).html"],
-  "next_action": "Read style-dictionary.config.mjs to identify the dart platform format field, then read sd-transforms/dart-constants.format.mjs to confirm its exported name. Fix the mismatch, run npm run build:tokens, verify lib/voltventure_tokens.dart starts with // AUTO-GENERATED and contains Dart const Color declarations.",
-  "context_notes": "Session stopped at context exhaustion (~79%) during Plan 06 execution. The dart-constants formatter was written and WIP-committed (ce7f018) but the SD config wiring is broken — the dart platform outputs the wrong format (JS) to .dart files. Single config fix needed, then dart analyze iteration, then Plan 07 can proceed."
+  "next_action": "Ask user for Task 0 result (manjari-available or manjari-missing), then read lib/voltventure_tokens.dart to get exact exported constant names, then create sd-transforms/dart-theme.format.mjs emitting the full voltVentureTheme() factory, then wire dart/theme platform in style-dictionary.config.mjs.",
+  "context_notes": "Plan 07 is the final plan of Phase 1. No code was written this session — resumed then immediately paused. The ThemeData factory structure is fully specified in 01-07-PLAN.md interfaces block (ColorScheme, 14 TextTheme slots, computed height multipliers, absolute letterSpacing values). All token constant names must be confirmed from lib/voltventure_tokens.dart before writing the formatter. The dart-theme formatter must NOT use $value/$type introspection — it emits fully static Dart code that references token constants by their Dart identifier names."
 }
