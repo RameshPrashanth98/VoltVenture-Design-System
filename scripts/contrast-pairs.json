@@ -1,0 +1,51 @@
+[
+  {
+    "fg": "color.text.primary",
+    "bg": "color.surface.base",
+    "minRatio": 7.0,
+    "level": "AAA",
+    "note": "Volt Black (#0F0F0F) on white (#FFFFFF) — 21:1. Must clear AAA for all body text."
+  },
+  {
+    "fg": "color.text.secondary",
+    "bg": "color.surface.base",
+    "minRatio": 3.1,
+    "level": "AA-large",
+    "note": "Mid Gray (#808080) on white (#FFFFFF) — 3.9:1. Passes AA for large text (18pt+ or 14pt bold) only. Use color.text.secondary at body.sm (13pt) only on large-text elements."
+  },
+  {
+    "fg": "color.text.disabled",
+    "bg": "color.surface.base",
+    "minRatio": 0,
+    "level": "EXEMPT",
+    "note": "Disabled state — WCAG 1.4.3 explicitly exempts text in disabled UI components from contrast requirements."
+  },
+  {
+    "fg": "color.text.accent",
+    "bg": "color.surface.base",
+    "minRatio": 3.1,
+    "level": "AA-large",
+    "note": "Dark green (#7D9220, green.700) on white (#FFFFFF) — actual 3.5:1. Passes AA for large text (18pt+ or 14pt bold) only. Design spec claimed 4.6:1 but computed value is 3.5:1 — design review recommended for small accent text. Do not substitute green.500 (1.36:1)."
+  },
+  {
+    "fg": "color.text.onInverse",
+    "bg": "color.surface.inverse",
+    "minRatio": 7.0,
+    "level": "AAA",
+    "note": "White (#FFFFFF) on Volt Black (#0F0F0F) — 21:1. Must clear AAA for inverse/dark-surface text."
+  },
+  {
+    "fg": "color.action.primary.fg",
+    "bg": "color.action.primary",
+    "minRatio": 4.5,
+    "level": "AA",
+    "note": "Volt Black (#0F0F0F) on Electric Green (#C6FF2D) — 15.4:1. CTA button label on brand green background. Well above AA and AAA thresholds."
+  },
+  {
+    "fg": "color.action.secondary.fg",
+    "bg": "color.action.secondary",
+    "minRatio": 4.5,
+    "level": "AA",
+    "note": "White (#FFFFFF) on Volt Black (#0F0F0F) — 21:1. Secondary CTA (dark background variant). Must clear AA."
+  }
+]
