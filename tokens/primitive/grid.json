@@ -1,0 +1,28 @@
+{
+  "grid": {
+    "columns": {
+      "$value": 4,
+      "$description": "4-column phone grid. On larger phones margin is fixed and columns are fluid."
+    },
+    "margin": {
+      "$type": "dimension",
+      "$value": 16,
+      "$description": "Fixed horizontal margin — stays 16pt at all phone sizes. Measured from profile screen: 361pt content in 393pt frame."
+    },
+    "gutter": {
+      "$type": "dimension",
+      "$value": 16,
+      "$description": "Column gutter — 16pt between columns"
+    },
+    "contentWidth": {
+      "$type": "dimension",
+      "$value": 361,
+      "$description": "Content width at 393pt reference device (393 - 2 × 16pt margin = 361pt). Reference: iPhone 15/16 logical size."
+    },
+    "touchTarget": {
+      "$type": "dimension",
+      "$value": 48,
+      "$description": "Minimum interactive touch target — 48pt above the 44pt iOS / 48dp Android floor. Set higher for in-vehicle one-handed use."
+    }
+  }
+}
