@@ -1,0 +1,44 @@
+{
+  "radius": {
+    "xs": {
+      "$type": "dimension",
+      "$value": 8,
+      "$description": "Badges, small chips, progress tracks"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": 12,
+      "$description": "Inline tags, thumbnails, inputs"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": 16,
+      "$description": "List rows, secondary cards"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": 20,
+      "$description": "Standard content card"
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": 28,
+      "$description": "Feature cards, the black stat block, map container"
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": 36,
+      "$description": "Bottom sheets, full-width hero surfaces"
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": 999,
+      "$description": "Buttons, pills, avatars, tab bar circles, status dots — fully rounded"
+    },
+    "icon": {
+      "$type": "dimension",
+      "$value": 22.37,
+      "$description": "App icon only — iOS squircle continuous corner mask (22.37% proportional). Do not use as absolute dp; multiply by container size (e.g. 1024 * 0.2237 = 229pt for 1024pt canvas)."
+    }
+  }
+}
