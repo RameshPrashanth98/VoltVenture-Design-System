@@ -20,7 +20,18 @@
 - 4pt grid validator for spacing/radius tokens
 - `generated/tokens.js` — JS reference output for Storybook
 
-**Status:** Not started
+**Status:** In planning
+
+**Plans:** 7 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold (package.json, pubspec.yaml, SD config stub, directory structure)
+- [ ] 01-02-PLAN.md — SD Dart formatter + 4 type conversion transforms with unit tests
+- [ ] 01-03-PLAN.md — Primitive token authoring (all 8 categories in DTCG JSON)
+- [ ] 01-04-PLAN.md — Semantic token authoring (color aliases + 14 typography composites)
+- [ ] 01-05-PLAN.md — Build validators (WCAG contrast, electric green guard, 4pt grid, DTCG format)
+- [ ] 01-06-PLAN.md — SD pipeline integration + Dart constants output (dart analyze clean)
+- [ ] 01-07-PLAN.md — ThemeData factory (ColorScheme.fromSeed + 14-style TextTheme + done-bar verification)
 
 ---
 
@@ -68,4 +79,4 @@
 
 ---
 
-*Last updated: 2026-07-24*
+*Last updated: 2026-07-24 — Phase 1 planning complete (7 plans, 4 waves)*
