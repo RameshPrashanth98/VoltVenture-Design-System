@@ -1,0 +1,16 @@
+{
+  "name": "voltventure-design-system-tools",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Node.js build tooling for the VoltVenture design token pipeline.",
+  "scripts": {
+    "build:validate": "node scripts/validate-tokens.mjs",
+    "build:tokens": "node style-dictionary.config.mjs",
+    "build": "npm run build:validate && npm run build:tokens",
+    "test": "node --test sd-transforms/**/*.test.mjs"
+  },
+  "devDependencies": {
+    "style-dictionary": "^4.4.0",
+    "wcag-contrast": "^3.0.0"
+  }
+}

@@ -3,12 +3,13 @@
 
 # Node.js
 node_modules/
-generated/
 
 # Dart/Flutter
 .dart_tool/
 build/
 *.g.dart
+.flutter-plugins
+.flutter-plugins-dependencies
 
 # OS
 .DS_Store
