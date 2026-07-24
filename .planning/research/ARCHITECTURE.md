@@ -1,25 +1,23 @@
 # Architecture Patterns: VoltVenture Design System Token Infrastructure
 
-**Domain:** Design token pipeline — Style Dictionary → Flutter/Dart
+**Domain:** Design token pipeline — Style Dictionary → TypeScript + React Native Paper
 **Researched:** 2026-07-24
-**Updated:** 2026-07-24 — Platform changed from React Native/Expo/NativeWind to Flutter.
-**Overall confidence:** HIGH for Style Dictionary v4 pipeline patterns and three-tier architecture; MEDIUM for Flutter-specific output (Dart formatter, ThemeData mapping) — requires implementation research.
+**Updated:** 2026-07-25 — Platform changed from Flutter to React Native Paper.
+**Overall confidence:** HIGH for Style Dictionary v4 pipeline patterns and three-tier architecture; MEDIUM for RN Paper-specific output (TS formatter, MD3 theme mapping).
 
-> **PLATFORM MIGRATION NOTE**
-> This document was originally authored for React Native / Expo / NativeWind. The platform target has changed to **Flutter**.
+> **PLATFORM MIGRATION NOTE (updated 2026-07-25)**
+> This document was originally authored for React Native / Expo / NativeWind, then updated for Flutter (2026-07-24), then updated again for **React Native Paper** (2026-07-25).
 >
-> **What stays the same:** W3C DTCG JSON source structure, Style Dictionary v4 pipeline, three-tier token architecture, token naming convention, WCAG validation, Storybook Web for token documentation.
+> **What stays the same:** W3C DTCG JSON source structure, Style Dictionary v4 pipeline, three-tier token architecture, token naming convention, WCAG validation, Storybook Web for token documentation, npm package shape.
 >
-> **What changes:** All platform outputs. Instead of TypeScript constants + NativeWind Tailwind config + RN StyleSheet values, the pipeline now emits **Dart constants** (`voltventure_tokens.dart`) and a **Flutter ThemeData factory** (`voltventure_theme.dart`). No NativeWind, no Metro bundler, no Expo, no `react-native-web`.
+> **What changes from Flutter:** All platform outputs. Instead of Dart constants + Flutter ThemeData factory, the pipeline emits **TypeScript constants** (`voltventure_tokens.ts`) and a **React Native Paper MD3 theme factory** (`voltventure_theme.ts`). No `pubspec.yaml`, no `dart analyze`, no `google_fonts` Flutter package.
 >
-> **Sections marked `[RN SPECIFIC — OBSOLETE]`** document the prior React Native approach. They are retained for reference and should be replaced with Flutter-equivalent research during Phase 1 planning.
->
-> **Key Flutter architecture questions to resolve:**
-> 1. Custom Dart formatter for Style Dictionary v4 — no official formatter exists; must be written
-> 2. Flutter `Color(0xFFRRGGBB)` constructor format for color tokens
-> 3. Flutter `TextStyle.height` is a multiplier (lineHeight/fontSize), not absolute
-> 4. `BoxShadow` Dart output for elevation tokens (replaces RN `shadowColor`/`elevation`)
-> 5. `pubspec.yaml` package shape instead of `package.json` exports map
+> **Key RN Paper architecture questions to resolve:**
+> 1. SD v4 TypeScript formatter — use built-in `javascript/es6` or write a typed custom formatter
+> 2. RN Paper MD3 color role mapping — ensure semantic tokens map to the correct `MD3LightTheme.colors` keys
+> 3. `configureFonts()` usage for type scale in RN Paper theme
+> 4. RN shadow props for elevation tokens (iOS `shadow*` + Android `elevation`)
+> 5. `tsc --noEmit` replaces `dart analyze lib/` as the done-bar validation step
 
 ---
 
@@ -150,20 +148,20 @@ The build pipeline therefore has two phases:
 
 Style Dictionary v4 prefers an ESM config file. Three platforms are needed:
 
-1. **`dart`** — typed Dart constants (`voltventure_tokens.dart`) consumed by Flutter widgets
-2. **`dart/theme`** — Flutter ThemeData factory (`voltventure_theme.dart`) wiring tokens to Flutter's theming API
+1. **`ts/constants`** — typed TypeScript constants (`voltventure_tokens.ts`) consumed by RN Paper components
+2. **`rn/theme`** — React Native Paper MD3 theme factory (`voltventure_theme.ts`) wiring tokens to RN Paper's theming API
 3. **`js/reference`** — plain JS object for Storybook stories (HTML/CSS token documentation)
 
 ```
 style-dictionary.config.mjs
 ```
 
-Platform outputs go to `dist/`:
+Platform outputs:
 
 ```
 lib/
-  voltventure_tokens.dart   # Dart const Color, double, TextStyle values
-  voltventure_theme.dart    # Flutter ThemeData factory
+  voltventure_tokens.ts     # TypeScript typed constants (hex strings, numbers)
+  voltventure_theme.ts      # React Native Paper MD3 theme factory
 generated/
   tokens.js                 # JS reference object for Storybook stories
 ```
@@ -188,20 +186,20 @@ generated/
 ┌──────────────┐  ┌──────────────────┐  ┌──────────────────┐
 │ lib/         │  │ lib/             │  │ generated/       │
 │ voltventure  │  │ voltventure      │  │ tokens.js        │
-│ _tokens.dart │  │ _theme.dart      │  │ (JS ref object)  │
-│ const Color, │  │ ThemeData factory│  │                  │
-│ double,      │  │ ColorScheme,     │  │                  │
-│ TextStyle    │  │ TextTheme        │  │                  │
+│ _tokens.ts   │  │ _theme.ts        │  │ (JS ref object)  │
+│ typed hex    │  │ RN Paper MD3     │  │                  │
+│ strings,     │  │ theme factory    │  │                  │
+│ numbers      │  │ MD3LightTheme    │  │                  │
 └──────┬───────┘  └──────┬───────────┘  └────────┬─────────┘
        │                  │                       │
        ▼                  ▼                       ▼
 ┌──────────────┐  ┌──────────────────┐  ┌──────────────────┐
-│ Flutter      │  │ VoltVenture      │  │ Storybook Web    │
-│ widgets      │  │ Flutter app      │  │ (token docs)     │
-│ (raw consts) │  │ MaterialApp(     │  │ HTML/CSS stories │
-│              │  │  theme:          │  │                  │
-│              │  │  voltVenture     │  │                  │
-│              │  │  Theme())        │  │                  │
+│ RN Paper     │  │ VoltVenture RN   │  │ Storybook Web    │
+│ components   │  │ app              │  │ (token docs)     │
+│ (raw consts) │  │ PaperProvider(   │  │ HTML/CSS stories │
+│              │  │  theme=          │  │                  │
+│              │  │  createVolt      │  │                  │
+│              │  │  VentureTheme()) │  │                  │
 └──────────────┘  └──────────────────┘  └──────────────────┘
 ```
 
@@ -210,12 +208,12 @@ generated/
 | Component | Inputs | Outputs | Runtime? |
 |-----------|--------|---------|----------|
 | Token JSON source files | Human authoring | Style Dictionary input | No |
-| Style Dictionary v4 (Node.js) | Token JSON | `lib/*.dart`, `generated/tokens.js` | Build only |
-| `lib/voltventure_tokens.dart` | — | Dart `const` Color, double, TextStyle values | Yes (Flutter widget import) |
-| `lib/voltventure_theme.dart` | — | Flutter `ThemeData` factory | Yes (MaterialApp `theme:` parameter) |
+| Style Dictionary v4 (Node.js) | Token JSON | `lib/*.ts`, `generated/tokens.js` | Build only |
+| `lib/voltventure_tokens.ts` | — | Typed TS constants (hex strings, numbers) | Yes (RN component import) |
+| `lib/voltventure_theme.ts` | — | RN Paper MD3 theme factory | Yes (`PaperProvider` theme prop) |
 | `generated/tokens.js` | — | JS reference object | Dev/docs only (Storybook) |
 | Storybook Web | `generated/tokens.js` | Token documentation UI (HTML/CSS) | Dev/docs only |
-| Consumer Flutter app | `voltventure_tokens.dart`, `voltventure_theme.dart` | Styled Flutter widgets | Yes |
+| Consumer RN app | `voltventure_tokens.ts`, `voltventure_theme.ts` | Styled RN Paper components | Yes |
 
 ---
 
@@ -231,16 +229,16 @@ generated/
    ├── Resolves: {color.green.500} → #C6FF2D everywhere it appears
    └── Runs each platform transform chain:
 
-   Platform: dart
-   ├── Transform: name/snake (color.action.primary → color_action_primary)
-   ├── Transform: voltventure/color/flutter (hex → Color(0xFFRRGGBB))
-   ├── Transform: voltventure/dimension/double ("16pt" → 16.0)
-   ├── Transform: voltventure/shadow/boxShadow (DTCG shadow → BoxShadow(...))
-   └── Format: custom Dart formatter → lib/voltventure_tokens.dart
+   Platform: ts/constants
+   ├── Transform: name/camel (color.action.primary → colorActionPrimary)
+   ├── Transform: voltventure/color/hex (hex string passthrough)
+   ├── Transform: voltventure/dimension/number ("16pt" → 16)
+   ├── Transform: voltventure/shadow/rn (DTCG shadow → RN shadow props)
+   └── Format: custom TS formatter → lib/voltventure_tokens.ts
 
-   Platform: dart/theme
+   Platform: rn/theme
    ├── (same transforms)
-   └── Format: custom Dart ThemeData formatter → lib/voltventure_theme.dart
+   └── Format: custom RN Paper theme formatter → lib/voltventure_theme.ts
 
    Platform: js/reference
    ├── Transform: name/camel
@@ -250,18 +248,18 @@ generated/
 3. WCAG contrast validation (runs before/alongside SD build)
    └── Checks all semantic text/bg pairs → fails build on violation
 
-4. dart pub publish / path dependency
-   └── lib/*.dart included; tokens/ excluded from Dart package
+4. npm publish / local path dependency
+   └── lib/*.ts included; tokens/ excluded from published package
 
-5. Consumer: VoltVenture Flutter app
-   ├── pubspec.yaml: voltventure_design_system: {path: ../voltventure_design_system}
-   ├── import 'package:voltventure_design_system/voltventure_tokens.dart';
-   ├── import 'package:voltventure_design_system/voltventure_theme.dart';
-   └── MaterialApp(theme: voltVentureTheme(), ...)
+5. Consumer: VoltVenture React Native app
+   ├── package.json: "voltventure_design_system": "file:../voltventure_design_system"
+   ├── import { colorActionPrimary } from 'voltventure_design_system/voltventure_tokens';
+   ├── import { createVoltVentureTheme } from 'voltventure_design_system/voltventure_theme';
+   └── <PaperProvider theme={createVoltVentureTheme()}>...</PaperProvider>
 
-6. Flutter widget consumes tokens
-   ├── Container(color: colorActionPrimary)  // raw constant
-   └── Theme.of(context).colorScheme.primary  // via ThemeData
+6. RN Paper component consumes tokens
+   ├── <View style={{ backgroundColor: colorActionPrimary }} />  // raw constant
+   └── theme.colors.primary  // via PaperProvider theme context
 ```
 
 ---
@@ -272,13 +270,13 @@ generated/
 
 ```
 voltventure_design_system/
-├── tokens/                    # Source — DTCG JSON (excluded from Dart package)
+├── tokens/                    # Source — DTCG JSON (not shipped)
 │   ├── primitive/
 │   └── semantic/
-├── lib/                       # Generated Dart output — included in Dart package
-│   ├── voltventure_tokens.dart   # const Color, double, TextStyle values
-│   └── voltventure_theme.dart    # ThemeData factory
-├── generated/                 # Generated JS reference — excluded from Dart package
+├── lib/                       # Generated TypeScript output — included in npm package
+│   ├── voltventure_tokens.ts     # typed hex strings, numbers
+│   └── voltventure_theme.ts      # RN Paper MD3 theme factory
+├── generated/                 # Generated JS reference — excluded from npm package
 │   └── tokens.js              # For Storybook stories
 ├── .storybook/                # Storybook config for Web
 │   ├── main.ts
@@ -289,117 +287,85 @@ voltventure_design_system/
 │   ├── Spacing.stories.tsx
 │   └── ...
 ├── style-dictionary.config.mjs
-├── package.json               # Node.js tooling (SD, Storybook, wcag-contrast)
-├── pubspec.yaml               # Dart package manifest
-└── tsconfig.json              # For SD config and Storybook TypeScript
+├── package.json               # Node.js tooling (SD, Storybook, wcag-contrast, typescript)
+└── tsconfig.json              # TypeScript config (for SD config, lib output, Storybook)
 ```
 
-### pubspec.yaml
-
-```yaml
-name: voltventure_design_system
-version: 0.1.0
-description: VoltVenture design token infrastructure for Flutter.
-homepage: https://github.com/voltventure/design-system
-
-environment:
-  sdk: '>=3.3.0 <4.0.0'
-  flutter: '>=3.19.0'
-
-dependencies:
-  flutter:
-    sdk: flutter
-  google_fonts: ^6.2.0
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^4.0.0
-```
-
-**Note on `lib/` in Dart packages:** In Dart/Flutter packages, the `lib/` directory is the public API surface. All generated `.dart` files go in `lib/`. The `tokens/` DTCG JSON source and `generated/` JS reference are excluded from the Dart package via `.pubignore` (analogous to `.npmignore`).
+**Note on `lib/` in npm packages:** The `lib/` directory is the public API surface of the npm package. Generated `.ts` files go in `lib/`. The `tokens/` DTCG JSON source and `generated/` JS reference are excluded via `.npmignore`.
 
 ---
 
-## Flutter Token Output
+## React Native Paper Token Output
 
-### Dart Constants Output (`lib/voltventure_tokens.dart`)
+### TypeScript Constants Output (`lib/voltventure_tokens.ts`)
 
-The primary developer API for accessing tokens in Flutter widgets. Generated by a custom Style Dictionary Dart formatter.
+The primary developer API for accessing tokens in RN Paper components. Generated by a Style Dictionary TS formatter.
 
-```dart
-// lib/voltventure_tokens.dart (generated — do not edit)
+```ts
+// lib/voltventure_tokens.ts (generated — do not edit)
 // AUTO-GENERATED by Style Dictionary. Run 'npm run build:tokens' to regenerate.
 
-import 'package:flutter/material.dart';
-
 // ── Primitive: Color ──────────────────────────────────────────
-const Color colorGreen500 = Color(0xFFC6FF2D);
-const Color colorGrey050  = Color(0xFFFAFAFA);
-const Color colorBlack    = Color(0xFF0F0F0F);
-const Color colorWhite    = Color(0xFFFFFFFF);
+export const colorGreen500 = '#C6FF2D';
+export const colorGrey050  = '#FAFAFA';
+export const colorBlack    = '#0F0F0F';
+export const colorWhite    = '#FFFFFF';
 
 // ── Semantic: Color ───────────────────────────────────────────
-const Color colorActionPrimary   = colorGreen500;
-const Color colorActionPrimaryFg = colorBlack;
-const Color colorSurfaceBase     = colorWhite;
-const Color colorTextPrimary     = colorBlack;
+export const colorActionPrimary   = colorGreen500;
+export const colorActionPrimaryFg = colorBlack;
+export const colorSurfaceBase     = colorWhite;
+export const colorTextPrimary     = colorBlack;
 
 // ── Semantic: Spacing ─────────────────────────────────────────
-const double space400 = 16.0;
-const double space500 = 20.0;
+export const space400 = 16;
+export const space500 = 20;
 
 // ── Semantic: Radius ──────────────────────────────────────────
-const double radiusXl   = 28.0;
-const double radiusFull = 999.0;
+export const radiusXl   = 28;
+export const radiusFull = 999;
 
 // ── Semantic: Elevation ───────────────────────────────────────
-const List<BoxShadow> elevationRaised = [
-  BoxShadow(
-    color: Color(0x0F0F0F0F),  // shadowColor with opacity
-    offset: Offset(0, 2),
-    blurRadius: 8.0,
-    spreadRadius: 0.0,
-  ),
-];
+export const elevationRaised = {
+  shadowColor: '#0F0F0F',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.12,
+  shadowRadius: 8,
+  elevation: 2,
+};
 ```
 
-**Key Dart formatting rules (implemented in the custom formatter):**
-- Colors: `#RRGGBB` → `Color(0xFFRRGGBB)` (Flutter requires ARGB with `0xFF` alpha prefix)
-- Dimensions: `"16pt"` → `16.0` (Dart uses `double`, not `int`)
-- Elevation: DTCG `$type: shadow` object → `List<BoxShadow>` (Flutter's box decoration API)
-- Line height: absolute pt value → multiplier (`height = lineHeight / fontSize`)
-- Name transform: `color.action.primary` → `colorActionPrimary` (camelCase, Dart convention for `const`)
+**Key TS formatting rules (implemented in the custom formatter):**
+- Colors: `#RRGGBB` hex string passthrough (RN Paper uses hex strings natively)
+- Dimensions: `"16pt"` → `16` (JS number, no unit strings — RN StyleSheet is unitless)
+- Elevation: DTCG `$type: shadow` object → RN shadow prop object (iOS `shadow*` + Android `elevation`)
+- Line height: absolute pt value (RN `lineHeight` is absolute, not a multiplier)
+- Name transform: `color.action.primary` → `colorActionPrimary` (camelCase)
 
-### Flutter ThemeData Factory (`lib/voltventure_theme.dart`)
+### React Native Paper Theme Factory (`lib/voltventure_theme.ts`)
 
-```dart
-// lib/voltventure_theme.dart (generated — do not edit)
+```ts
+// lib/voltventure_theme.ts (generated — do not edit)
 
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'voltventure_tokens.dart';
+import { MD3LightTheme } from 'react-native-paper';
+import type { MD3Theme } from 'react-native-paper';
+import * as tokens from './voltventure_tokens';
 
-ThemeData voltVentureTheme() => ThemeData(
-  colorScheme: const ColorScheme(
-    brightness: Brightness.light,
-    primary: colorActionPrimary,
-    onPrimary: colorActionPrimaryFg,
-    surface: colorSurfaceBase,
-    onSurface: colorTextPrimary,
-    // ... all required ColorScheme fields mapped from semantic tokens
-  ),
-  textTheme: TextTheme(
-    displayLarge: GoogleFonts.manjari(
-      fontSize: 40.0,
-      fontWeight: FontWeight.w700,
-      height: 1.1,    // lineHeight / fontSize
-      letterSpacing: -0.5,
-      color: colorTextPrimary,
-    ),
-    // ... all 14 type styles mapped to TextTheme slots
-  ),
-);
+export function createVoltVentureTheme(): MD3Theme {
+  return {
+    ...MD3LightTheme,
+    colors: {
+      ...MD3LightTheme.colors,
+      primary: tokens.colorActionPrimary,
+      onPrimary: tokens.colorActionPrimaryFg,
+      surface: tokens.colorSurfaceBase,
+      onSurface: tokens.colorTextPrimary,
+      secondary: tokens.colorActionSecondary,
+      onSecondary: tokens.colorActionSecondaryFg,
+      outline: tokens.colorBorderSubtle,
+    },
+  };
+}
 ```
 
 ---
@@ -541,26 +507,26 @@ Order is driven by dependency chains. Each step must be complete before the next
 
 | Concern | Now (token-only v1) | Future (with components) | Notes |
 |---------|---------------------|--------------------------|-------|
-| Build time | <5s (SD JSON transform) | <30s (SD + dart analyze) | Style Dictionary is fast; dart analyze grows with component count |
-| Package size | <10kB (Dart source) | Grows with components | Tokens are tiny; `google_fonts` is the main size contribution |
-| Dark mode | Semantic tokens defined but not exported for dark | Separate SD platform output for dark ThemeData | `voltVentureThemeDark()` factory alongside `voltVentureTheme()` |
+| Build time | <5s (SD JSON transform) | <30s (SD + tsc --noEmit) | Style Dictionary is fast; tsc grows with component count |
+| Package size | <10kB (TS source) | Grows with components | Tokens are tiny; `react-native-paper` is the main size contribution |
+| Dark mode | Semantic tokens defined but not exported for dark | Separate SD platform output for dark MD3 theme | `createVoltVentureThemeDark()` alongside `createVoltVentureTheme()` |
 | Motion tokens | Not in scope v1 | Add `tokens/primitive/motion.json` | No architectural change needed |
-| Flutter web | Not in scope v1 | Token constants are platform-agnostic; ThemeData works on Flutter web | No output format change needed |
-| Component documentation | Storybook Web (HTML/CSS) | Widgetbook for Flutter widgets | Separate tool; does not affect token pipeline |
+| RN Web | Not in scope v1 | Token constants are platform-agnostic; RN Paper has web support via `react-native-web` | No output format change needed |
+| Component documentation | Storybook Web (HTML/CSS) | Storybook RN or Chromatic for RN Paper components | Separate tool; does not affect token pipeline |
 
 ---
 
 ## Open Questions for Phase Research
 
-1. **Custom Dart formatter for Style Dictionary v4:** No official SD v4 Dart formatter exists. The custom formatter must be written. Research existing community formatters (e.g., `sd-transforms` ecosystem, GitHub gists) before writing from scratch. Key output requirements: `Color(0xFFRRGGBB)`, `double`, `BoxShadow`, `TextStyle`.
+1. **TypeScript formatter for Style Dictionary v4:** SD v4 has a built-in `javascript/es6` formatter. For fully typed TS output (`export const colorActionPrimary: string = ...`), a custom formatter may be needed. Research `typescript/es6-declarations` and `javascript/module-flat` built-in formats first.
 
-2. **Flutter `TextStyle.height` computation:** Flutter's `height` field is `lineHeight / fontSize`. The spec stores absolute `pt` values for both. The Dart formatter must divide them. Verify the spec's exact lineHeight values (absolute pt or multiplier?) in `voltventure-foundations.html` before implementing.
+2. **RN Paper MD3 color role mapping:** Verify the complete `MD3LightTheme.colors` key list in the current `react-native-paper` v5 release. Map semantic tokens to the correct MD3 role names (`primary`, `onPrimary`, `primaryContainer`, `secondary`, `surface`, `background`, `outline`, etc.).
 
-3. **`google_fonts` + token-generated font names:** The `google_fonts` package uses `GoogleFonts.inter()`, `GoogleFonts.jetBrainsMono()` etc. — not string-based font family names. The ThemeData formatter must call the package methods, not reference font family strings. This means the ThemeData formatter has a dependency on the `google_fonts` package API.
+3. **`configureFonts()` for type scale in RN Paper:** RN Paper v5 exposes `configureFonts({ config: { displayLarge: { ... } } })`. Investigate whether the theme factory should use `configureFonts()` for font configuration or if font styles are applied per-component. The token type scale has 14 slots that map to MD3 type scale variants.
 
-4. **Squircle/continuous corner for `radius.icon`:** The `22.37%` iOS squircle constant is a proportional value, not a fixed dp. In Flutter, `BorderRadius.circular()` takes absolute dp values. The squircle constant may need to be a separate named value that consumers apply as a proportion of the widget size, not a fixed radius. Clarify implementation approach.
+4. **Squircle/continuous corner for `radius.icon`:** Same question as before — the `22.37%` squircle constant is proportional, not a fixed dp. In RN, `borderRadius` takes absolute values. The squircle constant may need to be a separate named value applied proportionally to widget size.
 
-5. **`pubspec.yaml` `lib/` generated file strategy:** The Dart package's `lib/` files are generated. Committing generated files to git is standard for Dart packages (unlike JS where `dist/` is often `.gitignore`d). Confirm this is acceptable for the team's workflow and add CI regeneration + diff check.
+5. **`lib/` generated file strategy for npm package:** The npm package's `lib/` files are generated TypeScript. Committing generated files to git is a standard pattern for published packages. Confirm this for the team's workflow and add CI regeneration + diff check.
 
 ---
 

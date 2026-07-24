@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "timestamp": "2026-07-24T10:00:00Z",
+  "timestamp": "2026-07-25T06:00:00Z",
   "phase": "01",
-  "phase_name": "Token Pipeline & Dart Output",
+  "phase_name": "Token Pipeline & TypeScript/RN Paper Output",
   "phase_dir": ".planning/phases/01-token-pipeline-dart-output",
   "plan": 7,
-  "task": 0,
-  "total_tasks": 3,
+  "task": 1,
+  "total_tasks": 2,
   "status": "paused",
   "completed_tasks": [
     {"id": "01-01", "name": "Project Scaffold", "status": "done", "commit": "e3fee62"},
@@ -14,40 +14,29 @@
     {"id": "01-03", "name": "Primitive Tokens", "status": "done", "commit": "e49dcb0"},
     {"id": "01-04", "name": "Semantic Tokens", "status": "done", "commit": "35e5abc"},
     {"id": "01-05", "name": "Build Validators", "status": "done", "commit": "ac6535f"},
-    {"id": "01-06", "name": "Pipeline Wiring + Dart constants formatter", "status": "done", "commit": "15f8ab5"}
+    {"id": "01-06", "name": "Pipeline Wiring + Dart constants formatter", "status": "done", "commit": "15f8ab5"},
+    {"id": "platform-switch", "name": "Platform switch Flutter → React Native Paper (all planning docs updated)", "status": "done", "commit": "pending"}
   ],
   "remaining_tasks": [
-    {"id": "01-07-task0", "name": "Checkpoint: verify GoogleFonts.manjari() availability", "status": "not_started", "type": "human_checkpoint"},
-    {"id": "01-07-task1", "name": "ThemeData formatter (dart-theme.format.mjs) + dart/theme SD platform wiring", "status": "not_started"},
-    {"id": "01-07-task2", "name": "Final Phase 1 done-bar: npm run build:validate + npm run build:tokens + dart analyze lib/ + npm test", "status": "not_started"}
+    {"id": "01-07-task1", "name": "TS constants formatter (ts-constants.format.mjs) + RN Paper theme formatter (rn-paper-theme.format.mjs) + ts/constants and rn/theme SD platform wiring", "status": "not_started"},
+    {"id": "01-07-task2", "name": "Final Phase 1 done-bar: npm run build:validate + npm run build:tokens + tsc --noEmit + npm test", "status": "not_started"}
   ],
-  "blockers": [
-    {
-      "description": "`dart` command not in Git Bash PATH — `dart analyze lib/` for Task 2 must run in PowerShell or a Flutter-aware terminal",
-      "type": "human_action",
-      "workaround": "Open PowerShell, cd to project root, then run `dart analyze lib/`"
-    }
-  ],
+  "blockers": [],
   "human_actions_pending": [
     {
-      "action": "Task 0 checkpoint: verify GoogleFonts.manjari() availability in google_fonts ^6.2.0",
-      "context": "In a Flutter-aware terminal run: flutter pub get && dart run -e \"import 'package:google_fonts/google_fonts.dart'; void main() { print(GoogleFonts.manjari()); }\". Reply 'manjari-available' or 'manjari-missing'. The formatter (Task 1) has two code paths depending on the result.",
-      "blocking": true
-    },
-    {
-      "action": "Task 2: run `dart analyze lib/` in PowerShell after Task 1 completes",
-      "context": "dart not in Git Bash PATH. Must confirm 'No issues found!' for both voltventure_tokens.dart and voltventure_theme.dart.",
-      "blocking": true
+      "action": "Task 2: run `tsc --noEmit` from the project root after Task 1 completes",
+      "context": "If react-native-paper is not in devDependencies, add it and run npm install first. tsc --noEmit must return 0 errors for both voltventure_tokens.ts and voltventure_theme.ts.",
+      "blocking": false
     }
   ],
   "decisions": [
-    {"decision": "ColorScheme.fromSeed(seedColor: colorActionPrimary, brightness: Brightness.light).copyWith(...) — no red placeholders", "rationale": "D-07: fromSeed fills all required ColorScheme fields; copyWith overrides only where explicit semantic tokens exist", "phase": "01"},
-    {"decision": "TextTheme uses GoogleFonts.manjari() / GoogleFonts.inter() method calls (not string fontFamily)", "rationale": "google_fonts package API; avoids Pitfall 12. Fallback: .ttf bundling if manjari-missing", "phase": "01"},
-    {"decision": "dart/theme SD platform absent until Plan 07 adds dart-theme.format.mjs", "rationale": "Prevents SD build failure; voltventure_theme.dart does not yet exist", "phase": "01"},
-    {"decision": "Phase 1 done bar: npm run build:validate + npm run build:tokens + dart analyze lib/ + npm test (no device)", "rationale": "D-08", "phase": "01"}
+    {"decision": "Platform switched from Flutter to React Native Paper (2026-07-25)", "rationale": "User decision — RN Paper for future component phases", "phase": "01"},
+    {"decision": "RN Paper theme uses { ...MD3LightTheme, colors: { ...MD3LightTheme.colors, ...overrides } } spread strategy — no placeholder values", "rationale": "MD3LightTheme fills all required color roles; only override where explicit semantic tokens exist", "phase": "01"},
+    {"decision": "Done-bar: tsc --noEmit replaces dart analyze lib/ (platform switch)", "rationale": "No Dart/Flutter tools needed anymore", "phase": "01"},
+    {"decision": "Plan 07 revised: TypeScript constants + RN Paper theme factory (replaces Dart constants + Flutter ThemeData)", "rationale": "Platform switch — Dart output from Plans 01-06 superseded by TS output in Plan 07", "phase": "01"}
   ],
-  "uncommitted_files": [".planning/STATE.md"],
+  "uncommitted_files": [],
   "untracked_files": ["voltventure-foundations (1).html"],
-  "next_action": "Ask user for Task 0 result (manjari-available or manjari-missing), then read lib/voltventure_tokens.dart to get exact exported constant names, then create sd-transforms/dart-theme.format.mjs emitting the full voltVentureTheme() factory, then wire dart/theme platform in style-dictionary.config.mjs.",
-  "context_notes": "Plan 07 is the final plan of Phase 1. No code was written this session — resumed then immediately paused. The ThemeData factory structure is fully specified in 01-07-PLAN.md interfaces block (ColorScheme, 14 TextTheme slots, computed height multipliers, absolute letterSpacing values). All token constant names must be confirmed from lib/voltventure_tokens.dart before writing the formatter. The dart-theme formatter must NOT use $value/$type introspection — it emits fully static Dart code that references token constants by their Dart identifier names."
+  "next_action": "Read lib/voltventure_tokens.dart to understand existing token names and values, then create sd-transforms/ts-constants.format.mjs and sd-transforms/rn-paper-theme.format.mjs, wire ts/constants and rn/theme platforms in style-dictionary.config.mjs, run npm run build:tokens to generate lib/voltventure_tokens.ts and lib/voltventure_theme.ts, then run the done-bar (build:validate + build:tokens + tsc --noEmit + npm test).",
+  "context_notes": "Plan 07 is the final plan of Phase 1. Platform switched from Flutter to React Native Paper on 2026-07-25 — all planning docs updated. The Task 0 human checkpoint (GoogleFonts.manjari verification) is CANCELLED — no longer needed. The TS formatter emits hex string colors (not Color(0xFFRRGGBB)). The RN Paper theme formatter emits static TS code using the MD3LightTheme spread strategy. Existing Dart transforms in sd-transforms/ and lib/voltventure_tokens.dart are legacy — do not delete them but do not modify them either. The new TS output is additive. react-native-paper may need to be added to devDependencies for tsc type checking."
 }

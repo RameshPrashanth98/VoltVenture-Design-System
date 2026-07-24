@@ -2,6 +2,7 @@
 
 **Project:** VoltVenture Design System — Token Infrastructure
 **Researched:** 2026-07-24
+**Updated:** 2026-07-25 — Platform changed from Flutter to React Native Paper.
 **Confidence note:** External network access (WebSearch, WebFetch) was unavailable during this research session. All version data and recommendations are drawn from training knowledge (cutoff August 2025). Versions marked with * should be verified against npm before locking a `package.json`.
 
 ---
@@ -15,25 +16,24 @@
 | `style-dictionary` | `^4.3` * | W3C DTCG JSON → TypeScript, Tailwind config, RN StyleSheet | v4 is the first version with native `$type`/`$value` DTCG support; v3 required a custom parser. ESM-first, async transforms, built-in `ts` formatter. The industry standard with no serious competitor. |
 | Node.js | `>=20 LTS` | Build environment for Style Dictionary | Style Dictionary v4 requires Node 18+; use 20 LTS for long-term stability. |
 
-### Flutter Runtime
+### React Native Runtime
 
 | Technology | Version | Purpose | Why |
 |------------|---------|---------|-----|
-| Flutter SDK | `>=3.19` * | Cross-platform UI runtime (iOS/Android) | Stable channel; Flutter 3.19+ includes Material 3 ThemeData stabilisation. Components in future phases are Flutter widgets. |
-| Dart SDK | `>=3.3` * | Language for generated token constants and consuming widgets | Dart 3.x records and patterns simplify typed token objects. Generated output from Style Dictionary targets Dart 3. |
-| `google_fonts` | `^6.2` * | Declarative loading of Inter, JetBrains Mono (and Manjari if available) | Flutter pub package; handles font manifest registration. Preferred over manual `pubspec.yaml` asset bundling for Google Fonts. If Manjari is unavailable via `google_fonts`, fall back to bundling `.ttf` files in `assets/fonts/` and declaring them in `pubspec.yaml`. |
+| React Native | `>=0.73` * | Cross-platform UI runtime (iOS/Android) | Stable LTS channel. Components in future phases are React Native Paper widgets. |
+| `react-native-paper` | `^5.x` * | MD3 component library and theming API | Provides `MD3LightTheme`, `configureFonts()`, and `<PaperProvider theme={...}>` — the integration point for generated token constants. |
+| `expo-google-fonts` | per-font pkg * | Declarative loading of Inter, Manjari, JetBrains Mono | `@expo-google-fonts/inter`, `@expo-google-fonts/manjari` — handles font loading in Expo/RN. Fallback: bundle `.ttf` files via `expo-font` if a font package is unavailable. |
 
-**Note on Manjari:** Verify `GoogleFonts.manjari()` resolves in the current `google_fonts` package version — Manjari is less common than Inter/JetBrains Mono. OFL license permits bundling the `.ttf` as a fallback.
+**Note on Manjari:** Verify `@expo-google-fonts/manjari` exists in the expo-google-fonts monorepo — Manjari is less common. OFL license permits bundling the `.ttf` as a fallback via `expo-font`.
 
-**Note on token package shape:** The Style Dictionary pipeline runs on Node.js and outputs Dart source files. The consuming Flutter app imports the generated Dart package as a local path dependency in `pubspec.yaml`. The token package is a Dart package, not an npm package.
+**Note on token package shape:** The Style Dictionary pipeline runs on Node.js and outputs TypeScript source files. The consuming React Native app imports the generated TypeScript package as a local npm dependency. The token package is an npm package (not a Dart/pub package).
 
 ### Package Build
 
 | Technology | Version | Purpose | Why |
 |------------|---------|---------|-----|
-| `style-dictionary` | `^4.3` * | Node.js build tool that transforms W3C DTCG JSON → Dart source files | Runs at design system build time (not at Flutter build time). Custom Dart formatter outputs `voltventure_tokens.dart` with `const` Color, double, and TextStyle values. |
-| Dart / `dart pub` | SDK-bundled | Dart package tooling for the consuming Flutter app | The generated token files are published as a Dart package. Consumed via `path:` dependency in the Flutter app's `pubspec.yaml` during development. |
-| TypeScript | `^5.4` * | Typing for the Style Dictionary config and any Node.js build scripts | The SD config (`style-dictionary.config.mjs`) and custom Dart formatters are TypeScript. |
+| `style-dictionary` | `^4.3` * | Node.js build tool that transforms W3C DTCG JSON → TypeScript source files | Runs at design system build time. Outputs `voltventure_tokens.ts` (typed TS constants) and `voltventure_theme.ts` (RN Paper theme factory). |
+| TypeScript | `^5.4` * | Token output format and typing for SD config and build scripts | Generated token constants and theme file are TypeScript. `tsc --noEmit` validates the output instead of `dart analyze`. |
 
 ### Documentation
 
@@ -42,7 +42,7 @@
 | `@storybook/react` | `^8.2` * | Storybook core for web renderer | Token documentation (color swatches, spacing rulers, type specimens) is purely visual HTML/CSS — no Flutter or RN renderer needed. Storybook Web is easier to host and share than device-based tools. |
 | `@storybook/addon-docs` | `^8.2` * | MDX-based token docs | Included in Storybook 8 defaults. |
 
-**Note:** `react-native-web` is no longer required. Token stories use plain HTML/CSS (`div`, `span`, `p`) with inline styles sourced from the generated token JS reference output. No Flutter widget renderer runs in Storybook. For future component documentation, consider [Widgetbook](https://widgetbook.io) as a Flutter-native Storybook alternative — but that is out of scope for the token infrastructure phase.
+**Note:** `react-native-web` is not required for token documentation. Token stories use plain HTML/CSS (`div`, `span`, `p`) with inline styles sourced from the generated token JS reference output. No RN renderer runs in Storybook for Phase 1. For future component documentation, consider Storybook RN or Chromatic as a React Native component documentation tool — out of scope for the token infrastructure phase.
 
 ### Accessibility / Validation
 
@@ -58,11 +58,11 @@
 |----------|-------------|-------------|---------|
 | Token pipeline | Style Dictionary v4 | Theo (Salesforce), Supernova, Amazon Ion | Style Dictionary is the only open-source tool with native W3C DTCG `$type`/`$value` support in v4. Others require proprietary formats or paid platforms. |
 | Token pipeline version | Style Dictionary v4 | Style Dictionary v3 | v3 requires a custom `parser` to understand `$type`/`$value` syntax. The spec already uses DTCG format — using v3 would mean writing and maintaining a custom parser from day one. |
-| Flutter component platform | Flutter | React Native / Expo | Flutter provides a single, consistent widget model across iOS/Android. Eliminates NativeWind, Metro bundler, and RN-specific token output complexity. ThemeData maps directly to token categories. |
-| Flutter theming | Flutter ThemeData / ColorScheme | Third-party (Tamagui, Gluestack, NativeWind) | ThemeData is Flutter's native theming API. No third-party styling layer needed — tokens map directly to `ColorScheme`, `TextTheme`, and decoration properties. |
-| Token package shape | Dart package (pub.dev / path dep) | npm package | The consuming app is Flutter. Generated Dart files are distributed as a Dart package, not an npm package. The Style Dictionary pipeline still runs on Node.js at build time. |
-| Storybook renderer | Storybook Web (plain HTML/CSS) | Widgetbook (Flutter-native), `@storybook/react-native` | For token documentation (swatches, rulers, specimens) plain HTML/CSS is sufficient. Widgetbook is the right tool for Flutter component documentation in future phases. |
-| Font loading | `google_fonts` Flutter package | Bundled `.ttf` in `pubspec.yaml` | `google_fonts` handles font download and caching automatically. Bundle `.ttf` directly only if Manjari is unavailable in the package. |
+| RN component platform | React Native Paper | Flutter, Tamagui, Gluestack | React Native Paper provides a first-class Material Design 3 theming API (`MD3LightTheme`, `configureFonts`) that maps directly to VoltVenture token categories. Eliminates need for custom styling layers. |
+| RN theming | React Native Paper MD3 theme | NativeWind, Tamagui, custom StyleSheet | RN Paper's MD3 theme is the native theming API for this stack. Tokens map directly to MD3 color roles and type scale — no extra styling layer needed. |
+| Token package shape | npm package (local path dep) | Dart package (pub.dev) | The consuming app is React Native. Generated TypeScript files are distributed as an npm package. |
+| Storybook renderer | Storybook Web (plain HTML/CSS) | Storybook RN, Chromatic | For token documentation (swatches, rulers, specimens) plain HTML/CSS is sufficient. Storybook RN is the right tool for component documentation in future phases. |
+| Font loading | `expo-google-fonts` packages | Bundled `.ttf` via `expo-font` | `expo-google-fonts` handles font loading automatically in Expo/RN. Bundle `.ttf` directly only if a font package is unavailable. |
 | Contrast validation | `wcag-contrast` (Node.js, build-time) | `color2k`, `chroma-js`, manual formula | Platform-agnostic — runs in the Style Dictionary Node.js pipeline regardless of the Flutter target. Same rationale as before. |
 
 ---
@@ -72,7 +72,7 @@
 The design system has two layers:
 
 1. **Node.js build layer** — Style Dictionary pipeline (runs at token build time, not shipped)
-2. **Dart package** — generated Dart source files consumed by the Flutter app
+2. **npm package** — generated TypeScript source files consumed by the React Native Paper app
 
 ```
 voltventure_design_system/
@@ -90,42 +90,23 @@ voltventure_design_system/
       color.json
       typography.json
   style-dictionary.config.mjs    # SD v4 ESM config (Node.js)
-  package.json                   # Node.js dev deps (style-dictionary, wcag-contrast, etc.)
-  lib/                           # Generated Dart package (output from SD pipeline)
-    voltventure_tokens.dart      # All token constants (Color, double, TextStyle)
-    voltventure_theme.dart       # Flutter ThemeData factory using the token constants
-  pubspec.yaml                   # Dart package manifest
+  package.json                   # Node.js deps (style-dictionary, wcag-contrast, typescript, etc.)
+  lib/                           # Generated TypeScript output (from SD pipeline)
+    voltventure_tokens.ts        # All token constants (typed hex strings, numbers)
+    voltventure_theme.ts         # React Native Paper MD3 theme factory
   .storybook/                    # Storybook Web for token documentation
-  stories/                       # HTML/CSS token stories (no Flutter renderer)
+  stories/                       # HTML/CSS token stories (no RN renderer needed)
 ```
 
-**Key `pubspec.yaml` fields:**
+**Consuming React Native app `package.json`:**
 
-```yaml
-name: voltventure_design_system
-version: 0.1.0
-description: VoltVenture design token infrastructure for Flutter.
-
-environment:
-  sdk: '>=3.3.0 <4.0.0'
-  flutter: '>=3.19.0'
-
-dependencies:
-  flutter:
-    sdk: flutter
-  google_fonts: ^6.2.0
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-```
-
-**Consuming Flutter app `pubspec.yaml`:**
-
-```yaml
-dependencies:
-  voltventure_design_system:
-    path: ../voltventure_design_system
+```json
+{
+  "dependencies": {
+    "voltventure_design_system": "file:../voltventure_design_system",
+    "react-native-paper": "^5.x"
+  }
+}
 ```
 
 **Node.js `package.json` scripts (for the SD pipeline):**
@@ -194,94 +175,86 @@ await sd.buildAllPlatforms();
 
 ---
 
-## Flutter ThemeData Integration
+## React Native Paper Theme Integration
 
-The generated Dart output from Style Dictionary provides two files:
+The generated TypeScript output from Style Dictionary provides two files:
 
-**`voltventure_tokens.dart`** — raw `const` values:
+**`voltventure_tokens.ts`** — typed constants:
 
-```dart
+```ts
 // AUTO-GENERATED — DO NOT EDIT. Run 'npm run build:tokens' to regenerate.
 
-import 'package:flutter/material.dart';
-
 // Primitive: Color
-const Color colorGreen500 = Color(0xFFC6FF2D);
-const Color colorGrey050 = Color(0xFFFAFAFA);
-const Color colorBlack = Color(0xFF0F0F0F);
-const Color colorWhite = Color(0xFFFFFFFF);
+export const colorGreen500 = '#C6FF2D';
+export const colorBlack = '#0F0F0F';
+export const colorWhite = '#FFFFFF';
 
 // Semantic: Color
-const Color colorActionPrimary = colorGreen500;
-const Color colorActionPrimaryFg = colorBlack;
-const Color colorSurfaceBase = colorWhite;
-const Color colorTextPrimary = colorBlack;
+export const colorActionPrimary = colorGreen500;
+export const colorActionPrimaryFg = colorBlack;
+export const colorSurfaceBase = colorWhite;
+export const colorTextPrimary = colorBlack;
 
 // Semantic: Spacing (logical pixels)
-const double space400 = 16.0;
-const double space500 = 20.0;
+export const space400 = 16;
+export const space500 = 20;
 
 // Semantic: Radius
-const double radiusXl = 28.0;
-const double radiusFull = 999.0;
+export const radiusXl = 28;
+export const radiusFull = 999;
 ```
 
-**`voltventure_theme.dart`** — Flutter ThemeData factory:
+**`voltventure_theme.ts`** — React Native Paper MD3 theme factory:
 
-```dart
+```ts
 // AUTO-GENERATED — DO NOT EDIT.
 
-import 'package:flutter/material.dart';
-import 'voltventure_tokens.dart';
+import { MD3LightTheme } from 'react-native-paper';
+import type { MD3Theme } from 'react-native-paper';
+import * as tokens from './voltventure_tokens';
 
-ThemeData voltVentureTheme() {
-  return ThemeData(
-    colorScheme: ColorScheme(
-      brightness: Brightness.light,
-      primary: colorActionPrimary,
-      onPrimary: colorActionPrimaryFg,
-      surface: colorSurfaceBase,
-      onSurface: colorTextPrimary,
-      // ... all required ColorScheme fields
-    ),
-    textTheme: TextTheme(
-      displayLarge: TextStyle(
-        fontFamily: 'Manjari',
-        fontSize: 40.0,
-        fontWeight: FontWeight.w700,
-        height: 1.1,
-        letterSpacing: -0.5,
-        color: colorTextPrimary,
-      ),
-      // ... all 14 type styles
-    ),
-  );
+export function createVoltVentureTheme(): MD3Theme {
+  return {
+    ...MD3LightTheme,
+    colors: {
+      ...MD3LightTheme.colors,
+      primary: tokens.colorActionPrimary,
+      onPrimary: tokens.colorActionPrimaryFg,
+      background: tokens.colorSurfaceBase,
+      onBackground: tokens.colorTextPrimary,
+      surface: tokens.colorSurfaceBase,
+      onSurface: tokens.colorTextPrimary,
+      secondary: tokens.colorActionSecondary,
+      onSecondary: tokens.colorActionSecondaryFg,
+      outline: tokens.colorBorderSubtle,
+    },
+  };
 }
 ```
 
-**Consuming Flutter app:**
+**Consuming React Native app:**
 
-```dart
-import 'package:voltventure_design_system/voltventure_theme.dart';
+```tsx
+import { PaperProvider } from 'react-native-paper';
+import { createVoltVentureTheme } from 'voltventure_design_system/voltventure_theme';
 
-MaterialApp(
-  theme: voltVentureTheme(),
-  home: const MyHomePage(),
-);
+const theme = createVoltVentureTheme();
+
+<PaperProvider theme={theme}>
+  <App />
+</PaperProvider>
 ```
 
-Tokens are also available as raw constants for one-off widget use: `Container(color: colorActionPrimary)`.
+Tokens are also available as raw constants: `<View style={{ backgroundColor: tokens.colorActionPrimary }} />`.
 
 ---
 
-## Dart Output Notes
+## TypeScript Output Notes
 
-- All color values use `Color(0xFFRRGGBB)` format (Flutter's `Color` constructor requires ARGB hex with full alpha prefix)
-- All dimension values are `double` (Flutter uses `double` for all layout values, not `int`)
-- Typography token `height` (line height) is a multiplier in Flutter (`height = lineHeight / fontSize`), not an absolute value — the SD formatter must compute this ratio
-- `letterSpacing` in Flutter is in logical pixels, not em — the SD formatter must convert from the spec's em values if needed
-
----
+- Color values are hex strings: `'#C6FF2D'` (RN Paper MD3 theme uses hex color strings)
+- Dimension values are plain JS numbers: `16` not `"16pt"` (RN StyleSheet uses unitless numbers)
+- Line height is absolute pt value (RN uses absolute lineHeight, not a multiplier like Flutter)
+- `letterSpacing` in RN is in logical pixels — same unit as Flutter but different from CSS em; SD formatter converts from spec em values if needed
 
 ---
 
@@ -309,23 +282,19 @@ Stories import from a JS reference output that Style Dictionary generates alongs
 
 ---
 
-## Flutter Font Loading — Manjari Note
+## React Native Font Loading — Manjari Note
 
-**Verify `GoogleFonts.manjari()` availability** in the current `google_fonts` package version before Phase 1 implementation.
+**Verify `@expo-google-fonts/manjari` availability** in the expo-google-fonts monorepo before Phase 1 implementation.
 
-**Fallback**: Bundle `.ttf` directly in the Flutter app's `pubspec.yaml`:
+**Fallback**: Bundle `.ttf` directly via `expo-font`:
 
-```yaml
-flutter:
-  fonts:
-    - family: Manjari
-      fonts:
-        - asset: assets/fonts/Manjari-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Manjari-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Manjari-Thin.ttf
-          weight: 100
+```ts
+import * as Font from 'expo-font';
+
+await Font.loadAsync({
+  'Manjari-Regular': require('./assets/fonts/Manjari-Regular.ttf'),
+  'Manjari-Bold': require('./assets/fonts/Manjari-Bold.ttf'),
+});
 ```
 
 OFL license permits bundling. Confirm Manjari licensing for any wordmark/commercial use per the spec's open item.
@@ -336,12 +305,11 @@ OFL license permits bundling. Confirm Manjari licensing for any wordmark/commerc
 
 | Issue | Severity | Detail |
 |-------|----------|--------|
-| Style Dictionary v4 `$type: "shadow"` → Flutter | MEDIUM | SD v4 parses shadow objects natively but built-in formats output CSS `box-shadow`. Flutter needs `BoxShadow(color:, offset:, blurRadius:, spreadRadius:)`. Write a custom Dart formatter for elevation tokens. |
-| Style Dictionary v4 `$type: "dimension"` with `"pt"` suffix | MEDIUM | The spec uses `"16pt"` as the `$value`. SD's built-in transforms strip `px`, not `pt`. Write a custom transform `voltventure/dimension/stripPt` that returns a raw number. Flutter uses `double` for all dimension values. |
-| Flutter `Color` constructor requires ARGB hex | MEDIUM | Flutter's `Color(0xFFRRGGBB)` requires the `0xFF` alpha prefix. The Dart formatter must convert `#C6FF2D` → `Color(0xFFC6FF2D)`, not emit a raw hex string. |
-| Flutter `height` (line height) is a multiplier | MEDIUM | Flutter `TextStyle.height` is `lineHeight / fontSize`, not an absolute pt value. The Dart formatter must compute this ratio from the spec's absolute values. |
-| `GoogleFonts.manjari()` availability | LOW | Verify in current `google_fonts` package. Fallback: bundle `.ttf` in `pubspec.yaml`. |
-| Style Dictionary v4 — Dart formatter availability | LOW | No official SD v4 Dart/Flutter formatter exists. A custom formatter must be written. This is a first-time implementation — plan for iteration. |
+| Style Dictionary v4 `$type: "shadow"` → RN Paper | MEDIUM | SD v4 parses shadow objects natively but built-in formats output CSS `box-shadow`. RN Paper needs `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowRadius` (iOS) + `elevation` (Android). Write a custom TS formatter for elevation tokens. |
+| Style Dictionary v4 `$type: "dimension"` with `"pt"` suffix | MEDIUM | The spec uses `"16pt"` as the `$value`. SD's built-in transforms strip `px`, not `pt`. Custom transform `voltventure/dimension/stripPt` returns a raw number. RN uses unitless numbers in StyleSheet. |
+| RN Paper MD3 color role mapping | MEDIUM | RN Paper `MD3LightTheme.colors` uses specific MD3 role names (`primary`, `onPrimary`, `surface`, etc.). Ensure semantic token names map correctly to MD3 roles in the theme factory. |
+| `@expo-google-fonts/manjari` availability | LOW | Verify in expo-google-fonts monorepo. Fallback: bundle `.ttf` via `expo-font`. |
+| Style Dictionary v4 — TypeScript formatter | LOW | SD v4 has a built-in `javascript/es6` formatter. A typed TS output may need a custom formatter for strict typing. Plan for iteration. |
 
 ---
 
@@ -370,22 +338,26 @@ npm install -D @storybook/react-vite @storybook/addon-docs @storybook/addon-esse
 npm install -D wcag-contrast
 ```
 
-**Dart/Flutter side** (consuming app):
+**React Native app side** (consuming app):
 
-```yaml
-# In the VoltVenture Flutter app's pubspec.yaml:
-dependencies:
-  voltventure_design_system:
-    path: ../voltventure_design_system  # local during development
-  google_fonts: ^6.2.0
+```json
+// In the VoltVenture RN app's package.json:
+{
+  "dependencies": {
+    "voltventure_design_system": "file:../voltventure_design_system",
+    "react-native-paper": "^5.x",
+    "@expo-google-fonts/inter": "*",
+    "@expo-google-fonts/manjari": "*"
+  }
+}
 ```
 
 ```bash
-# In the VoltVenture Flutter app:
-flutter pub get
+# In the VoltVenture RN app:
+npm install
 ```
 
-**First action for Phase 1 implementation:** Run `npm info style-dictionary version` to confirm current SD v4 version, then verify `GoogleFonts.manjari()` availability in the `google_fonts` Flutter package.
+**First action for Phase 1 implementation:** Run `npm info style-dictionary version` to confirm current SD v4 version, then verify `@expo-google-fonts/manjari` availability in the expo-google-fonts monorepo.
 
 ---
 

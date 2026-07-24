@@ -37,32 +37,32 @@ Phase 2-3   [░░░░░░░░░░]   0% blocked on Phase 1
 
 ## Recent Decisions
 
-- Platform: Flutter (not React Native)
+- **Platform: React Native Paper (not Flutter)** — updated 2026-07-25
 - Style Dictionary v4 with W3C DTCG JSON source
-- SD Dart formatter: custom (no community one found — Plan 01-02)
-- Unit tests required for all 4 type conversions (Color, Dimension, Shadow, LineHeight)
+- SD TypeScript formatter: use built-in or custom (replaces Dart formatter from Plan 01-02)
+- Unit tests required for all 4 type conversions (Color, Dimension, Shadow, LineHeight) — unchanged
 - Custom formatter code lives in `sd-transforms/` directory
-- Dart output: single `voltventure_tokens.dart` (not per-category barrel)
-- Doc comments included in generated Dart file (IDE tooltips)
-- Primitive tokens private (`_colorGreen500`); only semantic tokens exported
-- ColorScheme: `ColorScheme.fromSeed(seedColor: colorActionPrimary).copyWith(...)` — no red placeholders
-- Phase 1 done bar: `dart analyze lib/` + `npm run build` + 4 unit tests (no device required)
+- TS output: single `voltventure_tokens.ts` (replaces `voltventure_tokens.dart`)
+- Doc comments included in generated TS file (IDE tooltips)
+- Primitive tokens not exported; only semantic tokens exported
+- RN Paper theme: `{ ...MD3LightTheme, colors: { ...MD3LightTheme.colors, ...overrides } }` — no placeholder values
+- Phase 1 done bar: `tsc --noEmit` + `npm run build` + 4 unit tests (replaces `dart analyze lib/`)
 - SD v4 DTCG mode: transforms store result in `token.$value` (not `token.value`)
-- `voltventure/lineHeight/multiplier` NOT included in dart platform transforms (only needed in dart/theme for Plan 07)
-- `dart/theme` SD platform removed until Plan 07 adds it with proper ThemeData formatter
+- `voltventure/lineHeight/multiplier` NOT needed for RN (RN uses absolute lineHeight, not a multiplier)
+- `rn/theme` SD platform added in revised Plan 07 (replaces `dart/theme`)
 
 ## Pending Todos
 
-- **User action required**: Run `dart analyze lib/voltventure_tokens.dart` in a Flutter-enabled environment before or at Plan 07 start. Confirm 0 issues.
+- **Platform switch action**: Plan 07 revised to generate TypeScript + RN Paper theme (replaces Dart + Flutter ThemeData). Existing `lib/voltventure_tokens.dart` will be superseded by `lib/voltventure_tokens.ts` in Plan 07.
 
 ## Blockers / Concerns
 
-- `dart` command not found in shell PATH — Flutter may not be installed, or PATH is not configured for Git Bash. Plan 06 done-bar requires `dart analyze lib/` — this is deferred to Plan 07 session where user must confirm availability.
+- None. `dart analyze` blocker from Plan 06 is resolved — RN Paper platform switch eliminates the need for Dart tools entirely. Done-bar is now `tsc --noEmit` + `npm run build` + 4 unit tests.
 
 ## Session Continuity
 
-Last session: 2026-07-24T09:30:00Z → resumed 2026-07-24
-Stopped at: Session resumed, proceeding to Plan 07 (ThemeData Factory).
+Last session: 2026-07-25 — platform switched Flutter → React Native Paper. Plan 07 revised.
+Stopped at: Quick task complete — all planning docs updated. Ready to execute revised Plan 07.
 Resume file: .planning/phases/01-token-pipeline-dart-output/01-07-PLAN.md
 
-Next action: Task 0 human checkpoint — verify GoogleFonts.manjari() availability, then Task 1 (dart-theme formatter), Task 2 (done-bar verification)
+Next action: Execute revised Plan 07 — Task 1 (TS constants formatter + rn/theme platform), Task 2 (done-bar: tsc --noEmit + npm run build + npm test)

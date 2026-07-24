@@ -1,16 +1,16 @@
 # Domain Pitfalls
 
-**Domain:** Flutter Design System — Token Infrastructure (Style Dictionary + Flutter ThemeData)
+**Domain:** React Native Paper Design System — Token Infrastructure (Style Dictionary + RN Paper MD3 theme)
 **Project:** VoltVenture Design System v1
 **Researched:** 2026-07-24
-**Updated:** 2026-07-24 — Platform changed from React Native/Expo/NativeWind to Flutter.
+**Updated:** 2026-07-25 — Platform changed from Flutter to React Native Paper.
 **Confidence:** MEDIUM (training data through August 2025; web fetch unavailable — flag items marked LOW for field verification)
 
-> **PLATFORM MIGRATION NOTE**
-> This document was originally authored for React Native / Expo / NativeWind. The platform has changed to **Flutter**.
-> Pitfalls that are **Flutter-relevant** are marked `[FLUTTER]`.
-> Pitfalls that were **RN-specific and now obsolete** are marked `[RN OBSOLETE]` — retained for reference only.
-> New Flutter-specific pitfalls are added at the bottom of each section.
+> **PLATFORM MIGRATION NOTE (updated 2026-07-25)**
+> This document was originally authored for React Native / Expo / NativeWind, then updated for Flutter (2026-07-24), then updated for **React Native Paper** (2026-07-25).
+> Pitfalls that are **React Native Paper-relevant** are marked `[RN PAPER]`.
+> Pitfalls that were **Flutter-specific and now obsolete** are marked `[FLUTTER OBSOLETE]` — retained for reference.
+> Pitfalls previously marked `[RN OBSOLETE]` may now be partially relevant again — reviewed below.
 
 ---
 
@@ -102,7 +102,7 @@ Mistakes that cause rewrites, silent runtime failures, or accessibility regressi
 
 ---
 
-### Pitfall 4: [RN OBSOLETE] NativeWind v4 CSS Variable Resolution Fails on RN Targets
+### Pitfall 4: [NOT APPLICABLE] NativeWind v4 CSS Variable Resolution Fails on RN Targets
 
 **What goes wrong:** NativeWind v4 uses CSS custom properties (CSS variables) as its runtime theming mechanism. On web (via react-native-web), CSS variables work correctly. On native RN targets, CSS variables are resolved at build time by the Babel/Metro transform. If the `tailwind.config.js` references tokens using the `var(--token-name)` pattern directly in the Tailwind theme extension, the native transform may not resolve them correctly — resulting in `undefined` style values on device while appearing correct in Storybook (web).
 
@@ -128,7 +128,7 @@ Mistakes that cause rewrites, silent runtime failures, or accessibility regressi
 
 ---
 
-### Pitfall 5: [FLUTTER] Style Dictionary Formatter Emits String Units — Flutter Requires `double`
+### Pitfall 5: [RN PAPER] Style Dictionary Formatter Emits String Units — React Native Requires Unitless Numbers
 
 **What goes wrong:** Style Dictionary's built-in CSS formatters emit values like `16px`, `1.5rem`, etc. Flutter requires `double` values for all dimension properties — string values like `"16px"` or `"16pt"` cause Dart compile errors or silent `0.0` fallbacks.
 
@@ -180,7 +180,7 @@ Mistakes that cause rewrites, silent runtime failures, or accessibility regressi
 
 ---
 
-### Pitfall 7: [RN OBSOLETE] Expo Managed Workflow Rejects Native Modules in Token Package
+### Pitfall 7: [RN PAPER RELEVANT] Expo Managed Workflow Rejects Native Modules in Token Package
 
 **What goes wrong:** The token package inadvertently imports a dependency that requires native code (a native module). Expo managed workflow does not allow arbitrary native modules — only those in the Expo SDK or explicitly approved by `expo-modules-core`. If the token package's dependency tree includes a native module, the app will crash on startup with `NativeModule not found`.
 
@@ -213,7 +213,7 @@ Mistakes that cause rework, inconsistency, or future constraint — not immediat
 
 ---
 
-### Pitfall 8: [RN OBSOLETE] Storybook Web + react-native-web Aliasing Gaps
+### Pitfall 8: [NOT APPLICABLE FOR TOKEN PHASE] Storybook Web + react-native-web Aliasing Gaps
 
 **What goes wrong:** React Native APIs that have no web equivalent cause Storybook to crash or display blank stories. Common offenders: `Animated`, `PanResponder`, `AccessibilityInfo`, `Platform.select` with `native`-only keys, and `useWindowDimensions` in certain contexts. The aliasing provided by `react-native-web` covers most of the core components but leaves gaps for newer or less-common APIs.
 
@@ -325,7 +325,7 @@ Mistakes that cause rework, inconsistency, or future constraint — not immediat
 
 ---
 
-### Pitfall 12: [FLUTTER] Font Token Mismatch Between `google_fonts` Package API and Token Constants
+### Pitfall 12: [FLUTTER OBSOLETE] Font Token Mismatch Between `google_fonts` Package API and Token Constants
 
 **What goes wrong:** The Flutter `google_fonts` package does not use string-based font family names. Instead it exposes typed methods: `GoogleFonts.manjari(fontSize: 16)` returns a `TextStyle` with the correct font family, weight, and metadata. If the generated `voltventure_theme.dart` tries to use a `fontFamily` string token (e.g., `"Manjari"`) in `TextStyle(fontFamily: fontFamilyDisplay)`, it may fall back to the system font silently if the font has not been loaded.
 
@@ -353,7 +353,7 @@ Mistakes that cause rework, inconsistency, or future constraint — not immediat
 
 ---
 
-### Pitfall F1: [FLUTTER] Flutter `Color` Constructor Requires ARGB Format — Not Hex String
+### Pitfall F1: [FLUTTER OBSOLETE] Flutter `Color` Constructor Requires ARGB Format — Not Hex String
 
 **What goes wrong:** Style Dictionary emits hex strings like `"#C6FF2D"` in its built-in JS and CSS formatters. The Flutter `Color` constructor requires `Color(0xFFRRGGBB)` — ARGB integer notation with a leading `0xFF` alpha channel. If the custom Dart formatter emits a hex string or the wrong integer format, Dart will not compile.
 
@@ -368,18 +368,18 @@ Mistakes that cause rework, inconsistency, or future constraint — not immediat
 
 ---
 
-### Pitfall F2: [FLUTTER] ThemeData `ColorScheme` Has Required Fields — Missing Fields Cause Runtime Assertion
+### Pitfall F2: [FLUTTER OBSOLETE → RN PAPER EQUIVALENT] RN Paper MD3 Theme Missing Required Color Roles
 
-**What goes wrong:** Flutter's `ColorScheme` constructor (Material 3) has many required fields. If the generated `voltventure_theme.dart` ThemeData factory omits any required `ColorScheme` field, Flutter throws a runtime assertion error at app startup, not a compile-time error.
+**What goes wrong (Flutter - obsolete):** Flutter's `ColorScheme` constructor had many required fields. RN Paper equivalent: the `createVoltVentureTheme()` factory must not omit MD3 color roles that `react-native-paper` components expect — otherwise components render with the wrong color.
 
-**Prevention:**
-- Define a complete semantic color mapping in the token source that covers all required `ColorScheme` fields: `primary`, `onPrimary`, `primaryContainer`, `onPrimaryContainer`, `secondary`, `onSecondary`, `error`, `onError`, `surface`, `onSurface`, `background`, `onBackground`, `outline`.
-- Some of these (e.g., `error`, `secondary`) are in the "out of scope" list for v1 (status colors, secondary brand color). Use placeholder values (`Colors.red` for error) with a `TODO` comment until brand decisions are made.
-- Write a Flutter widget test that instantiates `voltVentureTheme()` — this catches missing field assertions before the app ships.
+**RN Paper prevention:**
+- Use `{ ...MD3LightTheme, colors: { ...MD3LightTheme.colors, ...overrides } }` spread strategy. `MD3LightTheme.colors` fills all required MD3 color roles; the override only adds explicit token mappings. This prevents missing role errors without placeholder values.
+- `tsc --noEmit` will catch TypeScript type mismatches in the theme object.
+- Test `<PaperProvider theme={createVoltVentureTheme()}><Button>test</Button></PaperProvider>` renders without error.
 
-**Phase:** Phase 1 — ThemeData formatter implementation
+**Phase:** Phase 1 — RN Paper theme formatter implementation
 
-**Confidence:** HIGH (ColorScheme required fields are well-documented)
+**Confidence:** HIGH (spread strategy prevents missing field issues)
 
 ---
 
@@ -413,7 +413,7 @@ Issues that cause confusion or minor rework but not architectural damage.
 
 ---
 
-### Pitfall 15: [RN OBSOLETE] NativeWind `className` Prop Type Error in TypeScript Strict Mode
+### Pitfall 15: [NOT APPLICABLE] NativeWind `className` Prop Type Error in TypeScript Strict Mode
 
 **What goes wrong:** NativeWind v4 adds a `className` prop to RN components. In TypeScript strict mode, the `className` prop is not in RN's base `ViewProps`/`TextProps` types, causing TypeScript errors when using Tailwind classes on RN components without proper type augmentation.
 
@@ -429,7 +429,7 @@ Issues that cause confusion or minor rework but not architectural damage.
 
 ---
 
-### Pitfall 16: [RN OBSOLETE] Storybook Addon Incompatibility with RN Web Renderer
+### Pitfall 16: [NOT APPLICABLE FOR TOKEN PHASE] Storybook Addon Incompatibility with RN Web Renderer
 
 **What goes wrong:** Common Storybook addons (accessibility addon `@storybook/addon-a11y`, interactions addon) may not work correctly in RN Web mode because they rely on DOM APIs or HTML element selectors that don't map to RNW's synthetic DOM output. The accessibility addon in particular queries DOM `role` attributes — RNW maps RN accessibility props differently, causing the addon to report false positives or false negatives.
 
@@ -448,12 +448,12 @@ Issues that cause confusion or minor rework but not architectural damage.
 | Token source authoring | v3/v4 format confusion — unresolved references emitted as strings | Pin SD v4, use `$value`/`$type` from day one, smoke-test output |
 | Three-tier architecture | Tier-skip: component token references primitive directly | Custom validator in SD pipeline, enforced in CI |
 | Electric green usage rule | Rule lives in docs, not enforced by tooling | `background-only` extension field + build-time validator |
-| Dart formatter (new) | No official Dart SD formatter — must be written from scratch | Research community formatters first; build unit tests for Color/double/BoxShadow output |
-| Flutter Color format | `#RRGGBB` hex string in Dart output instead of `Color(0xFFRRGGBB)` | Custom color transform in Dart formatter; unit test with known hex values |
-| Flutter dimension | String `"16pt"` in Dart output instead of `double 16.0` | Custom `voltventure/dimension/double` transform; pre-build validator rejects string dimensions |
-| Flutter elevation | DTCG shadow object → CSS `box-shadow` instead of `BoxShadow(...)` | Custom shadow formatter for Dart platform; separate from JS reference output |
-| Flutter line height | Absolute pt line height vs Flutter `height` multiplier | Dart formatter computes `height = lineHeight / fontSize`; document the calculation |
-| Font loading | `TextStyle(fontFamily: "Manjari")` string vs `GoogleFonts.manjari(...)` method | ThemeData formatter must call `google_fonts` methods, not use string fontFamily tokens |
+| TS formatter | Use SD built-in `javascript/es6` or write custom typed formatter | Research built-in SD v4 `typescript/es6-declarations` format first; build unit tests for hex string/number output |
+| RN color format | Hex string passthrough — no conversion needed (RN Paper uses hex) | Simpler than Flutter: no ARGB conversion; confirm hex format is `'#RRGGBB'` not `0xFFRRGGBB` |
+| RN dimension | String `"16pt"` in TS output instead of number `16` | Custom `voltventure/dimension/number` transform (same as before, already done in Plan 06) |
+| RN elevation | DTCG shadow object → RN shadow props (iOS + Android) | Custom shadow formatter for `rn/theme` platform; already done in Plan 06 |
+| RN line height | Line height is absolute in RN (not a multiplier like Flutter) | TS formatter emits `lineHeight: 42` not `height: 1.05` — simpler than Flutter case |
+| Font loading | RN Paper `configureFonts()` vs raw `fontFamily` string in theme | Theme factory can use `fontFamily: 'Manjari'` string if fonts are loaded via `expo-font` |
 | WCAG enforcement | Contrast check is manual, not a build gate | `contrast-pairs.json` + SD action + CI failure on ratio breach |
 | Dark mode future-proofing | Semantic tokens hardcode values instead of alias to primitives | All semantic `$value`s are references; names are role-based not color-based |
 | Generated file hygiene | `lib/*.dart` committed to git; manual edits overwritten on next build | Auto-generated header comment + CI regeneration + diff check |
