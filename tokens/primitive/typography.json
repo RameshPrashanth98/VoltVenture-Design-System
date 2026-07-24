@@ -1,0 +1,318 @@
+{
+  "font": {
+    "family": {
+      "display": {
+        "$value": "Manjari",
+        "$description": "Display / brand font. Use GoogleFonts.manjari() in Flutter. Headlines, hero statements, wordmark (as text — not the custom-drawn logo), large numerals. Weights: 100, 400, 700."
+      },
+      "body": {
+        "$value": "Inter",
+        "$description": "Body / interface font. Use GoogleFonts.inter() in Flutter. Everything functional: labels, rows, buttons, captions, data. Weights: 400, 500, 600, 700."
+      },
+      "mono": {
+        "$value": "JetBrains Mono",
+        "$description": "Monospace font. Use GoogleFonts.jetBrainsMono() in Flutter. Code, token names, technical display."
+      }
+    },
+    "size": {
+      "display": {
+        "xl": {
+          "$type": "dimension",
+          "$value": 40,
+          "$description": "display.xl — 40pt. Manjari 700. Used for greetings, hero headlines."
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": 32,
+          "$description": "display.lg — 32pt. Manjari 700. Used for names, section heroes."
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 28,
+          "$description": "display.md — 28pt. Manjari 700. Used for primary actions, booking CTAs."
+        }
+      },
+      "numeric": {
+        "lg": {
+          "$type": "dimension",
+          "$value": 28,
+          "$description": "numeric.lg — 28pt. Inter 700. Used for large data values (points, distances)."
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 22,
+          "$description": "numeric.md — 22pt. Inter 700. Used for medium data values."
+        }
+      },
+      "heading": {
+        "lg": {
+          "$type": "dimension",
+          "$value": 20,
+          "$description": "heading.lg — 20pt. Inter 600. Used for section headings (rewards, trips)."
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 17,
+          "$description": "heading.md — 17pt. Inter 600. Used for screen titles (Settings)."
+        },
+        "sm": {
+          "$type": "dimension",
+          "$value": 15,
+          "$description": "heading.sm — 15pt. Inter 600. Used for subsection headings (Payment Methods)."
+        }
+      },
+      "body": {
+        "lg": {
+          "$type": "dimension",
+          "$value": 17,
+          "$description": "body.lg — 17pt. Inter 400. Used for primary body copy."
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 15,
+          "$description": "body.md — 15pt. Inter 400. Used for standard body copy."
+        },
+        "sm": {
+          "$type": "dimension",
+          "$value": 13,
+          "$description": "body.sm — 13pt. Inter 400. Used for secondary / supplemental copy."
+        }
+      },
+      "label": {
+        "md": {
+          "$type": "dimension",
+          "$value": 13,
+          "$description": "label.md — 13pt. Inter 600. Used for tags, status labels, member badges."
+        },
+        "sm": {
+          "$type": "dimension",
+          "$value": 11,
+          "$description": "label.sm — 11pt. Inter 500. Used for metadata, counts."
+        }
+      },
+      "overline": {
+        "$type": "dimension",
+        "$value": 10,
+        "$description": "overline — 10pt. Inter 500. Uppercase, 0.12em tracking. Used for section meta labels (e.g. SAFETY STATUS)."
+      }
+    },
+    "lineHeight": {
+      "display": {
+        "xl": {
+          "$type": "dimension",
+          "$value": 42,
+          "$description": "display.xl line height — 42pt (Flutter height multiplier: 42/40 = 1.05)"
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": 36,
+          "$description": "display.lg line height — 36pt (Flutter height multiplier: 36/32 = 1.125)"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 32,
+          "$description": "display.md line height — 32pt (Flutter height multiplier: 32/28 ≈ 1.143)"
+        }
+      },
+      "numeric": {
+        "lg": {
+          "$type": "dimension",
+          "$value": 30,
+          "$description": "numeric.lg line height — 30pt (Flutter height multiplier: 30/28 ≈ 1.071)"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 26,
+          "$description": "numeric.md line height — 26pt (Flutter height multiplier: 26/22 ≈ 1.182)"
+        }
+      },
+      "heading": {
+        "lg": {
+          "$type": "dimension",
+          "$value": 26,
+          "$description": "heading.lg line height — 26pt (Flutter height multiplier: 26/20 = 1.3)"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 24,
+          "$description": "heading.md line height — 24pt (Flutter height multiplier: 24/17 ≈ 1.412)"
+        },
+        "sm": {
+          "$type": "dimension",
+          "$value": 20,
+          "$description": "heading.sm line height — 20pt (Flutter height multiplier: 20/15 ≈ 1.333)"
+        }
+      },
+      "body": {
+        "lg": {
+          "$type": "dimension",
+          "$value": 26,
+          "$description": "body.lg line height — 26pt (Flutter height multiplier: 26/17 ≈ 1.529)"
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": 22,
+          "$description": "body.md line height — 22pt (Flutter height multiplier: 22/15 ≈ 1.467)"
+        },
+        "sm": {
+          "$type": "dimension",
+          "$value": 18,
+          "$description": "body.sm line height — 18pt (Flutter height multiplier: 18/13 ≈ 1.385)"
+        }
+      },
+      "label": {
+        "md": {
+          "$type": "dimension",
+          "$value": 16,
+          "$description": "label.md line height — 16pt (Flutter height multiplier: 16/13 ≈ 1.231)"
+        },
+        "sm": {
+          "$type": "dimension",
+          "$value": 14,
+          "$description": "label.sm line height — 14pt (Flutter height multiplier: 14/11 ≈ 1.273)"
+        }
+      },
+      "overline": {
+        "$type": "dimension",
+        "$value": 14,
+        "$description": "overline line height — 14pt (Flutter height multiplier: 14/10 = 1.4)"
+      }
+    },
+    "weight": {
+      "display": {
+        "xl": {
+          "$value": 700,
+          "$description": "display.xl font weight — bold"
+        },
+        "lg": {
+          "$value": 700,
+          "$description": "display.lg font weight — bold"
+        },
+        "md": {
+          "$value": 700,
+          "$description": "display.md font weight — bold"
+        }
+      },
+      "numeric": {
+        "lg": {
+          "$value": 700,
+          "$description": "numeric.lg font weight — bold"
+        },
+        "md": {
+          "$value": 700,
+          "$description": "numeric.md font weight — bold"
+        }
+      },
+      "heading": {
+        "lg": {
+          "$value": 600,
+          "$description": "heading.lg font weight — semibold"
+        },
+        "md": {
+          "$value": 600,
+          "$description": "heading.md font weight — semibold"
+        },
+        "sm": {
+          "$value": 600,
+          "$description": "heading.sm font weight — semibold"
+        }
+      },
+      "body": {
+        "lg": {
+          "$value": 400,
+          "$description": "body.lg font weight — regular"
+        },
+        "md": {
+          "$value": 400,
+          "$description": "body.md font weight — regular"
+        },
+        "sm": {
+          "$value": 400,
+          "$description": "body.sm font weight — regular"
+        }
+      },
+      "label": {
+        "md": {
+          "$value": 600,
+          "$description": "label.md font weight — semibold"
+        },
+        "sm": {
+          "$value": 500,
+          "$description": "label.sm font weight — medium"
+        }
+      },
+      "overline": {
+        "$value": 500,
+        "$description": "overline font weight — medium"
+      }
+    },
+    "tracking": {
+      "display": {
+        "xl": {
+          "$value": 0,
+          "$description": "display.xl letter spacing — 0em"
+        },
+        "lg": {
+          "$value": 0,
+          "$description": "display.lg letter spacing — 0em"
+        },
+        "md": {
+          "$value": 0,
+          "$description": "display.md letter spacing — 0em"
+        }
+      },
+      "numeric": {
+        "lg": {
+          "$value": -0.02,
+          "$description": "numeric.lg letter spacing — -0.02em (negative tracking on large numeric sizes)"
+        },
+        "md": {
+          "$value": -0.02,
+          "$description": "numeric.md letter spacing — -0.02em (negative tracking on large numeric sizes)"
+        }
+      },
+      "heading": {
+        "lg": {
+          "$value": -0.01,
+          "$description": "heading.lg letter spacing — -0.01em"
+        },
+        "md": {
+          "$value": 0,
+          "$description": "heading.md letter spacing — 0em"
+        },
+        "sm": {
+          "$value": 0,
+          "$description": "heading.sm letter spacing — 0em"
+        }
+      },
+      "body": {
+        "lg": {
+          "$value": 0,
+          "$description": "body.lg letter spacing — 0em"
+        },
+        "md": {
+          "$value": 0,
+          "$description": "body.md letter spacing — 0em"
+        },
+        "sm": {
+          "$value": 0,
+          "$description": "body.sm letter spacing — 0em"
+        }
+      },
+      "label": {
+        "md": {
+          "$value": 0,
+          "$description": "label.md letter spacing — 0em"
+        },
+        "sm": {
+          "$value": 0,
+          "$description": "label.sm letter spacing — 0em"
+        }
+      },
+      "overline": {
+        "$value": 0.12,
+        "$description": "overline letter spacing — 0.12em (positive tracking, uppercase). Unit is em; multiply by font size to get pt value."
+      }
+    }
+  }
+}

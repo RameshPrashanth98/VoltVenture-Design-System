@@ -1,0 +1,59 @@
+{
+  "space": {
+    "050": {
+      "$type": "dimension",
+      "$value": 2,
+      "$description": "2pt — minimum spacing unit. Used for icon-to-icon gaps and tight inline spacing."
+    },
+    "100": {
+      "$type": "dimension",
+      "$value": 4,
+      "$description": "4pt — label-to-value stacked, fine-grain adjustments"
+    },
+    "200": {
+      "$type": "dimension",
+      "$value": 8,
+      "$description": "8pt — icon to label gap"
+    },
+    "300": {
+      "$type": "dimension",
+      "$value": 12,
+      "$description": "12pt — gap between sibling cards"
+    },
+    "400": {
+      "$type": "dimension",
+      "$value": 16,
+      "$description": "16pt — screen horizontal margin, list row vertical padding"
+    },
+    "500": {
+      "$type": "dimension",
+      "$value": 20,
+      "$description": "20pt — card internal padding, above tab bar clearance"
+    },
+    "600": {
+      "$type": "dimension",
+      "$value": 24,
+      "$description": "24pt — button horizontal padding"
+    },
+    "800": {
+      "$type": "dimension",
+      "$value": 32,
+      "$description": "32pt — gap between sections"
+    },
+    "1000": {
+      "$type": "dimension",
+      "$value": 40,
+      "$description": "40pt — large section spacing"
+    },
+    "1200": {
+      "$type": "dimension",
+      "$value": 48,
+      "$description": "48pt — minimum touch target dimension (above 44pt iOS / 48dp Android floor)"
+    },
+    "1600": {
+      "$type": "dimension",
+      "$value": 64,
+      "$description": "64pt — minimum list row height (two-line rows grow from here)"
+    }
+  }
+}

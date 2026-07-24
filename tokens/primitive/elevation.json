@@ -1,0 +1,42 @@
+{
+  "elevation": {
+    "flat": {
+      "$type": "shadow",
+      "$value": "none",
+      "$description": "No shadow — list rows, inline chips, anything inside a card. On dark surfaces use surface lightness steps instead."
+    },
+    "raised": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#0F0F0F0F",
+        "offsetX": 0,
+        "offsetY": 2,
+        "blur": 8,
+        "spread": 0
+      },
+      "$description": "Cards resting on screen — rgba(15,15,15,.06) shadow. Hex alpha: 0.06 × 255 = 15.3 ≈ 0F."
+    },
+    "floating": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#0F0F0F1A",
+        "offsetX": 0,
+        "offsetY": 8,
+        "blur": 24,
+        "spread": 0
+      },
+      "$description": "Tab bar, FAB, sticky CTA — rgba(15,15,15,.10) shadow. Hex alpha: 0.10 × 255 = 25.5 ≈ 1A."
+    },
+    "overlay": {
+      "$type": "shadow",
+      "$value": {
+        "color": "#0F0F0F29",
+        "offsetX": 0,
+        "offsetY": 16,
+        "blur": 48,
+        "spread": 0
+      },
+      "$description": "Sheets, modals, dropped panels — rgba(15,15,15,.16) shadow. Hex alpha: 0.16 × 255 = 40.8 ≈ 29."
+    }
+  }
+}

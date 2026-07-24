@@ -1,0 +1,41 @@
+{
+  "icon": {
+    "canvas": {
+      "$type": "dimension",
+      "$value": 24,
+      "$description": "24pt icon canvas — bounding box for all icons. Icons render at 1× vector."
+    },
+    "liveArea": {
+      "$type": "dimension",
+      "$value": 20,
+      "$description": "20pt live area (2pt padding all sides within 24pt canvas). Glyph artwork must fit within this area."
+    },
+    "padding": {
+      "$type": "dimension",
+      "$value": 2,
+      "$description": "2pt padding all sides between canvas edge and live area"
+    },
+    "size": {
+      "xs": {
+        "$type": "dimension",
+        "$value": 16,
+        "$description": "16pt icon size — small inline icons, metadata"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": 20,
+        "$description": "20pt icon size — secondary navigation, list row icons"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": 24,
+        "$description": "24pt icon size — default (matches canvas). Tab bar, buttons, standard UI icons."
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": 32,
+        "$description": "32pt icon size — feature callouts, empty states, large icon moments"
+      }
+    }
+  }
+}

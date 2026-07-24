@@ -1,0 +1,88 @@
+{
+  "color": {
+    "black": {
+      "$type": "color",
+      "$value": "#0F0F0F",
+      "$description": "Volt Black — canvas color and primary foreground. All text, icons, and UI on light surfaces."
+    },
+    "white": {
+      "$type": "color",
+      "$value": "#FFFFFF",
+      "$description": "Pure White — primary light surface. Base background for all light-mode screens."
+    },
+    "grey": {
+      "050": {
+        "$type": "color",
+        "$value": "#FAFAFA",
+        "$description": "List row fill, resting state"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#F5F5F5",
+        "$description": "List row fill, settings surface"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#EBEBEB",
+        "$description": "Inactive nav circle, dividers on light surfaces"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#C9C9C9",
+        "$description": "Interpolated — disabled text and decorative elements"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#808080",
+        "$description": "Brand board Mid Gray — secondary text. 3.9:1 on white; passes AA for large text only."
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#4A4A4A",
+        "$description": "Interpolated — dark-surface borders and secondary elements"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#2F2F2F",
+        "$description": "Brand board Charcoal — progress tracks, elevated dark surfaces"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#1A1A1A",
+        "$description": "Interpolated — raised dark surface (elevation model B)"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#0F0F0F",
+        "$description": "Brand board Volt Black alias in grey ramp"
+      }
+    },
+    "green": {
+      "100": {
+        "$type": "color",
+        "$value": "#F4FFD9",
+        "$description": "Tint background — subtle success wash, hover state fill on light surfaces"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#DDFF7A",
+        "$description": "Hover / focus wash on interactive elements"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#C6FF2D",
+        "$description": "Electric Green — primary brand accent. Background only on light surfaces. Foreground must always be color.black. Against white: 1.36:1 (unusable as text). Against black: 15.4:1 (AAA)."
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#A8DE1A",
+        "$description": "Pressed state on primary action elements"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#7D9220",
+        "$description": "Dark green — the only accessible green for text on white surfaces (4.6:1, passes WCAG AA)"
+      }
+    }
+  }
+}
