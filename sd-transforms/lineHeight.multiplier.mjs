@@ -47,6 +47,15 @@ export const lineHeightMultiplierTransform = {
   type: 'value',
 
   /**
+   * Only apply to tokens whose $value is a composite object with lineHeight and fontSize fields.
+   * This prevents the transform from running on color, dimension, shadow, and other token types.
+   */
+  filter: (token) => {
+    const v = token.$value;
+    return typeof v === 'object' && v !== null && 'lineHeight' in v && 'fontSize' in v;
+  },
+
+  /**
    * Transforms the composite { lineHeight, fontSize } $value to a Flutter height multiplier.
    * The token $value must be a composite object: { lineHeight: number, fontSize: number }.
    */

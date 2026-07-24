@@ -50,7 +50,7 @@ function shouldSkip(token) {
  */
 function dartDeclaration(token) {
   const type = token.$type || token.type;
-  const value = token.value; // already transformed by registered SD transforms
+  const value = token.$value; // SD v4 DTCG mode: transformed value is stored in $value
 
   switch (type) {
     case 'color':
@@ -64,7 +64,8 @@ function dartDeclaration(token) {
     case 'shadow': {
       // elevation.flat has $value: 'none' → empty list
       if (value === 'none' || value === '' || (Array.isArray(value) && value.length === 0)) {
-        return { dartType: 'List<BoxShadow>', dartValue: 'const []' };
+        // Use bare [] — the const List<BoxShadow> declaration provides the const context
+        return { dartType: 'List<BoxShadow>', dartValue: '[]' };
       }
       // value is "BoxShadow(...)" string from voltventure/shadow/boxShadow transform
       // Wrap in list syntax

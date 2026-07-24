@@ -81,6 +81,11 @@ export const shadowBoxShadowTransform = {
   transform: (token) => {
     const value = token.$value;
 
+    // DTCG allows "none" as a valid shadow value meaning no shadow
+    if (value === 'none' || value === '' || value == null) {
+      return 'none';
+    }
+
     if (Array.isArray(value)) {
       // Multiple shadows — return comma-joined list (caller wraps in List<BoxShadow>[...])
       return value.map(shadowToBoxShadow).join(', ');
