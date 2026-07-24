@@ -1,0 +1,168 @@
+{
+  "type": {
+    "display": {
+      "xl": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.display}",
+          "fontSize": "{font.size.display.xl}",
+          "fontWeight": "{font.weight.display.xl}",
+          "lineHeight": "{font.lineHeight.display.xl}",
+          "letterSpacing": "{font.tracking.display.xl}"
+        },
+        "$description": "display.xl — 40pt/42pt LH/700 weight. Manjari. Greetings, hero headlines."
+      },
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.display}",
+          "fontSize": "{font.size.display.lg}",
+          "fontWeight": "{font.weight.display.lg}",
+          "lineHeight": "{font.lineHeight.display.lg}",
+          "letterSpacing": "{font.tracking.display.lg}"
+        },
+        "$description": "display.lg — 32pt/36pt LH/700 weight. Manjari. Names, section heroes."
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.display}",
+          "fontSize": "{font.size.display.md}",
+          "fontWeight": "{font.weight.display.md}",
+          "lineHeight": "{font.lineHeight.display.md}",
+          "letterSpacing": "{font.tracking.display.md}"
+        },
+        "$description": "display.md — 28pt/32pt LH/700 weight. Manjari. Primary actions, booking CTAs."
+      }
+    },
+    "numeric": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.numeric.lg}",
+          "fontWeight": "{font.weight.numeric.lg}",
+          "lineHeight": "{font.lineHeight.numeric.lg}",
+          "letterSpacing": "{font.tracking.numeric.lg}"
+        },
+        "$description": "numeric.lg — 28pt/30pt LH/700 weight. Inter. Large data values (points, distances)."
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.numeric.md}",
+          "fontWeight": "{font.weight.numeric.md}",
+          "lineHeight": "{font.lineHeight.numeric.md}",
+          "letterSpacing": "{font.tracking.numeric.md}"
+        },
+        "$description": "numeric.md — 22pt/26pt LH/700 weight. Inter. Medium data values."
+      }
+    },
+    "heading": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.heading.lg}",
+          "fontWeight": "{font.weight.heading.lg}",
+          "lineHeight": "{font.lineHeight.heading.lg}",
+          "letterSpacing": "{font.tracking.heading.lg}"
+        },
+        "$description": "heading.lg — 20pt/26pt LH/600 weight. Inter. Section headings (rewards, trips)."
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.heading.md}",
+          "fontWeight": "{font.weight.heading.md}",
+          "lineHeight": "{font.lineHeight.heading.md}",
+          "letterSpacing": "{font.tracking.heading.md}"
+        },
+        "$description": "heading.md — 17pt/24pt LH/600 weight. Inter. Screen titles (Settings)."
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.heading.sm}",
+          "fontWeight": "{font.weight.heading.sm}",
+          "lineHeight": "{font.lineHeight.heading.sm}",
+          "letterSpacing": "{font.tracking.heading.sm}"
+        },
+        "$description": "heading.sm — 15pt/20pt LH/600 weight. Inter. Subsection headings (Payment Methods)."
+      }
+    },
+    "body": {
+      "lg": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.body.lg}",
+          "fontWeight": "{font.weight.body.lg}",
+          "lineHeight": "{font.lineHeight.body.lg}",
+          "letterSpacing": "{font.tracking.body.lg}"
+        },
+        "$description": "body.lg — 17pt/26pt LH/400 weight. Inter. Primary body copy."
+      },
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.body.md}",
+          "fontWeight": "{font.weight.body.md}",
+          "lineHeight": "{font.lineHeight.body.md}",
+          "letterSpacing": "{font.tracking.body.md}"
+        },
+        "$description": "body.md — 15pt/22pt LH/400 weight. Inter. Standard body copy."
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.body.sm}",
+          "fontWeight": "{font.weight.body.sm}",
+          "lineHeight": "{font.lineHeight.body.sm}",
+          "letterSpacing": "{font.tracking.body.sm}"
+        },
+        "$description": "body.sm — 13pt/18pt LH/400 weight. Inter. Secondary / supplemental copy."
+      }
+    },
+    "label": {
+      "md": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.label.md}",
+          "fontWeight": "{font.weight.label.md}",
+          "lineHeight": "{font.lineHeight.label.md}",
+          "letterSpacing": "{font.tracking.label.md}"
+        },
+        "$description": "label.md — 13pt/16pt LH/600 weight. Inter. Tags, status labels, member badges."
+      },
+      "sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{font.family.body}",
+          "fontSize": "{font.size.label.sm}",
+          "fontWeight": "{font.weight.label.sm}",
+          "lineHeight": "{font.lineHeight.label.sm}",
+          "letterSpacing": "{font.tracking.label.sm}"
+        },
+        "$description": "label.sm — 11pt/14pt LH/500 weight. Inter. Metadata, counts."
+      }
+    },
+    "overline": {
+      "$type": "typography",
+      "$value": {
+        "fontFamily": "{font.family.body}",
+        "fontSize": "{font.size.overline}",
+        "fontWeight": "{font.weight.overline}",
+        "lineHeight": "{font.lineHeight.overline}",
+        "letterSpacing": "{font.tracking.overline}"
+      },
+      "$description": "overline — 10pt/14pt LH/500 weight. Inter. Uppercase. 0.12em tracking. Section meta labels (e.g. SAFETY STATUS)."
+    }
+  }
+}
