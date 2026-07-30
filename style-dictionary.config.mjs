@@ -13,14 +13,20 @@ import { lineHeightMultiplierTransform } from './sd-transforms/lineHeight.multip
 // Plan 06: custom Dart constants formatter
 import { dartConstantsFormat } from './sd-transforms/dart-constants.format.mjs';
 
+// Plan 07: TypeScript constants formatter + RN Paper theme formatter
+import { tsConstantsFormat } from './sd-transforms/ts-constants.format.mjs';
+import { rnPaperThemeFormat } from './sd-transforms/rn-paper-theme.format.mjs';
+
 // Register custom transforms (must be done before building)
 StyleDictionary.registerTransform(colorFlutterTransform);
 StyleDictionary.registerTransform(dimensionDoubleTransform);
 StyleDictionary.registerTransform(shadowBoxShadowTransform);
 StyleDictionary.registerTransform(lineHeightMultiplierTransform);
 
-// Register custom formatter
+// Register custom formatters
 StyleDictionary.registerFormat(dartConstantsFormat);
+StyleDictionary.registerFormat(tsConstantsFormat);
+StyleDictionary.registerFormat(rnPaperThemeFormat);
 
 // Resolve token source files — SD needs at least one source file to run.
 // When tokens/ is empty (Plan 01 scaffold stage), skip the build gracefully.
@@ -58,6 +64,31 @@ const sd = new StyleDictionary({
         {
           destination: 'voltventure_tokens.dart',
           format: 'voltventure/dart/constants',
+        },
+      ],
+    },
+    'ts/constants': {
+      transforms: ['name/camel', 'color/hex'],
+      buildPath: 'lib/',
+      files: [
+        {
+          destination: 'voltventure_tokens.ts',
+          format: 'voltventure/ts/constants',
+        },
+      ],
+    },
+    'rn/theme': {
+      transforms: ['name/camel'],
+      buildPath: 'lib/',
+      files: [
+        {
+          destination: 'voltventure_theme.ts',
+          format: 'voltventure/rn/theme',
+          // Filter to semantic color tokens to trigger SD; formatter ignores dictionary
+          filter: (token) => {
+            const fp = (token.filePath || '').replace(/\\/g, '/');
+            return fp.includes('/semantic/') && (token.$type || token.type) === 'color';
+          },
         },
       ],
     },
