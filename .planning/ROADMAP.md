@@ -46,22 +46,22 @@ Plans:
 - Spacing (bars), Radius (boxes), Elevation (box-shadow cards), Border (stripe demo), Grid (column overlay), Iconography (placeholder boxes) visual stories
 - GitHub Actions CI at .github/workflows/storybook.yml
 
-**Status:** Planning complete (2026-07-30) — ready to execute
+**Status:** COMPLETE (2026-07-30)
 
 **Plans:** 5 plans
 
 Plans:
 
 Wave 1:
-- [ ] 02-01-PLAN.md — Storybook install + .storybook config + package.json scripts + .gitignore
+- [x] 02-01-PLAN.md — Storybook install + .storybook config + package.json scripts + .gitignore
 
-Wave 2 *(blocked on Wave 1 completion)*:
-- [ ] 02-02-PLAN.md — Color + Typography stories
-- [ ] 02-03-PLAN.md — Spacing + Radius + Border stories
-- [ ] 02-04-PLAN.md — Elevation + Grid + Iconography stories
+Wave 2:
+- [x] 02-02-PLAN.md — Color + Typography stories
+- [x] 02-03-PLAN.md — Spacing + Radius + Border stories
+- [x] 02-04-PLAN.md — Elevation + Grid + Iconography stories
 
-Wave 3 *(blocked on Wave 2 completion)*:
-- [ ] 02-05-PLAN.md — GitHub Actions CI workflow + done-bar verification
+Wave 3:
+- [x] 02-05-PLAN.md — GitHub Actions CI workflow + done-bar verification (human approved)
 
 Cross-cutting constraints:
 - `generated/tokens.js` must be built before any story runs or builds
@@ -79,7 +79,7 @@ Cross-cutting constraints:
 - Visual smoke test on iOS simulator and Android emulator
 - Font loading verified (expo-google-fonts or bundled .ttf assets)
 
-**Status:** Blocked on Phase 2
+**Status:** Ready to plan — Phase 2 complete
 
 ---
 
@@ -98,4 +98,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-07-30 — Phase 1 complete; Phase 2 planning complete (5 plans, 3 waves)*
+*Last updated: 2026-07-30 — Phase 2 complete (8 stories + CI); Phase 3 ready to plan*
