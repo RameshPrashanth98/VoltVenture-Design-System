@@ -7,9 +7,13 @@
     "build:validate": "node scripts/validate-tokens.mjs",
     "build:tokens": "node style-dictionary.config.mjs",
     "build": "npm run build:validate && npm run build:tokens",
-    "test": "node --test sd-transforms/**/*.test.mjs"
+    "test": "node --test sd-transforms/**/*.test.mjs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@storybook/html-vite": "^10.5.5",
+    "storybook": "^10.5.5",
     "style-dictionary": "^4.4.0",
     "wcag-contrast": "^3.0.0"
   }
