@@ -1,42 +1,48 @@
 {
   "version": "1.0",
-  "timestamp": "2026-07-25T06:00:00Z",
-  "phase": "01",
-  "phase_name": "Token Pipeline & TypeScript/RN Paper Output",
-  "phase_dir": ".planning/phases/01-token-pipeline-dart-output",
-  "plan": 7,
-  "task": 1,
-  "total_tasks": 2,
+  "timestamp": "2026-07-30T00:00:00Z",
+  "phase": "02",
+  "phase_name": "Storybook Documentation",
+  "phase_dir": ".planning/phases/02-storybook-documentation",
+  "plan": 2,
+  "task": 0,
+  "total_tasks": 10,
   "status": "paused",
   "completed_tasks": [
-    {"id": "01-01", "name": "Project Scaffold", "status": "done", "commit": "e3fee62"},
-    {"id": "01-02", "name": "SD Transforms + Unit Tests", "status": "done", "commit": "e3fee62"},
-    {"id": "01-03", "name": "Primitive Tokens", "status": "done", "commit": "e49dcb0"},
-    {"id": "01-04", "name": "Semantic Tokens", "status": "done", "commit": "35e5abc"},
-    {"id": "01-05", "name": "Build Validators", "status": "done", "commit": "ac6535f"},
-    {"id": "01-06", "name": "Pipeline Wiring + Dart constants formatter", "status": "done", "commit": "15f8ab5"},
-    {"id": "platform-switch", "name": "Platform switch Flutter → React Native Paper (all planning docs updated)", "status": "done", "commit": "pending"}
+    {"id": "02-01-T1", "name": "Install Storybook 10 packages + add npm scripts", "status": "done", "commit": "20ff681"},
+    {"id": "02-01-T2", "name": "Write .storybook/main.js (ESM) + preview-head.html + .gitignore", "status": "done", "commit": "657499b"}
   ],
   "remaining_tasks": [
-    {"id": "01-07-task1", "name": "TS constants formatter (ts-constants.format.mjs) + RN Paper theme formatter (rn-paper-theme.format.mjs) + ts/constants and rn/theme SD platform wiring", "status": "not_started"},
-    {"id": "01-07-task2", "name": "Final Phase 1 done-bar: npm run build:validate + npm run build:tokens + tsc --noEmit + npm test", "status": "not_started"}
+    {"id": "02-02-T1", "name": "Color story (semantic swatches + primitive ramps)", "status": "not_started"},
+    {"id": "02-02-T2", "name": "Typography story (14 specimens with VoltVenture copy)", "status": "not_started"},
+    {"id": "02-03-T1", "name": "Spacing story (bars) + Radius story (boxes)", "status": "not_started"},
+    {"id": "02-03-T2", "name": "Border story (stripe demo)", "status": "not_started"},
+    {"id": "02-04-T1", "name": "Elevation story (hexToRgba box-shadows)", "status": "not_started"},
+    {"id": "02-04-T2", "name": "Grid story (4-col overlay) + Iconography story (placeholder boxes)", "status": "not_started"},
+    {"id": "02-05-T1", "name": "GitHub Actions storybook.yml", "status": "not_started"},
+    {"id": "02-05-T2", "name": "Phase 2 done-bar human verification (checkpoint:human-verify)", "status": "not_started"}
   ],
-  "blockers": [],
+  "blockers": [
+    {
+      "description": "Windows worktree merge: agent writes bleed to main tree (gitignore, package.json) causing merge conflicts on cleanup",
+      "type": "technical",
+      "workaround": "On merge conflict: git restore <conflicted-file> to discard bleed, then git checkout <worktree-branch> -- <file> to take worktree version. Already resolved for Wave 1."
+    }
+  ],
   "human_actions_pending": [
     {
-      "action": "Task 2: run `tsc --noEmit` from the project root after Task 1 completes",
-      "context": "If react-native-paper is not in devDependencies, add it and run npm install first. tsc --noEmit must return 0 errors for both voltventure_tokens.ts and voltventure_theme.ts.",
-      "blocking": false
+      "action": "Run done-bar verification in plan 02-05 Task 2 (checkpoint:human-verify): npm run build-storybook exits 0, 8 story files exist in stories/, .github/workflows/storybook.yml exists",
+      "context": "Final wave gate — manually verifies the phase done-bar",
+      "blocking": true
     }
   ],
   "decisions": [
-    {"decision": "Platform switched from Flutter to React Native Paper (2026-07-25)", "rationale": "User decision — RN Paper for future component phases", "phase": "01"},
-    {"decision": "RN Paper theme uses { ...MD3LightTheme, colors: { ...MD3LightTheme.colors, ...overrides } } spread strategy — no placeholder values", "rationale": "MD3LightTheme fills all required color roles; only override where explicit semantic tokens exist", "phase": "01"},
-    {"decision": "Done-bar: tsc --noEmit replaces dart analyze lib/ (platform switch)", "rationale": "No Dart/Flutter tools needed anymore", "phase": "01"},
-    {"decision": "Plan 07 revised: TypeScript constants + RN Paper theme factory (replaces Dart constants + Flutter ThemeData)", "rationale": "Platform switch — Dart output from Plans 01-06 superseded by TS output in Plan 07", "phase": "01"}
+    {"decision": "Storybook v10 (not v8)", "rationale": "npm install storybook@latest installs v10.5.5 — phase description was written when v8 was current", "phase": "02"},
+    {"decision": "ESM-only .storybook/main.js using export default", "rationale": "SB10 requires ESM — module.exports throws at startup", "phase": "02"},
+    {"decision": "No @storybook/addon-essentials", "rationale": "Empty package in SB10 — essentials are built into core; addons: [] in main.js is correct", "phase": "02"},
+    {"decision": "Manual npm install (not wizard)", "rationale": "npm create storybook --type html may prompt interactively; direct npm install --save-dev is reliable and scriptable", "phase": "02"}
   ],
   "uncommitted_files": [],
-  "untracked_files": ["voltventure-foundations (1).html"],
-  "next_action": "Read lib/voltventure_tokens.dart to understand existing token names and values, then create sd-transforms/ts-constants.format.mjs and sd-transforms/rn-paper-theme.format.mjs, wire ts/constants and rn/theme platforms in style-dictionary.config.mjs, run npm run build:tokens to generate lib/voltventure_tokens.ts and lib/voltventure_theme.ts, then run the done-bar (build:validate + build:tokens + tsc --noEmit + npm test).",
-  "context_notes": "Plan 07 is the final plan of Phase 1. Platform switched from Flutter to React Native Paper on 2026-07-25 — all planning docs updated. The Task 0 human checkpoint (GoogleFonts.manjari verification) is CANCELLED — no longer needed. The TS formatter emits hex string colors (not Color(0xFFRRGGBB)). The RN Paper theme formatter emits static TS code using the MD3LightTheme spread strategy. Existing Dart transforms in sd-transforms/ and lib/voltventure_tokens.dart are legacy — do not delete them but do not modify them either. The new TS output is additive. react-native-paper may need to be added to devDependencies for tsc type checking."
+  "next_action": "Resume execute-phase 2 — 02-01 SUMMARY.md exists so executor auto-skips it. Start Wave 2: spawn 02-02, 02-03, 02-04 as parallel worktree agents. Watch for Windows worktree merge conflict pattern on cleanup.",
+  "context_notes": "Wave 1 (02-01) complete and merged to main. Storybook 10.5.5 foundation is in place. Wave 2 is 3 parallel plans covering all 8 stories: 02-02 (color.stories.js + typography.stories.js), 02-03 (spacing + radius + border), 02-04 (elevation + grid + iconography). Wave 3 is 02-05 with a checkpoint:human-verify task for the done-bar. The hexToRgba conversion helper must be inline in elevation.stories.js. Typography story must include text-transform:uppercase + letter-spacing:0.12em for typeOverline, and font-variant-numeric:tabular-nums for typeNumericLg/Md."
 }
