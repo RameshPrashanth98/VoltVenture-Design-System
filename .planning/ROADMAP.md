@@ -70,7 +70,45 @@ Cross-cutting constraints:
 
 ---
 
-### Phase 3 — React Native Paper App Integration
+### Phase 3 — Component Library + App Screen Stories in Storybook
+**Goal:** Extend the existing Storybook (@storybook/html-vite 10.5.5) with Components/ and Screens/ sections, sourced from Hi-Fi wireframes in voltventure_wireframes.pen. Build HTML/CSS stories for 11 repeating components and 9 Hi-Fi screens.
+
+**Delivers:**
+- `stories/components/` directory — 11 component story files
+  - status-bar.stories.js, button.stories.js, social-auth-buttons.stories.js, or-divider.stories.js, phone-input.stories.js
+  - segmented-toggle.stories.js, progress-strip.stories.js, trust-panel.stories.js, map-pin.stories.js
+  - tab-bar.stories.js, bottom-card.stories.js
+- `stories/screens/` directory — 9 screen story files
+  - splash.stories.js, onboarding-1.stories.js, registration.stories.js, login.stories.js
+  - id-scan.stories.js, facial-scan.stories.js
+  - home-map.stories.js, navigate-to-bike.stories.js, walking-directions.stories.js
+- Done-bar: `npm run build-storybook` exits 0 with storybook-static/ produced; all 20 story files exist
+
+**Status:** In Progress — planning
+
+**Plans:** 8 plans
+
+Plans:
+
+Wave 1:
+- [ ] 03-01-PLAN.md — Setup: verify glob coverage, create directories, update ROADMAP.md
+
+Wave 2 (parallel):
+- [ ] 03-02-PLAN.md — Simple components: StatusBar, Button, OrDivider, SocialAuthButtons, PhoneInput
+- [ ] 03-03-PLAN.md — Pattern components: SegmentedToggle, ProgressStrip, TrustPanel, MapPin
+- [ ] 03-04-PLAN.md — Complex components: TabBar, BottomCard
+
+Wave 3 (parallel):
+- [ ] 03-05-PLAN.md — Auth screens: Splash, Onboarding1, Registration, Login
+- [ ] 03-06-PLAN.md — KYC screens: IdScan, FacialScan
+- [ ] 03-07-PLAN.md — Map/ride screens: HomeMap, NavigateToBike, WalkingDirections
+
+Wave 4:
+- [ ] 03-08-PLAN.md — Done-bar: build:tokens + build-storybook, verify 20 story files, CI
+
+---
+
+### Phase 4 — React Native Paper App Integration
 **Goal:** Integrate the token package into the VoltVenture React Native app as a local path dependency. Validate createVoltVentureTheme() applies correctly end-to-end on device.
 
 **Delivers:**
@@ -79,7 +117,7 @@ Cross-cutting constraints:
 - Visual smoke test on iOS simulator and Android emulator
 - Font loading verified (expo-google-fonts or bundled .ttf assets)
 
-**Status:** Ready to plan — Phase 2 complete
+**Status:** Ready to plan — Phase 3 must complete first
 
 ---
 
@@ -98,4 +136,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-07-30 — Phase 2 complete (8 stories + CI); Phase 3 ready to plan*
+*Last updated: 2026-07-31 — Phase 3 planning in progress (8 plans, 4 waves)*
