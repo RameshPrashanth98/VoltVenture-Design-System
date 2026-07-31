@@ -99,9 +99,9 @@ Wave 2 (parallel):
 - [x] 03-04-PLAN.md — Complex components: TabBar, BottomCard
 
 Wave 3 (parallel):
-- [ ] 03-05-PLAN.md — Auth screens: Splash, Onboarding1, Registration, Login
-- [ ] 03-06-PLAN.md — KYC screens: IdScan, FacialScan
-- [ ] 03-07-PLAN.md — Map/ride screens: HomeMap, NavigateToBike, WalkingDirections
+- [x] 03-05-PLAN.md — Auth screens: Splash, Onboarding1, Registration, Login
+- [x] 03-06-PLAN.md — KYC screens: IdScan, FacialScan
+- [x] 03-07-PLAN.md — Map/ride screens: HomeMap, NavigateToBike, WalkingDirections
 
 Wave 4:
 - [ ] 03-08-PLAN.md — Done-bar: build:tokens + build-storybook, verify 20 story files, CI
