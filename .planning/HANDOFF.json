@@ -1,35 +1,38 @@
 {
   "version": "1.0",
-  "timestamp": "2026-07-31T00:00:00Z",
+  "timestamp": "2026-07-31T14:10:00.000Z",
   "phase": "03",
   "phase_name": "Component Library + App Screen Stories in Storybook",
   "phase_dir": ".planning/phases/03-component-library-storybook",
-  "plan": 0,
+  "plan": 8,
   "task": 0,
-  "total_tasks": 8,
+  "total_tasks": 2,
   "status": "paused",
   "completed_tasks": [
-    {"id": "research", "name": "Phase 3 research — 03-RESEARCH.md written (10 Hi-Fi screens, 11 components)", "status": "done", "commit": "66a18ce"},
-    {"id": "patterns", "name": "Pattern mapping — 03-PATTERNS.md written (20 files mapped to analogs)", "status": "done", "commit": "66a18ce"},
-    {"id": "planning", "name": "8 PLAN.md files created (4 waves, verification passed)", "status": "done", "commit": "66a18ce"},
-    {"id": "push", "name": "All artifacts pushed to GitHub", "status": "done", "commit": "bffdbcd"}
+    {"id": "03-01", "name": "Storybook directory setup + glob verify", "status": "done", "commit": "97e534e"},
+    {"id": "03-02", "name": "Simple component stories (5 files)", "status": "done", "commit": "9595922"},
+    {"id": "03-03", "name": "Pattern component stories (4 files)", "status": "done", "commit": "23e51c4"},
+    {"id": "03-04", "name": "Complex component stories (2 files)", "status": "done", "commit": "e08656f"},
+    {"id": "03-05", "name": "Auth screen stories (4 files)", "status": "done", "commit": "a7e6e53"},
+    {"id": "03-06", "name": "KYC screen stories (2 files)", "status": "done", "commit": "685e438"},
+    {"id": "03-07", "name": "Map screen stories (3 files)", "status": "done", "commit": "119cfde"}
   ],
   "remaining_tasks": [
-    {"id": "execute-wave-1", "name": "Wave 1: 03-01 — glob verification + directory setup", "status": "not_started"},
-    {"id": "execute-wave-2", "name": "Wave 2: 03-02, 03-03, 03-04 — 11 component stories (parallel)", "status": "not_started"},
-    {"id": "execute-wave-3", "name": "Wave 3: 03-05, 03-06, 03-07 — 9 screen stories (parallel)", "status": "not_started"},
-    {"id": "execute-wave-4", "name": "Wave 4: 03-08 — done-bar verification (human checkpoint)", "status": "not_started"}
+    {"id": "03-08", "name": "Done-bar: build verify + file count + CI check", "status": "not_started"}
   ],
   "blockers": [],
-  "human_actions_pending": [],
+  "human_actions_pending": [
+    {
+      "action": "Approve plan 03-08 (done-bar) to run final build verification",
+      "context": "Plan 03-08 is autonomous:false. All builds already passing. Approval triggers SUMMARY.md creation to formally close Phase 3.",
+      "blocking": false
+    }
+  ],
   "decisions": [
-    {"decision": "11 components: StatusBar, Button, SocialAuthButtons, OrDivider, PhoneInput, SegmentedToggle, ProgressStrip, TrustPanel, TabBar, MapPin, BottomCard", "rationale": "Extracted from wireframe audit of voltventure_wireframes.pen — all appear in 2+ Hi-Fi screens", "phase": "03"},
-    {"decision": "9 screen story files for 10 Hi-Fi frames (Login x2 → one file, PhoneTab + EmailTab exports)", "rationale": "Duplicate Login frames are design-review copies", "phase": "03"},
-    {"decision": "hexToRgba helper copied into 5+ files (not imported) — tab-bar, bottom-card, id-scan, facial-scan, map screens", "rationale": "Helper is not exported from elevation.stories.js; maintains zero-import pattern", "phase": "03"},
-    {"decision": "No main.js changes needed — stories/** glob already covers subdirs", "rationale": "fast-glob ** semantics; Wave 1 verifies with stub file", "phase": "03"},
-    {"decision": "4 alpha fills hardcoded with comments — #FFFFFF18/#FFFFFF22/#FFFFFF33/#00000088 have no token", "rationale": "Design-layer values not in token system", "phase": "03"}
+    {"decision": "Switched Wave 3 from worktree+background to foreground inline agents", "rationale": "Background agents in worktree isolation intermittently lose Bash permission; foreground inline agents work reliably", "phase": "03"},
+    {"decision": "03-06 files committed manually by orchestrator", "rationale": "Same Bash permission issue in background agent — files written by agent, committed by orchestrator directly", "phase": "03"}
   ],
   "uncommitted_files": [],
-  "next_action": "/gsd:execute-phase 3 — all 8 plans verified and ready, no preamble needed",
-  "context_notes": "Planning complete and pushed (bffdbcd). execute-phase was launched but context hit 77% before Wave 1 dispatch. Fresh session goes straight to execute. The 03-08 done-bar plan has autonomous:false — executor will pause for human approval before final build verification."
+  "next_action": "Approve then run plan 03-08 inline (foreground, no worktree) to close Phase 3",
+  "context_notes": "7/8 plans complete. All 20 story files verified: build-storybook exits 0, 45 total exports. Done-bar (03-08) re-runs builds, counts files, confirms CI, creates SUMMARY.md. Should complete in under 5 min."
 }
