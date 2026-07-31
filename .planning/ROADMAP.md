@@ -91,12 +91,12 @@ Cross-cutting constraints:
 Plans:
 
 Wave 1:
-- [ ] 03-01-PLAN.md — Setup: verify glob coverage, create directories, update ROADMAP.md
+- [x] 03-01-PLAN.md — Setup: verify glob coverage, create directories, update ROADMAP.md
 
 Wave 2 (parallel):
-- [ ] 03-02-PLAN.md — Simple components: StatusBar, Button, OrDivider, SocialAuthButtons, PhoneInput
-- [ ] 03-03-PLAN.md — Pattern components: SegmentedToggle, ProgressStrip, TrustPanel, MapPin
-- [ ] 03-04-PLAN.md — Complex components: TabBar, BottomCard
+- [x] 03-02-PLAN.md — Simple components: StatusBar, Button, OrDivider, SocialAuthButtons, PhoneInput
+- [x] 03-03-PLAN.md — Pattern components: SegmentedToggle, ProgressStrip, TrustPanel, MapPin
+- [x] 03-04-PLAN.md — Complex components: TabBar, BottomCard
 
 Wave 3 (parallel):
 - [ ] 03-05-PLAN.md — Auth screens: Splash, Onboarding1, Registration, Login
