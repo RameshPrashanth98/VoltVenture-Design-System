@@ -4,13 +4,13 @@ milestone: v0.1
 milestone_name: milestone
 status: verifying
 stopped_at: context exhaustion at 75% (2026-08-01)
-last_updated: "2026-08-02T00:00:00.000Z"
+last_updated: "2026-08-02T12:00:00.000Z"
 progress:
   total_phases: 4
   completed_phases: 3
   total_plans: 28
-  completed_plans: 22
-  percent: 79
+  completed_plans: 23
+  percent: 82
 ---
 
 # Project State
@@ -22,8 +22,8 @@ progress:
 ## Current Position
 
 - **Phase:** Phase 4 — React Native Paper Showcase App
-- **Plan:** 04-03 complete; 04-04 next (Wave 3 — Component Batch B, parallel)
-- **Status:** Phase 4 EXECUTING — Wave 3 partial complete (3/8 plans done)
+- **Plan:** 04-04 complete; 04-05 next (Wave 4 — Screen Batch A, parallel)
+- **Status:** Phase 4 EXECUTING — Wave 3 complete (4/8 plans done)
 
 ## Progress
 
@@ -40,11 +40,12 @@ plan-3      [██████████] 100% (8 plans, 4 waves, verificatio
 execute-3   [██████████] 100% — Phase 3 COMPLETE (2026-07-31)
 discuss-4   [██████████] 100% — CONTEXT.md captured 2026-08-01
 plan-4      [██████████] 100% (8 plans, 6 waves, verification passed 2026-08-01)
-execute-4   [███░░░░░░░]  38% (3/8 plans done)
+execute-4   [████░░░░░░]  50% (4/8 plans done)
 ```
 
 ## Recent Decisions
 
+- **04-04 COMPLETE** (2026-08-02) — Batch B component previews: 5 files (ProgressStrip, TrustPanel, MapPin, TabBar, BottomCard); BottomNavigation.Bar for TabBar (not deprecated); BottomCard borderTopRadius tokens.radiusXl; typography literals (13/15/11pt) since composite tokens not re-exported; REGISTRY deferred to Plan 07
 - **04-03 COMPLETE** (2026-08-02) — Batch A component previews: 6 files (StatusBar, Button, SocialAuthButtons, OrDivider, PhoneInput, SegmentedToggle) + REGISTRY wired with 6 entries; zero hardcoded hex; labelStyle colorTextPrimary on contained button
 - **04-02 COMPLETE** (2026-08-02) — Expo app scaffold: apps/showcase/ with package.json (workspace:*), _layout.tsx (PaperProvider+useFonts), index.tsx (SectionList 11+9), [item].tsx (Preview+Code tabs), registry.ts skeleton
 - **04-01 COMPLETE** (2026-08-02) — DS package fixes: onPrimary override, all primitive token exports, lib/index.ts barrel, package.json workspace monorepo
@@ -76,7 +77,7 @@ execute-4   [███░░░░░░░]  38% (3/8 plans done)
 ## Session Continuity
 
 Last session: 2026-08-02
-Stopped at: 04-03 complete — Batch A components done; Wave 3 continues with 04-04 (Batch B)
-Resume file: None — continue with /gsd:execute-phase 4 for plan 04-04
+Stopped at: 04-04 complete — Batch B components done; Wave 3 complete; Wave 4 starts with 04-05 (Screen Batch A)
+Resume file: None — continue with /gsd:execute-phase 4 for plan 04-05
 
-Next action: Execute 04-04-PLAN.md — Component Batch B (ProgressStrip, TrustPanel, MapPin, TabBar, BottomCard)
+Next action: Execute 04-05-PLAN.md — Screen Batch A (Splash, Onboarding1, Registration, Login, IdScan)
