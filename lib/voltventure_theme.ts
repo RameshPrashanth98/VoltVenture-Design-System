@@ -25,6 +25,8 @@ export function createVoltVentureTheme(): MD3Theme {
       onSurface: tokens.colorTextPrimary,
       /** Light grey — dividers and non-interactive borders */
       outline: tokens.colorBorderSubtle,
+      /** Volt Black — text on electric green CTA — prevents white-on-green brand violation */
+      onPrimary: tokens.colorTextPrimary, // MANUAL OVERRIDE — see Phase 4 planning note
     },
   };
 }
