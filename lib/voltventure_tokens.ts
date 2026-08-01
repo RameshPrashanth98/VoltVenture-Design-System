@@ -142,3 +142,31 @@ export const colorBorderStrong = '#0f0f0f';
 export const colorBorderFocus = '#c6ff2d';
 /** color.status.live — Live-status indicator. Electric Green dot or badge. Always paired with a text label — never used as sole state indicator. */
 export const colorStatusLive = '#c6ff2d';
+
+// ═══════════════════════════════════════════════════════════
+// Composite typography tokens — fontSize/lineHeight/fontWeight objects
+// Source: tokens/semantic/typography.json resolved values
+// ═══════════════════════════════════════════════════════════
+
+/** type.body.sm — 13pt/18pt LH/400 weight. Inter. Secondary / supplemental copy. */
+export const typeBodySm = { fontSize: 13, lineHeight: 18, fontWeight: '400' as const, fontFamily: 'Inter' };
+/** type.body.md — 15pt/22pt LH/400 weight. Inter. Standard body copy. */
+export const typeBodyMd = { fontSize: 15, lineHeight: 22, fontWeight: '400' as const, fontFamily: 'Inter' };
+/** type.body.lg — 17pt/26pt LH/400 weight. Inter. Primary body copy. */
+export const typeBodyLg = { fontSize: 17, lineHeight: 26, fontWeight: '400' as const, fontFamily: 'Inter' };
+/** type.heading.sm — 15pt/20pt LH/600 weight. Inter. Subsection headings. */
+export const typeHeadingSm = { fontSize: 15, lineHeight: 20, fontWeight: '600' as const, fontFamily: 'Inter' };
+/** type.heading.md — 17pt/24pt LH/600 weight. Inter. Screen titles. */
+export const typeHeadingMd = { fontSize: 17, lineHeight: 24, fontWeight: '600' as const, fontFamily: 'Inter' };
+/** type.heading.lg — 20pt/26pt LH/600 weight. Inter. Section headings. */
+export const typeHeadingLg = { fontSize: 20, lineHeight: 26, fontWeight: '600' as const, fontFamily: 'Inter' };
+/** type.label.sm — 11pt/14pt LH/500 weight. Inter. Metadata, counts. */
+export const typeLabelSm = { fontSize: 11, lineHeight: 14, fontWeight: '500' as const, fontFamily: 'Inter' };
+/** type.label.md — 13pt/16pt LH/600 weight. Inter. Tags, status labels. */
+export const typeLabelMd = { fontSize: 13, lineHeight: 16, fontWeight: '600' as const, fontFamily: 'Inter' };
+/** type.display.md — 28pt/32pt LH/700 weight. Manjari. Primary actions, booking CTAs. */
+export const typeDisplayMd = { fontSize: 28, lineHeight: 32, fontWeight: '700' as const, fontFamily: 'Manjari' };
+/** type.display.lg — 32pt/36pt LH/700 weight. Manjari. Names, section heroes. */
+export const typeDisplayLg = { fontSize: 32, lineHeight: 36, fontWeight: '700' as const, fontFamily: 'Manjari' };
+/** type.display.xl — 40pt/42pt LH/700 weight. Manjari. Greetings, hero headlines. */
+export const typeDisplayXl = { fontSize: 40, lineHeight: 42, fontWeight: '700' as const, fontFamily: 'Manjari' };
