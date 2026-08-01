@@ -130,14 +130,14 @@ Wave 4:
 3. Electric green (#C6FF2D) and Volt Black (#0F0F0F) visibly applied
 4. Code tab shows readable source for each item
 
-**Status:** Planning complete — ready to execute
+**Status:** Executing — Wave 1 complete (1/8 plans done)
 
 **Plans:** 8 plans
 
 Plans:
 
 Wave 1:
-- [ ] 04-01-PLAN.md — Design system package fixes: onPrimary override, token exports, lib/index.ts, package.json
+- [x] 04-01-PLAN.md — Design system package fixes: onPrimary override, token exports, lib/index.ts, package.json
 
 Wave 2:
 - [ ] 04-02-PLAN.md — Expo app scaffold: package.json, tsconfig, metro.config.js, _layout.tsx, home + detail screens, registry skeleton

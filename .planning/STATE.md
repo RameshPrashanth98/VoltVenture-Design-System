@@ -9,8 +9,8 @@ progress:
   total_phases: 4
   completed_phases: 3
   total_plans: 28
-  completed_plans: 20
-  percent: 71
+  completed_plans: 21
+  percent: 75
 ---
 
 # Project State
@@ -22,8 +22,8 @@ progress:
 ## Current Position
 
 - **Phase:** Phase 4 — React Native Paper Showcase App
-- **Plan:** Phase 4 planned (8 plans / 6 waves); ready to execute
-- **Status:** Phase 4 READY TO EXECUTE — plans verified, checker passed
+- **Plan:** 04-01 complete; 04-02 next (Wave 2 — Expo scaffold)
+- **Status:** Phase 4 EXECUTING — Wave 1 complete (1/8 plans done)
 
 ## Progress
 
@@ -40,11 +40,12 @@ plan-3      [██████████] 100% (8 plans, 4 waves, verificatio
 execute-3   [██████████] 100% — Phase 3 COMPLETE (2026-07-31)
 discuss-4   [██████████] 100% — CONTEXT.md captured 2026-08-01
 plan-4      [██████████] 100% (8 plans, 6 waves, verification passed 2026-08-01)
-execute-4   [░░░░░░░░░░]   0%
+execute-4   [█░░░░░░░░░]  13% (1/8 plans done)
 ```
 
 ## Recent Decisions
 
+- **04-01 COMPLETE** (2026-08-02) — DS package fixes: onPrimary override, all primitive token exports, lib/index.ts barrel, package.json workspace monorepo
 - **Phase 4 PLANNED** (2026-08-01) — 8 plans, 6 waves: DS fixes → Scaffold → Components (parallel) → Screens (parallel) → Registry → Done-bar
 - **Phase 4 scope** — Component showcase Expo app with Preview+Code tabs for all 20 items (11 components + 9 HIFI screens) implemented in React Native Paper
 - **Monorepo wiring** — workspace:* protocol (not file:); design system gets name/main/exports/workspaces; showcase at apps/showcase/
@@ -72,9 +73,8 @@ execute-4   [░░░░░░░░░░]   0%
 
 ## Session Continuity
 
-Last session: 2026-08-01T10:23:18.747Z
-Stopped at: context exhaustion at 75% (2026-08-01)
-Resume file: HANDOFF.json (structured handoff — all 8 Phase 4 plans not started)
+Last session: 2026-08-02
+Stopped at: 04-01 complete — Wave 1 done; Wave 2 (04-02 Expo scaffold) is next
+Resume file: None — continue with /gsd:execute-phase 4 for plan 04-02
 
-Next action: /gsd:execute-phase 4 — execute the RN Paper Showcase App plans
-Session resumed: 2026-08-01 — presenting options to user
+Next action: Execute 04-02-PLAN.md — Expo app scaffold
