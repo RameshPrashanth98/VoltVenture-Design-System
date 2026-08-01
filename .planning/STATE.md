@@ -22,8 +22,8 @@ progress:
 ## Current Position
 
 - **Phase:** Phase 4 — React Native Paper Showcase App
-- **Plan:** 04-01 complete; 04-02 next (Wave 2 — Expo scaffold)
-- **Status:** Phase 4 EXECUTING — Wave 1 complete (1/8 plans done)
+- **Plan:** 04-02 complete; 04-03 / 04-04 next (Wave 3 — Component batches, parallel)
+- **Status:** Phase 4 EXECUTING — Wave 2 complete (2/8 plans done)
 
 ## Progress
 
@@ -40,11 +40,12 @@ plan-3      [██████████] 100% (8 plans, 4 waves, verificatio
 execute-3   [██████████] 100% — Phase 3 COMPLETE (2026-07-31)
 discuss-4   [██████████] 100% — CONTEXT.md captured 2026-08-01
 plan-4      [██████████] 100% (8 plans, 6 waves, verification passed 2026-08-01)
-execute-4   [█░░░░░░░░░]  13% (1/8 plans done)
+execute-4   [██░░░░░░░░]  25% (2/8 plans done)
 ```
 
 ## Recent Decisions
 
+- **04-02 COMPLETE** (2026-08-02) — Expo app scaffold: apps/showcase/ with package.json (workspace:*), _layout.tsx (PaperProvider+useFonts), index.tsx (SectionList 11+9), [item].tsx (Preview+Code tabs), registry.ts skeleton
 - **04-01 COMPLETE** (2026-08-02) — DS package fixes: onPrimary override, all primitive token exports, lib/index.ts barrel, package.json workspace monorepo
 - **Phase 4 PLANNED** (2026-08-01) — 8 plans, 6 waves: DS fixes → Scaffold → Components (parallel) → Screens (parallel) → Registry → Done-bar
 - **Phase 4 scope** — Component showcase Expo app with Preview+Code tabs for all 20 items (11 components + 9 HIFI screens) implemented in React Native Paper
@@ -74,7 +75,7 @@ execute-4   [█░░░░░░░░░]  13% (1/8 plans done)
 ## Session Continuity
 
 Last session: 2026-08-02
-Stopped at: 04-01 complete — Wave 1 done; Wave 2 (04-02 Expo scaffold) is next
-Resume file: None — continue with /gsd:execute-phase 4 for plan 04-02
+Stopped at: 04-02 complete — Wave 2 done; Wave 3 (04-03/04-04 Component batches, parallel) is next
+Resume file: None — continue with /gsd:execute-phase 4 for plan 04-03
 
-Next action: Execute 04-02-PLAN.md — Expo app scaffold
+Next action: Execute 04-03-PLAN.md and 04-04-PLAN.md — Component batch A and B (Wave 3, parallel)
