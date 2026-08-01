@@ -84,7 +84,7 @@ Cross-cutting constraints:
   - home-map.stories.js, navigate-to-bike.stories.js, walking-directions.stories.js
 - Done-bar: `npm run build-storybook` exits 0 with storybook-static/ produced; all 20 story files exist
 
-**Status:** In Progress — planning
+**Status:** COMPLETE (2026-07-31)
 
 **Plans:** 8 plans
 
@@ -104,20 +104,57 @@ Wave 3 (parallel):
 - [x] 03-07-PLAN.md — Map/ride screens: HomeMap, NavigateToBike, WalkingDirections
 
 Wave 4:
-- [ ] 03-08-PLAN.md — Done-bar: build:tokens + build-storybook, verify 20 story files, CI
+- [x] 03-08-PLAN.md — Done-bar: build:tokens + build-storybook, verify 20 story files, CI
 
 ---
 
-### Phase 4 — React Native Paper App Integration
-**Goal:** Integrate the token package into the VoltVenture React Native app as a local path dependency. Validate createVoltVentureTheme() applies correctly end-to-end on device.
+### Phase 4 — React Native Paper Showcase App
+**Goal:** Build a component showcase app (standalone Expo app) that renders all VoltVenture components and screens implemented in React Native Paper, styled with VoltVenture tokens, and displays the source code for each. Modeled after https://oss.callstack.com/react-native-paper/
 
 **Delivers:**
-- Local package dependency wired in the RN app
-- PaperProvider with createVoltVentureTheme() applied
-- Visual smoke test on iOS simulator and Android emulator
-- Font loading verified (expo-google-fonts or bundled .ttf assets)
+- `lib/index.ts` — barrel export entry point for voltventure-design-system package
+- Root `package.json` — updated with name, main, exports, workspaces
+- `lib/voltventure_theme.ts` — onPrimary override (Volt Black on electric green)
+- `lib/voltventure_tokens.ts` — all token constants exported (including primitives)
+- `apps/showcase/` — standalone Expo SDK 57 app
+  - PaperProvider with createVoltVentureTheme() at app root
+  - Fonts: Manjari, Inter, JetBrains Mono via expo-google-fonts
+  - Home screen: SectionList with Components (11) + Screens (9) sections
+  - Detail screen: Preview tab + Code tab for every item
+  - 11 component implementations in React Native Paper
+  - 9 HIFI screen compositions in React Native Paper
 
-**Status:** Ready to plan — Phase 3 must complete first
+**Done-bar (D-07):**
+1. Metro bundler starts without TypeScript errors
+2. All 20 items render on iOS simulator OR Android emulator
+3. Electric green (#C6FF2D) and Volt Black (#0F0F0F) visibly applied
+4. Code tab shows readable source for each item
+
+**Status:** Planning complete — ready to execute
+
+**Plans:** 8 plans
+
+Plans:
+
+Wave 1:
+- [ ] 04-01-PLAN.md — Design system package fixes: onPrimary override, token exports, lib/index.ts, package.json
+
+Wave 2:
+- [ ] 04-02-PLAN.md — Expo app scaffold: package.json, tsconfig, metro.config.js, _layout.tsx, home + detail screens, registry skeleton
+
+Wave 3 (parallel):
+- [ ] 04-03-PLAN.md — Component batch A: StatusBar, Button, SocialAuthButtons, OrDivider, PhoneInput, SegmentedToggle
+- [ ] 04-04-PLAN.md — Component batch B: ProgressStrip, TrustPanel, MapPin, TabBar, BottomCard
+
+Wave 4 (parallel):
+- [ ] 04-05-PLAN.md — Screen batch A: Splash, Onboarding1, Registration, Login, IdScan
+- [ ] 04-06-PLAN.md — Screen batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections
+
+Wave 5:
+- [ ] 04-07-PLAN.md — Registry merge: add all 20 entries to REGISTRY
+
+Wave 6:
+- [ ] 04-08-PLAN.md — Done-bar: npm install, tsc --noEmit, Metro start, human device verification
 
 ---
 
@@ -133,7 +170,10 @@ Wave 4:
 | Figma Variables sync | Requires Figma file access |
 | Tablet grid (8-column) | Explicitly deferred in v0.1 spec |
 | npm registry publication | Validate locally first; publishing is a later milestone |
+| Storybook for React Native | Separate toolchain; deferred to future phase after showcase |
+| EAS Build / App Store submission | Out of scope for developer showcase |
+| Dark mode | Semantic dark token layer needs validated screen designs first |
 
 ---
 
-*Last updated: 2026-07-31 — Phase 3 planning in progress (8 plans, 4 waves)*
+*Last updated: 2026-08-01 — Phase 4 planned (8 plans, 6 waves)*
