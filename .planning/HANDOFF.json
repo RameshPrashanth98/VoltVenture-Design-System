@@ -1,31 +1,42 @@
 {
   "version": "1.0",
-  "timestamp": "2026-07-31T15:30:00.000Z",
-  "phase": "03",
-  "phase_name": "Component Library + App Screen Stories in Storybook",
-  "phase_dir": ".planning/phases/03-component-library-storybook",
-  "plan": 8,
-  "task": 2,
-  "total_tasks": 2,
+  "timestamp": "2026-08-01T10:23:18.000Z",
+  "phase": "04",
+  "phase_name": "React Native Paper Showcase App",
+  "phase_dir": ".planning/phases/04-rn-paper-showcase-app",
+  "plan": 0,
+  "task": 0,
+  "total_tasks": 8,
   "status": "paused",
   "completed_tasks": [
-    {"id": "03-01", "name": "Storybook directory setup + glob verify", "status": "done", "commit": "97e534e"},
-    {"id": "03-02", "name": "Simple component stories (5 files)", "status": "done", "commit": "9595922"},
-    {"id": "03-03", "name": "Pattern component stories (4 files)", "status": "done", "commit": "23e51c4"},
-    {"id": "03-04", "name": "Complex component stories (2 files)", "status": "done", "commit": "e08656f"},
-    {"id": "03-05", "name": "Auth screen stories (4 files)", "status": "done", "commit": "a7e6e53"},
-    {"id": "03-06", "name": "KYC screen stories (2 files)", "status": "done", "commit": "685e438"},
-    {"id": "03-07", "name": "Map screen stories (3 files)", "status": "done", "commit": "119cfde"},
-    {"id": "03-08", "name": "Done-bar: build verify + file count + CI check", "status": "done", "commit": "8f6b4de"}
+    {"id": "discuss-4", "name": "Phase 4 context discussion", "status": "done", "commit": "4da06aa"},
+    {"id": "plan-4", "name": "Phase 4 planning (8 plans, researcher + planner + checker)", "status": "done", "commit": "728d31b"}
   ],
-  "remaining_tasks": [],
+  "remaining_tasks": [
+    {"id": "04-01", "name": "DS package fixes: onPrimary, token exports, lib/index.ts, package.json", "status": "not_started"},
+    {"id": "04-02", "name": "Expo app scaffold: package.json, metro.config.js, PaperProvider + fonts, navigation", "status": "not_started"},
+    {"id": "04-03", "name": "Component Batch A: StatusBar, Button, SocialAuthButtons, OrDivider, PhoneInput, SegmentedToggle", "status": "not_started"},
+    {"id": "04-04", "name": "Component Batch B: ProgressStrip, TrustPanel, MapPin, TabBar, BottomCard", "status": "not_started"},
+    {"id": "04-05", "name": "Screen Batch A: Splash, Onboarding1, Registration, Login, IdScan", "status": "not_started"},
+    {"id": "04-06", "name": "Screen Batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections", "status": "not_started"},
+    {"id": "04-07", "name": "Registry merge: all 20 entries in REGISTRY", "status": "not_started"},
+    {"id": "04-08", "name": "Done-bar: npm install + tsc --noEmit + Metro start + human device verify", "status": "not_started"}
+  ],
   "blockers": [],
-  "human_actions_pending": [],
+  "human_actions_pending": [
+    {
+      "action": "Verify iOS Simulator or Android Emulator is available before execute-phase reaches 04-08",
+      "context": "Done-bar requires device render to pass — Metro + TypeScript alone are insufficient",
+      "blocking": false
+    }
+  ],
   "decisions": [
-    {"decision": "Phase 3 done-bar passed — human visual verification approved", "rationale": "All 20 stories render correctly in Storybook, build exits 0", "phase": "03"},
-    {"decision": "Switched Wave 3 from worktree+background to foreground inline agents", "rationale": "Background agents in worktree isolation intermittently lose Bash permission", "phase": "03"}
+    {"decision": "Phase 4 = component showcase app, not production app", "rationale": "User specified wanting to show source code and adapt RN Paper docs site", "phase": "04"},
+    {"decision": "workspace:* protocol (not file:) for monorepo dep", "rationale": "file:// bypasses workspace hoisting and breaks Metro resolution", "phase": "04"},
+    {"decision": "react-native-code-highlighter (not react-native-syntax-highlighter)", "rationale": "Old package dead since 2023; new package updated 2025-07-01", "phase": "04"},
+    {"decision": "onPrimary override required in createVoltVentureTheme()", "rationale": "Button.contained defaults to white label on electric green; must force Volt Black", "phase": "04"}
   ],
   "uncommitted_files": [],
-  "next_action": "Plan Phase 4 — run /gsd:discuss-phase 4 to gather context for React Native Paper App Integration",
-  "context_notes": "Phase 3 fully complete and pushed to origin/main (commit 8f6b4de). Clean inter-phase boundary. 20 story files (11 components + 9 screens), 45 named exports, build-storybook exits 0, human-approved. No unresolved issues. Phase 4 is the RN Paper integration milestone — connecting the token pipeline to a real React Native Paper app."
+  "next_action": "Run /gsd:execute-phase 4 in a fresh context window. Wave 1 (04-01) fixes design system package before any showcase work begins.",
+  "context_notes": "Clean inter-phase boundary. Planning complete, checker passed, all 8 plans committed (728d31b). The planner already updated ROADMAP.md with wave structure. Design system package.json still needs Wave 1 fixes (name, main, exports, workspaces, onPrimary, token exports) before the showcase Expo app can import it. Session ended due to context exhaustion at 75% — no work was abandoned."
 }
