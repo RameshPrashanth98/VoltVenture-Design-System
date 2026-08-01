@@ -32,7 +32,7 @@ export function MapPinPreview() {
         style={{
           color: tokens.colorTextPrimary,
           marginTop: tokens.space100,
-          fontSize: tokens.typeLabelSm.fontSize,
+          fontSize: 11, // typeLabelSm.fontSize — not re-exported from lib/index.ts
         }}
       >
         Home
@@ -76,7 +76,7 @@ export function MapPinPreview() {
         style={{
           color: tokens.colorTextPrimary,
           marginTop: tokens.space100,
-          fontSize: tokens.typeLabelSm.fontSize,
+          fontSize: 11,
         }}
       >
         Home

@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import { Surface, Text } from 'react-native-paper';
 import * as tokens from 'voltventure-design-system';
 
@@ -15,8 +14,8 @@ export function TrustPanelPreview() {
     >
       <Text
         style={{
-          fontSize: tokens.typeHeadingSm.fontSize,
-          fontWeight: tokens.typeHeadingSm.fontWeight as '700',
+          fontSize: 15, // typeHeadingSm.fontSize — not re-exported from lib/index.ts
+          fontWeight: '600', // typeHeadingSm.fontWeight
           color: tokens.colorTextPrimary,
           marginBottom: tokens.space200,
         }}
@@ -26,7 +25,7 @@ export function TrustPanelPreview() {
       <Text
         style={{
           color: tokens.colorTextSecondary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13, // typeBodySm.fontSize
           marginBottom: tokens.space100,
         }}
       >
@@ -35,7 +34,7 @@ export function TrustPanelPreview() {
       <Text
         style={{
           color: tokens.colorTextSecondary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13,
           marginBottom: tokens.space100,
         }}
       >
@@ -44,7 +43,7 @@ export function TrustPanelPreview() {
       <Text
         style={{
           color: tokens.colorTextSecondary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13,
         }}
       >
         {'\u2713'} 24/7 rider support
@@ -55,7 +54,6 @@ export function TrustPanelPreview() {
 
 export const TrustPanelSourceCode = `
 import React from 'react';
-import { View } from 'react-native';
 import { Surface, Text } from 'react-native-paper';
 import * as tokens from 'voltventure-design-system';
 
@@ -71,8 +69,8 @@ export function TrustPanelPreview() {
     >
       <Text
         style={{
-          fontSize: tokens.typeHeadingSm.fontSize,
-          fontWeight: tokens.typeHeadingSm.fontWeight as '700',
+          fontSize: 15,
+          fontWeight: '600',
           color: tokens.colorTextPrimary,
           marginBottom: tokens.space200,
         }}
@@ -82,7 +80,7 @@ export function TrustPanelPreview() {
       <Text
         style={{
           color: tokens.colorTextSecondary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13,
           marginBottom: tokens.space100,
         }}
       >
@@ -91,7 +89,7 @@ export function TrustPanelPreview() {
       <Text
         style={{
           color: tokens.colorTextSecondary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13,
           marginBottom: tokens.space100,
         }}
       >
@@ -100,7 +98,7 @@ export function TrustPanelPreview() {
       <Text
         style={{
           color: tokens.colorTextSecondary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13,
         }}
       >
         {'\\u2713'} 24/7 rider support

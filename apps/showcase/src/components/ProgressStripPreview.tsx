@@ -13,7 +13,7 @@ export function ProgressStripPreview() {
       <Text
         style={{
           color: tokens.colorTextPrimary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13, // typeBodySm.fontSize — not re-exported from lib/index.ts
           marginBottom: tokens.space200,
         }}
       >
@@ -46,7 +46,7 @@ export function ProgressStripPreview() {
       <Text
         style={{
           color: tokens.colorTextPrimary,
-          fontSize: tokens.typeBodySm.fontSize,
+          fontSize: 13,
           marginBottom: tokens.space200,
         }}
       >
