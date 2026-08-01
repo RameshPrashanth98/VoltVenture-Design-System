@@ -130,7 +130,7 @@ Wave 4:
 3. Electric green (#C6FF2D) and Volt Black (#0F0F0F) visibly applied
 4. Code tab shows readable source for each item
 
-**Status:** Executing — Wave 4 in progress (5/8 plans done)
+**Status:** Executing — Wave 5 next (6/8 plans done; Wave 4 complete)
 
 **Plans:** 8 plans
 
@@ -148,7 +148,7 @@ Wave 3 (parallel):
 
 Wave 4 (parallel):
 - [x] 04-05-PLAN.md — Screen batch A: Splash, Onboarding1, Registration, Login, IdScan
-- [ ] 04-06-PLAN.md — Screen batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections
+- [x] 04-06-PLAN.md — Screen batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections
 
 Wave 5:
 - [ ] 04-07-PLAN.md — Registry merge: add all 20 entries to REGISTRY
@@ -176,4 +176,4 @@ Wave 6:
 
 ---
 
-*Last updated: 2026-08-02 — Phase 4 executing; Wave 4 in progress (04-05 Screen Batch A done; 04-06 Screen Batch B next)*
+*Last updated: 2026-08-02 — Phase 4 executing; Wave 4 complete (04-06 Screen Batch B done; 04-07 Registry Merge is next — Wave 5)*
