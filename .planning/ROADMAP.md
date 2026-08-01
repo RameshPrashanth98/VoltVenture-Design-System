@@ -130,7 +130,7 @@ Wave 4:
 3. Electric green (#C6FF2D) and Volt Black (#0F0F0F) visibly applied
 4. Code tab shows readable source for each item
 
-**Status:** Executing — Wave 3 complete (4/8 plans done)
+**Status:** Executing — Wave 4 in progress (5/8 plans done)
 
 **Plans:** 8 plans
 
@@ -147,7 +147,7 @@ Wave 3 (parallel):
 - [x] 04-04-PLAN.md — Component batch B: ProgressStrip, TrustPanel, MapPin, TabBar, BottomCard
 
 Wave 4 (parallel):
-- [ ] 04-05-PLAN.md — Screen batch A: Splash, Onboarding1, Registration, Login, IdScan
+- [x] 04-05-PLAN.md — Screen batch A: Splash, Onboarding1, Registration, Login, IdScan
 - [ ] 04-06-PLAN.md — Screen batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections
 
 Wave 5:
@@ -176,4 +176,4 @@ Wave 6:
 
 ---
 
-*Last updated: 2026-08-02 — Phase 4 executing; Wave 3 partial (04-03 Batch A components done; 04-04 Batch B next)*
+*Last updated: 2026-08-02 — Phase 4 executing; Wave 4 in progress (04-05 Screen Batch A done; 04-06 Screen Batch B next)*
