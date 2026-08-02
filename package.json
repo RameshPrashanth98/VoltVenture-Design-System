@@ -7,7 +7,9 @@
   "exports": {
     ".": "./lib/index.ts"
   },
-  "workspaces": ["apps/*"],
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
     "build:validate": "node scripts/validate-tokens.mjs",
     "build:tokens": "node style-dictionary.config.mjs",
@@ -19,7 +21,7 @@
   "devDependencies": {
     "@storybook/html-vite": "^10.5.5",
     "storybook": "^10.5.5",
-    "style-dictionary": "^4.4.0",
+    "style-dictionary": "^5.5.0",
     "vite": "^8.1.5",
     "wcag-contrast": "^3.0.0"
   }
