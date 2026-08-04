@@ -1,57 +1,37 @@
 {
   "version": "1.0",
-  "timestamp": "2026-08-04T05:30:00.000Z",
-  "phase": "04",
-  "phase_name": "React Native Paper Showcase App",
-  "phase_dir": ".planning/phases/04-rn-paper-showcase-app",
-  "plan": 8,
-  "task": 2,
-  "total_tasks": 2,
+  "timestamp": "2026-08-04T06:30:00.000Z",
+  "phase": "5",
+  "phase_name": "Design System Cleanup",
+  "phase_dir": ".planning/phases/05-design-system-cleanup",
+  "plan": null,
+  "task": null,
+  "total_tasks": null,
   "status": "paused",
   "completed_tasks": [
-    {"id": "04-01", "name": "DS package fixes: onPrimary, token exports, lib/index.ts, package.json", "status": "done", "commit": "see git log"},
-    {"id": "04-02", "name": "Expo app scaffold: package.json, metro.config.js, PaperProvider + fonts, navigation", "status": "done", "commit": "see git log"},
-    {"id": "04-03", "name": "Component Batch A: StatusBar, Button, SocialAuthButtons, OrDivider, PhoneInput, SegmentedToggle", "status": "done", "commit": "see git log"},
-    {"id": "04-04", "name": "Component Batch B: ProgressStrip, TrustPanel, MapPin, TabBar, BottomCard", "status": "done", "commit": "see git log"},
-    {"id": "04-05", "name": "Screen Batch A: Splash, Onboarding1, Registration, Login, IdScan", "status": "done", "commit": "see git log"},
-    {"id": "04-06", "name": "Screen Batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections", "status": "done", "commit": "see git log"},
-    {"id": "04-07", "name": "Registry merge: all 20 entries in REGISTRY", "status": "done", "commit": "7eabd12"},
-    {"id": "04-08-task1", "name": "npm install + TypeScript + icon dependency fixes", "status": "done", "commit": "b74c75a"},
-    {"id": "storybook-enhancement", "name": "Home landing page, story ordering, SourceCode panel on all 20 stories", "status": "done", "commit": "5731fa4"}
+    {"id": 1, "name": "Discuss Phase 5 scope", "status": "done", "commit": "babbe61"},
+    {"id": 2, "name": "Create 05-CONTEXT.md + 05-DISCUSSION-LOG.md", "status": "done", "commit": "babbe61"},
+    {"id": 3, "name": "Update ROADMAP.md (Phase 4 abandoned, Phase 5 added)", "status": "done", "commit": "babbe61"}
   ],
   "remaining_tasks": [
-    {
-      "id": "04-08-task2",
-      "name": "Human device verification (checkpoint:human-verify gate)",
-      "status": "not_started",
-      "notes": "Run `npx expo start --clear` from apps/showcase/ (use --port 8082 if 8081 busy), open on iOS Simulator (press i) or Android Emulator (press a), verify 20 items, Button contained = Volt Black on electric green, Splash = electric green on black, Code tab readable. Type approved or failed."
-    }
+    {"id": 4, "name": "Plan Phase 5 via /gsd-plan-phase 5", "status": "not_started"},
+    {"id": 5, "name": "Stage + commit apps/showcase/ deletions (already deleted in working tree)", "status": "not_started"},
+    {"id": 6, "name": "Regenerate package-lock.json via npm install from root", "status": "not_started"},
+    {"id": 7, "name": "Update README.md to remove showcase references", "status": "not_started"},
+    {"id": 8, "name": "Update STATE.md to reflect Phase 4 abandoned + Phase 5 executing", "status": "not_started"}
   ],
-  "blockers": [
-    {
-      "description": "Human device verification required — cannot be automated",
-      "type": "human_action",
-      "workaround": "none — this is the done-bar gate for Phase 4"
-    }
-  ],
-  "human_actions_pending": [
-    {
-      "action": "Open showcase app on iOS Simulator or Android Emulator and verify all 20 items render with electric green branding",
-      "context": "Phase 4 done-bar (D-07): 20 items navigate, Button contained = Volt Black text on electric green bg, Splash = electric green on black, Code tab readable. Type 'approved' or 'failed: [issue]' after checking.",
-      "blocking": true
-    }
-  ],
+  "blockers": [],
+  "human_actions_pending": [],
   "decisions": [
-    {"decision": "Metro --clear flag required on Windows", "rationale": "Windows npm leaves temp extraction dirs (.bottom-tabs-XunPjXbl); --clear resets Metro file watcher cache to prevent ENOENT crash", "phase": "04"},
-    {"decision": "No Claude attribution in git commits", "rationale": "User preference — do not add Co-Authored-By: Claude to commit messages", "phase": "04"},
-    {"decision": "Port 8082 fallback for Metro if 8081 busy", "rationale": "Another process may occupy 8081; Metro starts clean on 8082", "phase": "04"}
+    {"decision": "Remove apps/showcase/ directory only", "rationale": "Frontend development moves to a separate repo; Storybook stays as design docs", "phase": "5"},
+    {"decision": "Keep monorepo shape (workspaces: [\"apps/*\"])", "rationale": "User wants to retain structure for future packages", "phase": "5"},
+    {"decision": "Phase 4 closed as abandoned", "rationale": "Showcase app is being removed; automated checks passed but human verify never done", "phase": "5"},
+    {"decision": "No new token categories in Phase 5", "rationale": "Cleanup only; new tokens deferred to future phases", "phase": "5"}
   ],
   "uncommitted_files": [
-    ".planning/STATE.md",
-    "apps/showcase/package.json",
-    "package-lock.json"
+    "apps/showcase/ — all 29 files deleted in working tree (unstaged); ready to stage and commit",
+    "package-lock.json — modified (showcase deps already removed from lockfile in working tree)"
   ],
-  "git_state": "origin/main = 5731fa4 (branch up to date with remote); 3 local uncommitted changes",
-  "next_action": "Run `npx expo start --clear` (or --port 8082) from apps/showcase/ then open on simulator/emulator. After human approves, create 04-08-SUMMARY.md, update STATE.md + ROADMAP.md to Phase 4 COMPLETE, commit without Claude attribution.",
-  "context_notes": "All 8 plans of Phase 4 are code-complete. Storybook also enhanced this session (5731fa4). Metro works with --clear. 3 files are uncommitted: STATE.md (session metadata), apps/showcase/package.json (@types/react-native added, expo-splash-screen version updated), package-lock.json. Only human visual verification on device/simulator remains. Once approved, write SUMMARY and mark Phase 4 COMPLETE."
+  "next_action": "Run /gsd-plan-phase 5 to create the Phase 5 execution plan, then execute: stage apps/showcase/ deletions + package-lock.json, run npm install to verify clean, update README.md, update STATE.md, commit.",
+  "context_notes": "Phase 5 discuss-phase complete (commit babbe61). Surprisingly, apps/showcase/ files are already deleted in the working tree from a prior git operation — they just need to be staged and committed. package-lock.json is also already modified. Phase 5 execution may be very short. Do NOT skip plan-phase — need structured execution plan before committing the large deletion."
 }
