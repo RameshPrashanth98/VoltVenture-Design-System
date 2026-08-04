@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "timestamp": "2026-08-02T10:21:31.000Z",
+  "timestamp": "2026-08-04T05:30:00.000Z",
   "phase": "04",
   "phase_name": "React Native Paper Showcase App",
   "phase_dir": ".planning/phases/04-rn-paper-showcase-app",
@@ -15,9 +15,9 @@
     {"id": "04-04", "name": "Component Batch B: ProgressStrip, TrustPanel, MapPin, TabBar, BottomCard", "status": "done", "commit": "see git log"},
     {"id": "04-05", "name": "Screen Batch A: Splash, Onboarding1, Registration, Login, IdScan", "status": "done", "commit": "see git log"},
     {"id": "04-06", "name": "Screen Batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections", "status": "done", "commit": "see git log"},
-    {"id": "04-07", "name": "Registry merge: all 20 entries in REGISTRY", "status": "done", "commit": "f0dd5d7"},
+    {"id": "04-07", "name": "Registry merge: all 20 entries in REGISTRY", "status": "done", "commit": "7eabd12"},
     {"id": "04-08-task1", "name": "npm install + TypeScript + icon dependency fixes", "status": "done", "commit": "b74c75a"},
-    {"id": "session-2026-08-02", "name": "README.md + 12 brand images pushed to GitHub; dep updates committed; Metro crash fixed", "status": "done", "commit": "cbbdf95"}
+    {"id": "storybook-enhancement", "name": "Home landing page, story ordering, SourceCode panel on all 20 stories", "status": "done", "commit": "5731fa4"}
   ],
   "remaining_tasks": [
     {
@@ -44,11 +44,14 @@
   "decisions": [
     {"decision": "Metro --clear flag required on Windows", "rationale": "Windows npm leaves temp extraction dirs (.bottom-tabs-XunPjXbl); --clear resets Metro file watcher cache to prevent ENOENT crash", "phase": "04"},
     {"decision": "No Claude attribution in git commits", "rationale": "User preference — do not add Co-Authored-By: Claude to commit messages", "phase": "04"},
-    {"decision": "README.md authored with 12 brand images for GitHub", "rationale": "User requested comprehensive GitHub README from research + HiFi screen data; images stored in images/ at DS root", "phase": "04"},
     {"decision": "Port 8082 fallback for Metro if 8081 busy", "rationale": "Another process may occupy 8081; Metro starts clean on 8082", "phase": "04"}
   ],
-  "uncommitted_files": [],
-  "git_state": "origin/main = cbbdf95 (fully in sync — README + images + dep updates pushed 2026-08-02)",
+  "uncommitted_files": [
+    ".planning/STATE.md",
+    "apps/showcase/package.json",
+    "package-lock.json"
+  ],
+  "git_state": "origin/main = 5731fa4 (branch up to date with remote); 3 local uncommitted changes",
   "next_action": "Run `npx expo start --clear` (or --port 8082) from apps/showcase/ then open on simulator/emulator. After human approves, create 04-08-SUMMARY.md, update STATE.md + ROADMAP.md to Phase 4 COMPLETE, commit without Claude attribution.",
-  "context_notes": "All 8 plans of Phase 4 are code-complete. Metro works with --clear. GitHub fully in sync at cbbdf95. README live. Only human visual verification on device/simulator remains. Once approved, write SUMMARY and mark Phase 4 COMPLETE. User prefers no Claude in commits."
+  "context_notes": "All 8 plans of Phase 4 are code-complete. Storybook also enhanced this session (5731fa4). Metro works with --clear. 3 files are uncommitted: STATE.md (session metadata), apps/showcase/package.json (@types/react-native added, expo-splash-screen version updated), package-lock.json. Only human visual verification on device/simulator remains. Once approved, write SUMMARY and mark Phase 4 COMPLETE."
 }
