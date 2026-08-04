@@ -150,11 +150,37 @@ Wave 4 (parallel):
 - [x] 04-05-PLAN.md — Screen batch A: Splash, Onboarding1, Registration, Login, IdScan
 - [x] 04-06-PLAN.md — Screen batch B: FacialScan, HomeMap, NavigateToBike, WalkingDirections
 
-Wave 5:
-- [ ] 04-07-PLAN.md — Registry merge: add all 20 entries to REGISTRY
+Wave 5 (abandoned — Phase 4 direction change):
+- [-] 04-07-PLAN.md — Registry merge: add all 20 entries to REGISTRY
+- [-] 04-08-PLAN.md — Done-bar: npm install, tsc --noEmit, Metro start, human device verification
 
-Wave 6:
-- [ ] 04-08-PLAN.md — Done-bar: npm install, tsc --noEmit, Metro start, human device verification
+---
+
+### Phase 5 — Design System Cleanup
+**Goal:** Remove `apps/showcase/` from the repository. This repo focuses exclusively on the design system package (token pipeline, generated TypeScript constants, RN Paper theme factory, Storybook documentation). Frontend app development moves to a separate repository.
+
+**Delivers:**
+- `apps/showcase/` deleted (all Expo app code, Preview components, registry)
+- `apps/.gitkeep` added (keeps apps/ directory for future packages per D-02)
+- Root `package.json` workspaces shape retained (`workspaces: ["apps/*"]`)
+- `package-lock.json` regenerated (589 showcase deps removed)
+- README.md updated to reflect repo scope (design system only)
+- Phase 4 closed as abandoned in STATE.md and ROADMAP.md
+
+**Status:** Executing — plans created 2026-08-05
+
+**Plans:** 3 plans
+
+Plans:
+
+Wave 1:
+- [ ] 05-01-PLAN.md — Stage showcase deletions + add apps/.gitkeep
+
+Wave 2:
+- [ ] 05-02-PLAN.md — Regenerate lockfile via npm install
+
+Wave 3:
+- [ ] 05-03-PLAN.md — Update README + planning docs + done-bar + push
 
 ---
 
@@ -170,28 +196,9 @@ Wave 6:
 | Figma Variables sync | Requires Figma file access |
 | Tablet grid (8-column) | Explicitly deferred in v0.1 spec |
 | npm registry publication | Validate locally first; publishing is a later milestone |
-| Storybook for React Native | Separate toolchain; deferred to future phase after showcase |
-| EAS Build / App Store submission | Out of scope for developer showcase |
-| Dark mode | Semantic dark token layer needs validated screen designs first |
+| React Native app (consuming design system) | Lives in a separate repository |
+| EAS Build / App Store submission | Out of scope for design system repo |
 
 ---
 
----
-
-### Phase 5 — Design System Cleanup
-**Goal:** Remove `apps/showcase/` from the repository. This repo focuses exclusively on the design system package (token pipeline, generated TypeScript constants, RN Paper theme factory, Storybook documentation). Frontend app development moves to a separate repository.
-
-**Delivers:**
-- `apps/showcase/` deleted (all Expo app code, Preview components, registry)
-- Root `package.json` workspaces shape retained (`workspaces: ["apps/*"]`)
-- `package-lock.json` regenerated (showcase deps removed)
-- README.md updated to reflect repo scope (design system only)
-- Phase 4 closed as abandoned in STATE.md and ROADMAP.md
-
-**Status:** Planned — context gathered 2026-08-04
-
-**Plans:** TBD (plan-phase next)
-
----
-
-*Last updated: 2026-08-04 — Phase 4 abandoned; Phase 5 planned (design system cleanup)*
+*Last updated: 2026-08-05 — Phase 5 plans created; executing design system cleanup*
