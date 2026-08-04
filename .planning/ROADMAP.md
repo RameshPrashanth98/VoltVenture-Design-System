@@ -130,7 +130,7 @@ Wave 4:
 3. Electric green (#C6FF2D) and Volt Black (#0F0F0F) visibly applied
 4. Code tab shows readable source for each item
 
-**Status:** Executing — Wave 5 next (6/8 plans done; Wave 4 complete)
+**Status:** ABANDONED (2026-08-04) — showcase app removed in Phase 5; automated checks (Task 1) passed but human device verification was not completed before direction change
 
 **Plans:** 8 plans
 
@@ -176,4 +176,22 @@ Wave 6:
 
 ---
 
-*Last updated: 2026-08-02 — Phase 4 executing; Wave 4 complete (04-06 Screen Batch B done; 04-07 Registry Merge is next — Wave 5)*
+---
+
+### Phase 5 — Design System Cleanup
+**Goal:** Remove `apps/showcase/` from the repository. This repo focuses exclusively on the design system package (token pipeline, generated TypeScript constants, RN Paper theme factory, Storybook documentation). Frontend app development moves to a separate repository.
+
+**Delivers:**
+- `apps/showcase/` deleted (all Expo app code, Preview components, registry)
+- Root `package.json` workspaces shape retained (`workspaces: ["apps/*"]`)
+- `package-lock.json` regenerated (showcase deps removed)
+- README.md updated to reflect repo scope (design system only)
+- Phase 4 closed as abandoned in STATE.md and ROADMAP.md
+
+**Status:** Planned — context gathered 2026-08-04
+
+**Plans:** TBD (plan-phase next)
+
+---
+
+*Last updated: 2026-08-04 — Phase 4 abandoned; Phase 5 planned (design system cleanup)*
