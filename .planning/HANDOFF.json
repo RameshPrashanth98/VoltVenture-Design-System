@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-08-05T00:00:00.000Z",
+  "phase": null,
+  "phase_name": null,
+  "phase_dir": null,
+  "plan": null,
+  "task": null,
+  "total_tasks": null,
+  "status": "milestone_complete",
+  "completed_tasks": [
+    {"id": 1, "name": "Phase 5 Wave 1 — Stage 28 showcase deletions + apps/.gitkeep", "status": "done", "commit": "8fc3843"},
+    {"id": 2, "name": "Phase 5 Wave 2 — Regenerate lockfile (589 packages removed)", "status": "done", "commit": "06c9a88"},
+    {"id": 3, "name": "Phase 5 Wave 3 — README (9 removals) + STATE/ROADMAP + done-bar + push", "status": "done", "commit": "415960f"},
+    {"id": 4, "name": "Phase 5 SUMMARY + HANDOFF cleanup push", "status": "done", "commit": "f654ec6"}
+  ],
+  "remaining_tasks": [],
+  "blockers": [],
+  "human_actions_pending": [],
+  "decisions": [
+    {"decision": "lib/ files require git restore after every build:tokens run", "rationale": "SD regenerates lib/voltventure_theme.ts and lib/voltventure_tokens.ts from templates, dropping onPrimary override and export const. Manual overrides not in SD templates. Must restore before staging.", "phase": "5"},
+    {"decision": "npm leaves apps/showcase in lockfile with extraneous:true after workspace deletion", "rationale": "npm prune does not clean it; must delete programmatically via node JSON edit", "phase": "5"}
+  ],
+  "uncommitted_files": [],
+  "next_action": "Start next milestone. Options: dark mode token layer, status colors (error/warning/info), or npm registry publication. Run /gsd:new-milestone to begin.",
+  "context_notes": "Milestone v0.1 Token Infrastructure is fully complete as of 2026-08-05. All 5 phases done (Phase 4 abandoned, Phase 5 replaced it with cleanup). Repo is clean: token pipeline + Storybook docs only. Pushed at f654ec6. The lib/ mutation pattern (build:tokens regenerates lib/ files, loses manual overrides) is now documented in MEMORY.md as a persistent issue."
+}
