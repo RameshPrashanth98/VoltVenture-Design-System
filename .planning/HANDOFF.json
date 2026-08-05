@@ -1,29 +1,77 @@
 {
   "version": "1.0",
-  "timestamp": "2026-08-05T00:00:00.000Z",
-  "phase": null,
-  "phase_name": null,
-  "phase_dir": null,
-  "plan": null,
-  "task": null,
-  "total_tasks": null,
-  "status": "milestone_complete",
+  "timestamp": "2026-08-05T18:25:02Z",
+  "phase": "7",
+  "phase_name": "Hi-Fi Screens & Components Expansion",
+  "phase_dir": ".planning/phases/07-hifi-screens-components-expansion",
+  "plan": 2,
+  "task": 0,
+  "total_tasks": 26,
+  "status": "paused",
   "completed_tasks": [
-    {"id": 1, "name": "Phase 5 Wave 1 — Stage showcase deletions + apps/.gitkeep", "status": "done", "commit": "8fc3843"},
-    {"id": 2, "name": "Phase 5 Wave 2 — Regenerate lockfile (589 packages removed)", "status": "done", "commit": "06c9a88"},
-    {"id": 3, "name": "Phase 5 Wave 3 — README (9 removals) + STATE/ROADMAP + done-bar + push", "status": "done", "commit": "415960f"},
-    {"id": 4, "name": "Phase 5 SUMMARY + HANDOFF cleanup push", "status": "done", "commit": "f654ec6"},
-    {"id": 5, "name": "Add design spec + wireframes source files", "status": "done", "commit": "60c464d"}
+    {"id": 1, "name": "07-01: Preflight verification — build passes, 11+9 stories, 37 tokens", "status": "done", "commit": "41cd29c"}
   ],
-  "remaining_tasks": [],
+  "remaining_tasks": [
+    {"id": 2, "name": "07-02: Splash screen (frame O94n2)", "status": "not_started"},
+    {"id": 3, "name": "07-03: Onboarding 1-2-3 screens (frames WSGRc, nvm2v, BbpOx)", "status": "not_started"},
+    {"id": 4, "name": "07-04: ID Scan + Facial Scan (frames f6zx5, llnIt)", "status": "not_started"},
+    {"id": 5, "name": "07-05: QR Unlock Scan + Safety Mount (frames pE4ag, L3K2a)", "status": "not_started"},
+    {"id": 6, "name": "07-06: Ride Complete Summary + Cafe Detail (frames seIX4, dSxRO)", "status": "not_started"},
+    {"id": 7, "name": "07-07: Terms of Service + Privacy Policy (frames XffXP, nlrUb)", "status": "not_started"},
+    {"id": 8, "name": "07-08: SettingsRow (C-01) + FAQRow (C-12) components", "status": "not_started"},
+    {"id": 9, "name": "07-09: PaymentCardRow (C-03) + RideSummaryCard (C-10) components", "status": "not_started"},
+    {"id": 10, "name": "07-10: VoltCoinsBalance (C-09) + StationInfoCard (C-11) components", "status": "not_started"},
+    {"id": 11, "name": "07-11: QRViewfinder (C-04) + HubCard (C-07) + RouteCard (C-08) components", "status": "not_started"},
+    {"id": 12, "name": "07-12: Registration + Login screens (frames Y9ojN, TS9Td)", "status": "not_started"},
+    {"id": 13, "name": "07-13: Add/Select/List Payment Method screens (frames WFeNt, w3CgWF, d2ytQb)", "status": "not_started"},
+    {"id": 14, "name": "07-14: Security Deposit screen (frame diQjq)", "status": "not_started"},
+    {"id": 15, "name": "07-15: Profile + Ride History Stats (frames N0nOZ, PNaMF)", "status": "not_started"},
+    {"id": 16, "name": "07-16: Edit Profile screen (frame amAsI)", "status": "not_started"},
+    {"id": 17, "name": "07-26: Curated Routes screen (frame R1tiK) — Wave 3", "status": "not_started"},
+    {"id": 18, "name": "07-17: Settings + Preferences + Login Security (frames oOcGF, Kaf7F, aeptx)", "status": "not_started"},
+    {"id": 19, "name": "07-18: VoltCoins Rewards + Support (frames GH4KX, r504Z)", "status": "not_started"},
+    {"id": 20, "name": "07-19: DashboardPanel (C-02) + NavTurnCard (C-05) + RidingProgressCard (C-06)", "status": "not_started"},
+    {"id": 21, "name": "07-20: HomeMap screen rebuild (frame E9hST)", "status": "not_started"},
+    {"id": 22, "name": "07-21: NavigateToBike screen rebuild (frame kUCG9)", "status": "not_started"},
+    {"id": 23, "name": "07-22: WalkingDirections screen rebuild (frame FZnNd)", "status": "not_started"},
+    {"id": 24, "name": "07-23: ActiveRideDashboard screen (frame hQMrX)", "status": "not_started"},
+    {"id": 25, "name": "07-24: EndRide + RidingToCharging + DiscoverVIPHubs (frames AH8t6, gqQ8M, PS2Xe)", "status": "not_started"},
+    {"id": 26, "name": "07-25: Done-bar — final Storybook build + story count verification", "status": "not_started"}
+  ],
   "blockers": [],
   "human_actions_pending": [],
   "decisions": [
-    {"decision": "lib/ files require git restore after every build:tokens run", "rationale": "SD regenerates lib/voltventure_theme.ts and lib/voltventure_tokens.ts from templates, dropping onPrimary override and export const. Must restore before staging.", "phase": "5"},
-    {"decision": "npm leaves apps/showcase in lockfile with extraneous:true after workspace deletion", "rationale": "npm prune does not clean it; must delete programmatically via node JSON edit", "phase": "5"},
-    {"decision": ".claire/ directory excluded from git", "rationale": "Internal GSD worktree artifact — contains stale stories files from prior agent runs. Not project content.", "phase": "5"}
+    {
+      "decision": "Do NOT use worktree isolation for background executor agents",
+      "rationale": "Intermittent Bash permission loss inside worktrees causes agents to write files but fail to commit. Run each Wave plan as a sequential foreground gsd-executor agent.",
+      "phase": "7"
+    },
+    {
+      "decision": "Tab bar labels in all Phase 7 screen stories: ['Ride','Discover','Wallet','Account']",
+      "rationale": "Per STATE.md Phase 7 decisions — differs from Phase 6 component Interactive which uses ['Home','Ride','Rewards','Profile']",
+      "phase": "7"
+    },
+    {
+      "decision": "Dark screens (ID Scan, Facial Scan, QR Unlock Scan) override makePhoneFrame() inner bg to #0f0f0f after frame creation",
+      "rationale": "Camera screens use Volt Black background — light default of makePhoneFrame must be explicitly overridden",
+      "phase": "7"
+    },
+    {
+      "decision": "Foundation stories (border/color/elevation/grid/iconography/radius/spacing/typography) have pre-existing uncommitted modifications — do NOT stage them",
+      "rationale": "These are unrelated to Phase 7 work. Already present since before Phase 6.",
+      "phase": "7"
+    }
   ],
-  "uncommitted_files": [],
-  "next_action": "Start next milestone. Options: dark mode token layer, status colors (error/warning/info), or npm registry publication. Run /gsd:new-milestone to begin.",
-  "context_notes": "Milestone v0.1 Token Infrastructure is fully complete. All pushes done. Repo at 60c464d on main. Working tree clean (only .claire/ untracked — intentionally excluded). Design files (voltventure-foundations (1).html, voltventure_wireframes.pen) now committed."
+  "uncommitted_files": [
+    "stories/border.stories.js (pre-existing, unrelated to Phase 7)",
+    "stories/color.stories.js (pre-existing, unrelated to Phase 7)",
+    "stories/elevation.stories.js (pre-existing, unrelated to Phase 7)",
+    "stories/grid.stories.js (pre-existing, unrelated to Phase 7)",
+    "stories/iconography.stories.js (pre-existing, unrelated to Phase 7)",
+    "stories/radius.stories.js (pre-existing, unrelated to Phase 7)",
+    "stories/spacing.stories.js (pre-existing, unrelated to Phase 7)",
+    "stories/typography.stories.js (pre-existing, unrelated to Phase 7)"
+  ],
+  "next_action": "Execute Wave 1 sequentially: run gsd-executor agents one at a time (no worktree isolation) for plans 07-02, 07-03, 07-04, 07-05, 07-06, 07-07. After all 6 complete, proceed to Wave 2.",
+  "context_notes": "Wave 0 passed cleanly: build exits 0, 11 component + 9 screen stories confirmed, all 37 Phase 7 token constants present in generated/tokens.js. Plans 07-02 through 07-07 are Wave 1 — all depend only on 07-01 which is done. Waves 2-6 follow in sequence. After build-storybook always run: git restore lib/voltventure_theme.ts lib/voltventure_tokens.ts"
 }
