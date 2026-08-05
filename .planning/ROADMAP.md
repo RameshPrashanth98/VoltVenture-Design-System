@@ -167,20 +167,14 @@ Wave 5 (abandoned — Phase 4 direction change):
 - README.md updated to reflect repo scope (design system only)
 - Phase 4 closed as abandoned in STATE.md and ROADMAP.md
 
-**Status:** Executing — plans created 2026-08-05
+**Status:** COMPLETE (2026-08-05)
 
 **Plans:** 3 plans
 
 Plans:
-
-Wave 1:
-- [ ] 05-01-PLAN.md — Stage showcase deletions + add apps/.gitkeep
-
-Wave 2:
-- [ ] 05-02-PLAN.md — Regenerate lockfile via npm install
-
-Wave 3:
-- [ ] 05-03-PLAN.md — Update README + planning docs + done-bar + push
+- [x] 05-01-PLAN.md — Stage showcase deletions + add apps/.gitkeep
+- [x] 05-02-PLAN.md — Regenerate lockfile via npm install
+- [x] 05-03-PLAN.md — Update README + planning docs + done-bar + push
 
 ---
 
@@ -201,4 +195,4 @@ Wave 3:
 
 ---
 
-*Last updated: 2026-08-05 — Phase 5 plans created; executing design system cleanup*
+*Last updated: 2026-08-05 — Phase 5 complete; design system cleanup done*

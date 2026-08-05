@@ -9,11 +9,10 @@
 [![Style Dictionary](https://img.shields.io/badge/Style_Dictionary-v4-C6FF2D?style=flat-square&labelColor=0F0F0F)](https://styledictionary.com)
 [![React Native Paper](https://img.shields.io/badge/React_Native_Paper-MD3-C6FF2D?style=flat-square&labelColor=0F0F0F)](https://reactnativepaper.com)
 [![Storybook](https://img.shields.io/badge/Storybook-10.5-C6FF2D?style=flat-square&labelColor=0F0F0F)](https://storybook.js.org)
-[![Expo SDK](https://img.shields.io/badge/Expo_SDK-57-C6FF2D?style=flat-square&labelColor=0F0F0F)](https://expo.dev)
 [![WCAG AA](https://img.shields.io/badge/WCAG-2.1_AA-C6FF2D?style=flat-square&labelColor=0F0F0F)](https://www.w3.org/WAI/standards-guidelines/wcag/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-C6FF2D?style=flat-square&labelColor=0F0F0F)](LICENSE)
 
-[Overview](#overview) · [Design System](#design-system-architecture) · [App Screens](#app-screens) · [Token Pipeline](#token-pipeline) · [Quick Start](#quick-start) · [Structure](#project-structure)
+[Overview](#overview) · [Design System](#design-system-architecture) · [Token Pipeline](#token-pipeline) · [Quick Start](#quick-start) · [Structure](#project-structure)
 
 </div>
 
@@ -25,7 +24,7 @@
 
 VoltVenture eliminates the passport requirement entirely through digital identity verification, transparent real-time billing, and curated safe-zone navigation — turning a high-anxiety rental into a seamless travel companion.
 
-> **This repository** is the standalone design system package: a Style Dictionary v4 token pipeline that compiles W3C Design Token JSON into typed TypeScript constants and a React Native Paper MD3 theme. It is the single source of truth for every color, type style, space, radius, elevation, and border value used across all VoltVenture surfaces.
+> **This repository** is the standalone design system package: a Style Dictionary v4 token pipeline that compiles W3C Design Token JSON into typed TypeScript constants and a React Native Paper MD3 theme. Storybook provides visual documentation for all token categories and component/screen designs. The React Native app that consumes this design system lives in a separate repository.
 
 ---
 
@@ -40,74 +39,6 @@ Research with international tourists in Vietnam revealed five critical friction 
 | 3 | **Hidden fees** — Unexpected electricity charges destroy trust | Transparent real-time billing: base rental cost vs. electricity usage, separated |
 | 4 | **Navigation safety** — One-handed riding with no phone mount | Curated offline-ready routes + pre-ride mount prompt; routes avoid highways |
 | 5 | **Payment friction** — Cash-only shops, no international cards | Apple Pay, Google Wallet, Stripe/Adyen international card support |
-
----
-
-## App Screens
-
-VoltVenture's user journey spans 9 high-fidelity screens across two flows — onboarding/KYC and the core map/ride experience.
-
-### Gateway — Build Trust Before First Ride
-
-<table>
-<tr>
-<td width="50%">
-
-**Onboarding & Authentication**
-- Splash Screen with VoltVenture brand animation
-- 3-slide value carousel: Passportless · No Hidden Fees · Never Get Stranded
-- Social login: Apple / Google
-- Phone / WhatsApp OTP (essential for international travelers)
-
-</td>
-<td width="50%">
-
-**Digital Trust Setup (KYC)**
-- In-app digital ID/passport scanner — no physical documents
-- Live camera facial verification (anti-fraud)
-- International payment setup via Stripe/Adyen
-
-</td>
-</tr>
-</table>
-
-<img src="images/generated-1785616343976.png" alt="Passportless digital trust — phone shield and e-scooter" width="100%"/>
-
-### Core Experience — Ride, Discover, Earn
-
-<table>
-<tr>
-<td width="33%">
-
-**Ride Tab**
-- Live e-bike fleet map (100km / 200km / 300km tiers)
-- Dynamic safe-zone polygon based on remaining battery
-- Smart geofence drop-off zones
-- Real-time billing dashboard
-- SOS rescue dispatch (30-min van response)
-
-</td>
-<td width="33%">
-
-**Discover Tab**
-- "Charge & Chill" VIP hub map — partner cafes with 60s battery swap
-- Curated scenic routes filtered by hardware range limits
-- VIP discount barcodes while charging
-
-</td>
-<td width="33%">
-
-**Wallet Tab**
-- Passportless digital deposits (credit card hold)
-- Deposit auto-release on geofence drop-off
-- VoltCoins: earned by coasting/pedaling efficiently
-- Full trip receipt: time cost vs. power cost itemised
-
-</td>
-</tr>
-</table>
-
-<img src="images/generated-1785616536203.png" alt="Navigate by map — location pin and e-scooter" width="100%"/>
 
 ---
 
@@ -181,20 +112,6 @@ generated/tokens.js           ← JS reference output for Storybook
 
 ---
 
-## Component Showcase App
-
-A standalone **Expo SDK 57** showcase app (`apps/showcase/`) renders all 20 VoltVenture components and screens with a **Preview + Code tab** for each — modelled after the React Native Paper docs site.
-
-### 11 Components
-
-`StatusBar` · `Button` · `SocialAuthButtons` · `OrDivider` · `PhoneInput` · `SegmentedToggle` · `ProgressStrip` · `TrustPanel` · `MapPin` · `TabBar` · `BottomCard`
-
-### 9 Screens
-
-`Splash` · `Onboarding` · `Registration` · `Login` · `IdScan` · `FacialScan` · `HomeMap` · `NavigateToBike` · `WalkingDirections`
-
----
-
 ## Quick Start
 
 ### Prerequisites
@@ -224,23 +141,11 @@ npm run storybook
 # 8 token category stories + 20 component/screen stories
 ```
 
-### Showcase App (React Native)
-
-```bash
-cd apps/showcase
-npx expo start
-# Press i for iOS Simulator, a for Android Emulator
-# Or scan QR code with Expo Go
-```
-
 ### Run Tests
 
 ```bash
 # SD transform unit tests
 npm test
-
-# TypeScript check (showcase app)
-cd apps/showcase && npx tsc --noEmit
 ```
 
 ---
@@ -264,15 +169,7 @@ voltventure-design-system/
 ├── scripts/
 │   └── validate-tokens.mjs # WCAG + grid + format validators
 ├── sd-transforms/          # Custom SD v4 transforms + unit tests
-├── apps/
-│   └── showcase/           # Expo app — Preview + Code tabs
-│       ├── app/
-│       │   ├── _layout.tsx     # PaperProvider + font loading
-│       │   ├── index.tsx       # SectionList home (11+9 items)
-│       │   └── [item].tsx      # Preview + Code detail tabs
-│       ├── components/     # 11 RN Paper component implementations
-│       ├── screens/        # 9 RN Paper screen implementations
-│       └── registry.ts     # All 20 entries — name, preview, source
+├── apps/                   # Reserved for future packages
 ├── style-dictionary.config.mjs
 ├── package.json            # Workspaces root
 └── voltventure-foundations.html  # Design spec (canonical reference)
@@ -288,7 +185,6 @@ voltventure-design-system/
 | **React Native Paper (MD3)** | Cross-platform iOS/Android; MD3 color roles map directly to VoltVenture's semantic token architecture |
 | **No `radius.none` token** | Brand principle — nothing in VoltVenture has a square corner |
 | **Storybook (HTML/CSS)** | Token docs are purely visual; no RN renderer needed, easier to host and share |
-| **workspace:* protocol** | Metro resolves the design system package as a local symlink without file: path fragility |
 | **Electric green = background only** | 1.36:1 contrast against white fails every WCAG threshold; enforced at build time |
 | **48dp touch targets** | Tuned for in-vehicle one-handed use; above iOS 44pt / Android 48dp platform floors |
 
@@ -310,7 +206,7 @@ voltventure-design-system/
 | Token pipeline (12 categories) | Complete |
 | Storybook token docs (8 stories) | Complete |
 | Component + screen stories (20 items) | Complete |
-| React Native Paper showcase app (20 items) | Complete |
+| React Native Paper showcase app | Abandoned — moved to separate repository |
 | Dark mode token layer | Deferred — needs validated dark screen designs |
 | Status colors (error / warning / info) | Deferred — awaiting brand decision |
 | Figma Variables sync | Deferred — requires Figma file access |
