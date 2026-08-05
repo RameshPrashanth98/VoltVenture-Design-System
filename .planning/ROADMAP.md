@@ -232,7 +232,56 @@ Cross-cutting constraints:
 
 **Status:** PLANNED (2026-08-05)
 
-**Plans:** TBD
+**Plans:** 25 plans
+
+Plans:
+
+Wave 0:
+- [ ] 07-01-PLAN.md — Preflight: verify build baseline, token constants check
+
+Wave 1 (parallel — static screens, no component deps):
+- [ ] 07-02-PLAN.md — Splash screen (frame O94n2)
+- [ ] 07-03-PLAN.md — Onboarding 1+2+3 (frames WSGRc, nvm2v, BbpOx)
+- [ ] 07-04-PLAN.md — ID Scan + Facial Scan (frames f6zx5, llnIt) — dark screens
+- [ ] 07-05-PLAN.md — QR Unlock Scan + Safety Mount (frames pE4ag, L3K2a)
+- [ ] 07-06-PLAN.md — Ride Complete + Cafe Detail (frames seIX4, dSxRO)
+- [ ] 07-07-PLAN.md — Terms of Service + Privacy Policy (frames XffXP, nlrUb)
+
+Wave 2 (parallel — new components batch A):
+- [ ] 07-08-PLAN.md — Settings Row (C-01) + FAQ Row (C-12)
+- [ ] 07-09-PLAN.md — Payment Card Row (C-03) + Ride Summary Card (C-10)
+- [ ] 07-10-PLAN.md — VoltCoins Balance (C-09) + Station Info Card (C-11)
+- [ ] 07-11-PLAN.md — QR Viewfinder (C-04) + Hub Card (C-07) + Route Card (C-08)
+
+Wave 3 (parallel — form/list screens, depends on W2 components):
+- [ ] 07-12-PLAN.md — Registration + Login (frames Y9ojN, TS9Td)
+- [ ] 07-13-PLAN.md — Add Payment + Select Payment + Payment Methods (frames WFeNt, w3CgWF, d2ytQb)
+- [ ] 07-14-PLAN.md — Security Deposit (frame diQjq)
+- [ ] 07-15-PLAN.md — Profile + Ride History & Stats (frames N0nOZ, PNaMF)
+- [ ] 07-16-PLAN.md — Edit Profile (frame amAsI)
+
+Wave 4 (parallel — settings/toggle screens + component batch B):
+- [ ] 07-17-PLAN.md — Settings + Preferences + Login & Security (frames oOcGF, Kaf7F, aeptx)
+- [ ] 07-18-PLAN.md — VoltCoins Rewards + Support (frames GH4KX, r504Z)
+- [ ] 07-19-PLAN.md — Dashboard Panel (C-02) + Nav Turn Card (C-05) + Riding Progress Card (C-06)
+
+Wave 5 (parallel — map screens, depends on W4 components):
+- [ ] 07-20-PLAN.md — Home Map rebuild (frame E9hST)
+- [ ] 07-21-PLAN.md — Navigate to Bike rebuild (frame kUCG9)
+- [ ] 07-22-PLAN.md — Walking Directions rebuild (frame FZnNd)
+- [ ] 07-23-PLAN.md — Active Ride Dashboard (frame hQMrX)
+- [ ] 07-24-PLAN.md — End Ride + Riding to Charging + Discover VIP Hubs (frames AH8t6, gqQ8M, PS2Xe)
+
+Wave 6:
+- [ ] 07-25-PLAN.md — Done-bar: build-storybook, count 34+23 story files, lib/ guard, git commit, human verify
+
+Cross-cutting constraints:
+- All `Interactive` exports return a DOM element (`document.createElement`) — not an HTML string
+- Screen tab bars use `['Ride','Discover','Wallet','Account']` (differs from Phase 6 TabBar component)
+- Dark screens (ID Scan, Facial Scan, QR Unlock): `screen.style.background = '#0f0f0f'` after makePhoneFrame()
+- State held as plain JS variables; DOM mutations via `.style.*` only (D-08)
+- lib/ mutation guard: `git restore lib/voltventure_theme.ts lib/voltventure_tokens.ts` after any build:tokens call (D-13)
+- Special brand colors hardcoded (no token): #EF4444 SOS, #25D366 WhatsApp, #D64545 destructive, #F5C518 VIP gold
 
 ---
 
@@ -250,7 +299,8 @@ Cross-cutting constraints:
 | npm registry publication | Validate locally first; publishing is a later milestone |
 | React Native app (consuming design system) | Lives in a separate repository |
 | EAS Build / App Store submission | Out of scope for design system repo |
+| Curated Routes screen (frame R1tiK) | Not assigned to Phase 7 plan slots; candidate for Phase 8 |
 
 ---
 
-*Last updated: 2026-08-05 — Phase 7 added: 34 Hi-Fi screens + 12 new components, context captured*
+*Last updated: 2026-08-05 — Phase 7 planned: 25 plans, 6 waves, 34 screens + 12 components*
