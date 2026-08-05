@@ -2,6 +2,76 @@ import * as tokens from '../../generated/tokens.js';
 
 export default { title: 'Components/SegmentedToggle' };
 
+function makePhoneFrame() {
+  const frame = document.createElement('div');
+  frame.style.cssText = [
+    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
+    'position:relative', 'overflow:hidden', 'display:inline-block',
+    'font-family:Inter,sans-serif'
+  ].join(';');
+  const screen = document.createElement('div');
+  screen.style.cssText = [
+    'width:100%', 'height:100%', 'background:#ffffff',
+    'border-radius:38px', 'overflow:hidden', 'position:relative',
+    'display:flex', 'flex-direction:column'
+  ].join(';');
+  const bar = document.createElement('div');
+  bar.style.cssText = [
+    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'display:flex', 'align-items:center', 'justify-content:space-between',
+    'padding:0 20px', 'box-sizing:border-box'
+  ].join(';');
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  screen.appendChild(bar);
+  frame.appendChild(screen);
+  return { frame, screen };
+}
+
+export const Interactive = () => {
+  /* @storybook/html-vite — returns DOM element */
+  let active = 'phone';
+
+  const { frame, screen } = makePhoneFrame();
+
+  const content = document.createElement('div');
+  content.style.cssText = 'flex:1;display:flex;align-items:center;justify-content:center;padding:0 16px;box-sizing:border-box';
+
+  const toggleContainer = document.createElement('div');
+  toggleContainer.style.cssText = `background:${tokens.colorGrey100};border-radius:999px;padding:4px;display:flex;width:100%`;
+
+  const phoneTab = document.createElement('div');
+  phoneTab.style.cssText = `background:${tokens.colorActionPrimary};color:${tokens.colorTextPrimary};border-radius:999px;padding:10px 24px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;flex:1;text-align:center;cursor:pointer`;
+  phoneTab.textContent = 'Phone';
+
+  const emailTab = document.createElement('div');
+  emailTab.style.cssText = `background:transparent;color:${tokens.colorTextSecondary};border-radius:999px;padding:10px 24px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;flex:1;text-align:center;cursor:pointer`;
+  emailTab.textContent = 'Email';
+
+  phoneTab.addEventListener('click', () => {
+    active = 'phone';
+    phoneTab.style.background = tokens.colorActionPrimary;
+    phoneTab.style.color = tokens.colorTextPrimary;
+    emailTab.style.background = 'transparent';
+    emailTab.style.color = tokens.colorTextSecondary;
+  });
+
+  emailTab.addEventListener('click', () => {
+    active = 'email';
+    emailTab.style.background = tokens.colorActionPrimary;
+    emailTab.style.color = tokens.colorTextPrimary;
+    phoneTab.style.background = 'transparent';
+    phoneTab.style.color = tokens.colorTextSecondary;
+  });
+
+  toggleContainer.appendChild(phoneTab);
+  toggleContainer.appendChild(emailTab);
+  content.appendChild(toggleContainer);
+  screen.appendChild(content);
+  return frame;
+};
+
 function toggle(activeTab) {
   const phoneStyle = activeTab === 'phone'
     ? `background:${tokens.colorActionPrimary};color:${tokens.colorTextPrimary};`

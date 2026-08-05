@@ -2,6 +2,46 @@ import * as tokens from '../../generated/tokens.js';
 
 export default { title: 'Components/StatusBar' };
 
+function makePhoneFrame() {
+  const frame = document.createElement('div');
+  frame.style.cssText = [
+    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
+    'position:relative', 'overflow:hidden', 'display:inline-block',
+    'font-family:Inter,sans-serif'
+  ].join(';');
+  const screen = document.createElement('div');
+  screen.style.cssText = [
+    'width:100%', 'height:100%', 'background:#ffffff',
+    'border-radius:38px', 'overflow:hidden', 'position:relative',
+    'display:flex', 'flex-direction:column'
+  ].join(';');
+  const bar = document.createElement('div');
+  bar.style.cssText = [
+    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'display:flex', 'align-items:center', 'justify-content:space-between',
+    'padding:0 20px', 'box-sizing:border-box'
+  ].join(';');
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  screen.appendChild(bar);
+  frame.appendChild(screen);
+  return { frame, screen };
+}
+
+export const Interactive = () => {
+  /* @storybook/html-vite — returns DOM element */
+  const { frame, screen } = makePhoneFrame();
+  const content = document.createElement('div');
+  content.style.cssText = 'flex:1;display:flex;align-items:center;justify-content:center;background:#ffffff';
+  const label = document.createElement('span');
+  label.style.cssText = 'font-family:Inter,sans-serif;font-size:13px;color:#808080'; /* tokens.colorTextSecondary */
+  label.textContent = 'Screen content';
+  content.appendChild(label);
+  screen.appendChild(content);
+  return frame;
+};
+
 export const LightSurface = () => `
   <div style="
     width:393px;

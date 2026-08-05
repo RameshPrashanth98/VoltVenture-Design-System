@@ -3,6 +3,96 @@ import * as tokens from '../../generated/tokens.js';
 
 export default { title: 'Components/ProgressStrip' };
 
+function makePhoneFrame() {
+  const frame = document.createElement('div');
+  frame.style.cssText = [
+    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
+    'position:relative', 'overflow:hidden', 'display:inline-block',
+    'font-family:Inter,sans-serif'
+  ].join(';');
+  const screen = document.createElement('div');
+  screen.style.cssText = [
+    'width:100%', 'height:100%', 'background:#ffffff',
+    'border-radius:38px', 'overflow:hidden', 'position:relative',
+    'display:flex', 'flex-direction:column'
+  ].join(';');
+  const bar = document.createElement('div');
+  bar.style.cssText = [
+    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'display:flex', 'align-items:center', 'justify-content:space-between',
+    'padding:0 20px', 'box-sizing:border-box'
+  ].join(';');
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  screen.appendChild(bar);
+  frame.appendChild(screen);
+  return { frame, screen };
+}
+
+export const Interactive = () => {
+  /* @storybook/html-vite — returns DOM element */
+  let step = 1;
+
+  const { frame, screen } = makePhoneFrame();
+
+  const content = document.createElement('div');
+  content.style.cssText = `flex:1;background:${tokens.colorGrey900};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:0 24px;box-sizing:border-box`;
+
+  // Step label
+  const stepLabel = document.createElement('div');
+  stepLabel.style.cssText = 'font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff';
+  stepLabel.textContent = 'Step 1 of 4';
+
+  // 4-segment strip
+  const stripContainer = document.createElement('div');
+  stripContainer.style.cssText = 'display:flex;gap:8px;width:100%';
+
+  const segs = [];
+  for (let i = 0; i < 4; i++) {
+    const seg = document.createElement('div');
+    seg.style.cssText = `flex:1;height:8px;border-radius:${tokens.radiusXs}px;transition:background 200ms ease`;
+    segs.push(seg);
+    stripContainer.appendChild(seg);
+  }
+
+  // Navigation buttons
+  const backBtn = document.createElement('button');
+  backBtn.style.cssText = `border-radius:${tokens.radiusFull}px;padding:12px 24px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;border:none;cursor:pointer;background:${tokens.colorGrey200};color:${tokens.colorTextPrimary}`;
+  backBtn.textContent = '← Back';
+
+  const nextBtn = document.createElement('button');
+  nextBtn.style.cssText = `border-radius:${tokens.radiusFull}px;padding:12px 24px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;border:none;cursor:pointer;background:${tokens.colorActionPrimary};color:${tokens.colorTextPrimary}`;
+  nextBtn.textContent = 'Next →';
+
+  const navRow = document.createElement('div');
+  navRow.style.cssText = 'display:flex;gap:12px;justify-content:center';
+  navRow.appendChild(backBtn);
+  navRow.appendChild(nextBtn);
+
+  function updateUI() {
+    segs.forEach((seg, i) => {
+      seg.style.background = i < step ? tokens.colorActionPrimary : 'rgba(255,255,255,0.20)'; /* #FFFFFF33 — no token */
+    });
+    stepLabel.textContent = 'Step ' + step + ' of 4';
+    nextBtn.style.opacity = step === 4 ? '0.4' : '1';
+    nextBtn.style.cursor = step === 4 ? 'default' : 'pointer';
+    backBtn.style.opacity = step === 1 ? '0.4' : '1';
+    backBtn.style.cursor = step === 1 ? 'default' : 'pointer';
+  }
+
+  nextBtn.addEventListener('click', () => { if (step < 4) { step++; updateUI(); } });
+  backBtn.addEventListener('click', () => { if (step > 1) { step--; updateUI(); } });
+
+  updateUI(); // set initial disabled state
+
+  content.appendChild(stepLabel);
+  content.appendChild(stripContainer);
+  content.appendChild(navRow);
+  screen.appendChild(content);
+  return frame;
+};
+
 function strip(activeStep) {
   const seg1 = activeStep >= 1
     ? `background:${tokens.colorSurfaceBase};`

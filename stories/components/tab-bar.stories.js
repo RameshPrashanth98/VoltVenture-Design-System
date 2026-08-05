@@ -73,6 +73,84 @@ function tabBar(activeTab) {
   `;
 }
 
+function makePhoneFrame() {
+  const frame = document.createElement('div');
+  frame.style.cssText = [
+    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
+    'position:relative', 'overflow:hidden', 'display:inline-block',
+    'font-family:Inter,sans-serif'
+  ].join(';');
+  const screen = document.createElement('div');
+  screen.style.cssText = [
+    'width:100%', 'height:100%', 'background:#ffffff',
+    'border-radius:38px', 'overflow:hidden', 'position:relative',
+    'display:flex', 'flex-direction:column'
+  ].join(';');
+  const bar = document.createElement('div');
+  bar.style.cssText = [
+    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'display:flex', 'align-items:center', 'justify-content:space-between',
+    'padding:0 20px', 'box-sizing:border-box'
+  ].join(';');
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  screen.appendChild(bar);
+  frame.appendChild(screen);
+  return { frame, screen };
+}
+
+export const Interactive = () => {
+  /* @storybook/html-vite — returns DOM element */
+  // UI-SPEC labels (overrides RESEARCH.md A1 wireframe draft labels)
+  const INTERACTIVE_TABS = ['Home', 'Ride', 'Rewards', 'Profile'];
+  let activeTab = 'Ride';
+
+  const { frame, screen } = makePhoneFrame();
+  // screen has position:relative — required for position:absolute bottom:0 tabBar
+
+  // Tab bar container — pinned to bottom
+  const tabBarEl = document.createElement('div');
+  tabBarEl.style.cssText = `position:absolute;bottom:0;left:0;right:0;background:${tokens.colorSurfaceBase};display:flex;padding:8px 0 12px;box-shadow:${shadowFromToken(tokens.elevationFloating)}`;
+
+  const tabRefs = [];
+
+  INTERACTIVE_TABS.forEach(label => {
+    const tabDiv = document.createElement('div');
+    tabDiv.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer';
+
+    const indicator = document.createElement('div');
+    indicator.style.cssText = 'width:32px;height:32px;border-radius:50%';
+
+    const labelEl = document.createElement('span');
+    labelEl.style.cssText = 'font-size:11px;font-weight:500;font-family:Inter,sans-serif';
+    labelEl.textContent = label;
+
+    // Initial state
+    const isActive = label === activeTab;
+    indicator.style.background = isActive ? tokens.colorActionPrimary : tokens.colorGrey200;
+    labelEl.style.color = isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary;
+
+    tabDiv.appendChild(indicator);
+    tabDiv.appendChild(labelEl);
+    tabBarEl.appendChild(tabDiv);
+
+    tabRefs.push({ label, indicator, labelEl, tabDiv });
+
+    tabDiv.addEventListener('click', () => {
+      activeTab = label;
+      tabRefs.forEach(ref => {
+        const active = ref.label === activeTab;
+        ref.indicator.style.background = active ? tokens.colorActionPrimary : tokens.colorGrey200;
+        ref.labelEl.style.color = active ? tokens.colorTextPrimary : tokens.colorTextSecondary;
+      });
+    });
+  });
+
+  screen.appendChild(tabBarEl);
+  return frame;
+};
+
 export const RideActive = () => tabBar('Ride');
 export const DiscoverActive = () => tabBar('Discover');
 export const WalletActive = () => tabBar('Wallet');
