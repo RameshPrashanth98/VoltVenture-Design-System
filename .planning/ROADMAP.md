@@ -220,6 +220,22 @@ Cross-cutting constraints:
 
 ---
 
+### Phase 7 — Hi-Fi Screens & Components Expansion
+**Goal:** Expand Storybook with all 34 Hi-Fi screens from `voltventure_wireframes.pen` (updating 9 existing stories + adding 25 new ones) and 12 new component stories. Every screen and component gets an `Interactive` export (402×874 iPhone 16 Pro phone frame + in-screen JS interactions) and a `SourceCode` export (React Native Paper JSX string).
+
+**Delivers:**
+- `stories/screens/` — 9 existing stories rebuilt from Hi-Fi designs + 25 new screen story files
+- `stories/components/` — 12 new component story files (Settings Row, Dashboard Panel, Payment Card Row, QR Viewfinder, Nav Turn Card, Riding Progress Card, Hub Card, Route Card, VoltCoins Balance, Ride Summary Card, Station Info Card, FAQ Row)
+- `Interactive` export on all screens and new components (402×874 iPhone 16 Pro frame, in-screen interactions)
+- `SourceCode` export on all screens (React Native Paper JSX as static string)
+- Done-bar: `npm run build-storybook` exits 0; all 34 screen files + 23 component files exist; all Interactive exports verified in Storybook
+
+**Status:** PLANNED (2026-08-05)
+
+**Plans:** TBD
+
+---
+
 ## Backlog
 
 | Item | Why Deferred |
@@ -237,4 +253,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-08-05 — Phase 6 COMPLETE; all 11 Interactive exports delivered and human-verified*
+*Last updated: 2026-08-05 — Phase 7 added: 34 Hi-Fi screens + 12 new components, context captured*
