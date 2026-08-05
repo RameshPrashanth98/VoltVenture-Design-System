@@ -211,6 +211,13 @@ Wave 3 (parallel):
 Wave 4:
 - [ ] 06-07-PLAN.md — Done-bar: verify 11 Interactive exports, build-storybook, human verify, git commit
 
+Cross-cutting constraints:
+- All `Interactive` exports return a DOM element (`document.createElement`) — not an HTML string
+- State held as plain JS variables; DOM mutations via `.style.*` only (never rebuild innerHTML on state change)
+- `makePhoneFrame()` helper copied inline per-file (402×874px, Volt Black #0F0F0F, 44px radius)
+- TabBar Interactive uses `['Home', 'Ride', 'Rewards', 'Profile']` (UI-SPEC authoritative, overrides RESEARCH.md A1)
+- lib/ mutation warning: run `git restore lib/voltventure_theme.ts lib/voltventure_tokens.ts` after build:tokens
+
 ---
 
 ## Backlog
