@@ -190,9 +190,26 @@ Plans:
 - Existing static state exports retained alongside new `Interactive` exports
 - `SourceCode` exports retained
 
-**Status:** Ready for planning
+**Status:** Planned (2026-08-05)
 
-**Plans:** TBD
+**Plans:** 7 plans
+
+Plans:
+
+Wave 1:
+- [ ] 06-01-PLAN.md — Baseline build verification (npm run build-storybook pre-check)
+
+Wave 2 (parallel):
+- [ ] 06-02-PLAN.md — Static components: StatusBar, OrDivider, TrustPanel
+- [ ] 06-03-PLAN.md — Press-state components: Button, SocialAuthButtons
+
+Wave 3 (parallel):
+- [ ] 06-04-PLAN.md — Input/toggle: PhoneInput, SegmentedToggle
+- [ ] 06-05-PLAN.md — Navigation/animation: ProgressStrip, MapPin
+- [ ] 06-06-PLAN.md — Bottom-pinned: TabBar, BottomCard
+
+Wave 4:
+- [ ] 06-07-PLAN.md — Done-bar: verify 11 Interactive exports, build-storybook, human verify, git commit
 
 ---
 
@@ -213,4 +230,4 @@ Plans:
 
 ---
 
-*Last updated: 2026-08-05 — Phase 5 complete; design system cleanup done*
+*Last updated: 2026-08-05 — Phase 6 planned; 7 plans across 4 waves*
