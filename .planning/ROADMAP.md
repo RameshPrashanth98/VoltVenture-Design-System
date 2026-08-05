@@ -178,6 +178,24 @@ Plans:
 
 ---
 
+---
+
+### Phase 6 — Interactive Components (iPhone 16 Pro)
+**Goal:** Upgrade all 11 component stories in `stories/components/` to render inside a 402×874pt iPhone 16 Pro phone frame (Volt Black bezel + status bar) and add real JS interactivity — clicks and taps change component state live in the Storybook canvas.
+
+**Delivers:**
+- `Interactive` named export added to all 11 component story files — phone-framed, event-wired
+- 402×874px phone frame wrapper (Volt Black bezel, 44px radius, "9:41" status bar)
+- Per-component interactions: Button press states, SegmentedToggle live switching, TabBar tab switching, PhoneInput focus + typing, ProgressStrip step navigation, BottomCard expand/collapse, MapPin pulse, SocialAuthButtons press effects
+- Existing static state exports retained alongside new `Interactive` exports
+- `SourceCode` exports retained
+
+**Status:** Ready for planning
+
+**Plans:** TBD
+
+---
+
 ## Backlog
 
 | Item | Why Deferred |
