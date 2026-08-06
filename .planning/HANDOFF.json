@@ -1,69 +1,74 @@
 {
   "version": "1.0",
-  "timestamp": "2026-08-06T00:00:00Z",
+  "timestamp": "2026-08-06T10:30:00Z",
   "phase": "7",
   "phase_name": "Hi-Fi Screens & Components Expansion",
   "phase_dir": ".planning/phases/07-hifi-screens-components-expansion",
-  "plan": 17,
+  "plan": 20,
   "task": 0,
   "total_tasks": 26,
   "status": "paused",
   "completed_tasks": [
-    {"id": 1, "name": "07-01: Preflight verification — build passes, 11+9 stories, 37 tokens", "status": "done", "commit": "41cd29c"},
+    {"id": 1, "name": "07-01: Preflight verification", "status": "done", "commit": "41cd29c"},
     {"id": 2, "name": "07-02: Splash screen (frame O94n2)", "status": "done", "commit": "2ef0d70"},
-    {"id": 3, "name": "07-03: Onboarding 1-2-3 screens (frames WSGRc, nvm2v, BbpOx)", "status": "done", "commit": "df31d36"},
-    {"id": 4, "name": "07-04: ID Scan + Facial Scan (frames f6zx5, llnIt)", "status": "done", "commit": "1116935"},
-    {"id": 5, "name": "07-05: QR Unlock Scan + Safety Mount (frames pE4ag, L3K2a)", "status": "done", "commit": "acf388e"},
-    {"id": 6, "name": "07-06: Ride Complete Summary + Cafe Detail (frames seIX4, dSxRO)", "status": "done", "commit": "8365cd2"},
-    {"id": 7, "name": "07-07: Terms of Service + Privacy Policy (frames XffXP, nlrUb)", "status": "done", "commit": "4eb6669"},
-    {"id": 8, "name": "07-08: SettingsRow (C-01) + FAQRow (C-12) components", "status": "done", "commit": "f4c2be7"},
-    {"id": 9, "name": "07-09: PaymentCardRow (C-03) + RideSummaryCard (C-10) components", "status": "done", "commit": "88b0d46"},
-    {"id": 10, "name": "07-10: VoltCoinsBalance (C-09) + StationInfoCard (C-11) components", "status": "done", "commit": "08fef27"},
-    {"id": 11, "name": "07-11: QRViewfinder (C-04) + HubCard (C-07) + RouteCard (C-08) components", "status": "done", "commit": "e9aaf9f"},
-    {"id": 12, "name": "07-12: Registration + Login screens (frames Y9ojN, TS9Td)", "status": "done", "commit": "65b27b0"},
-    {"id": 13, "name": "07-13: Add/Select/List Payment Method screens (frames WFeNt, w3CgWF, d2ytQb)", "status": "done", "commit": "7d409db"},
-    {"id": 14, "name": "07-14: Security Deposit screen (frame diQjq)", "status": "done", "commit": "18fc393"},
-    {"id": 15, "name": "07-15: Profile + Ride History Stats (frames N0nOZ, PNaMF)", "status": "done", "commit": "5433957"},
-    {"id": 16, "name": "07-16: Edit Profile screen (frame amAsI)", "status": "done", "commit": "b57d380"},
-    {"id": 17, "name": "07-26: Curated Routes screen (frame R1tiK)", "status": "done", "commit": "972a2bb"}
+    {"id": 3, "name": "07-03: Onboarding 1-2-3", "status": "done", "commit": "df31d36"},
+    {"id": 4, "name": "07-04: ID Scan + Facial Scan", "status": "done", "commit": "1116935"},
+    {"id": 5, "name": "07-05: QR Unlock + Safety Mount", "status": "done", "commit": "acf388e"},
+    {"id": 6, "name": "07-06: Ride Complete + Cafe Detail", "status": "done", "commit": "8365cd2"},
+    {"id": 7, "name": "07-07: Terms + Privacy", "status": "done", "commit": "4eb6669"},
+    {"id": 8, "name": "07-08: SettingsRow + FAQRow", "status": "done", "commit": "f4c2be7"},
+    {"id": 9, "name": "07-09: PaymentCardRow + RideSummaryCard", "status": "done", "commit": "88b0d46"},
+    {"id": 10, "name": "07-10: VoltCoinsBalance + StationInfoCard", "status": "done", "commit": "08fef27"},
+    {"id": 11, "name": "07-11: QRViewfinder + HubCard + RouteCard", "status": "done", "commit": "e9aaf9f"},
+    {"id": 12, "name": "07-12: Registration + Login", "status": "done", "commit": "65b27b0"},
+    {"id": 13, "name": "07-13: Add/Select/List Payment", "status": "done", "commit": "7d409db"},
+    {"id": 14, "name": "07-14: Security Deposit", "status": "done", "commit": "18fc393"},
+    {"id": 15, "name": "07-15: Profile + Ride History Stats", "status": "done", "commit": "5433957"},
+    {"id": 16, "name": "07-16: Edit Profile", "status": "done", "commit": "b57d380"},
+    {"id": 17, "name": "07-26: Curated Routes", "status": "done", "commit": "972a2bb"},
+    {"id": 18, "name": "07-17: Settings + Preferences + Login & Security screens", "status": "done", "commit": "5dbc62f"},
+    {"id": 19, "name": "07-18: VoltCoins Rewards + Support screens", "status": "done", "commit": "5dbc62f"},
+    {"id": 20, "name": "07-19: DashboardPanel + NavTurnCard + RidingProgressCard components", "status": "done", "commit": "5dbc62f"}
   ],
   "remaining_tasks": [
-    {"id": 18, "name": "07-17: Settings + Preferences + Login Security (frames oOcGF, Kaf7F, aeptx)", "status": "not_started"},
-    {"id": 19, "name": "07-18: VoltCoins Rewards + Support (frames GH4KX, r504Z)", "status": "not_started"},
-    {"id": 20, "name": "07-19: DashboardPanel (C-02) + NavTurnCard (C-05) + RidingProgressCard (C-06)", "status": "not_started"},
     {"id": 21, "name": "07-20: HomeMap screen rebuild (frame E9hST)", "status": "not_started"},
     {"id": 22, "name": "07-21: NavigateToBike screen rebuild (frame kUCG9)", "status": "not_started"},
     {"id": 23, "name": "07-22: WalkingDirections screen rebuild (frame FZnNd)", "status": "not_started"},
     {"id": 24, "name": "07-23: ActiveRideDashboard screen (frame hQMrX)", "status": "not_started"},
     {"id": 25, "name": "07-24: EndRide + RidingToCharging + DiscoverVIPHubs (frames AH8t6, gqQ8M, PS2Xe)", "status": "not_started"},
-    {"id": 26, "name": "07-25: Done-bar — final Storybook build + story count verification", "status": "not_started"}
+    {"id": 26, "name": "07-25: Done-bar — build-storybook, count 34+23 files, lib/ guard, human verify", "status": "not_started"}
   ],
   "blockers": [],
   "human_actions_pending": [],
   "decisions": [
     {
       "decision": "Do NOT use worktree isolation for background executor agents",
-      "rationale": "Intermittent Bash permission loss inside worktrees causes agents to write files but fail to commit. Run each Wave plan as a sequential foreground gsd-executor agent (no run_in_background: true, no isolation: worktree).",
+      "rationale": "Intermittent Bash permission loss inside worktrees. Run plans as foreground agents (no run_in_background, no isolation:worktree).",
       "phase": "7"
     },
     {
-      "decision": "Tab bar labels in all Phase 7 screen stories: ['Ride','Discover','Wallet','Account']",
-      "rationale": "Per STATE.md Phase 7 decisions — differs from Phase 6 component Interactive which uses ['Home','Ride','Rewards','Profile']",
+      "decision": "Tab bar labels in all Phase 7 screens: ['Ride','Discover','Wallet','Account']",
+      "rationale": "Differs from Phase 6 component Interactive ['Home','Ride','Rewards','Profile']",
       "phase": "7"
     },
     {
-      "decision": "Dark screens (ID Scan, Facial Scan, QR Unlock Scan) override makePhoneFrame() inner bg to #0f0f0f after frame creation",
-      "rationale": "Camera screens use Volt Black background — light default of makePhoneFrame must be explicitly overridden. Already applied in 07-04 and 07-05.",
+      "decision": "Dark screens override makePhoneFrame() inner bg to #0f0f0f",
+      "rationale": "ID Scan, Facial Scan, QR Unlock use Volt Black background",
       "phase": "7"
     },
     {
-      "decision": "Foundation stories (border/color/elevation/grid/iconography/radius/spacing/typography) have pre-existing uncommitted modifications — do NOT stage them",
-      "rationale": "These are unrelated to Phase 7 work. Already present since before Phase 6.",
+      "decision": "Foundation stories (border/color/elevation/grid/iconography/radius/spacing/typography) have pre-existing uncommitted mods — do NOT stage them",
+      "rationale": "Unrelated to Phase 7. Always use explicit git add paths.",
       "phase": "7"
     },
     {
-      "decision": "Wave 3 is fully complete including 07-26 (Curated Routes)",
-      "rationale": "07-26 was inserted into Wave 3 per the plan. It is done. Wave 4 starts with 07-17.",
+      "decision": "Hardcoded brand exception colors: #FDECEC/#D64545 (danger), #FFF1DC/#F5871F/#B5590A (streak), #EF4444 (SOS), #25D366 (WhatsApp), #F5C518 (VIP gold)",
+      "rationale": "No VoltVenture token equivalents for these brand/partner colors",
+      "phase": "7"
+    },
+    {
+      "decision": "colorGrey050 (#FAFAFA) as screen bg for settings-family screens",
+      "rationale": "Settings, Preferences, Login & Security use off-white bg for section card grouping",
       "phase": "7"
     }
   ],
@@ -77,6 +82,6 @@
     "stories/spacing.stories.js (pre-existing, unrelated to Phase 7)",
     "stories/typography.stories.js (pre-existing, unrelated to Phase 7)"
   ],
-  "next_action": "Execute Wave 4 sequentially: run gsd-executor agents one at a time (no worktree isolation, no run_in_background) for plans 07-17, 07-18, 07-19. After all 3 complete, proceed to Wave 5 (07-20 through 07-24), then Wave 6 (07-25 done-bar).",
-  "context_notes": "Waves 0-3 complete (17/26 plans done). Paused cleanly at Wave 4 start — 07-17 was never started (agent call was rejected before dispatch). Working tree is clean (only the 8 pre-existing foundation story modifications). Wave 4 has 3 plans, Wave 5 has 5 plans, Wave 6 has 1 plan. After build-storybook always run: git restore lib/voltventure_theme.ts lib/voltventure_tokens.ts. The SettingsRow component pattern (stories/components/settings-row.stories.js) is available for 07-17. The DashboardPanel/NavTurnCard/RidingProgressCard components built in 07-19 will be consumed by Wave 5 map screens."
+  "next_action": "Execute Wave 5 in parallel: plans 07-20 through 07-24 (map/ride screens). All Wave 4 component dependencies are complete. Run /gsd:execute-phase 7 to resume.",
+  "context_notes": "Wave 4 is 100% complete and committed (5dbc62f). 20/26 plans done. Wave 5 is all map/ride screens — they use hexToRgba+shadowFromToken helpers inline, #e8e8e8 map bg, position:absolute overlays. The dashboard-panel component (07-19) is the key dependency for 07-23 Active Ride Dashboard. After build-storybook always run: git restore lib/voltventure_theme.ts lib/voltventure_tokens.ts. Do NOT stage the 8 pre-existing foundation story modifications."
 }
