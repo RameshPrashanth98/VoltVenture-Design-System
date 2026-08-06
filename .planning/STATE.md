@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v0.1
 milestone_name: milestone
 status: executing
-stopped_at: "07-10 complete (2026-08-06)"
-last_updated: "2026-08-06T05:17:08Z"
+stopped_at: "07-11 complete (2026-08-06)"
+last_updated: "2026-08-06T05:24:06Z"
 progress:
   total_phases: 7
   completed_phases: 4
   total_plans: 64
-  completed_plans: 46
-  percent: 72
+  completed_plans: 47
+  percent: 73
 ---
 
 # Project State
@@ -22,8 +22,8 @@ progress:
 ## Current Position
 
 - **Phase:** Phase 7 — Hi-Fi Screens & Components Expansion
-- **Plan:** 07-10 complete — VoltCoinsBalance (C-09) + StationInfoCard (C-11) component stories
-- **Status:** Executing Phase 7 — Wave 2 continuing; 07-08 + 07-09 + 07-10 done; 07-11 next
+- **Plan:** 07-11 complete — QrViewfinder (C-04) + HubCard (C-07) + RouteCard (C-08) component stories
+- **Status:** Executing Phase 7 — Wave 2 continuing; 07-08 through 07-11 done; 07-12 next
 
 ## Progress
 
@@ -46,7 +46,7 @@ discuss-6   [██████████] 100% — CONTEXT.md + UI-SPEC.md ca
 plan-6      [██████████] 100% (7 plans, 4 waves, verification passed 2026-08-05)
 execute-6   [██████████] 100% — Phase 6 COMPLETE (2026-08-05)
 plan-7      [██████████] 100% (26 plans, 6 waves, verification passed 2026-08-05)
-execute-7   [████░░░░░░]  38% — 07-01 preflight ✓, 07-02 splash ✓, 07-03 onboarding 1-3 ✓, 07-04 id-scan+facial-scan ✓, 07-05 qr-unlock+safety-mount ✓, 07-06 ride-complete+cafe-detail ✓, 07-07 terms+privacy ✓, 07-08 settings-row+faq-row ✓, 07-09 payment-card-row+ride-summary-card ✓, 07-10 voltcoins-balance+station-info-card ✓
+execute-7   [████░░░░░░]  42% — 07-01 preflight ✓, 07-02 splash ✓, 07-03 onboarding 1-3 ✓, 07-04 id-scan+facial-scan ✓, 07-05 qr-unlock+safety-mount ✓, 07-06 ride-complete+cafe-detail ✓, 07-07 terms+privacy ✓, 07-08 settings-row+faq-row ✓, 07-09 payment-card-row+ride-summary-card ✓, 07-10 voltcoins-balance+station-info-card ✓, 07-11 qr-viewfinder+hub-card+route-card ✓
 ```
 
 ## Recent Decisions
@@ -85,7 +85,7 @@ execute-7   [████░░░░░░]  38% — 07-01 preflight ✓, 07-02
 
 ## Pending Todos
 
-- Execute Phase 7: 16 plans remaining across waves 2–6 (07-11 through 07-25 + 07-26)
+- Execute Phase 7: 15 plans remaining across waves 2–6 (07-12 through 07-25 + 07-26)
 
 ## Blockers / Concerns
 
@@ -93,6 +93,6 @@ execute-7   [████░░░░░░]  38% — 07-01 preflight ✓, 07-02
 
 ## Session Continuity
 
-Last session: 2026-08-06T05:17:08Z
-Stopped at: 07-10 complete — VoltCoinsBalance (C-09) + StationInfoCard (C-11) (commits 08fef27, 89abd3a)
-Next action: /gsd:execute-phase 7 (resume at 07-11 — QR Viewfinder + Hub Card + Route Card)
+Last session: 2026-08-06T05:24:06Z
+Stopped at: 07-11 complete — QrViewfinder (C-04) + HubCard (C-07) + RouteCard (C-08) (commits e9aaf9f, 0b5e529, aa4b770)
+Next action: /gsd:execute-phase 7 (resume at 07-12)
