@@ -245,7 +245,7 @@ Wave 1 (parallel — static screens, no component deps):
 - [x] 07-04-PLAN.md — ID Scan + Facial Scan (frames f6zx5, llnIt) — dark screens
 - [x] 07-05-PLAN.md — QR Unlock Scan + Safety Mount (frames pE4ag, L3K2a)
 - [x] 07-06-PLAN.md — Ride Complete + Cafe Detail (frames seIX4, dSxRO)
-- [ ] 07-07-PLAN.md — Terms of Service + Privacy Policy (frames XffXP, nlrUb)
+- [x] 07-07-PLAN.md — Terms of Service + Privacy Policy (frames XffXP, nlrUb)
 
 Wave 2 (parallel — new components batch A):
 - [ ] 07-08-PLAN.md — Settings Row (C-01) + FAQ Row (C-12)
@@ -304,4 +304,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-08-06 — Phase 7 executing: 07-01 preflight + 07-02 splash + 07-03 onboarding 1-3 + 07-04 id-scan/facial-scan + 07-05 qr-unlock/safety-mount complete (5/26 plans done)*
+*Last updated: 2026-08-06 — Phase 7 executing: Wave 1 COMPLETE (07-01 through 07-07 done, 7/26 plans done); Wave 2 next (07-08 through 07-11)*
