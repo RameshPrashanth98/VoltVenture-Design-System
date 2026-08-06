@@ -259,7 +259,7 @@ Wave 3 (parallel — form/list screens, depends on W2 components):
 - [x] 07-14-PLAN.md — Security Deposit (frame diQjq)
 - [x] 07-15-PLAN.md — Profile + Ride History & Stats (frames N0nOZ, PNaMF)
 - [x] 07-16-PLAN.md — Edit Profile (frame amAsI)
-- [ ] 07-26-PLAN.md — Curated Routes (frame R1tiK)
+- [x] 07-26-PLAN.md — Curated Routes (frame R1tiK)
 
 Wave 4 (parallel — settings/toggle screens + component batch B):
 - [ ] 07-17-PLAN.md — Settings + Preferences + Login & Security (frames oOcGF, Kaf7F, aeptx)
