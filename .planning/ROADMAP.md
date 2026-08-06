@@ -230,17 +230,17 @@ Cross-cutting constraints:
 - `SourceCode` export on all screens (React Native Paper JSX as static string)
 - Done-bar: `npm run build-storybook` exits 0; all 34 screen files + 23 component files exist; all Interactive exports verified in Storybook
 
-**Status:** PLANNED (2026-08-05)
+**Status:** EXECUTING (2026-08-06) — Wave 1 in progress
 
 **Plans:** 26 plans
 
 Plans:
 
 Wave 0:
-- [ ] 07-01-PLAN.md — Preflight: verify build baseline, token constants check
+- [x] 07-01-PLAN.md — Preflight: verify build baseline, token constants check
 
 Wave 1 (parallel — static screens, no component deps):
-- [ ] 07-02-PLAN.md — Splash screen (frame O94n2)
+- [x] 07-02-PLAN.md — Splash screen (frame O94n2)
 - [ ] 07-03-PLAN.md — Onboarding 1+2+3 (frames WSGRc, nvm2v, BbpOx)
 - [ ] 07-04-PLAN.md — ID Scan + Facial Scan (frames f6zx5, llnIt) — dark screens
 - [ ] 07-05-PLAN.md — QR Unlock Scan + Safety Mount (frames pE4ag, L3K2a)
@@ -304,4 +304,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-08-05 — Phase 7 planned: 25 plans, 6 waves, 34 screens + 12 components*
+*Last updated: 2026-08-06 — Phase 7 executing: 07-01 preflight + 07-02 splash complete (2/26 plans done)*
