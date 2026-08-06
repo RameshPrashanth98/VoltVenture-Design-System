@@ -1,0 +1,250 @@
+import * as tokens from '../../generated/tokens.js';
+
+export default { title: 'Components/RideSummaryCard' };
+
+// ── Phone frame helper (402×874px, Volt Black bezel, 44px radius) ─────────────
+function makePhoneFrame() {
+  const frame = document.createElement('div');
+  frame.style.cssText = [
+    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
+    'position:relative', 'overflow:hidden', 'display:inline-block',
+    'font-family:Inter,sans-serif'
+  ].join(';');
+  const screen = document.createElement('div');
+  screen.style.cssText = [
+    'width:100%', 'height:100%', 'background:#ffffff',
+    'border-radius:38px', 'overflow:hidden', 'position:relative',
+    'display:flex', 'flex-direction:column'
+  ].join(';');
+  const bar = document.createElement('div');
+  bar.style.cssText = [
+    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'display:flex', 'align-items:center', 'justify-content:space-between',
+    'padding:0 20px', 'box-sizing:border-box'
+  ].join(';');
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  screen.appendChild(bar);
+  frame.appendChild(screen);
+  return { frame, screen };
+}
+
+// ── HTML helpers ────────────────────────────────────────────────────────────────
+function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+
+// ── Default (HTML string) ──────────────────────────────────────────────────────
+export const Default = () => `
+  <div style="
+    background:${tokens.colorSurfaceInverse};
+    border-radius:${tokens.radiusLg}px;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-sizing:border-box;
+    font-family:Inter,sans-serif;
+  ">
+    <div style="
+      width:40px;height:40px;
+      background:rgba(198,255,45,0.13);
+      border-radius:${tokens.radiusMd}px;
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
+    ">
+      <span style="font-size:20px;color:${tokens.colorActionPrimary};">&#x26A1;</span>
+    </div>
+    <div style="flex:1;min-width:0;">
+      <div style="
+        font-family:Inter,sans-serif;
+        font-size:${tokens.typeBodyMd.fontSize}px;
+        line-height:${tokens.typeBodyMd.lineHeight}px;
+        font-weight:600;
+        color:#ffffff;
+      ">VoltVenture Ride</div>
+      <div style="
+        font-family:Inter,sans-serif;
+        font-size:${tokens.typeLabelSm.fontSize}px;
+        line-height:${tokens.typeLabelSm.lineHeight}px;
+        font-weight:${tokens.typeLabelSm.fontWeight};
+        color:${tokens.colorTextSecondary};
+        margin-top:2px;
+      ">Electric e-bike rental</div>
+    </div>
+    <div style="text-align:right;flex-shrink:0;">
+      <div style="
+        font-family:Inter,sans-serif;
+        font-size:${tokens.typeBodyMd.fontSize}px;
+        line-height:${tokens.typeBodyMd.lineHeight}px;
+        font-weight:600;
+        color:#ffffff;
+      ">&#x20B9; 2.50/min</div>
+      <div style="
+        font-family:Inter,sans-serif;
+        font-size:${tokens.typeLabelSm.fontSize}px;
+        line-height:${tokens.typeLabelSm.lineHeight}px;
+        font-weight:${tokens.typeLabelSm.fontWeight};
+        color:${tokens.colorTextSecondary};
+        margin-top:2px;
+      ">+ &#x20B9; 200 deposit</div>
+    </div>
+  </div>
+`;
+
+// ── Interactive export (DOM element, phone-framed) ──────────────────────────────
+export const Interactive = () => {
+  /* @storybook/html-vite — returns DOM element */
+  const { frame, screen } = makePhoneFrame();
+
+  const content = document.createElement('div');
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px;box-sizing:border-box;';
+
+  // Context label
+  const label = document.createElement('div');
+  label.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};margin-bottom:16px;`;
+  label.textContent = 'Your Ride';
+  content.appendChild(label);
+
+  // Ride Summary Card (dark, interactive)
+  const card = document.createElement('div');
+  card.style.cssText = `
+    background:${tokens.colorSurfaceInverse};
+    border-radius:${tokens.radiusLg}px;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-sizing:border-box;
+    cursor:pointer;
+    transition:background 120ms ease;
+  `;
+
+  const chip = document.createElement('div');
+  chip.style.cssText = `
+    width:40px;height:40px;
+    background:rgba(198,255,45,0.13);
+    border-radius:${tokens.radiusMd}px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  `;
+  chip.innerHTML = `<span style="font-size:20px;color:${tokens.colorActionPrimary};">&#x26A1;</span>`;
+
+  const textCol = document.createElement('div');
+  textCol.style.cssText = 'flex:1;min-width:0;';
+  textCol.innerHTML = `
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:600;color:#ffffff;">VoltVenture Ride</div>
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:2px;">Electric e-bike rental</div>
+  `;
+
+  const rateCol = document.createElement('div');
+  rateCol.style.cssText = 'text-align:right;flex-shrink:0;';
+  rateCol.innerHTML = `
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:600;color:#ffffff;">&#x20B9; 2.50/min</div>
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:2px;">+ &#x20B9; 200 deposit</div>
+  `;
+
+  card.appendChild(chip);
+  card.appendChild(textCol);
+  card.appendChild(rateCol);
+
+  // Press state interaction
+  card.addEventListener('pointerdown', () => {
+    card.style.backgroundColor = 'rgba(255,255,255,0.05)';
+  });
+  card.addEventListener('pointerup', () => {
+    card.style.backgroundColor = tokens.colorSurfaceInverse;
+  });
+  card.addEventListener('pointerleave', () => {
+    card.style.backgroundColor = tokens.colorSurfaceInverse;
+  });
+
+  content.appendChild(card);
+  screen.appendChild(content);
+  return frame;
+};
+
+// ── SourceCode export ──────────────────────────────────────────────────────────
+const _cardJSX = `
+// RideSummaryCard — React Native Paper
+import { TouchableRipple, Text } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    gap: 12,
+    backgroundColor: '#0F0F0F', // colorSurfaceInverse
+    borderRadius: 20,           // radiusLg
+  },
+  chip: {
+    width: 40,
+    height: 40,
+    borderRadius: 16,               // radiusMd
+    backgroundColor: 'rgba(198,255,45,0.13)', // #C6FF2D22 — semi-transparent green
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  chipIcon: {
+    fontSize: 20,
+    color: '#C6FF2D', // colorActionPrimary
+  },
+  textCol: { flex: 1 },
+  title: {
+    fontFamily: 'Inter',
+    fontSize: 15,
+    fontWeight: '600',
+    lineHeight: 22,
+    color: '#FFFFFF',
+  },
+  sub: {
+    fontFamily: 'Inter',
+    fontSize: 11,
+    fontWeight: '500',
+    lineHeight: 14,
+    color: '#808080', // colorTextSecondary
+    marginTop: 2,
+  },
+  rateCol: { alignItems: 'flex-end' },
+  rate: {
+    fontFamily: 'Inter',
+    fontSize: 15,
+    fontWeight: '600',
+    lineHeight: 22,
+    color: '#FFFFFF',
+  },
+  rateSub: {
+    fontFamily: 'Inter',
+    fontSize: 11,
+    fontWeight: '500',
+    lineHeight: 14,
+    color: '#808080', // colorTextSecondary
+    marginTop: 2,
+  },
+});
+
+export function RideSummaryCard({ title, sub, rate, rateSub, onPress }) {
+  return (
+    <TouchableRipple onPress={onPress} rippleColor="rgba(255,255,255,0.08)">
+      <View style={styles.container}>
+        <View style={styles.chip}>
+          <Text style={styles.chipIcon}>⚡</Text>
+        </View>
+        <View style={styles.textCol}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.sub}>{sub}</Text>
+        </View>
+        <View style={styles.rateCol}>
+          <Text style={styles.rate}>{rate}</Text>
+          <Text style={styles.rateSub}>{rateSub}</Text>
+        </View>
+      </View>
+    </TouchableRipple>
+  );
+}
+`;
+
+export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// RideSummaryCard — React Native Paper Source</div>${_blk('RideSummaryCard',_cardJSX)}</div>`;
