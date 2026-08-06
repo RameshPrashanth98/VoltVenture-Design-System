@@ -241,7 +241,7 @@ Wave 0:
 
 Wave 1 (parallel — static screens, no component deps):
 - [x] 07-02-PLAN.md — Splash screen (frame O94n2)
-- [ ] 07-03-PLAN.md — Onboarding 1+2+3 (frames WSGRc, nvm2v, BbpOx)
+- [x] 07-03-PLAN.md — Onboarding 1+2+3 (frames WSGRc, nvm2v, BbpOx)
 - [ ] 07-04-PLAN.md — ID Scan + Facial Scan (frames f6zx5, llnIt) — dark screens
 - [ ] 07-05-PLAN.md — QR Unlock Scan + Safety Mount (frames pE4ag, L3K2a)
 - [ ] 07-06-PLAN.md — Ride Complete + Cafe Detail (frames seIX4, dSxRO)
@@ -304,4 +304,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-08-06 — Phase 7 executing: 07-01 preflight + 07-02 splash complete (2/26 plans done)*
+*Last updated: 2026-08-06 — Phase 7 executing: 07-01 preflight + 07-02 splash + 07-03 onboarding 1-3 complete (3/26 plans done)*
