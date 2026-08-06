@@ -2,223 +2,532 @@ import * as tokens from '../../generated/tokens.js';
 
 export default { title: 'Screens/Registration' };
 
+// ── makePhoneFrame (inline per file — Phase 7 spec: 402×874px, #0F0F0F bezel, 44px radius) ──
+function makePhoneFrame() {
+  const frame = document.createElement('div');
+  frame.style.cssText = [
+    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
+    'position:relative', 'overflow:hidden', 'display:inline-block',
+    'font-family:Inter,sans-serif'
+  ].join(';');
+  const screen = document.createElement('div');
+  screen.style.cssText = [
+    'width:100%', 'height:100%', 'background:#ffffff',
+    'border-radius:38px', 'overflow:hidden', 'position:relative',
+    'display:flex', 'flex-direction:column'
+  ].join(';');
+  const bar = document.createElement('div');
+  bar.style.cssText = [
+    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'display:flex', 'align-items:center', 'justify-content:space-between',
+    'padding:0 20px', 'box-sizing:border-box'
+  ].join(';');
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  screen.appendChild(bar);
+  frame.appendChild(screen);
+  return { frame, screen };
+}
+
+// ── Default export: Hi-Fi Registration screen (frame Y9ojN) ──────────────────
 export const Default = () => `
+<div style="
+  width:393px;
+  min-height:852px;
+  display:flex;
+  flex-direction:column;
+  background:${tokens.colorSurfaceBase};
+  padding:0 20px;
+  box-sizing:border-box;
+">
+  <!-- Status Bar (light surface) -->
   <div style="
-    width:393px;
-    min-height:852px;
+    flex-shrink:0;
+    height:62px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:${tokens.colorSurfaceBase};
+    padding:0;
+    box-sizing:border-box;
+  ">
+    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
+    <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#9646; WiFi &#9650;</span>
+  </div>
+
+  <!-- Back Navigation (44px) -->
+  <div style="
+    flex-shrink:0;
+    height:44px;
+    display:flex;
+    align-items:center;
+  ">
+    <span style="font-size:20px;color:${tokens.colorTextPrimary};cursor:pointer;line-height:1;">&#8592;</span>
+  </div>
+
+  <!-- Logo Section (text-align:center) -->
+  <div style="
+    text-align:center;
+    padding:24px 0 16px;
     display:flex;
     flex-direction:column;
-    background:${tokens.colorSurfaceBase};
-    box-sizing:border-box;
-    padding:${tokens.space400}px;
+    align-items:center;
   ">
-    <!-- StatusBar (light surface) -->
+    <!-- 44×44 logo circle: colorActionPrimary bg, black "V" -->
     <div style="
-      width:100%;
+      width:44px;
       height:44px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      background:${tokens.colorSurfaceBase};
-      box-sizing:border-box;
-      margin:0 -${tokens.space400}px;
-      padding:0 ${tokens.space400}px;
-      width:calc(100% + ${tokens.space400 * 2}px);
-    ">
-      <span style="
-        font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelMd.fontSize}px;
-        font-weight:${tokens.typeLabelMd.fontWeight};
-        color:${tokens.colorTextPrimary};
-      ">9:41</span>
-      <span style="
-        font-size:${tokens.typeLabelSm.fontSize}px;
-        color:${tokens.colorTextPrimary};
-        letter-spacing:2px;
-      ">▲ WiFi ■</span>
-    </div>
-
-    <!-- Logo row: centered pill "V" badge -->
-    <div style="
-      display:flex;
-      justify-content:center;
-      margin:${tokens.space800}px 0 ${tokens.space400}px;
-    ">
-      <div style="
-        width:40px;
-        height:40px;
-        border-radius:${tokens.radiusFull}px;
-        background:${tokens.colorTextPrimary};
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-      ">
-        <span style="
-          color:#ffffff;
-          font-family:'${tokens.typeDisplayXl.fontFamily}',sans-serif;
-          font-size:18px;
-          font-weight:700;
-          line-height:1;
-        ">V</span>
-      </div>
-    </div>
-
-    <!-- Page title in typeHeadingLg -->
-    <div style="
-      font-family:'${tokens.typeHeadingLg.fontFamily}',sans-serif;
-      font-size:${tokens.typeHeadingLg.fontSize}px;
-      font-weight:${tokens.typeHeadingLg.fontWeight};
-      line-height:${tokens.typeHeadingLg.lineHeight}px;
-      color:${tokens.colorTextPrimary};
-      text-align:center;
-    ">Create your account</div>
-
-    <!-- Subtitle in typeBodyMd -->
-    <div style="
-      font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-      font-size:${tokens.typeBodyMd.fontSize}px;
-      font-weight:${tokens.typeBodyMd.fontWeight};
-      line-height:${tokens.typeBodyMd.lineHeight}px;
-      color:${tokens.colorTextSecondary};
-      text-align:center;
-      margin-bottom:${tokens.space600}px;
-      margin-top:${tokens.space200}px;
-    ">Join VoltVenture and ride sustainably.</div>
-
-    <!-- Apple button: green pill -->
-    <button style="
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:${tokens.space200}px;
       background:${tokens.colorActionPrimary};
-      color:${tokens.colorTextPrimary};
-      border-radius:${tokens.radiusFull}px;
-      min-height:${tokens.space1200}px;
-      width:100%;
-      border:none;
-      cursor:pointer;
-      box-sizing:border-box;
-      margin-bottom:${tokens.space300}px;
-      font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-      font-size:${tokens.typeBodyMd.fontSize}px;
-      font-weight:${tokens.typeBodyMd.fontWeight};
-      padding:0 ${tokens.space600}px;
-    "> Continue with Apple</button>
-
-    <!-- Google button: white pill with border -->
-    <button style="
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:${tokens.space200}px;
-      background:${tokens.colorSurfaceBase};
-      color:${tokens.colorTextPrimary};
-      border:${tokens.borderWidthHairline}px solid ${tokens.colorBorderSubtle};
-      border-radius:${tokens.radiusFull}px;
-      min-height:${tokens.space1200}px;
-      width:100%;
-      cursor:pointer;
-      box-sizing:border-box;
-      margin-bottom:${tokens.space400}px;
-      font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-      font-size:${tokens.typeBodyMd.fontSize}px;
-      font-weight:${tokens.typeBodyMd.fontWeight};
-      padding:0 ${tokens.space600}px;
-    ">G  Continue with Google</button>
-
-    <!-- OR divider -->
-    <div style="
+      border-radius:50%;
       display:flex;
       align-items:center;
-      gap:${tokens.space300}px;
-      margin-bottom:${tokens.space400}px;
-    ">
-      <div style="flex:1;height:${tokens.borderWidthHairline}px;background:${tokens.colorBorderSubtle};"></div>
-      <span style="
-        font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelSm.fontSize}px;
-        font-weight:${tokens.typeLabelSm.fontWeight};
-        color:${tokens.colorTextSecondary};
-      ">OR</span>
-      <div style="flex:1;height:${tokens.borderWidthHairline}px;background:${tokens.colorBorderSubtle};"></div>
-    </div>
-
-    <!-- WhatsApp phone button: green pill -->
-    <button style="
-      display:inline-flex;
-      align-items:center;
       justify-content:center;
-      gap:${tokens.space200}px;
-      background:${tokens.colorActionPrimary};
-      color:${tokens.colorTextPrimary};
-      border-radius:${tokens.radiusFull}px;
-      min-height:${tokens.space1200}px;
-      width:100%;
-      border:none;
-      cursor:pointer;
-      box-sizing:border-box;
-      font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-      font-size:${tokens.typeBodyMd.fontSize}px;
-      font-weight:${tokens.typeBodyMd.fontWeight};
-      padding:0 ${tokens.space600}px;
-    ">📱 Continue with WhatsApp</button>
-
-    <!-- Email link: ghost-style button -->
-    <button style="
-      background:none;
-      border:none;
-      color:${tokens.colorTextPrimary};
-      text-decoration:underline;
-      cursor:pointer;
-      width:100%;
-      margin-top:${tokens.space200}px;
-      font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-      font-size:${tokens.typeBodyMd.fontSize}px;
-      font-weight:${tokens.typeBodyMd.fontWeight};
-      padding:${tokens.space200}px 0;
-      box-sizing:border-box;
-    ">Use email instead</button>
-
-    <!-- Sign-in anchor: center-aligned secondary text -->
-    <div style="
-      text-align:center;
-      font-family:'${tokens.typeBodySm.fontFamily}',sans-serif;
-      font-size:${tokens.typeBodySm.fontSize}px;
-      font-weight:${tokens.typeBodySm.fontWeight};
-      color:${tokens.colorTextSecondary};
-      margin-top:${tokens.space400}px;
-    ">Already have an account? Sign in</div>
-
-    <!-- Terms row: checkbox placeholder + terms text -->
-    <div style="
-      display:flex;
-      gap:${tokens.space200}px;
-      align-items:flex-start;
-      margin-top:${tokens.space400}px;
     ">
-      <!-- Checkbox placeholder -->
-      <div style="
-        width:16px;
-        height:16px;
-        border:${tokens.borderWidthHairline}px solid ${tokens.colorBorderSubtle};
-        border-radius:4px;
-        flex-shrink:0;
-        margin-top:2px;
-      "></div>
-      <!-- Terms text -->
-      <span style="
-        font-family:'${tokens.typeBodySm.fontFamily}',sans-serif;
-        font-size:${tokens.typeBodySm.fontSize}px;
-        font-weight:${tokens.typeBodySm.fontWeight};
-        color:${tokens.colorTextSecondary};
-        line-height:${tokens.typeBodySm.lineHeight}px;
-      ">I agree to the Terms of Service and Privacy Policy</span>
+      <span style="font-family:Manjari,sans-serif;font-size:22px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">V</span>
     </div>
+    <!-- Brand name -->
+    <div style="
+      font-family:Inter,sans-serif;
+      font-size:17px;
+      font-weight:700;
+      color:${tokens.colorTextPrimary};
+      margin-top:8px;
+    ">VoltVenture</div>
   </div>
+
+  <!-- Header Section -->
+  <div style="margin-bottom:24px;">
+    <div style="
+      font-family:Manjari,sans-serif;
+      font-size:24px;
+      font-weight:700;
+      color:${tokens.colorTextPrimary};
+      line-height:1.2;
+      margin-bottom:6px;
+    ">Create Account</div>
+    <div style="
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      font-weight:400;
+      color:${tokens.colorTextSecondary};
+      line-height:22px;
+    ">Join VoltVenture to start your first ride.</div>
+  </div>
+
+  <!-- Social Buttons Section -->
+  <div style="display:flex;flex-direction:column;gap:12px;">
+    <!-- Apple Button -->
+    <button style="
+      height:56px;
+      width:100%;
+      background:${tokens.colorSurfaceInverse};
+      border-radius:${tokens.radiusFull}px;
+      border:none;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      font-weight:600;
+      color:#ffffff;
+      box-sizing:border-box;
+    ">&#63743;  Continue with Apple</button>
+    <!-- Google Button -->
+    <button style="
+      height:56px;
+      width:100%;
+      background:${tokens.colorSurfaceBase};
+      border:1px solid ${tokens.colorGrey200};
+      border-radius:${tokens.radiusFull}px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      font-weight:600;
+      color:${tokens.colorTextPrimary};
+      box-sizing:border-box;
+    ">G  Continue with Google</button>
+  </div>
+
+  <!-- OR Divider -->
+  <div style="display:flex;align-items:center;gap:12px;margin:20px 0;">
+    <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
+    <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">OR</span>
+    <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
+  </div>
+
+  <!-- WhatsApp Section -->
+  <!-- WhatsApp brand green: #25D366 — no VoltVenture token -->
+  <button style="
+    height:56px;
+    width:100%;
+    background:#25D366;
+    border-radius:${tokens.radiusFull}px;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-family:Inter,sans-serif;
+    font-size:15px;
+    font-weight:600;
+    color:#ffffff;
+    box-sizing:border-box;
+  ">&#128241;  Continue with WhatsApp</button>
+
+  <!-- Email link row -->
+  <div style="
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  ">
+    <span style="
+      font-family:Inter,sans-serif;
+      font-size:15px;
+      font-weight:400;
+      color:${tokens.colorTextSecondary};
+      text-decoration:underline;
+    ">Continue with email</span>
+  </div>
+
+  <!-- Sign In row -->
+  <div style="
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  ">
+    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};">Already have an account? </span>
+    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextAccent};margin-left:4px;">Sign In</span>
+  </div>
+
+  <!-- Terms Section -->
+  <div style="
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:16px;
+    padding-bottom:34px;
+  ">
+    <!-- Checkbox: checked = colorActionPrimary -->
+    <div style="
+      width:22px;
+      height:22px;
+      background:${tokens.colorActionPrimary};
+      border-radius:4px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      cursor:pointer;
+    ">
+      <span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>
+    </div>
+    <span style="
+      font-family:Inter,sans-serif;
+      font-size:13px;
+      font-weight:400;
+      color:${tokens.colorTextSecondary};
+      line-height:1.5;
+    ">By continuing, you agree to our Terms of Service and Privacy Policy</span>
+  </div>
+</div>
 `;
 
-// ── Source code panel ─────────────────────────────────────────────────────────
-function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/Registration — Full Screen HTML</div>${_blk('Default',Default())}</div>`;
+// ── Interactive export: DOM element, phone-framed ─────────────────────────────
+export const Interactive = () => {
+  const { frame, screen } = makePhoneFrame();
+
+  // Hidden phone input for keyboard capture
+  const hiddenInput = document.createElement('input');
+  hiddenInput.type = 'tel';
+  hiddenInput.style.cssText = 'position:absolute;opacity:0;top:-9999px;left:-9999px;width:1px;height:1px;';
+
+  // Scrollable content area
+  const content = document.createElement('div');
+  content.style.cssText = 'flex:1;overflow-y:auto;padding:0 20px 34px;box-sizing:border-box;background:#ffffff;';
+
+  // Back nav
+  const backNav = document.createElement('div');
+  backNav.style.cssText = 'height:44px;display:flex;align-items:center;';
+  backNav.innerHTML = '<span style="font-size:20px;color:#0f0f0f;cursor:pointer;line-height:1;">&#8592;</span>';
+
+  // Logo section
+  const logoSection = document.createElement('div');
+  logoSection.style.cssText = 'text-align:center;padding:24px 0 16px;display:flex;flex-direction:column;align-items:center;';
+
+  const logoCircle = document.createElement('div');
+  logoCircle.style.cssText = `width:44px;height:44px;background:${tokens.colorActionPrimary};border-radius:50%;display:flex;align-items:center;justify-content:center;`;
+  logoCircle.innerHTML = `<span style="font-family:Manjari,sans-serif;font-size:22px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">V</span>`;
+
+  const brandName = document.createElement('div');
+  brandName.style.cssText = 'font-family:Inter,sans-serif;font-size:17px;font-weight:700;color:#0f0f0f;margin-top:8px;';
+  brandName.textContent = 'VoltVenture';
+
+  logoSection.appendChild(logoCircle);
+  logoSection.appendChild(brandName);
+
+  // Header
+  const header = document.createElement('div');
+  header.style.cssText = 'margin-bottom:24px;';
+  header.innerHTML = `
+    <div style="font-family:Manjari,sans-serif;font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1.2;margin-bottom:6px;">Create Account</div>
+    <div style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};line-height:22px;">Join VoltVenture to start your first ride.</div>
+  `;
+
+  // Social buttons wrapper
+  const socialWrap = document.createElement('div');
+  socialWrap.style.cssText = 'display:flex;flex-direction:column;gap:12px;';
+
+  // Apple button
+  const appleBtn = document.createElement('button');
+  appleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;box-sizing:border-box;transition:transform 100ms ease;`;
+  appleBtn.innerHTML = '&#63743;  Continue with Apple';
+  appleBtn.addEventListener('pointerdown', () => { appleBtn.style.backgroundColor = tokens.colorGrey900; appleBtn.style.transform = 'scale(0.97)'; });
+  appleBtn.addEventListener('pointerup', () => { appleBtn.style.backgroundColor = tokens.colorSurfaceInverse; appleBtn.style.transform = 'scale(1)'; });
+  appleBtn.addEventListener('pointerleave', () => { appleBtn.style.backgroundColor = tokens.colorSurfaceInverse; appleBtn.style.transform = 'scale(1)'; });
+
+  // Google button
+  const googleBtn = document.createElement('button');
+  googleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};box-sizing:border-box;transition:transform 100ms ease;`;
+  googleBtn.innerHTML = 'G  Continue with Google';
+  googleBtn.addEventListener('pointerdown', () => { googleBtn.style.backgroundColor = tokens.colorGrey050; });
+  googleBtn.addEventListener('pointerup', () => { googleBtn.style.backgroundColor = tokens.colorSurfaceBase; });
+  googleBtn.addEventListener('pointerleave', () => { googleBtn.style.backgroundColor = tokens.colorSurfaceBase; });
+
+  socialWrap.appendChild(appleBtn);
+  socialWrap.appendChild(googleBtn);
+
+  // OR divider
+  const orDiv = document.createElement('div');
+  orDiv.style.cssText = 'display:flex;align-items:center;gap:12px;margin:20px 0;';
+  orDiv.innerHTML = `
+    <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
+    <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">OR</span>
+    <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
+  `;
+
+  // WhatsApp button — #25D366 brand green, no VoltVenture token
+  const waBtn = document.createElement('button');
+  waBtn.style.cssText = 'height:56px;width:100%;background:#25D366;border-radius:999px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;box-sizing:border-box;transition:transform 100ms ease;';
+  waBtn.innerHTML = '&#128241;  Continue with WhatsApp';
+  waBtn.addEventListener('pointerdown', () => { waBtn.style.backgroundColor = '#1eb858'; waBtn.style.transform = 'scale(0.97)'; });
+  waBtn.addEventListener('pointerup', () => { waBtn.style.backgroundColor = '#25D366'; waBtn.style.transform = 'scale(1)'; });
+  waBtn.addEventListener('pointerleave', () => { waBtn.style.backgroundColor = '#25D366'; waBtn.style.transform = 'scale(1)'; });
+
+  // Email link row
+  const emailRow = document.createElement('div');
+  emailRow.style.cssText = `height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;`;
+  emailRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};text-decoration:underline;">Continue with email</span>`;
+
+  // Sign In row
+  const signInRow = document.createElement('div');
+  signInRow.style.cssText = 'height:44px;display:flex;align-items:center;justify-content:center;';
+  signInRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};">Already have an account?&nbsp;</span><span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextAccent};cursor:pointer;">Sign In</span>`;
+
+  // Terms section with checkbox toggle
+  let checked = true;
+  const termsSection = document.createElement('div');
+  termsSection.style.cssText = 'display:flex;align-items:flex-start;gap:12px;margin-top:16px;';
+
+  const checkbox = document.createElement('div');
+  checkbox.style.cssText = `width:22px;height:22px;background:${tokens.colorActionPrimary};border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;`;
+  checkbox.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>`;
+  checkbox.addEventListener('pointerdown', () => {
+    checked = !checked;
+    if (checked) {
+      checkbox.style.background = tokens.colorActionPrimary;
+      checkbox.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>`;
+    } else {
+      checkbox.style.background = tokens.colorGrey200;
+      checkbox.innerHTML = '';
+    }
+  });
+
+  const termsText = document.createElement('span');
+  termsText.style.cssText = `font-family:Inter,sans-serif;font-size:13px;font-weight:400;color:${tokens.colorTextSecondary};line-height:1.5;`;
+  termsText.textContent = 'By continuing, you agree to our Terms of Service and Privacy Policy';
+
+  termsSection.appendChild(checkbox);
+  termsSection.appendChild(termsText);
+
+  // Assemble content
+  content.appendChild(hiddenInput);
+  content.appendChild(backNav);
+  content.appendChild(logoSection);
+  content.appendChild(header);
+  content.appendChild(socialWrap);
+  content.appendChild(orDiv);
+  content.appendChild(waBtn);
+  content.appendChild(emailRow);
+  content.appendChild(signInRow);
+  content.appendChild(termsSection);
+
+  screen.appendChild(content);
+  return frame;
+};
+
+// ── SourceCode export: React Native Paper JSX ────────────────────────────────
+function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function _blk(label, code) {
+  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+}
+
+const RN_REGISTRATION = `
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, Surface } from 'react-native-paper';
+import { createVoltVentureTheme } from 'voltventure-design-system';
+
+// tokens.colorActionPrimary = '#c6ff2d'
+// tokens.colorSurfaceInverse = '#0f0f0f'
+// WhatsApp brand green: '#25D366' — no VoltVenture token
+
+const theme = createVoltVentureTheme();
+
+export default function RegistrationScreen({ navigation }) {
+  const [agreed, setAgreed] = useState(true);
+
+  return (
+    <Surface style={styles.screen}>
+      {/* Status Bar */}
+      <View style={styles.statusBar} />
+
+      {/* Back Navigation */}
+      <TouchableOpacity style={styles.backNav} onPress={() => navigation.goBack()}>
+        <Text style={styles.backArrow}>←</Text>
+      </TouchableOpacity>
+
+      {/* Logo Section */}
+      <View style={styles.logoSection}>
+        <View style={styles.logoCircle}>
+          <Text style={styles.logoV}>V</Text>
+        </View>
+        <Text style={styles.brandName}>VoltVenture</Text>
+      </View>
+
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.pageTitle}>Create Account</Text>
+        <Text style={styles.pageSubtitle}>Join VoltVenture to start your first ride.</Text>
+      </View>
+
+      {/* Social Buttons */}
+      <Button
+        mode="contained"
+        buttonColor="#0f0f0f"
+        textColor="#ffffff"
+        style={styles.appleBtn}
+        contentStyle={styles.btnContent}
+        onPress={() => {}}
+      >
+        &#63743;  Continue with Apple
+      </Button>
+
+      <Button
+        mode="outlined"
+        textColor="#0f0f0f"
+        style={styles.googleBtn}
+        contentStyle={styles.btnContent}
+        onPress={() => {}}
+      >
+        G  Continue with Google
+      </Button>
+
+      {/* OR Divider */}
+      <View style={styles.orDivider}>
+        <View style={styles.orLine} />
+        <Text style={styles.orText}>OR</Text>
+        <View style={styles.orLine} />
+      </View>
+
+      {/* WhatsApp Button — '#25D366' brand green */}
+      <Button
+        mode="contained"
+        buttonColor="#25D366"
+        textColor="#ffffff"
+        style={styles.waBtn}
+        contentStyle={styles.btnContent}
+        onPress={() => {}}
+      >
+        Continue with WhatsApp
+      </Button>
+
+      {/* Email link */}
+      <TouchableOpacity style={styles.emailRow} onPress={() => {}}>
+        <Text style={styles.emailLink}>Continue with email</Text>
+      </TouchableOpacity>
+
+      {/* Sign In row */}
+      <TouchableOpacity style={styles.signInRow} onPress={() => navigation.navigate('Login')}>
+        <Text style={styles.signInText}>
+          Already have an account? <Text style={styles.signInAccent}>Sign In</Text>
+        </Text>
+      </TouchableOpacity>
+
+      {/* Terms */}
+      <View style={styles.termsRow}>
+        <TouchableOpacity
+          style={[styles.checkbox, agreed ? styles.checkboxChecked : styles.checkboxUnchecked]}
+          onPress={() => setAgreed(!agreed)}
+        >
+          {agreed && <Text style={styles.checkmark}>✓</Text>}
+        </TouchableOpacity>
+        <Text style={styles.termsText}>
+          By continuing, you agree to our Terms of Service and Privacy Policy
+        </Text>
+      </View>
+    </Surface>
+  );
+}
+
+const styles = StyleSheet.create({
+  screen: { flex: 1, backgroundColor: '#ffffff', paddingHorizontal: 20 },
+  statusBar: { height: 62 },
+  backNav: { height: 44, justifyContent: 'center' },
+  backArrow: { fontSize: 20, color: '#0f0f0f' },
+  logoSection: { alignItems: 'center', paddingVertical: 24 },
+  logoCircle: {
+    width: 44, height: 44,
+    borderRadius: 22,
+    backgroundColor: '#c6ff2d', // tokens.colorActionPrimary
+    alignItems: 'center', justifyContent: 'center',
+  },
+  logoV: { fontFamily: 'Manjari', fontSize: 22, fontWeight: '700', color: '#0f0f0f' },
+  brandName: { fontFamily: 'Inter', fontSize: 17, fontWeight: '700', color: '#0f0f0f', marginTop: 8 },
+  header: { marginBottom: 24 },
+  pageTitle: { fontFamily: 'Manjari', fontSize: 24, fontWeight: '700', color: '#0f0f0f', marginBottom: 6 },
+  pageSubtitle: { fontFamily: 'Inter', fontSize: 15, color: '#808080', lineHeight: 22 },
+  appleBtn: { borderRadius: 999, marginBottom: 12 },
+  googleBtn: { borderRadius: 999, borderColor: '#ebebeb' },
+  btnContent: { height: 56 },
+  orDivider: { flexDirection: 'row', alignItems: 'center', gap: 12, marginVertical: 20 },
+  orLine: { flex: 1, height: 1, backgroundColor: '#ebebeb' },
+  orText: { fontFamily: 'Inter', fontSize: 11, fontWeight: '500', color: '#808080' },
+  waBtn: { borderRadius: 999 },
+  emailRow: { height: 44, alignItems: 'center', justifyContent: 'center' },
+  emailLink: { fontFamily: 'Inter', fontSize: 15, color: '#808080', textDecorationLine: 'underline' },
+  signInRow: { height: 44, alignItems: 'center', justifyContent: 'center' },
+  signInText: { fontFamily: 'Inter', fontSize: 15, color: '#808080' },
+  signInAccent: { color: '#7d9220' }, // tokens.colorTextAccent
+  termsRow: { flexDirection: 'row', alignItems: 'flex-start', gap: 12, marginTop: 16, paddingBottom: 34 },
+  checkbox: { width: 22, height: 22, borderRadius: 4, alignItems: 'center', justifyContent: 'center' },
+  checkboxChecked: { backgroundColor: '#c6ff2d' }, // tokens.colorActionPrimary
+  checkboxUnchecked: { backgroundColor: '#ebebeb' }, // tokens.colorGrey200
+  checkmark: { fontSize: 12, fontWeight: '700', color: '#0f0f0f' },
+  termsText: { fontFamily: 'Inter', fontSize: 13, color: '#808080', lineHeight: 20, flex: 1 },
+});
+`.trim();
+
+export const SourceCode = () =>
+  `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Registration — React Native Paper</div>${_blk('RegistrationScreen.tsx', RN_REGISTRATION)}</div>`;
