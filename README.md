@@ -138,7 +138,7 @@ npm run build
 ```bash
 npm run storybook
 # Opens at http://localhost:6006
-# 8 token category stories + 20 component/screen stories
+# 8 token category stories + 34 screen stories + 23 component stories
 ```
 
 ### Run Tests
@@ -147,6 +147,92 @@ npm run storybook
 # SD transform unit tests
 npm test
 ```
+
+---
+
+## Hi-Fi Screen Gallery
+
+All 34 Hi-Fi screens documented in Storybook — covering every user flow from onboarding through ride completion.
+
+### Onboarding & Auth
+
+<div align="center">
+<table>
+<tr>
+<td align="center"><img src="images/hifi/Splash Screen — Hi-Fi.png" width="180"/><br/><sub>Splash</sub></td>
+<td align="center"><img src="images/hifi/Onboarding 1 Screen — Hi-Fi.png" width="180"/><br/><sub>Onboarding 1</sub></td>
+<td align="center"><img src="images/hifi/Onboarding 2 Screen — Hi-Fi.png" width="180"/><br/><sub>Onboarding 2</sub></td>
+<td align="center"><img src="images/hifi/Onboarding 3 Screen — Hi-Fi.png" width="180"/><br/><sub>Onboarding 3</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="images/hifi/Login Screen — Hi-Fi.png" width="180"/><br/><sub>Login</sub></td>
+<td align="center"><img src="images/hifi/Registration Screen — Hi-Fi.png" width="180"/><br/><sub>Registration</sub></td>
+<td align="center"><img src="images/hifi/ID Scan Screen — Hi-Fi.png" width="180"/><br/><sub>ID Scan</sub></td>
+<td align="center"><img src="images/hifi/Facial Scan Screen — Hi-Fi.png" width="180"/><br/><sub>Facial Scan</sub></td>
+</tr>
+</table>
+</div>
+
+### Ride Flow
+
+<div align="center">
+<table>
+<tr>
+<td align="center"><img src="images/hifi/Home Map Screen — Hi-Fi.png" width="180"/><br/><sub>Home Map</sub></td>
+<td align="center"><img src="images/hifi/Navigate to Bike Screen — Hi-Fi.png" width="180"/><br/><sub>Navigate to Bike</sub></td>
+<td align="center"><img src="images/hifi/QR Unlock Scan Screen — Hi-Fi.png" width="180"/><br/><sub>QR Unlock</sub></td>
+<td align="center"><img src="images/hifi/Safety Mount Screen — Hi-Fi.png" width="180"/><br/><sub>Safety Mount</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="images/hifi/Active Ride Dashboard — Hi-Fi.png" width="180"/><br/><sub>Active Ride Dashboard</sub></td>
+<td align="center"><img src="images/hifi/Walking Directions Screen — Hi-Fi.png" width="180"/><br/><sub>Walking Directions</sub></td>
+<td align="center"><img src="images/hifi/End Ride - Find Charging Station — Hi-Fi.png" width="180"/><br/><sub>End Ride / Find Charging</sub></td>
+<td align="center"><img src="images/hifi/Riding to Charging Station Screen — Hi-Fi.png" width="180"/><br/><sub>Riding to Charging</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="images/hifi/Ride Complete Summary Screen — Hi-Fi.png" width="180"/><br/><sub>Ride Complete Summary</sub></td>
+<td align="center"><img src="images/hifi/Curated Routes Screen — Hi-Fi.png" width="180"/><br/><sub>Curated Routes</sub></td>
+<td align="center"><img src="images/hifi/Discover VIP Hubs Screen — Hi-Fi.png" width="180"/><br/><sub>Discover VIP Hubs</sub></td>
+<td align="center"><img src="images/hifi/Cafe Detail Card — Hi-Fi.png" width="180"/><br/><sub>Cafe Detail</sub></td>
+</tr>
+</table>
+</div>
+
+### Profile, Payments & History
+
+<div align="center">
+<table>
+<tr>
+<td align="center"><img src="images/hifi/Ride History & Stats Screen — Hi-Fi.png" width="180"/><br/><sub>Ride History & Stats</sub></td>
+<td align="center"><img src="images/hifi/VoltCoins Rewards Screen — Hi-Fi.png" width="180"/><br/><sub>VoltCoins Rewards</sub></td>
+<td align="center"><img src="images/hifi/Profile Screen — Hi-Fi.png" width="180"/><br/><sub>Profile</sub></td>
+<td align="center"><img src="images/hifi/Edit Profile Information Screen — Hi-Fi.png" width="180"/><br/><sub>Edit Profile</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="images/hifi/Payment Methods Screen — Hi-Fi.png" width="180"/><br/><sub>Payment Methods</sub></td>
+<td align="center"><img src="images/hifi/Add Payment Method Screen — Hi-Fi.png" width="180"/><br/><sub>Add Payment Method</sub></td>
+<td align="center"><img src="images/hifi/Select Payment Method Screen — Hi-Fi.png" width="180"/><br/><sub>Select Payment</sub></td>
+<td align="center"><img src="images/hifi/Security Deposit Screen — Hi-Fi.png" width="180"/><br/><sub>Security Deposit</sub></td>
+</tr>
+</table>
+</div>
+
+### Settings & Support
+
+<div align="center">
+<table>
+<tr>
+<td align="center"><img src="images/hifi/Settings Screen — Hi-Fi.png" width="180"/><br/><sub>Settings</sub></td>
+<td align="center"><img src="images/hifi/Preferences Screen — Hi-Fi.png" width="180"/><br/><sub>Preferences</sub></td>
+<td align="center"><img src="images/hifi/Login & Security Screen — Hi-Fi.png" width="180"/><br/><sub>Login & Security</sub></td>
+<td align="center"><img src="images/hifi/Support Screen — Hi-Fi.png" width="180"/><br/><sub>Support</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="images/hifi/Privacy Policy Screen — Hi-Fi.png" width="180"/><br/><sub>Privacy Policy</sub></td>
+<td align="center"><img src="images/hifi/Terms of Service Screen — Hi-Fi.png" width="180"/><br/><sub>Terms of Service</sub></td>
+</tr>
+</table>
+</div>
 
 ---
 
@@ -164,8 +250,8 @@ voltventure-design-system/
 ├── generated/
 │   └── tokens.js               # JS reference for Storybook
 ├── stories/
-│   ├── components/         # 11 component HTML stories
-│   └── screens/            # 9 screen HTML stories
+│   ├── components/         # 23 component HTML stories
+│   └── screens/            # 34 screen HTML stories
 ├── scripts/
 │   └── validate-tokens.mjs # WCAG + grid + format validators
 ├── sd-transforms/          # Custom SD v4 transforms + unit tests
@@ -205,7 +291,9 @@ voltventure-design-system/
 |------|--------|
 | Token pipeline (12 categories) | Complete |
 | Storybook token docs (8 stories) | Complete |
-| Component + screen stories (20 items) | Complete |
+| 34 screen Hi-Fi stories | Complete |
+| 23 component stories | Complete |
+| Hi-Fi screen gallery (34 screens) | Complete |
 | React Native Paper showcase app | Abandoned — moved to separate repository |
 | Dark mode token layer | Deferred — needs validated dark screen designs |
 | Status colors (error / warning / info) | Deferred — awaiting brand decision |
