@@ -1,10 +1,10 @@
 {
   "version": "1.0",
-  "timestamp": "2026-08-06T10:30:00Z",
+  "timestamp": "2026-08-06T12:00:00Z",
   "phase": "7",
   "phase_name": "Hi-Fi Screens & Components Expansion",
   "phase_dir": ".planning/phases/07-hifi-screens-components-expansion",
-  "plan": 20,
+  "plan": 23,
   "task": 0,
   "total_tasks": 26,
   "status": "paused",
@@ -28,14 +28,14 @@
     {"id": 17, "name": "07-26: Curated Routes", "status": "done", "commit": "972a2bb"},
     {"id": 18, "name": "07-17: Settings + Preferences + Login & Security screens", "status": "done", "commit": "5dbc62f"},
     {"id": 19, "name": "07-18: VoltCoins Rewards + Support screens", "status": "done", "commit": "5dbc62f"},
-    {"id": 20, "name": "07-19: DashboardPanel + NavTurnCard + RidingProgressCard components", "status": "done", "commit": "5dbc62f"}
+    {"id": 20, "name": "07-19: DashboardPanel + NavTurnCard + RidingProgressCard components", "status": "done", "commit": "5dbc62f"},
+    {"id": 21, "name": "07-20: HomeMap screen rebuild (frame E9hST)", "status": "done", "commit": "001420c"},
+    {"id": 22, "name": "07-21: NavigateToBike screen rebuild (frame kUCG9)", "status": "done", "commit": "001420c"},
+    {"id": 23, "name": "07-22: WalkingDirections screen rebuild (frame FZnNd)", "status": "done", "commit": "001420c"}
   ],
   "remaining_tasks": [
-    {"id": 21, "name": "07-20: HomeMap screen rebuild (frame E9hST)", "status": "not_started"},
-    {"id": 22, "name": "07-21: NavigateToBike screen rebuild (frame kUCG9)", "status": "not_started"},
-    {"id": 23, "name": "07-22: WalkingDirections screen rebuild (frame FZnNd)", "status": "not_started"},
     {"id": 24, "name": "07-23: ActiveRideDashboard screen (frame hQMrX)", "status": "not_started"},
-    {"id": 25, "name": "07-24: EndRide + RidingToCharging + DiscoverVIPHubs (frames AH8t6, gqQ8M, PS2Xe)", "status": "not_started"},
+    {"id": 25, "name": "07-24: EndRideFindCharging + RidingToCharging + DiscoverVIPHubs (frames AH8t6, gqQ8M, PS2Xe)", "status": "not_started"},
     {"id": 26, "name": "07-25: Done-bar — build-storybook, count 34+23 files, lib/ guard, human verify", "status": "not_started"}
   ],
   "blockers": [],
@@ -70,6 +70,21 @@
       "decision": "colorGrey050 (#FAFAFA) as screen bg for settings-family screens",
       "rationale": "Settings, Preferences, Login & Security use off-white bg for section card grouping",
       "phase": "7"
+    },
+    {
+      "decision": "HTML entity encoding (&#x26A1; etc.) for emoji in Default template literals",
+      "rationale": "Avoids template literal escaping issues; all 3 rebuilt map screens use this pattern successfully",
+      "phase": "7"
+    },
+    {
+      "decision": "tabsHtml() helper function defined at module scope, called inside Default template literal",
+      "rationale": "DRY pattern for tab bar HTML across map screens; confirmed working in 07-20/21/22",
+      "phase": "7"
+    },
+    {
+      "decision": "active-ride-dashboard and discover-vip-hubs use display:flex;flex-direction:column outer layout (not position:relative)",
+      "rationale": "Split-screen designs (map area + panel) require flex column stacking, not absolute overlays for main sections",
+      "phase": "7"
     }
   ],
   "uncommitted_files": [
@@ -82,6 +97,6 @@
     "stories/spacing.stories.js (pre-existing, unrelated to Phase 7)",
     "stories/typography.stories.js (pre-existing, unrelated to Phase 7)"
   ],
-  "next_action": "Execute Wave 5 in parallel: plans 07-20 through 07-24 (map/ride screens). All Wave 4 component dependencies are complete. Run /gsd:execute-phase 7 to resume.",
-  "context_notes": "Wave 4 is 100% complete and committed (5dbc62f). 20/26 plans done. Wave 5 is all map/ride screens — they use hexToRgba+shadowFromToken helpers inline, #e8e8e8 map bg, position:absolute overlays. The dashboard-panel component (07-19) is the key dependency for 07-23 Active Ride Dashboard. After build-storybook always run: git restore lib/voltventure_theme.ts lib/voltventure_tokens.ts. Do NOT stage the 8 pre-existing foundation story modifications."
+  "next_action": "Execute Wave 5 remainder: plans 07-23 and 07-24 inline (no subagents). Then Wave 6 (07-25) done-bar. Read 07-23-PLAN.md and 07-24-PLAN.md — they are fully spec'd. active-ride-dashboard uses flex-column layout (460px map + flex:1 dashboard panel + 56px tab bar). discover-vip-hubs uses flex-column (388px map + flex:1 bottom sheet + 56px tab bar, Discover tab active).",
+  "context_notes": "Wave 5 is 3/5 done. 07-20/21/22 rebuilt and committed (001420c). Key pattern for remaining screens: active-ride-dashboard uses display:flex;flex-direction:column — map area (height:460px, position:relative) with overlays, then dashboard panel (flex:1) with handle+timer+telemetry+billing+SOS+End-Ride, then tab bar (flex-shrink:0, height:56px). For Interactive in flex-column screens, the screen div from makePhoneFrame needs display:flex;flex-direction:column. discover-vip-hubs: map area (388px) + bottom sheet (flex:1) + tab bar; Discover is active tab (index 1 in TABS). end-ride-find-charging uses 80x80px charging station pin with stationPulse keyframe animation. All files verified with node --input-type=module import check before commit."
 }
