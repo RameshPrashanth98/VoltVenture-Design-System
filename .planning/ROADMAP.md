@@ -230,7 +230,7 @@ Cross-cutting constraints:
 - `SourceCode` export on all screens (React Native Paper JSX as static string)
 - Done-bar: `npm run build-storybook` exits 0; all 34 screen files + 23 component files exist; all Interactive exports verified in Storybook
 
-**Status:** EXECUTING (2026-08-06) — Wave 1 in progress
+**Status:** COMPLETE (2026-08-06) — 26/26 plans done, human approved
 
 **Plans:** 26 plans
 
@@ -270,11 +270,11 @@ Wave 5 (parallel — map screens, depends on W4 components):
 - [ ] 07-20-PLAN.md — Home Map rebuild (frame E9hST)
 - [ ] 07-21-PLAN.md — Navigate to Bike rebuild (frame kUCG9)
 - [ ] 07-22-PLAN.md — Walking Directions rebuild (frame FZnNd)
-- [ ] 07-23-PLAN.md — Active Ride Dashboard (frame hQMrX)
-- [ ] 07-24-PLAN.md — End Ride + Riding to Charging + Discover VIP Hubs (frames AH8t6, gqQ8M, PS2Xe)
+- [x] 07-23-PLAN.md — Active Ride Dashboard (frame hQMrX)
+- [x] 07-24-PLAN.md — End Ride + Riding to Charging + Discover VIP Hubs (frames AH8t6, gqQ8M, PS2Xe)
 
 Wave 6:
-- [ ] 07-25-PLAN.md — Done-bar: build-storybook, count 34+23 story files, lib/ guard, git commit, human verify
+- [x] 07-25-PLAN.md — Done-bar: build-storybook, count 34+23 story files, lib/ guard, git commit, human verify
 
 Cross-cutting constraints:
 - All `Interactive` exports return a DOM element (`document.createElement`) — not an HTML string
