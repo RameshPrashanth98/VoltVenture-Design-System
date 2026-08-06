@@ -250,7 +250,7 @@ Wave 1 (parallel — static screens, no component deps):
 Wave 2 (parallel — new components batch A):
 - [x] 07-08-PLAN.md — Settings Row (C-01) + FAQ Row (C-12)
 - [x] 07-09-PLAN.md — Payment Card Row (C-03) + Ride Summary Card (C-10)
-- [ ] 07-10-PLAN.md — VoltCoins Balance (C-09) + Station Info Card (C-11)
+- [x] 07-10-PLAN.md — VoltCoins Balance (C-09) + Station Info Card (C-11)
 - [ ] 07-11-PLAN.md — QR Viewfinder (C-04) + Hub Card (C-07) + Route Card (C-08)
 
 Wave 3 (parallel — form/list screens, depends on W2 components):
@@ -304,4 +304,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-08-06 — Phase 7 executing: Wave 2 continuing; 07-09 COMPLETE (9/26 plans done); 07-10 + 07-11 next*
+*Last updated: 2026-08-06 — Phase 7 executing: Wave 2 continuing; 07-10 COMPLETE (10/26 plans done); 07-11 next*
