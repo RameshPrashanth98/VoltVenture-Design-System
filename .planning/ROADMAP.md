@@ -248,7 +248,7 @@ Wave 1 (parallel — static screens, no component deps):
 - [x] 07-07-PLAN.md — Terms of Service + Privacy Policy (frames XffXP, nlrUb)
 
 Wave 2 (parallel — new components batch A):
-- [ ] 07-08-PLAN.md — Settings Row (C-01) + FAQ Row (C-12)
+- [x] 07-08-PLAN.md — Settings Row (C-01) + FAQ Row (C-12)
 - [ ] 07-09-PLAN.md — Payment Card Row (C-03) + Ride Summary Card (C-10)
 - [ ] 07-10-PLAN.md — VoltCoins Balance (C-09) + Station Info Card (C-11)
 - [ ] 07-11-PLAN.md — QR Viewfinder (C-04) + Hub Card (C-07) + Route Card (C-08)
@@ -304,4 +304,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-08-06 — Phase 7 executing: Wave 1 COMPLETE (07-01 through 07-07 done, 7/26 plans done); Wave 2 next (07-08 through 07-11)*
+*Last updated: 2026-08-06 — Phase 7 executing: Wave 2 started; 07-08 COMPLETE (8/26 plans done); 07-09 through 07-11 next*
