@@ -1,6 +1,6 @@
 import * as tokens from '../../generated/tokens.js';
 
-export default { title: 'Screens/Onboarding1' };
+export default { title: 'Screens/Onboarding2' };
 
 // ── Shared template helpers ────────────────────────────────────────────────────
 
@@ -114,7 +114,7 @@ export const Default = () => `
         border-radius:${tokens.radiusFull}px;
         padding:4px 12px;
         box-sizing:border-box;
-      ">01 / 03</div>
+      ">02 / 03</div>
     </div>
 
     <!-- Content area -->
@@ -131,20 +131,20 @@ export const Default = () => `
         gap:6px;
         margin-bottom:${tokens.space500}px;
       ">
-        <!-- Dot 1: active (24×8px pill) -->
-        <div style="
-          width:24px;
-          height:8px;
-          border-radius:4px;
-          background:${tokens.colorSurfaceInverse};
-          flex-shrink:0;
-        "></div>
-        <!-- Dot 2: inactive (8×8px circle) -->
+        <!-- Dot 1: inactive (8×8px circle) -->
         <div style="
           width:8px;
           height:8px;
           border-radius:50%;
           background:${tokens.colorGrey300};
+          flex-shrink:0;
+        "></div>
+        <!-- Dot 2: active (24×8px pill) -->
+        <div style="
+          width:24px;
+          height:8px;
+          border-radius:4px;
+          background:${tokens.colorSurfaceInverse};
           flex-shrink:0;
         "></div>
         <!-- Dot 3: inactive (8×8px circle) -->
@@ -165,7 +165,7 @@ export const Default = () => `
         line-height:${tokens.typeHeadingLg.lineHeight}px;
         color:${tokens.colorTextPrimary};
         margin-bottom:${tokens.space300}px;
-      ">Explore the City on Electric Wheels</div>
+      ">Ride Smart. Stay Safe.</div>
 
       <!-- Subtext -->
       <div style="
@@ -174,7 +174,7 @@ export const Default = () => `
         font-weight:${tokens.typeBodyMd.fontWeight};
         line-height:${tokens.typeBodyMd.lineHeight}px;
         color:${tokens.colorTextSecondary};
-      ">Rent a VoltVenture e-bike and ride anywhere in the city. Clean, fast, and fun.</div>
+      ">Helmet stations at every hub. Real-time battery tracking. Safety-first design.</div>
 
       <!-- Spacer -->
       <div style="flex:1;"></div>
@@ -229,7 +229,7 @@ export const Interactive = () => {
   // Screen number badge
   const badge = document.createElement('div');
   badge.style.cssText = 'position:absolute;top:16px;right:16px;background:#ffffff;color:#808080;font-family:Inter,sans-serif;font-size:11px;font-weight:500;border-radius:999px;padding:4px 12px;box-sizing:border-box';
-  badge.textContent = '01 / 03';
+  badge.textContent = '02 / 03';
   illus.appendChild(badge);
 
   // Content panel
@@ -241,9 +241,9 @@ export const Interactive = () => {
   dotsRow.style.cssText = 'display:flex;gap:6px;margin-bottom:20px';
 
   const dot1 = document.createElement('div');
-  dot1.style.cssText = 'width:24px;height:8px;border-radius:4px;background:#0f0f0f;flex-shrink:0';
+  dot1.style.cssText = 'width:8px;height:8px;border-radius:50%;background:#c9c9c9;flex-shrink:0';
   const dot2 = document.createElement('div');
-  dot2.style.cssText = 'width:8px;height:8px;border-radius:50%;background:#c9c9c9;flex-shrink:0';
+  dot2.style.cssText = 'width:24px;height:8px;border-radius:4px;background:#0f0f0f;flex-shrink:0';
   const dot3 = document.createElement('div');
   dot3.style.cssText = 'width:8px;height:8px;border-radius:50%;background:#c9c9c9;flex-shrink:0';
 
@@ -254,12 +254,12 @@ export const Interactive = () => {
   // Headline
   const headline = document.createElement('div');
   headline.style.cssText = 'font-family:Inter,sans-serif;font-size:20px;font-weight:600;line-height:26px;color:#0f0f0f;margin-bottom:12px';
-  headline.textContent = 'Explore the City on Electric Wheels';
+  headline.textContent = 'Ride Smart. Stay Safe.';
 
   // Subtext
   const subtext = document.createElement('div');
   subtext.style.cssText = 'font-family:Inter,sans-serif;font-size:15px;font-weight:400;line-height:22px;color:#808080';
-  subtext.textContent = 'Rent a VoltVenture e-bike and ride anywhere in the city. Clean, fast, and fun.';
+  subtext.textContent = 'Helmet stations at every hub. Real-time battery tracking. Safety-first design.';
 
   // Spacer
   const spacer = document.createElement('div');
@@ -307,15 +307,15 @@ import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { Surface } from 'react-native-paper';
 import { createVoltVentureTheme } from 'voltventure-design-system';
 
-// tokens.colorActionPrimary = '#c6ff2d'
-// tokens.colorSurfaceBase   = '#ffffff'
-// tokens.colorTextPrimary   = '#0f0f0f'
-// tokens.colorGrey300       = '#c9c9c9'
+// tokens.colorActionPrimary  = '#c6ff2d'
+// tokens.colorSurfaceBase    = '#ffffff'
+// tokens.colorTextPrimary    = '#0f0f0f'
+// tokens.colorGrey300        = '#c9c9c9'
 // tokens.colorSurfaceInverse = '#0f0f0f'
 
 const theme = createVoltVentureTheme();
 
-export default function Onboarding1Screen({ navigation }) {
+export default function Onboarding2Screen({ navigation }) {
   return (
     <Surface style={styles.container} theme={theme}>
       {/* Status bar */}
@@ -332,31 +332,31 @@ export default function Onboarding1Screen({ navigation }) {
       <View style={styles.illustration}>
         {/* Screen number badge */}
         <View style={styles.badge}>
-          <Text style={styles.badgeText}>01 / 03</Text>
+          <Text style={styles.badgeText}>02 / 03</Text>
         </View>
       </View>
 
       {/* Content */}
       <View style={styles.content}>
-        {/* Pagination dots */}
+        {/* Pagination dots — dot 2 active */}
         <View style={styles.dotsRow}>
-          <View style={[styles.dot, styles.dotActive]} />
           <View style={[styles.dot, styles.dotInactive]} />
+          <View style={[styles.dot, styles.dotActive]} />
           <View style={[styles.dot, styles.dotInactive]} />
         </View>
 
         <Text style={styles.headline}>
-          Explore the City on Electric Wheels
+          Ride Smart. Stay Safe.
         </Text>
         <Text style={styles.subtext}>
-          Rent a VoltVenture e-bike and ride anywhere in the city. Clean, fast, and fun.
+          Helmet stations at every hub. Real-time battery tracking. Safety-first design.
         </Text>
 
         <View style={{ flex: 1 }} />
 
         <TouchableOpacity
           style={styles.ctaButton}
-          onPress={() => navigation.navigate('Onboarding2')}
+          onPress={() => navigation.navigate('Onboarding3')}
           activeOpacity={0.85}
         >
           <Text style={styles.ctaLabel}>Next →</Text>
@@ -385,4 +385,4 @@ const styles = StyleSheet.create({
   ctaLabel: { fontSize: 15, fontWeight: '600', color: '#0f0f0f', fontFamily: 'Inter' },
 });`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/Onboarding1 — React Native Paper</div>${_blk('Onboarding1Screen.tsx', RN_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/Onboarding2 — React Native Paper</div>${_blk('Onboarding2Screen.tsx', RN_JSX)}</div>`;
