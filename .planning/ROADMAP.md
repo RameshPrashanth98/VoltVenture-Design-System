@@ -255,7 +255,7 @@ Wave 2 (parallel — new components batch A):
 
 Wave 3 (parallel — form/list screens, depends on W2 components):
 - [x] 07-12-PLAN.md — Registration + Login (frames Y9ojN, TS9Td)
-- [ ] 07-13-PLAN.md — Add Payment + Select Payment + Payment Methods (frames WFeNt, w3CgWF, d2ytQb)
+- [x] 07-13-PLAN.md — Add Payment + Select Payment + Payment Methods (frames WFeNt, w3CgWF, d2ytQb)
 - [ ] 07-14-PLAN.md — Security Deposit (frame diQjq)
 - [ ] 07-15-PLAN.md — Profile + Ride History & Stats (frames N0nOZ, PNaMF)
 - [ ] 07-16-PLAN.md — Edit Profile (frame amAsI)
