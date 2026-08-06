@@ -256,7 +256,7 @@ Wave 2 (parallel — new components batch A):
 Wave 3 (parallel — form/list screens, depends on W2 components):
 - [x] 07-12-PLAN.md — Registration + Login (frames Y9ojN, TS9Td)
 - [x] 07-13-PLAN.md — Add Payment + Select Payment + Payment Methods (frames WFeNt, w3CgWF, d2ytQb)
-- [ ] 07-14-PLAN.md — Security Deposit (frame diQjq)
+- [x] 07-14-PLAN.md — Security Deposit (frame diQjq)
 - [ ] 07-15-PLAN.md — Profile + Ride History & Stats (frames N0nOZ, PNaMF)
 - [ ] 07-16-PLAN.md — Edit Profile (frame amAsI)
 - [ ] 07-26-PLAN.md — Curated Routes (frame R1tiK)
@@ -304,4 +304,4 @@ Cross-cutting constraints:
 
 ---
 
-*Last updated: 2026-08-06 — Phase 7 executing: Wave 2 continuing; 07-11 COMPLETE (11/26 plans done); 07-12 next*
+*Last updated: 2026-08-06 — Phase 7 executing: Wave 3 in progress; 07-14 COMPLETE (14/26 plans done); 07-15 next*
