@@ -2,301 +2,204 @@ import * as tokens from '../../generated/tokens.js';
 
 export default { title: 'Screens/NavigateToBike' };
 
-// Copied from stories/elevation.stories.js — helper not exported from that file
-/**
- * Convert #RRGGBBAA (8-char hex) to CSS rgba().
- * @param {string} hex8 — e.g. "#0F0F0F1A"
- * @returns {string} — e.g. "rgba(15, 15, 15, 0.10)"
- */
 function hexToRgba(hex8) {
-  const r = parseInt(hex8.slice(1, 3), 16);
-  const g = parseInt(hex8.slice(3, 5), 16);
-  const b = parseInt(hex8.slice(5, 7), 16);
-  const a = (parseInt(hex8.slice(7, 9), 16) / 255).toFixed(2);
-  return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+  const r = parseInt(hex8.slice(1,3),16);
+  const g = parseInt(hex8.slice(3,5),16);
+  const b = parseInt(hex8.slice(5,7),16);
+  const a = (parseInt(hex8.slice(7,9),16)/255).toFixed(2);
+  return 'rgba('+r+', '+g+', '+b+', '+a+')';
 }
-
-/**
- * Build a CSS box-shadow string from an elevation token value.
- * If the token is the string "none" (elevationFlat), returns "none".
- * @param {string|{color:string, offsetX:number, offsetY:number, blur:number, spread:number}} token
- * @returns {string}
- */
 function shadowFromToken(token) {
   if (token === 'none') return 'none';
-  return token.offsetX + 'px ' + token.offsetY + 'px ' + token.blur + 'px ' + token.spread + 'px ' + hexToRgba(token.color);
+  return token.offsetX+'px '+token.offsetY+'px '+token.blur+'px '+token.spread+'px '+hexToRgba(token.color);
 }
 
-const TABS = ['Ride', 'Discover', 'Wallet', 'Account'];
+const TABS = ['Ride','Discover','Wallet','Account'];
 
-export const Default = () => `
-  <div style="
-    width:393px;
-    min-height:852px;
-    position:relative;
-    overflow:hidden;
-    background:#e8e8e8;
-    box-sizing:border-box;
-  ">
+function tabsHtml(activeLabel) {
+  return TABS.map(label => {
+    const isActive = label === activeLabel;
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;color:${isActive ? '#ffffff' : tokens.colorTextSecondary};">&#x25CF;</span></div><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};">${label}</span></div>`;
+  }).join('');
+}
 
-    <!-- Map background placeholder -->
-    <div style="position:absolute;inset:0;background:#e8e8e8;"></div>
+const ROUTE_DOTS = [
+  {top:380,left:195},{top:362,left:192},{top:348,left:196},
+  {top:335,left:191},{top:322,left:194},{top:310,left:190},{top:298,left:193}
+];
 
-    <!-- Dashed route line (user → bike) -->
-    <div style="
-      position:absolute;
-      top:200px;
-      left:50%;
-      transform:translateX(-50%);
-      width:2px;
-      height:200px;
-      border-left:2px dashed ${tokens.colorGrey700};
-    "></div>
-
-    <!-- User location pulse -->
-    <div style="
-      position:absolute;
-      bottom:240px;
-      left:50%;
-      transform:translateX(-50%);
-      width:32px;
-      height:32px;
-      border-radius:${tokens.radiusFull}px;
-      background:rgba(198,255,45,0.20);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <div style="
-        width:12px;
-        height:12px;
-        border-radius:${tokens.radiusFull}px;
-        background:${tokens.colorActionPrimary};
-      "></div>
-    </div>
-
-    <!-- Selected bike pin with pulse ring -->
-    <div style="
-      position:absolute;
-      top:150px;
-      left:50%;
-      transform:translateX(-50%);
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:64px;
-      height:64px;
-    ">
-      <!-- Pulse ring -->
-      <div style="
-        position:absolute;
-        width:56px;
-        height:56px;
-        border-radius:${tokens.radiusFull}px;
-        background:rgba(198,255,45,0.20);
-      "></div>
-      <!-- Pin badge -->
-      <div style="
-        position:relative;
-        background:${tokens.colorSurfaceBase};
-        border-radius:${tokens.radiusFull}px;
-        padding:${tokens.space100}px ${tokens.space200}px;
-        display:inline-flex;
-        align-items:center;
-        gap:${tokens.space100}px;
-      ">
-        <span style="font-size:12px;">🚲</span>
-        <span style="
-          font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-          font-size:${tokens.typeLabelSm.fontSize}px;
-          font-weight:${tokens.typeLabelSm.fontWeight};
-          color:${tokens.colorTextPrimary};
-        ">VV-042</span>
-      </div>
-    </div>
-
-    <!-- StatusBar overlay -->
-    <div style="
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:44px;
-      background:rgba(255,255,255,0.90);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 ${tokens.space400}px;
-      box-sizing:border-box;
-    ">
-      <span style="
-        font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelMd.fontSize}px;
-        font-weight:${tokens.typeLabelMd.fontWeight};
-        color:${tokens.colorTextPrimary};
-      ">9:41</span>
-      <span style="
-        font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelSm.fontSize}px;
-        color:${tokens.colorTextPrimary};
-        letter-spacing:2px;
-      ">▲ WiFi ■</span>
-    </div>
-
-    <!-- Cancel button (top-left) -->
-    <div style="
-      position:absolute;
-      top:60px;
-      left:${tokens.space400}px;
-      width:40px;
-      height:40px;
-      background:${tokens.colorSurfaceBase};
-      border-radius:${tokens.radiusFull}px;
-      box-shadow:${shadowFromToken(tokens.elevationRaised)};
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <span style="
-        font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeHeadingSm.fontSize}px;
-        color:${tokens.colorTextPrimary};
-      ">✕</span>
-    </div>
-
-    <!-- ETA badge (top-center, dark pill) -->
-    <div style="
-      position:absolute;
-      top:60px;
-      left:50%;
-      transform:translateX(-50%);
-      background:${tokens.colorSurfaceInverse};
-      border-radius:${tokens.radiusFull}px;
-      padding:${tokens.space200}px ${tokens.space400}px;
-      display:inline-flex;
-      align-items:center;
-      gap:${tokens.space200}px;
-      white-space:nowrap;
-    ">
-      <span style="
-        font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-        font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:${tokens.typeBodyMd.fontWeight};
-        color:${tokens.colorTextOnInverse};
-      ">4 min</span>
-      <span style="
-        font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-        font-size:${tokens.typeBodyMd.fontSize}px;
-        color:${tokens.colorTextOnInverse};
-      ">· 350m</span>
-    </div>
-
-    <!-- BikeSelection card (above tab bar) -->
-    <div style="
-      position:absolute;
-      bottom:80px;
-      left:0;
-      right:0;
-      background:${tokens.colorSurfaceBase};
-      border-radius:${tokens.radiusLg}px ${tokens.radiusLg}px 0 0;
-      padding:${tokens.space400}px;
-      box-shadow:${shadowFromToken(tokens.elevationRaised)};
-      box-sizing:border-box;
-    ">
-      <!-- Thumbnail + name + distance badge -->
-      <div style="display:flex;align-items:center;gap:${tokens.space300}px;margin-bottom:${tokens.space400}px;">
-        <!-- Bike image placeholder -->
-        <div style="
-          width:64px;
-          height:64px;
-          background:${tokens.colorGrey100};
-          border-radius:${tokens.radiusSm}px;
-          flex-shrink:0;
-        "></div>
-        <div style="flex:1;">
-          <div style="
-            font-family:'${tokens.typeHeadingMd.fontFamily}',sans-serif;
-            font-size:${tokens.typeHeadingMd.fontSize}px;
-            font-weight:${tokens.typeHeadingMd.fontWeight};
-            color:${tokens.colorTextPrimary};
-          ">VoltBike VV-042</div>
-          <!-- Distance badge -->
-          <div style="
-            display:inline-block;
-            background:${tokens.colorGrey100};
-            color:${tokens.colorGrey700};
-            padding:2px ${tokens.space200}px;
-            border-radius:${tokens.radiusXs}px;
-            font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-            font-size:${tokens.typeLabelSm.fontSize}px;
-            margin-top:4px;
-          ">120m away</div>
+export const Default = () => `<div style="width:393px;min-height:852px;position:relative;overflow:hidden;background:#e8e8e8;box-sizing:border-box;">
+  <div style="position:absolute;inset:0;background:#e8e8e8;"></div>
+  <div style="position:absolute;top:260px;left:80px;background:${tokens.colorGrey900};border-radius:${tokens.radiusFull}px;padding:4px 8px;display:inline-flex;align-items:center;gap:4px;"><span style="color:${tokens.colorActionPrimary};font-size:12px;">&#x26A1;</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:#ffffff;">VV-7731</span></div>
+  <div style="position:absolute;top:200px;left:260px;background:${tokens.colorGrey900};border-radius:${tokens.radiusFull}px;padding:4px 8px;display:inline-flex;align-items:center;gap:4px;"><span style="color:${tokens.colorActionPrimary};font-size:12px;">&#x26A1;</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:#ffffff;">VV-2214</span></div>
+  <div style="position:absolute;top:400px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;"><div style="width:14px;height:14px;border-radius:50%;background:${tokens.colorActionPrimary};"></div></div>
+  ${ROUTE_DOTS.map(d => `<div style="position:absolute;top:${d.top}px;left:${d.left}px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey700};"></div>`).join('')}
+  <div style="position:absolute;top:260px;left:170px;width:72px;height:72px;">
+    <div style="position:absolute;top:0;left:0;width:72px;height:72px;border-radius:50%;border:2px solid ${tokens.colorGrey300};"></div>
+    <div style="position:absolute;top:12px;left:12px;width:48px;height:48px;border-radius:50%;background:${tokens.colorSurfaceInverse};display:flex;align-items:center;justify-content:center;"><span style="color:${tokens.colorActionPrimary};font-size:20px;">&#x26A1;</span></div>
+  </div>
+  <div style="position:absolute;top:0;left:0;right:0;height:130px;background:linear-gradient(to bottom,rgba(255,255,255,0.90),transparent);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:100px;left:0;right:0;height:292px;background:linear-gradient(to top,rgba(255,255,255,0.95),transparent);pointer-events:none;"></div>
+  <div style="position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box;">
+    <span style="font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextPrimary};">9:41</span>
+    <span style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#x25B2; WiFi &#x25A0;</span>
+  </div>
+  <div style="position:absolute;top:72px;left:20px;width:40px;height:40px;background:${tokens.colorSurfaceBase};border-radius:50%;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;align-items:center;justify-content:center;font-size:16px;color:${tokens.colorTextPrimary};">&#x2715;</div>
+  <div style="position:absolute;bottom:278px;left:20px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;padding:6px 12px;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;align-items:center;gap:6px;">
+    <span style="font-size:14px;">&#x1F6B6;</span>
+    <span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">8 min walk</span>
+  </div>
+  <div style="position:absolute;bottom:88px;left:20px;right:20px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:16px;box-shadow:${shadowFromToken(tokens.elevationFloating)};box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+      <div style="width:56px;height:56px;background:${tokens.colorGrey900};border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:${tokens.colorActionPrimary};font-size:24px;">&#x26A1;</span></div>
+      <div style="flex:1;">
+        <div style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">VV-4829</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:4px;">
+          <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:2px 8px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">87%</div>
+          <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:2px 8px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};">200m away</div>
         </div>
       </div>
-      <!-- Get Directions CTA -->
-      <button style="
-        width:100%;
-        min-height:${tokens.space1200}px;
-        background:${tokens.colorActionPrimary};
-        color:${tokens.colorTextPrimary};
-        border:none;
-        border-radius:${tokens.radiusFull}px;
-        font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeHeadingSm.fontSize}px;
-        font-weight:${tokens.typeHeadingSm.fontWeight};
-        cursor:pointer;
-      ">Get Directions</button>
     </div>
-
-    <!-- TabBar -->
-    <div style="
-      position:absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      background:${tokens.colorSurfaceBase};
-      display:flex;
-      align-items:center;
-      padding:${tokens.space200}px ${tokens.space400}px ${tokens.space500}px;
-      box-shadow:${shadowFromToken(tokens.elevationFloating)};
-      box-sizing:border-box;
-    ">
-      ${TABS.map(label => {
-        const isActive = label === 'Ride';
-        return `
-          <div style="
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:${tokens.space100}px;
-            flex:1;
-          ">
-            <div style="
-              width:48px;
-              height:32px;
-              border-radius:${tokens.radiusFull}px;
-              background:${isActive ? tokens.colorTextPrimary : tokens.colorGrey200};
-              display:flex;
-              align-items:center;
-              justify-content:center;
-            ">
-              <span style="font-size:14px;color:${isActive ? tokens.colorTextOnInverse : tokens.colorTextSecondary};">●</span>
-            </div>
-            <span style="
-              font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-              font-size:${tokens.typeLabelSm.fontSize}px;
-              font-weight:${tokens.typeLabelSm.fontWeight};
-              color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};
-            ">${label}</span>
-          </div>
-        `;
-      }).join('')}
-    </div>
-
+    <div style="height:1px;background:${tokens.colorGrey100};"></div>
+    <button style="margin-top:12px;height:48px;width:100%;background:${tokens.colorActionPrimary};border:none;border-radius:${tokens.radiusFull}px;font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};cursor:pointer;">Get Directions &#x2192;</button>
+    <div style="text-align:center;margin-top:8px;font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;color:${tokens.colorTextSecondary};cursor:pointer;">Choose a Different Bike</div>
   </div>
-`;
+  <div style="position:absolute;bottom:0;left:0;right:0;background:${tokens.colorSurfaceBase};display:flex;align-items:center;padding:8px 16px 20px;box-shadow:${shadowFromToken(tokens.elevationFloating)};box-sizing:border-box;height:80px;">${tabsHtml('Ride')}</div>
+</div>`;
 
-// ── Source code panel ─────────────────────────────────────────────────────────
+export const Interactive = () => {
+  function makePhoneFrame() {
+    const frame = document.createElement('div');
+    frame.style.cssText = 'width:402px;height:874px;background:#0f0f0f;border-radius:44px;padding:11px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;';
+    const screen = document.createElement('div');
+    screen.style.cssText = 'flex:1;background:#ffffff;border-radius:34px;overflow:hidden;position:relative;';
+    frame.appendChild(screen);
+    return { frame, screen };
+  }
+  const { frame, screen } = makePhoneFrame();
+
+  const mapBg = document.createElement('div');
+  mapBg.style.cssText = 'position:absolute;inset:0;background:#e8e8e8;';
+  screen.appendChild(mapBg);
+
+  // Unselected pins
+  [{t:260,l:80,name:'VV-7731'},{t:200,l:260,name:'VV-2214'}].forEach(p => {
+    const pin = document.createElement('div');
+    pin.style.cssText = `position:absolute;top:${p.t}px;left:${p.l}px;background:${tokens.colorGrey900};border-radius:${tokens.radiusFull}px;padding:4px 8px;display:inline-flex;align-items:center;gap:4px;`;
+    pin.innerHTML = `<span style="color:${tokens.colorActionPrimary};font-size:12px;">&#x26A1;</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:#ffffff;">${p.name}</span>`;
+    screen.appendChild(pin);
+  });
+
+  // Location Pulse
+  const pulse = document.createElement('div');
+  pulse.style.cssText = 'position:absolute;top:400px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;';
+  const dot = document.createElement('div');
+  dot.style.cssText = `width:14px;height:14px;border-radius:50%;background:${tokens.colorActionPrimary};`;
+  pulse.appendChild(dot);
+  screen.appendChild(pulse);
+
+  // Route Dots (7x 6px circles)
+  ROUTE_DOTS.forEach(d => {
+    const rd = document.createElement('div');
+    rd.style.cssText = `position:absolute;top:${d.top}px;left:${d.left}px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey700};`;
+    screen.appendChild(rd);
+  });
+
+  // Selected Bike Pin (72×72px)
+  const pinWrap = document.createElement('div');
+  pinWrap.style.cssText = 'position:absolute;top:260px;left:170px;width:72px;height:72px;';
+  const pinRing = document.createElement('div');
+  pinRing.style.cssText = `position:absolute;top:0;left:0;width:72px;height:72px;border-radius:50%;border:2px solid ${tokens.colorGrey300};`;
+  const pinBadge = document.createElement('div');
+  pinBadge.style.cssText = `position:absolute;top:12px;left:12px;width:48px;height:48px;border-radius:50%;background:${tokens.colorSurfaceInverse};display:flex;align-items:center;justify-content:center;`;
+  pinBadge.innerHTML = `<span style="color:${tokens.colorActionPrimary};font-size:20px;">&#x26A1;</span>`;
+  pinWrap.appendChild(pinRing);
+  pinWrap.appendChild(pinBadge);
+  screen.appendChild(pinWrap);
+
+  const topG = document.createElement('div');
+  topG.style.cssText = 'position:absolute;top:0;left:0;right:0;height:130px;background:linear-gradient(to bottom,rgba(255,255,255,0.90),transparent);pointer-events:none;';
+  screen.appendChild(topG);
+  const botG = document.createElement('div');
+  botG.style.cssText = 'position:absolute;bottom:100px;left:0;right:0;height:292px;background:linear-gradient(to top,rgba(255,255,255,0.95),transparent);pointer-events:none;';
+  screen.appendChild(botG);
+
+  const sb = document.createElement('div');
+  sb.style.cssText = `position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box;`;
+  sb.innerHTML = `<span style="font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextPrimary};">9:41</span><span style="font-size:12px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#x25B2; WiFi &#x25A0;</span>`;
+  screen.appendChild(sb);
+
+  const cancelBtn = document.createElement('div');
+  cancelBtn.style.cssText = `position:absolute;top:72px;left:20px;width:40px;height:40px;background:${tokens.colorSurfaceBase};border-radius:50%;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;`;
+  cancelBtn.textContent = '✕';
+  cancelBtn.addEventListener('pointerdown', () => { cancelBtn.style.background = tokens.colorGrey050; });
+  cancelBtn.addEventListener('pointerup', () => { cancelBtn.style.background = tokens.colorSurfaceBase; });
+  cancelBtn.addEventListener('pointerleave', () => { cancelBtn.style.background = tokens.colorSurfaceBase; });
+  screen.appendChild(cancelBtn);
+
+  const etaBadge = document.createElement('div');
+  etaBadge.style.cssText = `position:absolute;bottom:278px;left:20px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;padding:6px 12px;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;align-items:center;gap:6px;`;
+  etaBadge.innerHTML = `<span style="font-size:14px;">&#x1F6B6;</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">8 min walk</span>`;
+  screen.appendChild(etaBadge);
+
+  const bikeCard = document.createElement('div');
+  bikeCard.style.cssText = `position:absolute;bottom:88px;left:20px;right:20px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:16px;box-shadow:${shadowFromToken(tokens.elevationFloating)};box-sizing:border-box;`;
+  const topRow = document.createElement('div');
+  topRow.style.cssText = 'display:flex;align-items:center;gap:12px;margin-bottom:12px;';
+  topRow.innerHTML = `<div style="width:56px;height:56px;background:${tokens.colorGrey900};border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:${tokens.colorActionPrimary};font-size:24px;">&#x26A1;</span></div><div style="flex:1;"><div style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">VV-4829</div><div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:2px 8px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">87%</div><div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:2px 8px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};">200m away</div></div></div>`;
+  const divider = document.createElement('div');
+  divider.style.cssText = `height:1px;background:${tokens.colorGrey100};`;
+  const getDirBtn = document.createElement('button');
+  getDirBtn.style.cssText = `margin-top:12px;height:48px;width:100%;background:${tokens.colorActionPrimary};border:none;border-radius:${tokens.radiusFull}px;font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};cursor:pointer;transition:transform 0.1s;`;
+  getDirBtn.textContent = 'Get Directions';
+  getDirBtn.addEventListener('pointerdown', () => { getDirBtn.style.background = tokens.colorGreen600; getDirBtn.style.transform = 'scale(0.97)'; });
+  getDirBtn.addEventListener('pointerup', () => { getDirBtn.style.background = tokens.colorActionPrimary; getDirBtn.style.transform = ''; });
+  getDirBtn.addEventListener('pointerleave', () => { getDirBtn.style.background = tokens.colorActionPrimary; getDirBtn.style.transform = ''; });
+  const chooseLink = document.createElement('div');
+  chooseLink.style.cssText = `text-align:center;margin-top:8px;font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;color:${tokens.colorTextSecondary};cursor:pointer;`;
+  chooseLink.textContent = 'Choose a Different Bike';
+  bikeCard.appendChild(topRow);
+  bikeCard.appendChild(divider);
+  bikeCard.appendChild(getDirBtn);
+  bikeCard.appendChild(chooseLink);
+  screen.appendChild(bikeCard);
+
+  let activeTab = 'Ride';
+  const tabBar = document.createElement('div');
+  tabBar.style.cssText = `position:absolute;bottom:0;left:0;right:0;background:${tokens.colorSurfaceBase};display:flex;align-items:center;padding:8px 16px 20px;box-shadow:${shadowFromToken(tokens.elevationFloating)};box-sizing:border-box;height:80px;`;
+  const tabEls = [];
+  TABS.forEach(label => {
+    const tab = document.createElement('div');
+    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;';
+    const isActive = label === 'Ride';
+    const pill = document.createElement('div');
+    pill.style.cssText = `width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;`;
+    const icon = document.createElement('span');
+    icon.style.cssText = `font-size:14px;color:${isActive ? '#ffffff' : tokens.colorTextSecondary};`;
+    icon.textContent = '●';
+    pill.appendChild(icon);
+    const lbl = document.createElement('span');
+    lbl.style.cssText = `font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};`;
+    lbl.textContent = label;
+    tab.appendChild(pill);
+    tab.appendChild(lbl);
+    tabEls.push({ pill, icon, lbl, label });
+    tab.addEventListener('pointerdown', () => {
+      activeTab = label;
+      tabEls.forEach(t => {
+        const a = t.label === activeTab;
+        t.pill.style.background = a ? tokens.colorSurfaceInverse : tokens.colorGrey200;
+        t.icon.style.color = a ? '#ffffff' : tokens.colorTextSecondary;
+        t.lbl.style.color = a ? tokens.colorTextPrimary : tokens.colorTextSecondary;
+      });
+    });
+    tabBar.appendChild(tab);
+  });
+  screen.appendChild(tabBar);
+
+  return frame;
+};
+
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/NavigateToBike — Full Screen HTML</div>${_blk('Default',Default())}</div>`;
+export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/NavigateToBike — Hi-Fi frame kUCG9 — 72px selected pin, 7 route dots</div>${_blk('Default',Default())}</div>`;

@@ -2,316 +2,185 @@ import * as tokens from '../../generated/tokens.js';
 
 export default { title: 'Screens/HomeMap' };
 
-// Copied from stories/elevation.stories.js — helper not exported from that file
-/**
- * Convert #RRGGBBAA (8-char hex) to CSS rgba().
- * @param {string} hex8 — e.g. "#0F0F0F1A"
- * @returns {string} — e.g. "rgba(15, 15, 15, 0.10)"
- */
 function hexToRgba(hex8) {
-  const r = parseInt(hex8.slice(1, 3), 16);
-  const g = parseInt(hex8.slice(3, 5), 16);
-  const b = parseInt(hex8.slice(5, 7), 16);
-  const a = (parseInt(hex8.slice(7, 9), 16) / 255).toFixed(2);
-  return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+  const r = parseInt(hex8.slice(1,3),16);
+  const g = parseInt(hex8.slice(3,5),16);
+  const b = parseInt(hex8.slice(5,7),16);
+  const a = (parseInt(hex8.slice(7,9),16)/255).toFixed(2);
+  return 'rgba('+r+', '+g+', '+b+', '+a+')';
 }
-
-/**
- * Build a CSS box-shadow string from an elevation token value.
- * If the token is the string "none" (elevationFlat), returns "none".
- * @param {string|{color:string, offsetX:number, offsetY:number, blur:number, spread:number}} token
- * @returns {string}
- */
 function shadowFromToken(token) {
   if (token === 'none') return 'none';
-  return token.offsetX + 'px ' + token.offsetY + 'px ' + token.blur + 'px ' + token.spread + 'px ' + hexToRgba(token.color);
+  return token.offsetX+'px '+token.offsetY+'px '+token.blur+'px '+token.spread+'px '+hexToRgba(token.color);
 }
 
-const TABS = ['Ride', 'Discover', 'Wallet', 'Account'];
+const TABS = ['Ride','Discover','Wallet','Account'];
 
-export const Default = () => `
-  <div style="
-    width:393px;
-    min-height:852px;
-    position:relative;
-    overflow:hidden;
-    background:#e8e8e8;
-    box-sizing:border-box;
-  ">
+function pinHtml(top, left, label) {
+  return `<div style="position:absolute;top:${top}px;left:${left}px;background:${tokens.colorGrey900};border-radius:${tokens.radiusFull}px;padding:4px 8px;display:inline-flex;align-items:center;gap:4px;"><span style="color:${tokens.colorActionPrimary};font-size:12px;">⚡</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:#ffffff;">${label}</span></div>`;
+}
 
-    <!-- Map background placeholder -->
-    <div style="position:absolute;inset:0;background:#e8e8e8;"></div>
+function tabsHtml(activeLabel) {
+  return TABS.map(label => {
+    const isActive = label === activeLabel;
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;"><div style="width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;color:${isActive ? '#ffffff' : tokens.colorTextSecondary};">●</span></div><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};">${label}</span></div>`;
+  }).join('');
+}
 
-    <!-- StatusBar overlay -->
-    <div style="
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:44px;
-      background:rgba(255,255,255,0.90);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 ${tokens.space400}px;
-      box-sizing:border-box;
-    ">
-      <span style="
-        font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelMd.fontSize}px;
-        font-weight:${tokens.typeLabelMd.fontWeight};
-        color:${tokens.colorTextPrimary};
-      ">9:41</span>
-      <span style="
-        font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelSm.fontSize}px;
-        color:${tokens.colorTextPrimary};
-        letter-spacing:2px;
-      ">▲ WiFi ■</span>
-    </div>
-
-    <!-- Search bar -->
-    <div style="
-      position:absolute;
-      top:60px;
-      left:${tokens.space400}px;
-      right:${tokens.space400}px;
-      height:48px;
-      background:${tokens.colorSurfaceBase};
-      border-radius:${tokens.radiusFull}px;
-      box-shadow:${shadowFromToken(tokens.elevationRaised)};
-      display:flex;
-      align-items:center;
-      padding:0 ${tokens.space400}px;
-      gap:${tokens.space200}px;
-      box-sizing:border-box;
-    ">
-      <span style="font-size:16px;">🔍</span>
-      <span style="
-        font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-        font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:${tokens.typeBodyMd.fontWeight};
-        color:${tokens.colorTextSecondary};
-      ">Where to?</span>
-    </div>
-
-    <!-- Nearby badge -->
-    <div style="
-      position:absolute;
-      top:120px;
-      left:${tokens.space400}px;
-      background:${tokens.colorActionPrimary};
-      color:${tokens.colorTextPrimary};
-      border-radius:${tokens.radiusFull}px;
-      padding:${tokens.space100}px ${tokens.space300}px;
-      font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-      font-size:${tokens.typeLabelSm.fontSize}px;
-      font-weight:${tokens.typeLabelSm.fontWeight};
-      display:inline-block;
-    ">6 bikes nearby</div>
-
-    <!-- Bike RangePin 1 -->
-    <div style="
-      position:absolute;
-      top:200px;
-      left:80px;
-      background:${tokens.colorGrey900};
-      color:${tokens.colorTextOnInverse};
-      border-radius:${tokens.radiusFull}px;
-      padding:${tokens.space100}px ${tokens.space200}px;
-      display:inline-flex;
-      align-items:center;
-      gap:${tokens.space100}px;
-    ">
-      <span style="color:${tokens.colorActionPrimary};font-size:12px;">⚡</span>
-      <span style="
-        font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelSm.fontSize}px;
-        font-weight:${tokens.typeLabelSm.fontWeight};
-      ">0.3 km</span>
-    </div>
-
-    <!-- Bike RangePin 2 -->
-    <div style="
-      position:absolute;
-      top:300px;
-      left:220px;
-      background:${tokens.colorGrey900};
-      color:${tokens.colorTextOnInverse};
-      border-radius:${tokens.radiusFull}px;
-      padding:${tokens.space100}px ${tokens.space200}px;
-      display:inline-flex;
-      align-items:center;
-      gap:${tokens.space100}px;
-    ">
-      <span style="color:${tokens.colorActionPrimary};font-size:12px;">⚡</span>
-      <span style="
-        font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelSm.fontSize}px;
-        font-weight:${tokens.typeLabelSm.fontWeight};
-      ">0.5 km</span>
-    </div>
-
-    <!-- Bike RangePin 3 -->
-    <div style="
-      position:absolute;
-      top:250px;
-      left:150px;
-      background:${tokens.colorGrey900};
-      color:${tokens.colorTextOnInverse};
-      border-radius:${tokens.radiusFull}px;
-      padding:${tokens.space100}px ${tokens.space200}px;
-      display:inline-flex;
-      align-items:center;
-      gap:${tokens.space100}px;
-    ">
-      <span style="color:${tokens.colorActionPrimary};font-size:12px;">⚡</span>
-      <span style="
-        font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeLabelSm.fontSize}px;
-        font-weight:${tokens.typeLabelSm.fontWeight};
-      ">0.8 km</span>
-    </div>
-
-    <!-- Location pulse -->
-    <div style="
-      position:absolute;
-      top:350px;
-      left:50%;
-      transform:translateX(-50%);
-      width:32px;
-      height:32px;
-      border-radius:${tokens.radiusFull}px;
-      background:rgba(198,255,45,0.20);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <div style="
-        width:12px;
-        height:12px;
-        border-radius:${tokens.radiusFull}px;
-        background:${tokens.colorActionPrimary};
-      "></div>
-    </div>
-
-    <!-- My Location FAB -->
-    <div style="
-      position:absolute;
-      bottom:200px;
-      right:${tokens.space400}px;
-      width:48px;
-      height:48px;
-      background:${tokens.colorSurfaceBase};
-      border-radius:${tokens.radiusFull}px;
-      box-shadow:${shadowFromToken(tokens.elevationFloating)};
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <span style="font-size:20px;">📍</span>
-    </div>
-
-    <!-- Filters FAB -->
-    <div style="
-      position:absolute;
-      bottom:260px;
-      right:${tokens.space400}px;
-      width:48px;
-      height:48px;
-      background:${tokens.colorSurfaceBase};
-      border-radius:${tokens.radiusFull}px;
-      box-shadow:${shadowFromToken(tokens.elevationFloating)};
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    ">
-      <span style="font-size:20px;">⚙</span>
-    </div>
-
-    <!-- Scan CTA card -->
-    <div style="
-      position:absolute;
-      bottom:80px;
-      left:${tokens.space400}px;
-      right:${tokens.space400}px;
-      background:${tokens.colorSurfaceBase};
-      border-radius:${tokens.radiusLg}px;
-      padding:${tokens.space400}px;
-      box-shadow:${shadowFromToken(tokens.elevationFloating)};
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      box-sizing:border-box;
-    ">
-      <span style="
-        font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
-        font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:${tokens.typeBodyMd.fontWeight};
-        color:${tokens.colorTextPrimary};
-      ">3 bikes available</span>
-      <button style="
-        background:${tokens.colorActionPrimary};
-        border:none;
-        border-radius:${tokens.radiusFull}px;
-        padding:${tokens.space200}px ${tokens.space400}px;
-        cursor:pointer;
-        font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;
-        font-size:${tokens.typeHeadingSm.fontSize}px;
-        font-weight:${tokens.typeHeadingSm.fontWeight};
-        color:${tokens.colorTextPrimary};
-      ">Scan QR</button>
-    </div>
-
-    <!-- TabBar -->
-    <div style="
-      position:absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      background:${tokens.colorSurfaceBase};
-      display:flex;
-      align-items:center;
-      padding:${tokens.space200}px ${tokens.space400}px ${tokens.space500}px;
-      box-shadow:${shadowFromToken(tokens.elevationFloating)};
-      box-sizing:border-box;
-    ">
-      ${TABS.map(label => {
-        const isActive = label === 'Ride';
-        return `
-          <div style="
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            gap:${tokens.space100}px;
-            flex:1;
-          ">
-            <div style="
-              width:48px;
-              height:32px;
-              border-radius:${tokens.radiusFull}px;
-              background:${isActive ? tokens.colorTextPrimary : tokens.colorGrey200};
-              display:flex;
-              align-items:center;
-              justify-content:center;
-            ">
-              <span style="font-size:14px;color:${isActive ? tokens.colorTextOnInverse : tokens.colorTextSecondary};">●</span>
-            </div>
-            <span style="
-              font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
-              font-size:${tokens.typeLabelSm.fontSize}px;
-              font-weight:${tokens.typeLabelSm.fontWeight};
-              color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};
-            ">${label}</span>
-          </div>
-        `;
-      }).join('')}
-    </div>
-
+export const Default = () => `<div style="width:393px;min-height:852px;position:relative;overflow:hidden;background:#e8e8e8;box-sizing:border-box;">
+  <div style="position:absolute;inset:0;background:#e8e8e8;"></div>
+  <div style="position:absolute;top:180px;left:44px;width:305px;height:290px;background:rgba(198,255,45,0.08);border:2px solid ${tokens.colorGrey300};border-radius:4px;"></div>
+  ${pinHtml(200,60,'300km')}${pinHtml(240,200,'200km')}${pinHtml(290,100,'100km')}${pinHtml(160,260,'300km')}${pinHtml(320,280,'200km')}${pinHtml(380,140,'100km')}
+  <div style="position:absolute;top:350px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;"><div style="width:14px;height:14px;border-radius:50%;background:${tokens.colorActionPrimary};"></div></div>
+  <div style="position:absolute;top:200px;right:60px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};">&#x1F6E1; Safe Zone</div>
+  <div style="position:absolute;top:0;left:0;right:0;height:130px;background:linear-gradient(to bottom,rgba(255,255,255,0.90),transparent);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:80px;left:0;right:0;height:282px;background:linear-gradient(to top,rgba(255,255,255,0.95),transparent);pointer-events:none;"></div>
+  <div style="position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box;">
+    <span style="font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextPrimary};">9:41</span>
+    <span style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#x25B2; WiFi &#x25A0;</span>
   </div>
-`;
+  <div style="position:absolute;top:72px;left:20px;right:20px;height:44px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;box-shadow:${shadowFromToken(tokens.elevationRaised)};display:flex;align-items:center;padding:0 16px;gap:8px;box-sizing:border-box;">
+    <span style="font-size:16px;">&#x1F4CD;</span>
+    <span style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};flex:1;">Search for a destination</span>
+    <span style="font-size:16px;color:${tokens.colorGrey300};">&#x2699;</span>
+  </div>
+  <div style="position:absolute;top:124px;left:20px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;padding:4px 12px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};">&#x26A1; 6 bikes nearby</div>
+  <div style="position:absolute;bottom:270px;right:20px;width:48px;height:48px;background:${tokens.colorSurfaceBase};border-radius:50%;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;align-items:center;justify-content:center;font-size:20px;">&#x1F4CD;</div>
+  <div style="position:absolute;bottom:330px;right:20px;width:48px;height:48px;background:${tokens.colorSurfaceBase};border-radius:50%;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;align-items:center;justify-content:center;font-size:20px;">&#x2699;</div>
+  <div style="position:absolute;bottom:80px;left:20px;right:20px;height:100px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:12px 16px;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <span style="color:${tokens.colorActionPrimary};font-size:16px;">&#x26A1;</span>
+      <span style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">VV-4829 ready to ride</span>
+      <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:2px 8px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">Battery 87%</div>
+    </div>
+    <button style="height:40px;width:100%;background:${tokens.colorActionPrimary};border:none;border-radius:${tokens.radiusFull}px;font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};cursor:pointer;">Scan QR to Unlock &#x2192;</button>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;background:${tokens.colorSurfaceBase};display:flex;align-items:center;padding:8px 16px 20px;box-shadow:${shadowFromToken(tokens.elevationFloating)};box-sizing:border-box;height:80px;">${tabsHtml('Ride')}</div>
+</div>`;
 
-// ── Source code panel ─────────────────────────────────────────────────────────
+export const Interactive = () => {
+  function makePhoneFrame() {
+    const frame = document.createElement('div');
+    frame.style.cssText = 'width:402px;height:874px;background:#0f0f0f;border-radius:44px;padding:11px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;';
+    const screen = document.createElement('div');
+    screen.style.cssText = 'flex:1;background:#ffffff;border-radius:34px;overflow:hidden;position:relative;';
+    frame.appendChild(screen);
+    return { frame, screen };
+  }
+  const { frame, screen } = makePhoneFrame();
+
+  const style = document.createElement('style');
+  style.textContent = '@keyframes locationPulse{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.5);opacity:0}}';
+  document.head.appendChild(style);
+
+  const mapBg = document.createElement('div');
+  mapBg.style.cssText = 'position:absolute;inset:0;background:#e8e8e8;';
+  screen.appendChild(mapBg);
+
+  const sz = document.createElement('div');
+  sz.style.cssText = `position:absolute;top:180px;left:44px;width:305px;height:290px;background:rgba(198,255,45,0.08);border:2px solid ${tokens.colorGrey300};border-radius:4px;`;
+  screen.appendChild(sz);
+
+  [{t:200,l:60,v:'300km'},{t:240,l:200,v:'200km'},{t:290,l:100,v:'100km'},{t:160,l:260,v:'300km'},{t:320,l:280,v:'200km'},{t:380,l:140,v:'100km'}].forEach(p => {
+    const pin = document.createElement('div');
+    pin.style.cssText = `position:absolute;top:${p.t}px;left:${p.l}px;background:${tokens.colorGrey900};border-radius:${tokens.radiusFull}px;padding:4px 8px;display:inline-flex;align-items:center;gap:4px;`;
+    pin.innerHTML = `<span style="color:${tokens.colorActionPrimary};font-size:12px;">&#x26A1;</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:#ffffff;">${p.v}</span>`;
+    screen.appendChild(pin);
+  });
+
+  const pulse = document.createElement('div');
+  pulse.style.cssText = 'position:absolute;top:350px;left:50%;transform:translateX(-50%);width:30px;height:30px;border-radius:50%;background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;animation:locationPulse 2s ease-in-out infinite;';
+  const dot = document.createElement('div');
+  dot.style.cssText = `width:14px;height:14px;border-radius:50%;background:${tokens.colorActionPrimary};`;
+  pulse.appendChild(dot);
+  screen.appendChild(pulse);
+
+  const szLbl = document.createElement('div');
+  szLbl.style.cssText = `position:absolute;top:200px;right:60px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};`;
+  szLbl.textContent = 'Safe Zone';
+  screen.appendChild(szLbl);
+
+  const topG = document.createElement('div');
+  topG.style.cssText = 'position:absolute;top:0;left:0;right:0;height:130px;background:linear-gradient(to bottom,rgba(255,255,255,0.90),transparent);pointer-events:none;';
+  screen.appendChild(topG);
+
+  const botG = document.createElement('div');
+  botG.style.cssText = 'position:absolute;bottom:80px;left:0;right:0;height:282px;background:linear-gradient(to top,rgba(255,255,255,0.95),transparent);pointer-events:none;';
+  screen.appendChild(botG);
+
+  const sb = document.createElement('div');
+  sb.style.cssText = `position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box;`;
+  sb.innerHTML = `<span style="font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextPrimary};">9:41</span><span style="font-size:12px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#x25B2; WiFi &#x25A0;</span>`;
+  screen.appendChild(sb);
+
+  const searchBar = document.createElement('div');
+  searchBar.style.cssText = `position:absolute;top:72px;left:20px;right:20px;height:44px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;box-shadow:${shadowFromToken(tokens.elevationRaised)};display:flex;align-items:center;padding:0 16px;gap:8px;box-sizing:border-box;`;
+  searchBar.innerHTML = `<span style="font-size:16px;">&#x1F4CD;</span><span style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};flex:1;">Search for a destination</span><span style="font-size:16px;color:${tokens.colorGrey300};">&#x2699;</span>`;
+  screen.appendChild(searchBar);
+
+  const badge = document.createElement('div');
+  badge.style.cssText = `position:absolute;top:124px;left:20px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;padding:4px 12px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};`;
+  badge.textContent = '6 bikes nearby';
+  screen.appendChild(badge);
+
+  [{b:270,ic:'📍'},{b:330,ic:'⚙'}].forEach(f => {
+    const fab = document.createElement('div');
+    fab.style.cssText = `position:absolute;bottom:${f.b}px;right:20px;width:48px;height:48px;background:${tokens.colorSurfaceBase};border-radius:50%;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;align-items:center;justify-content:center;font-size:20px;cursor:pointer;`;
+    fab.textContent = f.ic;
+    screen.appendChild(fab);
+  });
+
+  const scanCard = document.createElement('div');
+  scanCard.style.cssText = `position:absolute;bottom:80px;left:20px;right:20px;height:100px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:12px 16px;box-shadow:${shadowFromToken(tokens.elevationFloating)};display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;`;
+  const bikeRow = document.createElement('div');
+  bikeRow.style.cssText = 'display:flex;align-items:center;gap:8px;';
+  bikeRow.innerHTML = `<span style="color:${tokens.colorActionPrimary};font-size:16px;">&#x26A1;</span><span style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">VV-4829 ready to ride</span><div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:2px 8px;font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">Battery 87%</div>`;
+  const scanBtn = document.createElement('button');
+  scanBtn.style.cssText = `height:40px;width:100%;background:${tokens.colorActionPrimary};border:none;border-radius:${tokens.radiusFull}px;font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};cursor:pointer;transition:transform 0.1s;`;
+  scanBtn.textContent = 'Scan QR to Unlock';
+  scanBtn.addEventListener('pointerdown', () => { scanBtn.style.background = tokens.colorGreen600; scanBtn.style.transform = 'scale(0.97)'; });
+  scanBtn.addEventListener('pointerup', () => { scanBtn.style.background = tokens.colorActionPrimary; scanBtn.style.transform = ''; });
+  scanBtn.addEventListener('pointerleave', () => { scanBtn.style.background = tokens.colorActionPrimary; scanBtn.style.transform = ''; });
+  scanCard.appendChild(bikeRow);
+  scanCard.appendChild(scanBtn);
+  screen.appendChild(scanCard);
+
+  let activeTab = 'Ride';
+  const tabBar = document.createElement('div');
+  tabBar.style.cssText = `position:absolute;bottom:0;left:0;right:0;background:${tokens.colorSurfaceBase};display:flex;align-items:center;padding:8px 16px 20px;box-shadow:${shadowFromToken(tokens.elevationFloating)};box-sizing:border-box;height:80px;`;
+  const tabEls = [];
+  TABS.forEach(label => {
+    const tab = document.createElement('div');
+    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;';
+    const isActive = label === 'Ride';
+    const pill = document.createElement('div');
+    pill.style.cssText = `width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;`;
+    const icon = document.createElement('span');
+    icon.style.cssText = `font-size:14px;color:${isActive ? '#ffffff' : tokens.colorTextSecondary};`;
+    icon.textContent = '●';
+    pill.appendChild(icon);
+    const lbl = document.createElement('span');
+    lbl.style.cssText = `font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};`;
+    lbl.textContent = label;
+    tab.appendChild(pill);
+    tab.appendChild(lbl);
+    tabEls.push({ pill, icon, lbl, label });
+    tab.addEventListener('pointerdown', () => {
+      activeTab = label;
+      tabEls.forEach(t => {
+        const a = t.label === activeTab;
+        t.pill.style.background = a ? tokens.colorSurfaceInverse : tokens.colorGrey200;
+        t.icon.style.color = a ? '#ffffff' : tokens.colorTextSecondary;
+        t.lbl.style.color = a ? tokens.colorTextPrimary : tokens.colorTextSecondary;
+      });
+    });
+    tabBar.appendChild(tab);
+  });
+  screen.appendChild(tabBar);
+
+  return frame;
+};
+
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/HomeMap — Full Screen HTML</div>${_blk('Default',Default())}</div>`;
+export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/HomeMap — Hi-Fi frame E9hST — battery range pins 300km/200km/100km</div>${_blk('Default',Default())}</div>`;
