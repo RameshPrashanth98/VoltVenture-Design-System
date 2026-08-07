@@ -1,0 +1,469 @@
+/*
+ * tokens.css — VoltVenture Design System
+ *
+ * Three-layer CSS custom property architecture:
+ *
+ *   L1  --ds-*     Upstream design system primitives (source of truth, mirrors
+ *                  tokens/primitive/ and tokens/semantic/ JSON files)
+ *   L2  --vv-*     Project aliases that reference L1 with hardcoded fallbacks
+ *                  (survives if L1 is not loaded)
+ *   L3  --<comp>-* Component tokens that reference only L2 aliases, never raw values
+ *
+ * Rule: L3 → L2 → L1 → raw value.
+ * Never skip a layer.
+ */
+
+/* ============================================================
+   LAYER 1 — Upstream design system primitives
+   Source: tokens/primitive/*.json + tokens/semantic/*.json
+   ============================================================ */
+
+:root {
+
+  /* --- Colors: Primitives --- */
+  --ds-color-black:      #0F0F0F;   /* Volt Black */
+  --ds-color-white:      #FFFFFF;   /* Pure White */
+
+  /* Grey ramp */
+  --ds-color-grey-050:   #FAFAFA;
+  --ds-color-grey-100:   #F5F5F5;
+  --ds-color-grey-200:   #EBEBEB;
+  --ds-color-grey-300:   #C9C9C9;
+  --ds-color-grey-500:   #808080;
+  --ds-color-grey-700:   #4A4A4A;
+  --ds-color-grey-800:   #2F2F2F;
+  --ds-color-grey-900:   #1A1A1A;
+  --ds-color-grey-950:   #0F0F0F;
+
+  /* Green ramp */
+  --ds-color-green-100:  #F4FFD9;
+  --ds-color-green-300:  #DDFF7A;
+  --ds-color-green-500:  #C6FF2D;   /* Electric Green — background only on light surfaces */
+  --ds-color-green-600:  #A8DE1A;
+  --ds-color-green-700:  #7D9220;   /* Only accessible green for text (4.6:1 on white) */
+
+  /* --- Colors: Semantic (tokens/semantic/color.json) --- */
+
+  /* Surface */
+  --ds-color-surface-base:    var(--ds-color-white);
+  --ds-color-surface-sunken:  var(--ds-color-grey-100);
+  --ds-color-surface-raised:  var(--ds-color-white);
+  --ds-color-surface-inverse: var(--ds-color-grey-950);
+
+  /* Text */
+  --ds-color-text-primary:    var(--ds-color-grey-950);
+  --ds-color-text-secondary:  var(--ds-color-grey-500);
+  --ds-color-text-disabled:   var(--ds-color-grey-300);
+  --ds-color-text-accent:     var(--ds-color-green-700);
+  --ds-color-text-on-inverse: var(--ds-color-white);
+
+  /* Action */
+  --ds-color-action-primary:    var(--ds-color-green-500);
+  --ds-color-action-primary-fg: var(--ds-color-grey-950);
+  --ds-color-action-primary-hover: var(--ds-color-green-300);
+  --ds-color-action-primary-pressed: var(--ds-color-green-600);
+  --ds-color-action-secondary:    var(--ds-color-grey-950);
+  --ds-color-action-secondary-fg: var(--ds-color-white);
+
+  /* Border */
+  --ds-color-border-subtle:  var(--ds-color-grey-200);
+  --ds-color-border-strong:  var(--ds-color-grey-950);
+  --ds-color-border-focus:   var(--ds-color-green-500);
+
+  /* Status */
+  --ds-color-status-live: var(--ds-color-green-500);
+
+  /* --- Spacing (tokens/primitive/spacing.json — 4px base, unitless → px) --- */
+  --ds-space-050:  2px;
+  --ds-space-100:  4px;
+  --ds-space-200:  8px;
+  --ds-space-300:  12px;
+  --ds-space-400:  16px;
+  --ds-space-500:  20px;
+  --ds-space-600:  24px;
+  --ds-space-800:  32px;
+  --ds-space-1000: 40px;
+  --ds-space-1200: 48px;
+  --ds-space-1600: 64px;
+
+  /* --- Typography: Families --- */
+  --ds-font-family-display: 'Manjari', sans-serif;
+  --ds-font-family-body:    'Inter', sans-serif;
+  --ds-font-family-mono:    'JetBrains Mono', monospace;
+
+  /* Font sizes */
+  --ds-font-size-display-xl:  40px;
+  --ds-font-size-display-lg:  32px;
+  --ds-font-size-display-md:  28px;
+  --ds-font-size-numeric-lg:  28px;
+  --ds-font-size-numeric-md:  22px;
+  --ds-font-size-heading-lg:  20px;
+  --ds-font-size-heading-md:  17px;
+  --ds-font-size-heading-sm:  15px;
+  --ds-font-size-body-lg:     17px;
+  --ds-font-size-body-md:     15px;
+  --ds-font-size-body-sm:     13px;
+  --ds-font-size-label-md:    13px;
+  --ds-font-size-label-sm:    11px;
+  --ds-font-size-overline:    10px;
+
+  /* Line heights */
+  --ds-line-height-display-xl:  42px;
+  --ds-line-height-display-lg:  36px;
+  --ds-line-height-display-md:  32px;
+  --ds-line-height-numeric-lg:  30px;
+  --ds-line-height-numeric-md:  26px;
+  --ds-line-height-heading-lg:  26px;
+  --ds-line-height-heading-md:  24px;
+  --ds-line-height-heading-sm:  20px;
+  --ds-line-height-body-lg:     26px;
+  --ds-line-height-body-md:     22px;
+  --ds-line-height-body-sm:     18px;
+  --ds-line-height-label-md:    16px;
+  --ds-line-height-label-sm:    14px;
+  --ds-line-height-overline:    14px;
+
+  /* Font weights */
+  --ds-font-weight-display: 700;
+  --ds-font-weight-numeric: 700;
+  --ds-font-weight-heading: 600;
+  --ds-font-weight-body:    400;
+  --ds-font-weight-label-md: 600;
+  --ds-font-weight-label-sm: 500;
+  --ds-font-weight-overline: 500;
+
+  /* Letter spacing */
+  --ds-letter-spacing-tighter: -0.02em;  /* numeric sizes ≥ 22px */
+  --ds-letter-spacing-tight:   -0.01em;  /* heading.lg */
+  --ds-letter-spacing-normal:   0em;
+  --ds-letter-spacing-wide:     0.12em;  /* overline — uppercase */
+
+  /* --- Border Radius (tokens/primitive/radius.json) --- */
+  --ds-radius-xs:   8px;    /* badges, chips, progress tracks */
+  --ds-radius-sm:   12px;   /* inline tags, thumbnails, inputs */
+  --ds-radius-md:   16px;   /* list rows, secondary cards */
+  --ds-radius-lg:   20px;   /* standard content card */
+  --ds-radius-xl:   28px;   /* feature cards, stat blocks, map container */
+  --ds-radius-2xl:  36px;   /* bottom sheets, full-width hero surfaces */
+  --ds-radius-full: 999px;  /* buttons, pills, avatars, tab-bar circles */
+
+  /* --- Elevation (tokens/primitive/elevation.json) --- */
+  --ds-elevation-flat:    none;
+  --ds-elevation-raised:  0 2px 8px 0 rgba(15,15,15,0.06);
+  --ds-elevation-floating: 0 8px 24px 0 rgba(15,15,15,0.10);
+  --ds-elevation-overlay: 0 16px 48px 0 rgba(15,15,15,0.16);
+
+  /* --- Z-Index scale --- */
+  --ds-z-base:    0;
+  --ds-z-raised:  1;   /* raised cards */
+  --ds-z-sticky:  2;   /* sticky headers */
+  --ds-z-overlay: 3;   /* map overlays, overlapping UI */
+  --ds-z-drawer:  4;   /* bottom sheets, side drawers */
+  --ds-z-modal:   5;   /* modals and dialogs */
+  --ds-z-toast:   6;   /* toasts, snackbars (always on top) */
+
+  /* --- Motion (derived from audit; no token file exists yet) --- */
+  --ds-duration-instant:   0ms;
+  --ds-duration-fast:      100ms;
+  --ds-duration-quick:     150ms;
+  --ds-duration-standard:  200ms;
+  --ds-duration-deliberate: 300ms;
+  --ds-duration-loop:      2000ms;  /* pulsing / scanning animations */
+
+  --ds-easing-standard:    ease;
+  --ds-easing-decelerate:  ease-out;
+  --ds-easing-accelerate:  ease-in;
+  --ds-easing-loop:        ease-in-out;
+}
+
+
+/* ============================================================
+   LAYER 2 — Project aliases with fallbacks
+   Consume L1 via var(). Fallback = the raw value so this layer
+   works standalone even if :root L1 vars are absent.
+   ============================================================ */
+
+:root {
+
+  /* --- Colors --- */
+  --vv-color-surface-base:    var(--ds-color-surface-base,    #FFFFFF);
+  --vv-color-surface-sunken:  var(--ds-color-surface-sunken,  #F5F5F5);
+  --vv-color-surface-raised:  var(--ds-color-surface-raised,  #FFFFFF);
+  --vv-color-surface-inverse: var(--ds-color-surface-inverse, #0F0F0F);
+
+  --vv-color-text-primary:    var(--ds-color-text-primary,    #0F0F0F);
+  --vv-color-text-secondary:  var(--ds-color-text-secondary,  #808080);
+  --vv-color-text-disabled:   var(--ds-color-text-disabled,   #C9C9C9);
+  --vv-color-text-accent:     var(--ds-color-text-accent,     #7D9220);
+  --vv-color-text-on-inverse: var(--ds-color-text-on-inverse, #FFFFFF);
+
+  --vv-color-action-primary:         var(--ds-color-action-primary,         #C6FF2D);
+  --vv-color-action-primary-fg:      var(--ds-color-action-primary-fg,      #0F0F0F);
+  --vv-color-action-primary-hover:   var(--ds-color-action-primary-hover,   #DDFF7A);
+  --vv-color-action-primary-pressed: var(--ds-color-action-primary-pressed, #A8DE1A);
+  --vv-color-action-secondary:       var(--ds-color-action-secondary,       #0F0F0F);
+  --vv-color-action-secondary-fg:    var(--ds-color-action-secondary-fg,    #FFFFFF);
+
+  --vv-color-border-subtle: var(--ds-color-border-subtle, #EBEBEB);
+  --vv-color-border-strong: var(--ds-color-border-strong, #0F0F0F);
+  --vv-color-border-focus:  var(--ds-color-border-focus,  #C6FF2D);
+
+  --vv-color-status-live: var(--ds-color-status-live, #C6FF2D);
+
+  /* --- Spacing --- */
+  --vv-space-1:  var(--ds-space-050,  2px);
+  --vv-space-2:  var(--ds-space-100,  4px);
+  --vv-space-3:  var(--ds-space-200,  8px);
+  --vv-space-4:  var(--ds-space-300,  12px);
+  --vv-space-5:  var(--ds-space-400,  16px);
+  --vv-space-6:  var(--ds-space-500,  20px);
+  --vv-space-7:  var(--ds-space-600,  24px);
+  --vv-space-8:  var(--ds-space-800,  32px);
+  --vv-space-9:  var(--ds-space-1000, 40px);
+  --vv-space-10: var(--ds-space-1200, 48px);
+  --vv-space-11: var(--ds-space-1600, 64px);
+
+  /* Named aliases for common use */
+  --vv-space-screen-margin:  var(--ds-space-400, 16px);
+  --vv-space-card-padding:   var(--ds-space-500, 20px);
+  --vv-space-button-h:       var(--ds-space-600, 24px);
+  --vv-space-touch-target:   var(--ds-space-1200, 48px);
+  --vv-space-section-gap:    var(--ds-space-800, 32px);
+
+  /* --- Typography --- */
+  --vv-font-display: var(--ds-font-family-display, 'Manjari', sans-serif);
+  --vv-font-body:    var(--ds-font-family-body,    'Inter', sans-serif);
+  --vv-font-mono:    var(--ds-font-family-mono,    'JetBrains Mono', monospace);
+
+  --vv-text-display-xl-size:        var(--ds-font-size-display-xl,  40px);
+  --vv-text-display-xl-line-height: var(--ds-line-height-display-xl, 42px);
+  --vv-text-display-xl-weight:      var(--ds-font-weight-display,    700);
+
+  --vv-text-display-lg-size:        var(--ds-font-size-display-lg,  32px);
+  --vv-text-display-lg-line-height: var(--ds-line-height-display-lg, 36px);
+  --vv-text-display-lg-weight:      var(--ds-font-weight-display,    700);
+
+  --vv-text-display-md-size:        var(--ds-font-size-display-md,  28px);
+  --vv-text-display-md-line-height: var(--ds-line-height-display-md, 32px);
+  --vv-text-display-md-weight:      var(--ds-font-weight-display,    700);
+
+  --vv-text-numeric-lg-size:        var(--ds-font-size-numeric-lg,  28px);
+  --vv-text-numeric-lg-line-height: var(--ds-line-height-numeric-lg, 30px);
+  --vv-text-numeric-lg-weight:      var(--ds-font-weight-numeric,    700);
+  --vv-text-numeric-lg-tracking:    var(--ds-letter-spacing-tighter, -0.02em);
+
+  --vv-text-numeric-md-size:        var(--ds-font-size-numeric-md,  22px);
+  --vv-text-numeric-md-line-height: var(--ds-line-height-numeric-md, 26px);
+  --vv-text-numeric-md-weight:      var(--ds-font-weight-numeric,    700);
+  --vv-text-numeric-md-tracking:    var(--ds-letter-spacing-tighter, -0.02em);
+
+  --vv-text-heading-lg-size:        var(--ds-font-size-heading-lg,  20px);
+  --vv-text-heading-lg-line-height: var(--ds-line-height-heading-lg, 26px);
+  --vv-text-heading-lg-weight:      var(--ds-font-weight-heading,    600);
+  --vv-text-heading-lg-tracking:    var(--ds-letter-spacing-tight,  -0.01em);
+
+  --vv-text-heading-md-size:        var(--ds-font-size-heading-md,  17px);
+  --vv-text-heading-md-line-height: var(--ds-line-height-heading-md, 24px);
+  --vv-text-heading-md-weight:      var(--ds-font-weight-heading,    600);
+
+  --vv-text-heading-sm-size:        var(--ds-font-size-heading-sm,  15px);
+  --vv-text-heading-sm-line-height: var(--ds-line-height-heading-sm, 20px);
+  --vv-text-heading-sm-weight:      var(--ds-font-weight-heading,    600);
+
+  --vv-text-body-lg-size:        var(--ds-font-size-body-lg,  17px);
+  --vv-text-body-lg-line-height: var(--ds-line-height-body-lg, 26px);
+  --vv-text-body-lg-weight:      var(--ds-font-weight-body,    400);
+
+  --vv-text-body-md-size:        var(--ds-font-size-body-md,  15px);
+  --vv-text-body-md-line-height: var(--ds-line-height-body-md, 22px);
+  --vv-text-body-md-weight:      var(--ds-font-weight-body,    400);
+
+  --vv-text-body-sm-size:        var(--ds-font-size-body-sm,  13px);
+  --vv-text-body-sm-line-height: var(--ds-line-height-body-sm, 18px);
+  --vv-text-body-sm-weight:      var(--ds-font-weight-body,    400);
+
+  --vv-text-label-md-size:        var(--ds-font-size-label-md,  13px);
+  --vv-text-label-md-line-height: var(--ds-line-height-label-md, 16px);
+  --vv-text-label-md-weight:      var(--ds-font-weight-label-md, 600);
+
+  --vv-text-label-sm-size:        var(--ds-font-size-label-sm,  11px);
+  --vv-text-label-sm-line-height: var(--ds-line-height-label-sm, 14px);
+  --vv-text-label-sm-weight:      var(--ds-font-weight-label-sm, 500);
+
+  --vv-text-overline-size:        var(--ds-font-size-overline,    10px);
+  --vv-text-overline-line-height: var(--ds-line-height-overline,  14px);
+  --vv-text-overline-weight:      var(--ds-font-weight-overline,  500);
+  --vv-text-overline-tracking:    var(--ds-letter-spacing-wide,   0.12em);
+
+  /* --- Border Radius --- */
+  --vv-radius-xs:   var(--ds-radius-xs,   8px);
+  --vv-radius-sm:   var(--ds-radius-sm,   12px);
+  --vv-radius-md:   var(--ds-radius-md,   16px);
+  --vv-radius-lg:   var(--ds-radius-lg,   20px);
+  --vv-radius-xl:   var(--ds-radius-xl,   28px);
+  --vv-radius-2xl:  var(--ds-radius-2xl,  36px);
+  --vv-radius-full: var(--ds-radius-full, 999px);
+
+  /* --- Elevation --- */
+  --vv-elevation-flat:     var(--ds-elevation-flat,     none);
+  --vv-elevation-raised:   var(--ds-elevation-raised,   0 2px 8px 0 rgba(15,15,15,0.06));
+  --vv-elevation-floating: var(--ds-elevation-floating, 0 8px 24px 0 rgba(15,15,15,0.10));
+  --vv-elevation-overlay:  var(--ds-elevation-overlay,  0 16px 48px 0 rgba(15,15,15,0.16));
+
+  /* --- Z-Index --- */
+  --vv-z-base:    var(--ds-z-base,    0);
+  --vv-z-raised:  var(--ds-z-raised,  1);
+  --vv-z-sticky:  var(--ds-z-sticky,  2);
+  --vv-z-overlay: var(--ds-z-overlay, 3);
+  --vv-z-drawer:  var(--ds-z-drawer,  4);
+  --vv-z-modal:   var(--ds-z-modal,   5);
+  --vv-z-toast:   var(--ds-z-toast,   6);
+
+  /* --- Motion --- */
+  --vv-duration-instant:    var(--ds-duration-instant,    0ms);
+  --vv-duration-fast:       var(--ds-duration-fast,       100ms);
+  --vv-duration-quick:      var(--ds-duration-quick,      150ms);
+  --vv-duration-standard:   var(--ds-duration-standard,   200ms);
+  --vv-duration-deliberate: var(--ds-duration-deliberate, 300ms);
+  --vv-duration-loop:       var(--ds-duration-loop,       2000ms);
+
+  --vv-easing-standard:   var(--ds-easing-standard,   ease);
+  --vv-easing-decelerate: var(--ds-easing-decelerate, ease-out);
+  --vv-easing-accelerate: var(--ds-easing-accelerate, ease-in);
+  --vv-easing-loop:       var(--ds-easing-loop,       ease-in-out);
+
+  /* Composite motion shorthands */
+  --vv-motion-micro:     var(--vv-duration-fast)       var(--vv-easing-standard);
+  --vv-motion-quick:     var(--vv-duration-quick)      var(--vv-easing-standard);
+  --vv-motion-standard:  var(--vv-duration-standard)   var(--vv-easing-standard);
+  --vv-motion-deliberate: var(--vv-duration-deliberate) var(--vv-easing-decelerate);
+}
+
+
+/* ============================================================
+   LAYER 3 — Component tokens
+   Only reference L2 --vv-* aliases. Never raw values.
+   ============================================================ */
+
+:root {
+
+  /* ── Button ── */
+  --button-primary-bg:          var(--vv-color-action-primary);
+  --button-primary-bg-hover:    var(--vv-color-action-primary-hover);
+  --button-primary-bg-pressed:  var(--vv-color-action-primary-pressed);
+  --button-primary-fg:          var(--vv-color-action-primary-fg);
+  --button-secondary-bg:        var(--vv-color-action-secondary);
+  --button-secondary-fg:        var(--vv-color-action-secondary-fg);
+  --button-radius:              var(--vv-radius-full);
+  --button-height:              var(--vv-space-touch-target);
+  --button-padding-h:           var(--vv-space-button-h);
+  --button-font-size:           var(--vv-text-heading-sm-size);
+  --button-font-weight:         var(--vv-text-heading-sm-weight);
+  --button-line-height:         var(--vv-text-heading-sm-line-height);
+  --button-transition:          background var(--vv-motion-micro),
+                                transform  var(--vv-motion-micro);
+  --button-focus-outline:       2px solid var(--vv-color-border-focus);
+  --button-focus-outline-offset: 2px;
+
+  /* ── Card ── */
+  --card-bg:             var(--vv-color-surface-raised);
+  --card-bg-inverse:     var(--vv-color-surface-inverse);
+  --card-radius:         var(--vv-radius-lg);
+  --card-padding:        var(--vv-space-card-padding);
+  --card-shadow:         var(--vv-elevation-raised);
+  --card-border-color:   var(--vv-color-border-subtle);
+  --card-border-width:   1px;
+  --card-text-primary:   var(--vv-color-text-primary);
+  --card-text-secondary: var(--vv-color-text-secondary);
+
+  /* ── Bottom Sheet ── */
+  --sheet-bg:       var(--vv-color-surface-base);
+  --sheet-radius:   var(--vv-radius-2xl) var(--vv-radius-2xl) 0 0;
+  --sheet-shadow:   var(--vv-elevation-overlay);
+  --sheet-z-index:  var(--vv-z-drawer);
+  --sheet-padding:  var(--vv-space-card-padding);
+
+  /* ── Input ── */
+  --input-bg:             var(--vv-color-surface-sunken);
+  --input-border-color:   var(--vv-color-border-subtle);
+  --input-border-width:   1px;
+  --input-border-radius:  var(--vv-radius-sm);
+  --input-focus-border:   2px solid var(--vv-color-border-focus);
+  --input-text-color:     var(--vv-color-text-primary);
+  --input-placeholder:    var(--vv-color-text-disabled);
+  --input-font-size:      var(--vv-text-body-md-size);
+  --input-line-height:    var(--vv-text-body-md-line-height);
+  --input-padding-h:      var(--vv-space-5);
+  --input-padding-v:      var(--vv-space-4);
+  --input-height:         var(--vv-space-touch-target);
+  --input-transition:     border-color var(--vv-motion-quick);
+
+  /* ── List Row ── */
+  --list-row-bg:           var(--vv-color-surface-base);
+  --list-row-bg-hover:     var(--vv-color-surface-sunken);
+  --list-row-divider:      var(--vv-color-border-subtle);
+  --list-row-height:       var(--vv-space-11);         /* 64px — two-line floor */
+  --list-row-padding-h:    var(--vv-space-screen-margin);
+  --list-row-radius:       var(--vv-radius-md);
+  --list-row-text-primary: var(--vv-color-text-primary);
+  --list-row-text-meta:    var(--vv-color-text-secondary);
+
+  /* ── Tab Bar ── */
+  --tab-bar-bg:          var(--vv-color-surface-base);
+  --tab-bar-shadow:      var(--vv-elevation-floating);
+  --tab-bar-z-index:     var(--vv-z-sticky);
+  --tab-bar-height:      var(--vv-space-10);          /* 48px touch target */
+  --tab-bar-icon-active: var(--vv-color-text-primary);
+  --tab-bar-icon-rest:   var(--vv-color-text-secondary);
+  --tab-bar-label-size:  var(--vv-text-label-sm-size);
+  --tab-bar-label-weight: var(--vv-text-label-sm-weight);
+
+  /* ── Map Pin ── */
+  --map-pin-bg:      var(--vv-color-action-primary);
+  --map-pin-fg:      var(--vv-color-action-primary-fg);
+  --map-pin-shadow:  var(--vv-elevation-floating);
+  --map-pin-radius:  var(--vv-radius-full);
+  --map-pin-z-index: var(--vv-z-overlay);
+
+  /* ── Status Dot / Badge ── */
+  --status-live-color:  var(--vv-color-status-live);
+  --status-live-size:   var(--vv-space-3);    /* 8px */
+  --status-live-radius: var(--vv-radius-full);
+  --badge-radius:       var(--vv-radius-xs);
+  --badge-padding-h:    var(--vv-space-2);
+  --badge-font-size:    var(--vv-text-label-sm-size);
+  --badge-font-weight:  var(--vv-text-label-sm-weight);
+
+  /* ── Toast / Snackbar ── */
+  --toast-bg:      var(--vv-color-surface-inverse);
+  --toast-fg:      var(--vv-color-text-on-inverse);
+  --toast-radius:  var(--vv-radius-sm);
+  --toast-shadow:  var(--vv-elevation-overlay);
+  --toast-z-index: var(--vv-z-toast);
+  --toast-padding: var(--vv-space-4) var(--vv-space-6);
+
+  /* ── Progress / Track ── */
+  --progress-track-bg:    var(--vv-color-border-subtle);
+  --progress-fill-bg:     var(--vv-color-action-primary);
+  --progress-radius:      var(--vv-radius-xs);
+  --progress-height:      var(--vv-space-2);    /* 4px */
+
+  /* ── Segmented Toggle ── */
+  --toggle-bg:            var(--vv-color-surface-sunken);
+  --toggle-active-bg:     var(--vv-color-surface-raised);
+  --toggle-active-shadow: var(--vv-elevation-raised);
+  --toggle-radius:        var(--vv-radius-xs);
+  --toggle-padding:       var(--vv-space-1);
+  --toggle-font-size:     var(--vv-text-label-md-size);
+  --toggle-font-weight:   var(--vv-text-label-md-weight);
+  --toggle-transition:    background var(--vv-motion-quick),
+                          box-shadow var(--vv-motion-quick);
+
+  /* ── QR Viewfinder ── */
+  --qr-bg:               var(--vv-color-surface-inverse);
+  --qr-corner-color:      var(--vv-color-action-primary);
+  --qr-corner-radius:     var(--vv-radius-sm);
+  --qr-z-index:           var(--vv-z-overlay);
+  --qr-scan-duration:     var(--vv-duration-loop);
+  --qr-scan-easing:       var(--vv-easing-loop);
+}

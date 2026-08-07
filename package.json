@@ -16,7 +16,10 @@
     "build": "npm run build:validate && npm run build:tokens",
     "test": "node --test sd-transforms/**/*.test.mjs",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "audit:tokens": "node scripts/token-audit.js",
+    "audit:tokens:errors": "node scripts/token-audit.js --no-warnings",
+    "audit:tokens:json": "node scripts/token-audit.js --json"
   },
   "devDependencies": {
     "@storybook/html-vite": "^10.5.5",

@@ -1,27 +1,75 @@
 {
   "version": "1.0",
-  "timestamp": "2026-08-06T18:30:00.000Z",
+  "timestamp": "2026-08-08",
   "phase": null,
-  "phase_name": "post-phase-7-docs",
+  "phase_name": "pre-v0.2 groundwork — no formal GSD phase",
   "phase_dir": null,
   "plan": null,
   "task": null,
   "total_tasks": null,
   "status": "paused",
   "completed_tasks": [
-    {"id": 1, "name": "Push 3 pending commits to GitHub", "status": "done", "commit": "af0fa86"},
-    {"id": 2, "name": "Copy 35 Hi-Fi screen PNGs to images/hifi/", "status": "done", "commit": "02e334d"},
-    {"id": 3, "name": "Update README with screen gallery + corrected story counts", "status": "done", "commit": "02e334d"},
-    {"id": 4, "name": "Push everything to origin/main", "status": "done", "commit": "02e334d"}
+    {
+      "id": 1,
+      "name": "Hardcoded value audit — 66 story files",
+      "status": "done",
+      "notes": "8,896 total hardcoded values: 4,155 spacing, 2,488 hex colors, 895 font-sizes, 600 font-weights, 299 rgba, 292 border-radii, 73 shadows, 73 transitions, 21 z-index. Top file: security-deposit.stories.js (308 violations)."
+    },
+    {
+      "id": 2,
+      "name": "tokens.css — 3-layer CSS custom property architecture",
+      "status": "done",
+      "notes": "L1 --ds-* (primitives from JSON source), L2 --vv-* (aliases with fallbacks), L3 --<comp>-* (12 components). 280 properties. Uncommitted."
+    },
+    {
+      "id": 3,
+      "name": "specs/ directory — 19 markdown spec files",
+      "status": "done",
+      "notes": "6 foundations + tokens/token-reference.md (master map of all 280 vars) + 12 component specs. Uncommitted."
+    },
+    {
+      "id": 4,
+      "name": "scripts/token-audit.js — CI-ready token compliance auditor",
+      "status": "done",
+      "notes": "8 rule categories, exit 1 on errors, --json mode, --no-warnings flag. Full project baseline: 4,612 errors across 68 files. 3 npm scripts added to package.json. Uncommitted."
+    }
   ],
-  "remaining_tasks": [],
+  "remaining_tasks": [
+    {
+      "id": 5,
+      "name": "Commit all new artifacts",
+      "status": "not_started",
+      "notes": "tokens.css, specs/ (19 files), scripts/token-audit.js, package.json"
+    },
+    {
+      "id": 6,
+      "name": "Complete /gsd-new-milestone for v0.2",
+      "status": "not_started",
+      "notes": "Was interrupted at step 2 (user picked 4 v0.2 candidates then requested audit detour). Resume from milestone summary → requirements → roadmap."
+    }
+  ],
   "blockers": [],
   "human_actions_pending": [],
   "decisions": [
-    {"decision": "Include all 35 Hi-Fi PNGs directly in repo under images/hifi/", "rationale": "5.5MB total — acceptable; images not gitignored; enables rendered gallery in GitHub README", "phase": "post-7"},
-    {"decision": "Group gallery into 4 sections: Onboarding/Auth, Ride Flow, Profile/Payments, Settings", "rationale": "Mirrors app information architecture; easier to scan", "phase": "post-7"}
+    {
+      "decision": "v0.2 scope: dark mode tokens, npm publication, icon set integration, status color tokens",
+      "rationale": "User selected all 4 backlog candidates",
+      "phase": "pre-v0.2"
+    },
+    {
+      "decision": "3-layer CSS tokens (L1/L2/L3) as web companion to the Style Dictionary TS output",
+      "rationale": "Storybook stories are web/browser; CSS vars match the token hierarchy; fallbacks ensure standalone use",
+      "phase": "pre-v0.2"
+    },
+    {
+      "decision": "token-audit.js: errors for known-token violations, warnings for rgba/duration/z-index/off-grid",
+      "rationale": "Motion JSON tokens don't exist yet — warnings prevent premature failures; errors block CI",
+      "phase": "pre-v0.2"
+    }
   ],
-  "uncommitted_files": [],
-  "next_action": "Run /gsd:complete-milestone to archive v0.1 and prepare for v0.2 planning, OR /gsd:new-milestone to start next milestone cycle",
-  "context_notes": "All 7 phases complete. Repo is clean and pushed. README now has full Hi-Fi gallery. The design system package itself is done — next work is either a React Native app consuming the package, dark mode token layer, or npm publication prep."
+  "uncommitted_files": [
+    "tokens.css", "specs/", "scripts/token-audit.js", "package.json"
+  ],
+  "next_action": "1) git add + commit all new artifacts with message 'feat: pre-v0.2 groundwork — tokens.css, specs/, token-audit.js'. 2) Resume /gsd-new-milestone to define requirements and roadmap for v0.2.",
+  "context_notes": "Session produced pre-milestone groundwork artifacts without a formal GSD phase. /gsd-new-milestone was started but interrupted by the audit request. User confirmed v0.2 = dark mode + npm + icons + status colors. All four artifacts (audit results, tokens.css, specs/, token-audit.js) are related and should land in one commit. Then new-milestone can proceed cleanly."
 }
