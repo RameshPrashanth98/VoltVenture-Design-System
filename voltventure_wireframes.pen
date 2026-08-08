@@ -40178,1189 +40178,8 @@
     },
     {
       "type": "frame",
-      "id": "d2ytQb",
-      "x": 7348,
-      "y": 3664,
-      "name": "Payment Methods Screen — Hi-Fi",
-      "clip": true,
-      "width": 393,
-      "height": 852,
-      "fill": "$vv-surface-base",
-      "layout": "vertical",
-      "children": [
-        {
-          "type": "frame",
-          "id": "Jdfkp",
-          "name": "Status Bar",
-          "width": "fill_container",
-          "height": 62,
-          "padding": [
-            0,
-            24
-          ],
-          "justifyContent": "space_between",
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "text",
-              "id": "cb7PL",
-              "name": "Time",
-              "fill": "$vv-text-primary",
-              "content": "9:41",
-              "fontFamily": "$vv-font-body",
-              "fontSize": 15,
-              "fontWeight": "600"
-            },
-            {
-              "type": "frame",
-              "id": "efKV7",
-              "name": "Icons",
-              "gap": 6,
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "JBPzo",
-                  "name": "Signal",
-                  "gap": 2,
-                  "alignItems": "end",
-                  "children": [
-                    {
-                      "type": "rectangle",
-                      "cornerRadius": 1,
-                      "id": "HaMnr",
-                      "name": "Bar",
-                      "fill": "$vv-text-primary",
-                      "width": 3,
-                      "height": 8
-                    },
-                    {
-                      "type": "rectangle",
-                      "cornerRadius": 1,
-                      "id": "a6HknG",
-                      "name": "Bar",
-                      "fill": "$vv-text-primary",
-                      "width": 3,
-                      "height": 11
-                    },
-                    {
-                      "type": "rectangle",
-                      "cornerRadius": 1,
-                      "id": "eghgj",
-                      "name": "Bar",
-                      "fill": "$vv-text-primary",
-                      "width": 3,
-                      "height": 14
-                    },
-                    {
-                      "type": "rectangle",
-                      "cornerRadius": 1,
-                      "id": "K97jn",
-                      "name": "Bar",
-                      "fill": "$vv-text-primary",
-                      "width": 3,
-                      "height": 17
-                    }
-                  ]
-                },
-                {
-                  "type": "icon",
-                  "id": "dGj8x",
-                  "name": "WiFi",
-                  "width": 16,
-                  "height": 16,
-                  "icon": "wifi",
-                  "library": "lucide",
-                  "fill": "$vv-text-primary"
-                },
-                {
-                  "type": "icon",
-                  "id": "MEgST",
-                  "name": "Battery",
-                  "width": 22,
-                  "height": 12,
-                  "icon": "battery",
-                  "library": "lucide",
-                  "fill": "$vv-text-primary"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "I9l5y",
-          "name": "Header Row",
-          "width": "fill_container",
-          "gap": 12,
-          "padding": [
-            8,
-            20,
-            4,
-            20
-          ],
-          "alignItems": "center",
-          "children": [
-            {
-              "type": "frame",
-              "id": "LfNuz",
-              "name": "Back Button",
-              "width": 36,
-              "height": 36,
-              "fill": "$vv-surface-base",
-              "cornerRadius": "$vv-radius-full",
-              "stroke": "$vv-grey-200",
-              "strokeWidth": 1,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "o9WaP",
-                  "name": "BackIcon",
-                  "width": 18,
-                  "height": 18,
-                  "icon": "chevron-left",
-                  "library": "lucide",
-                  "fill": "$vv-grey-800"
-                }
-              ]
-            },
-            {
-              "type": "text",
-              "id": "fBKwH",
-              "name": "Screen Title",
-              "fill": "$vv-text-primary",
-              "content": "Payment Methods",
-              "fontFamily": "$vv-font-display",
-              "fontSize": 21,
-              "fontWeight": "700"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "kbBN6",
-          "name": "Subtitle Row",
-          "width": "fill_container",
-          "padding": [
-            0,
-            20,
-            16,
-            20
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "zbR4n",
-              "name": "Screen Subtitle",
-              "fill": "$vv-text-secondary",
-              "content": "Manage how you pay while traveling",
-              "fontFamily": "$vv-font-body",
-              "fontSize": 13,
-              "fontWeight": "500"
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "EjoBB",
-          "name": "Default Card Wrap",
-          "width": "fill_container",
-          "padding": [
-            0,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "fDz24",
-              "name": "Default Payment Card",
-              "width": "fill_container",
-              "height": 170,
-              "fill": {
-                "type": "gradient",
-                "gradientType": "linear",
-                "enabled": true,
-                "rotation": 135,
-                "size": {
-                  "height": 1
-                },
-                "colors": [
-                  {
-                    "color": "#1A1A1A",
-                    "position": 0
-                  },
-                  {
-                    "color": "#333333",
-                    "position": 1
-                  }
-                ]
-              },
-              "cornerRadius": "$vv-radius-lg",
-              "effect": {
-                "type": "shadow",
-                "shadowType": "outer",
-                "color": "#0F0F0F33",
-                "offset": {
-                  "x": 0,
-                  "y": 8
-                },
-                "blur": 20
-              },
-              "layout": "vertical",
-              "padding": 18,
-              "justifyContent": "space_between",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "CN5K6",
-                  "name": "Card Top Row",
-                  "width": "fill_container",
-                  "justifyContent": "space_between",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "hBEMT",
-                      "name": "Chip Icon",
-                      "width": 36,
-                      "height": 26,
-                      "fill": "#D4AF6A",
-                      "cornerRadius": 5
-                    },
-                    {
-                      "type": "frame",
-                      "id": "tZeWK",
-                      "name": "Default Badge",
-                      "fill": "#FFFFFF22",
-                      "cornerRadius": "$vv-radius-xs",
-                      "gap": 4,
-                      "padding": [
-                        5,
-                        10
-                      ],
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "xBVjG",
-                          "name": "CheckIcon",
-                          "width": 11,
-                          "height": 11,
-                          "icon": "check",
-                          "library": "lucide",
-                          "fill": "$vv-green-500"
-                        },
-                        {
-                          "type": "text",
-                          "id": "laNzA",
-                          "name": "DefaultText",
-                          "fill": "$vv-surface-base",
-                          "content": "Default",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 11,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "k3aC1",
-                  "name": "Card Number Row",
-                  "gap": 10,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "sx8Ix",
-                      "name": "Dot Group",
-                      "gap": 4,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "ellipse",
-                          "id": "TbhC4",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "xYS4F",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "tFpBJ",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "H9gEz",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "uVhJs",
-                      "name": "Dot Group",
-                      "gap": 4,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "ellipse",
-                          "id": "Zbm1d",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "R9UgKL",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "Z3TsTQ",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "Yh0VO",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "qXTKg",
-                      "name": "Dot Group",
-                      "gap": 4,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "ellipse",
-                          "id": "ptvHU",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "p2b7Z",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "KpvJ7",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        },
-                        {
-                          "type": "ellipse",
-                          "id": "Xgi2h",
-                          "name": "Dot",
-                          "fill": "$vv-grey-500",
-                          "width": 5,
-                          "height": 5
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "hj9Gw",
-                      "name": "Last4",
-                      "fill": "$vv-surface-base",
-                      "content": "4242",
-                      "fontFamily": "$vv-font-body",
-                      "fontSize": 16,
-                      "fontWeight": "700",
-                      "letterSpacing": 1
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "R5thY",
-                  "name": "Card Bottom Row",
-                  "width": "fill_container",
-                  "justifyContent": "space_between",
-                  "alignItems": "end",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "W4jzY",
-                      "name": "Holder Col",
-                      "layout": "vertical",
-                      "gap": 2,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "OSGey",
-                          "name": "HolderLabel",
-                          "fill": "$vv-grey-500",
-                          "content": "CARD HOLDER",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 9,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "YfbD7",
-                          "name": "HolderName",
-                          "fill": "$vv-surface-base",
-                          "content": "Alex Rivera",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 13,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "MxwVH",
-                      "name": "Currency Col",
-                      "layout": "vertical",
-                      "gap": 2,
-                      "alignItems": "end",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "xnHfU",
-                          "name": "CurrLabel",
-                          "fill": "$vv-grey-500",
-                          "content": "BILLED IN",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 9,
-                          "fontWeight": "600"
-                        },
-                        {
-                          "type": "text",
-                          "id": "VdWvg",
-                          "name": "CurrValue",
-                          "fill": "$vv-surface-base",
-                          "content": "USD $",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 13,
-                          "fontWeight": "700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "SWXvj",
-                      "name": "BrandLogo",
-                      "fill": "$vv-surface-base",
-                      "content": "VISA",
-                      "fontFamily": "$vv-font-body",
-                      "fontSize": 16,
-                      "fontWeight": "800",
-                      "fontStyle": "italic"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "O8W0C",
-          "name": "Add Button Wrap",
-          "width": "fill_container",
-          "padding": [
-            14,
-            20,
-            0,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "mWNDZ",
-              "name": "Add New Payment Method Button",
-              "width": "fill_container",
-              "height": 54,
-              "fill": "$vv-green-500",
-              "cornerRadius": "$vv-radius-full",
-              "gap": 8,
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "eJpbQ",
-                  "name": "PlusIcon",
-                  "width": 18,
-                  "height": 18,
-                  "icon": "plus",
-                  "library": "lucide",
-                  "fill": "$vv-black"
-                },
-                {
-                  "type": "text",
-                  "id": "f19Nr",
-                  "name": "AddLabel",
-                  "fill": "$vv-black",
-                  "content": "Add New Payment Method",
-                  "fontFamily": "$vv-font-body",
-                  "fontSize": 15,
-                  "fontWeight": "700"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "rOBrw",
-          "name": "Options Section",
-          "width": "fill_container",
-          "layout": "vertical",
-          "gap": 10,
-          "padding": [
-            24,
-            20,
-            0,
-            20
-          ],
-          "children": [
-            {
-              "type": "text",
-              "id": "q7ilQ",
-              "name": "Section Label",
-              "fill": "$vv-grey-500",
-              "content": "OR CHOOSE A METHOD",
-              "fontFamily": "$vv-font-body",
-              "fontSize": 10,
-              "fontWeight": "500",
-              "letterSpacing": 1.2
-            },
-            {
-              "type": "frame",
-              "id": "FhsJJ",
-              "name": "Options List",
-              "width": "fill_container",
-              "fill": "$vv-surface-base",
-              "cornerRadius": "$vv-radius-md",
-              "stroke": "$vv-grey-100",
-              "strokeWidth": 1,
-              "layout": "vertical",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "QkXm3",
-                  "name": "Option Apple Pay",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "padding": 14,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "kjWzc",
-                      "name": "IconChip",
-                      "width": 40,
-                      "height": 40,
-                      "fill": "$vv-black",
-                      "cornerRadius": "$vv-radius-sm",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "pyGNz",
-                          "name": "OptIcon",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "smartphone",
-                          "library": "lucide",
-                          "fill": "$vv-surface-base"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "Z5bpD",
-                      "name": "Option Text Col",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 2,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "KzfRv",
-                          "name": "OptTitle",
-                          "fill": "$vv-text-primary",
-                          "content": "Apple Pay",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 14,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "MAdTO",
-                          "name": "OptSub",
-                          "fill": "$vv-grey-500",
-                          "content": "One-tap secure checkout",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 11,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "icon",
-                      "id": "mDIYy",
-                      "name": "ChevronIcon",
-                      "width": 18,
-                      "height": 18,
-                      "icon": "chevron-right",
-                      "library": "lucide",
-                      "fill": "$vv-grey-300"
-                    }
-                  ]
-                },
-                {
-                  "type": "rectangle",
-                  "id": "xDrXb",
-                  "name": "Divider",
-                  "fill": "$vv-grey-100",
-                  "width": "fill_container",
-                  "height": 1
-                },
-                {
-                  "type": "frame",
-                  "id": "b6MHR",
-                  "name": "Option Google Wallet",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "padding": 14,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "lPgYJ",
-                      "name": "IconChip",
-                      "width": 40,
-                      "height": 40,
-                      "fill": "$vv-grey-100",
-                      "cornerRadius": "$vv-radius-sm",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "liLOy",
-                          "name": "OptIcon",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "wallet",
-                          "library": "lucide",
-                          "fill": "#4285F4"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "hcWfm",
-                      "name": "Option Text Col",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 2,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "bVLwa",
-                          "name": "OptTitle",
-                          "fill": "$vv-text-primary",
-                          "content": "Google Wallet",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 14,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "jaiWd",
-                          "name": "OptSub",
-                          "fill": "$vv-grey-500",
-                          "content": "Fast, encrypted payments",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 11,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "icon",
-                      "id": "yMU8F",
-                      "name": "ChevronIcon",
-                      "width": 18,
-                      "height": 18,
-                      "icon": "chevron-right",
-                      "library": "lucide",
-                      "fill": "$vv-grey-300"
-                    }
-                  ]
-                },
-                {
-                  "type": "rectangle",
-                  "id": "jEITg",
-                  "name": "Divider",
-                  "fill": "$vv-grey-100",
-                  "width": "fill_container",
-                  "height": 1
-                },
-                {
-                  "type": "frame",
-                  "id": "lqveb",
-                  "name": "Option Credit or Debit Card",
-                  "width": "fill_container",
-                  "gap": 12,
-                  "padding": 14,
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "hO8K9",
-                      "name": "IconChip",
-                      "width": 40,
-                      "height": 40,
-                      "fill": "$vv-grey-100",
-                      "cornerRadius": "$vv-radius-sm",
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "icon",
-                          "id": "K7ZJZ",
-                          "name": "OptIcon",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "credit-card",
-                          "library": "lucide",
-                          "fill": "$vv-grey-700"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "bp2Vk",
-                      "name": "Option Text Col",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 2,
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "Q9Gof",
-                          "name": "OptTitle",
-                          "fill": "$vv-text-primary",
-                          "content": "Credit or Debit Card",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 14,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "oPhjw",
-                          "name": "OptSub",
-                          "fill": "$vv-grey-500",
-                          "content": "Visa, Mastercard, Amex accepted",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 11,
-                          "fontWeight": "500"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "icon",
-                      "id": "GV2JM",
-                      "name": "ChevronIcon",
-                      "width": 18,
-                      "height": 18,
-                      "icon": "chevron-right",
-                      "library": "lucide",
-                      "fill": "$vv-grey-300"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "g0gtPK",
-          "name": "Trust Wrap",
-          "width": "fill_container",
-          "padding": [
-            20,
-            20,
-            0,
-            20
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "V1QDh",
-              "name": "Trust Card",
-              "width": "fill_container",
-              "fill": "$vv-grey-050",
-              "cornerRadius": "$vv-radius-md",
-              "gap": 10,
-              "padding": 14,
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "frame",
-                  "id": "P53KS",
-                  "name": "Lock Chip",
-                  "width": 34,
-                  "height": 34,
-                  "fill": "$vv-green-100",
-                  "cornerRadius": "$vv-radius-full",
-                  "justifyContent": "center",
-                  "alignItems": "center",
-                  "children": [
-                    {
-                      "type": "icon",
-                      "id": "khTK5",
-                      "name": "LockIcon",
-                      "width": 16,
-                      "height": 16,
-                      "icon": "lock",
-                      "library": "lucide",
-                      "fill": "$vv-green-700"
-                    }
-                  ]
-                },
-                {
-                  "type": "frame",
-                  "id": "L3Hb1",
-                  "name": "Trust Text Col",
-                  "width": "fill_container",
-                  "layout": "vertical",
-                  "gap": 2,
-                  "children": [
-                    {
-                      "type": "text",
-                      "id": "owaMm",
-                      "name": "TrustTitle",
-                      "fill": "$vv-text-primary",
-                      "content": "256-bit encrypted & PCI compliant",
-                      "fontFamily": "$vv-font-body",
-                      "fontSize": 12,
-                      "fontWeight": "700"
-                    },
-                    {
-                      "type": "frame",
-                      "id": "PWGM0",
-                      "name": "Gateway Logos",
-                      "gap": 8,
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "lOTm3",
-                          "name": "StripeLogo",
-                          "fill": "#635BFF",
-                          "content": "stripe",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 12,
-                          "fontWeight": "800",
-                          "fontStyle": "italic"
-                        },
-                        {
-                          "type": "text",
-                          "id": "Q4eQA",
-                          "name": "Sep",
-                          "fill": "$vv-grey-300",
-                          "content": "·",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 12,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "text",
-                          "id": "Uy01N",
-                          "name": "AdyenLogo",
-                          "fill": "#0ABF53",
-                          "content": "adyen",
-                          "fontFamily": "$vv-font-body",
-                          "fontSize": 12,
-                          "fontWeight": "800"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "p9Pg5i",
-          "name": "Billing Link Wrap",
-          "width": "fill_container",
-          "padding": [
-            16,
-            20,
-            90,
-            20
-          ],
-          "justifyContent": "center",
-          "children": [
-            {
-              "type": "frame",
-              "id": "FoFRk",
-              "name": "View Billing History Link",
-              "gap": 6,
-              "padding": [
-                10,
-                16
-              ],
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "l3LNr",
-                  "name": "ReceiptIcon",
-                  "width": 15,
-                  "height": 15,
-                  "icon": "receipt",
-                  "library": "lucide",
-                  "fill": "$vv-text-primary"
-                },
-                {
-                  "type": "text",
-                  "id": "usc5M",
-                  "name": "BillingLabel",
-                  "fill": "$vv-text-primary",
-                  "content": "View Billing History",
-                  "fontFamily": "$vv-font-body",
-                  "fontSize": 13,
-                  "fontWeight": "700"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "frame",
-          "id": "RPIpW",
-          "layoutPosition": "absolute",
-          "x": 16,
-          "y": 784,
-          "name": "Tab Bar",
-          "width": 361,
-          "height": 56,
-          "fill": "$vv-surface-base",
-          "cornerRadius": "$vv-radius-full",
-          "effect": {
-            "type": "shadow",
-            "shadowType": "outer",
-            "color": "#0F0F0F22",
-            "offset": {
-              "x": 0,
-              "y": 4
-            },
-            "blur": 16
-          },
-          "padding": [
-            6,
-            8
-          ],
-          "children": [
-            {
-              "type": "frame",
-              "id": "UxBWY",
-              "name": "Tab Ride",
-              "width": "fill_container",
-              "height": "fill_container",
-              "layout": "vertical",
-              "gap": 2,
-              "padding": [
-                4,
-                8
-              ],
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "SNNyg",
-                  "name": "Ride Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "map",
-                  "library": "lucide",
-                  "fill": "$vv-grey-500"
-                },
-                {
-                  "type": "text",
-                  "id": "btGHr",
-                  "name": "Ride Label",
-                  "fill": "$vv-grey-500",
-                  "content": "Ride",
-                  "fontFamily": "$vv-font-body",
-                  "fontSize": 10,
-                  "fontWeight": "normal"
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "ykg3o",
-              "name": "Tab Discover",
-              "width": "fill_container",
-              "height": "fill_container",
-              "layout": "vertical",
-              "gap": 2,
-              "padding": [
-                4,
-                8
-              ],
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "W5ZBZ",
-                  "name": "Discover Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "compass",
-                  "library": "lucide",
-                  "fill": "$vv-grey-500"
-                },
-                {
-                  "type": "text",
-                  "id": "HZW34",
-                  "name": "Discover Label",
-                  "fill": "$vv-grey-500",
-                  "content": "Discover",
-                  "fontFamily": "$vv-font-body",
-                  "fontSize": 10,
-                  "fontWeight": "normal"
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "R5AJt",
-              "name": "Tab Wallet",
-              "width": "fill_container",
-              "height": "fill_container",
-              "layout": "vertical",
-              "gap": 2,
-              "padding": [
-                4,
-                8
-              ],
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "J3dSp",
-                  "name": "Wallet Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "wallet",
-                  "library": "lucide",
-                  "fill": "$vv-grey-500"
-                },
-                {
-                  "type": "text",
-                  "id": "J0sImX",
-                  "name": "Wallet Label",
-                  "fill": "$vv-grey-500",
-                  "content": "Wallet",
-                  "fontFamily": "$vv-font-body",
-                  "fontSize": 10,
-                  "fontWeight": "normal"
-                }
-              ]
-            },
-            {
-              "type": "frame",
-              "id": "KJsGU",
-              "name": "Tab Account",
-              "width": "fill_container",
-              "height": "fill_container",
-              "fill": "$vv-black",
-              "cornerRadius": "$vv-radius-full",
-              "layout": "vertical",
-              "gap": 2,
-              "padding": [
-                4,
-                8
-              ],
-              "justifyContent": "center",
-              "alignItems": "center",
-              "children": [
-                {
-                  "type": "icon",
-                  "id": "Ys9rY",
-                  "name": "Account Icon",
-                  "width": 20,
-                  "height": 20,
-                  "icon": "user",
-                  "library": "lucide",
-                  "fill": "$vv-surface-base"
-                },
-                {
-                  "type": "text",
-                  "id": "S1Fzn",
-                  "name": "Account Label",
-                  "fill": "$vv-surface-base",
-                  "content": "Account",
-                  "fontFamily": "$vv-font-body",
-                  "fontSize": 10,
-                  "fontWeight": "600"
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "frame",
       "id": "diQjq",
-      "x": 7821,
+      "x": 8253,
       "y": 3664,
       "name": "Security Deposit Screen — Hi-Fi",
       "clip": true,
@@ -42511,7 +41330,7 @@
     {
       "type": "frame",
       "id": "GH4KX",
-      "x": 8294,
+      "x": 8721,
       "y": 3664,
       "name": "VoltCoins Rewards Screen — Hi-Fi",
       "clip": true,
@@ -50967,6 +49786,2254 @@
               "fontFamily": "$vv-font-body",
               "fontSize": 13,
               "fontWeight": "700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "xnHjv",
+      "x": 7821,
+      "y": 3664,
+      "name": "Billing History Screen — Hi-Fi",
+      "clip": true,
+      "width": 393,
+      "height": 852,
+      "fill": "$vv-grey-050",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "IosF6",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "PSGUM",
+              "name": "Time",
+              "fill": "$vv-text-primary",
+              "content": "9:41",
+              "fontFamily": "$vv-font-body",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "OfOg0",
+              "name": "Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "A9JifG",
+                  "name": "Signal",
+                  "gap": 2,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "GrnhW",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 8
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "al9pv",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 11
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "PlgLw",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 14
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "GVFsL",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 17
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "id": "Tnvup",
+                  "name": "WiFi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$vv-text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "AUDOB",
+                  "name": "Battery",
+                  "width": 22,
+                  "height": 12,
+                  "icon": "battery",
+                  "library": "lucide",
+                  "fill": "$vv-text-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SERdV",
+          "name": "Header Row",
+          "width": "fill_container",
+          "gap": 12,
+          "padding": [
+            8,
+            20,
+            4,
+            20
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "we2JK",
+              "name": "Back Button",
+              "width": 36,
+              "height": 36,
+              "fill": "$vv-surface-base",
+              "cornerRadius": "$vv-radius-full",
+              "stroke": "$vv-grey-200",
+              "strokeWidth": 1,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "k4Xun",
+                  "name": "BackIcon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "chevron-left",
+                  "library": "lucide",
+                  "fill": "$vv-grey-800"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "CdqwU",
+              "name": "Screen Title",
+              "fill": "$vv-text-primary",
+              "content": "Billing History",
+              "fontFamily": "$vv-font-display",
+              "fontSize": 21,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "x058n3",
+          "name": "Summary Wrap",
+          "width": "fill_container",
+          "padding": [
+            12,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "qK8kF",
+              "name": "Summary Card",
+              "width": "fill_container",
+              "fill": "$vv-black",
+              "cornerRadius": "$vv-radius-lg",
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "l3U5KS",
+                  "name": "Stat This Month",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dgKgd",
+                      "name": "StatValue",
+                      "fill": "$vv-surface-base",
+                      "content": "₫76,840",
+                      "fontFamily": "$vv-font-body",
+                      "fontSize": 20,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Dp0hw",
+                      "name": "StatLabel",
+                      "fill": "$vv-grey-500",
+                      "content": "this month",
+                      "fontFamily": "$vv-font-body",
+                      "fontSize": 10,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "sOa0q",
+                  "name": "StatDivider",
+                  "fill": "#FFFFFF22",
+                  "width": 1,
+                  "height": 34
+                },
+                {
+                  "type": "frame",
+                  "id": "eD0Wz",
+                  "name": "Stat Transactions",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "d5QGDg",
+                      "name": "StatValue",
+                      "fill": "$vv-surface-base",
+                      "content": "6",
+                      "fontFamily": "$vv-font-body",
+                      "fontSize": 20,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "text",
+                      "id": "UXjFC",
+                      "name": "StatLabel",
+                      "fill": "$vv-grey-500",
+                      "content": "transactions",
+                      "fontFamily": "$vv-font-body",
+                      "fontSize": 10,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "neJIj",
+          "name": "JANUARY 2026 Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            16,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "tYuj5",
+              "name": "MonthLabel",
+              "fill": "$vv-grey-500",
+              "content": "JANUARY 2026",
+              "fontFamily": "$vv-font-body",
+              "fontSize": 11,
+              "fontWeight": "500",
+              "letterSpacing": 1.2
+            },
+            {
+              "type": "frame",
+              "id": "mJhpC",
+              "name": "JANUARY 2026 Card",
+              "width": "fill_container",
+              "fill": "$vv-surface-base",
+              "cornerRadius": "$vv-radius-md",
+              "stroke": "$vv-grey-100",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "shArF",
+                  "name": "Txn Row Coastal Sunset Ride",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "G9pfg",
+                      "name": "TxnIconChip",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$vv-green-100",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "amIWC",
+                          "name": "TxnIcon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "route",
+                          "library": "lucide",
+                          "fill": "$vv-green-700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RWtQ7",
+                      "name": "Txn Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Xtbwy",
+                          "name": "TxnTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Coastal Sunset Ride",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "JllIB",
+                          "name": "Meta Row",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "uj7lH",
+                              "name": "TxnDate",
+                              "fill": "$vv-grey-500",
+                              "content": "Jan 15",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "tJFLZ",
+                              "name": "Dot",
+                              "fill": "$vv-grey-300",
+                              "content": "·",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Wcm6z",
+                              "name": "TxnMethod",
+                              "fill": "$vv-grey-500",
+                              "content": "Visa •••• 4242",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "k3dgKk",
+                      "name": "Right Col",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "a0mEFh",
+                          "name": "TxnAmount",
+                          "fill": "$vv-text-primary",
+                          "content": "₫38,000",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "800"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "wxS9p",
+                  "name": "RowDivider",
+                  "fill": "$vv-grey-100",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "c4uFzP",
+                  "name": "Txn Row Old Town Loop",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "no6AV",
+                      "name": "TxnIconChip",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$vv-green-100",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "MQtix",
+                          "name": "TxnIcon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "route",
+                          "library": "lucide",
+                          "fill": "$vv-green-700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xcbC9",
+                      "name": "Txn Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bu1Uf",
+                          "name": "TxnTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Old Town Loop",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "gmH6c",
+                          "name": "Meta Row",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "cmWv3",
+                              "name": "TxnDate",
+                              "fill": "$vv-grey-500",
+                              "content": "Jan 12",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "LfadX",
+                              "name": "Dot",
+                              "fill": "$vv-grey-300",
+                              "content": "·",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "UMr5z",
+                              "name": "TxnMethod",
+                              "fill": "$vv-grey-500",
+                              "content": "Visa •••• 4242",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X1ckI",
+                      "name": "Right Col",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Z8LJI",
+                          "name": "TxnAmount",
+                          "fill": "$vv-text-primary",
+                          "content": "₫15,000",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "800"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "N317Z",
+                  "name": "RowDivider",
+                  "fill": "$vv-grey-100",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "xNpMe",
+                  "name": "Txn Row Quick City Ride",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BxLQl",
+                      "name": "TxnIconChip",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$vv-green-100",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "m8TYIp",
+                          "name": "TxnIcon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "route",
+                          "library": "lucide",
+                          "fill": "$vv-green-700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BgPQi",
+                      "name": "Txn Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "h3JjpP",
+                          "name": "TxnTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Quick City Ride",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "zb1BK",
+                          "name": "Meta Row",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "kLqdf",
+                              "name": "TxnDate",
+                              "fill": "$vv-grey-500",
+                              "content": "Jan 10",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ljgGj",
+                              "name": "Dot",
+                              "fill": "$vv-grey-300",
+                              "content": "·",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "EhMRO",
+                              "name": "TxnMethod",
+                              "fill": "$vv-grey-500",
+                              "content": "Apple Pay",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "foEVL",
+                      "name": "Right Col",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pV2nZ",
+                          "name": "TxnAmount",
+                          "fill": "$vv-text-primary",
+                          "content": "₫14,340",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "800"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hoE7D",
+          "name": "DECEMBER 2025 Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 8,
+          "padding": [
+            16,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "h6sqxm",
+              "name": "MonthLabel",
+              "fill": "$vv-grey-500",
+              "content": "DECEMBER 2025",
+              "fontFamily": "$vv-font-body",
+              "fontSize": 11,
+              "fontWeight": "500",
+              "letterSpacing": 1.2
+            },
+            {
+              "type": "frame",
+              "id": "dn5Qr",
+              "name": "DECEMBER 2025 Card",
+              "width": "fill_container",
+              "fill": "$vv-surface-base",
+              "cornerRadius": "$vv-radius-md",
+              "stroke": "$vv-grey-100",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "yrKEd",
+                  "name": "Txn Row Riverside Cafe Run",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Qxvo2",
+                      "name": "TxnIconChip",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$vv-green-100",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "d5mhS",
+                          "name": "TxnIcon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "route",
+                          "library": "lucide",
+                          "fill": "$vv-green-700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YxxYk",
+                      "name": "Txn Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "uEOw0",
+                          "name": "TxnTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Riverside Cafe Run",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xR1wT",
+                          "name": "Meta Row",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "y9QGbN",
+                              "name": "TxnDate",
+                              "fill": "$vv-grey-500",
+                              "content": "Dec 28",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "RqdHx",
+                              "name": "Dot",
+                              "fill": "$vv-grey-300",
+                              "content": "·",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "aIdkX",
+                              "name": "TxnMethod",
+                              "fill": "$vv-grey-500",
+                              "content": "Visa •••• 4242",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FKDdg",
+                      "name": "Right Col",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "jHdzD",
+                          "name": "TxnAmount",
+                          "fill": "$vv-text-primary",
+                          "content": "₫9,500",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "800"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "jZdlU",
+                  "name": "RowDivider",
+                  "fill": "$vv-grey-100",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "DLhoo",
+                  "name": "Txn Row Security Deposit Hold",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "TsYw4",
+                      "name": "TxnIconChip",
+                      "width": 38,
+                      "height": 38,
+                      "fill": "$vv-grey-100",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "b2zaj0",
+                          "name": "TxnIcon",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "shield-check",
+                          "library": "lucide",
+                          "fill": "$vv-grey-700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "IDNPE",
+                      "name": "Txn Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Z7w1r",
+                          "name": "TxnTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Security Deposit Hold",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "KZ7EF",
+                          "name": "Meta Row",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "u9p72",
+                              "name": "TxnDate",
+                              "fill": "$vv-grey-500",
+                              "content": "Dec 20",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "c2MWmq",
+                              "name": "Dot",
+                              "fill": "$vv-grey-300",
+                              "content": "·",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            },
+                            {
+                              "type": "text",
+                              "id": "ONWqy",
+                              "name": "TxnMethod",
+                              "fill": "$vv-grey-500",
+                              "content": "Visa •••• 4242",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 11,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KLlbl",
+                      "name": "Right Col",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AP9uX",
+                          "name": "TxnAmount",
+                          "fill": "$vv-text-primary",
+                          "content": "$50.00",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "mCr60",
+                          "name": "RefundedChip",
+                          "fill": "$vv-grey-100",
+                          "cornerRadius": "$vv-radius-xs",
+                          "padding": [
+                            2,
+                            6
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dLfps",
+                              "name": "RefundedText",
+                              "fill": "$vv-grey-700",
+                              "content": "Refunded",
+                              "fontFamily": "$vv-font-body",
+                              "fontSize": 9,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "OOyE4",
+          "name": "Bottom Spacer",
+          "width": "fill_container",
+          "height": "fill_container"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "fewo9",
+      "x": 7348,
+      "y": 3664,
+      "name": "Payment Methods Screen — Hi-Fi",
+      "clip": true,
+      "width": 393,
+      "height": 852,
+      "fill": "$vv-surface-base",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "PE0Aa",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            24
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "RbvdD",
+              "name": "Time",
+              "fill": "$vv-text-primary",
+              "content": "9:41",
+              "fontFamily": "$vv-font-body",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "HhwyT",
+              "name": "Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "iDBxT",
+                  "name": "Signal",
+                  "gap": 2,
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "aO252",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 8
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "So7ap",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 11
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "evNRN",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 14
+                    },
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 1,
+                      "id": "vGYwV",
+                      "name": "Bar",
+                      "fill": "$vv-text-primary",
+                      "width": 3,
+                      "height": 17
+                    }
+                  ]
+                },
+                {
+                  "type": "icon",
+                  "id": "lXeLs",
+                  "name": "WiFi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$vv-text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "mt7oe",
+                  "name": "Battery",
+                  "width": 22,
+                  "height": 12,
+                  "icon": "battery",
+                  "library": "lucide",
+                  "fill": "$vv-text-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "b3AZVO",
+          "name": "Header Row",
+          "width": "fill_container",
+          "gap": 12,
+          "padding": [
+            8,
+            20,
+            4,
+            20
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "fupjr",
+              "name": "Back Button",
+              "width": 36,
+              "height": 36,
+              "fill": "$vv-surface-base",
+              "cornerRadius": "$vv-radius-full",
+              "stroke": "$vv-grey-200",
+              "strokeWidth": 1,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "d0JtKm",
+                  "name": "BackIcon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "chevron-left",
+                  "library": "lucide",
+                  "fill": "$vv-grey-800"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "Hllto",
+              "name": "Screen Title",
+              "fill": "$vv-text-primary",
+              "content": "Payment Methods",
+              "fontFamily": "$vv-font-display",
+              "fontSize": 21,
+              "fontWeight": "700"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Ngoau",
+          "name": "Subtitle Row",
+          "width": "fill_container",
+          "padding": [
+            0,
+            20,
+            16,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "hcl7T",
+              "name": "Screen Subtitle",
+              "fill": "$vv-text-secondary",
+              "content": "Manage how you pay while traveling",
+              "fontFamily": "$vv-font-body",
+              "fontSize": 13,
+              "fontWeight": "500"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J3ID2R",
+          "name": "Default Card Wrap",
+          "width": "fill_container",
+          "padding": [
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "DqKJI",
+              "name": "Default Payment Card",
+              "width": "fill_container",
+              "height": 170,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 135,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "#1A1A1A",
+                    "position": 0
+                  },
+                  {
+                    "color": "#333333",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": "$vv-radius-lg",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#0F0F0F33",
+                "offset": {
+                  "x": 0,
+                  "y": 8
+                },
+                "blur": 20
+              },
+              "layout": "vertical",
+              "padding": 18,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "pSetz",
+                  "name": "Card Top Row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "lf7dM",
+                      "name": "Chip Icon",
+                      "width": 36,
+                      "height": 26,
+                      "fill": "#D4AF6A",
+                      "cornerRadius": 5
+                    },
+                    {
+                      "type": "frame",
+                      "id": "J5Wc4",
+                      "name": "Default Badge",
+                      "fill": "#FFFFFF22",
+                      "cornerRadius": "$vv-radius-xs",
+                      "gap": 4,
+                      "padding": [
+                        5,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "W37JSC",
+                          "name": "CheckIcon",
+                          "width": 11,
+                          "height": 11,
+                          "icon": "check",
+                          "library": "lucide",
+                          "fill": "$vv-green-500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lYCeh",
+                          "name": "DefaultText",
+                          "fill": "$vv-surface-base",
+                          "content": "Default",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 11,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "f5F8O",
+                  "name": "Card Number Row",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "AkeU7",
+                      "name": "Dot Group",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "Lz070",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "madqg",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "GLWRo",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "eNzK9",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OvXtg",
+                      "name": "Dot Group",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "PvkOS",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "XhbLX",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "YOy8t",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "aYASU",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "iag4B",
+                      "name": "Dot Group",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "z6OAY",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "XyCB8",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "gp5lI",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        },
+                        {
+                          "type": "ellipse",
+                          "id": "INU17",
+                          "name": "Dot",
+                          "fill": "$vv-grey-500",
+                          "width": 5,
+                          "height": 5
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "FfVpA",
+                      "name": "Last4",
+                      "fill": "$vv-surface-base",
+                      "content": "4242",
+                      "fontFamily": "$vv-font-body",
+                      "fontSize": 16,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AaxU6",
+                  "name": "Card Bottom Row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "end",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "t48LC",
+                      "name": "Holder Col",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "kMnLM",
+                          "name": "HolderLabel",
+                          "fill": "$vv-grey-500",
+                          "content": "CARD HOLDER",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wrKqy",
+                          "name": "HolderName",
+                          "fill": "$vv-surface-base",
+                          "content": "Alex Rivera",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RMV8i",
+                      "name": "Currency Col",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "alignItems": "end",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Cszc6",
+                          "name": "CurrLabel",
+                          "fill": "$vv-grey-500",
+                          "content": "BILLED IN",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 9,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "NHerQ",
+                          "name": "CurrValue",
+                          "fill": "$vv-surface-base",
+                          "content": "USD $",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 13,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Sub7j",
+                      "name": "BrandLogo",
+                      "fill": "$vv-surface-base",
+                      "content": "VISA",
+                      "fontFamily": "$vv-font-body",
+                      "fontSize": 16,
+                      "fontWeight": "800",
+                      "fontStyle": "italic"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bErW0",
+          "name": "Add Button Wrap",
+          "width": "fill_container",
+          "padding": [
+            10,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "qn7bG",
+              "name": "Add New Payment Method Button",
+              "width": "fill_container",
+              "height": 54,
+              "fill": "$vv-green-500",
+              "cornerRadius": "$vv-radius-full",
+              "gap": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "h1JQ6l",
+                  "name": "PlusIcon",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "plus",
+                  "library": "lucide",
+                  "fill": "$vv-black"
+                },
+                {
+                  "type": "text",
+                  "id": "iJ1dp",
+                  "name": "AddLabel",
+                  "fill": "$vv-black",
+                  "content": "Add New Payment Method",
+                  "fontFamily": "$vv-font-body",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "rLvg5",
+          "name": "Options Section",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            16,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "V961z",
+              "name": "Section Label",
+              "fill": "$vv-grey-500",
+              "content": "OR CHOOSE A METHOD",
+              "fontFamily": "$vv-font-body",
+              "fontSize": 10,
+              "fontWeight": "500",
+              "letterSpacing": 1.2
+            },
+            {
+              "type": "frame",
+              "id": "oQtY9",
+              "name": "Options List",
+              "width": "fill_container",
+              "fill": "$vv-surface-base",
+              "cornerRadius": "$vv-radius-md",
+              "stroke": "$vv-grey-100",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "om5JA",
+                  "name": "Option Apple Pay",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "CP4vZ",
+                      "name": "IconChip",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "$vv-black",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "juNxW",
+                          "name": "OptIcon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "smartphone",
+                          "library": "lucide",
+                          "fill": "$vv-surface-base"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YmtmZ",
+                      "name": "Option Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "oCnHJ",
+                          "name": "OptTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Apple Pay",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mfi2p",
+                          "name": "OptSub",
+                          "fill": "$vv-grey-500",
+                          "content": "One-tap secure checkout",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "GDLk2",
+                      "name": "ChevronIcon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$vv-grey-300"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "O7cWm7",
+                  "name": "Divider",
+                  "fill": "$vv-grey-100",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "vfINe",
+                  "name": "Option Google Wallet",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jl0zP",
+                      "name": "IconChip",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "$vv-grey-100",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "dDRVT",
+                          "name": "OptIcon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "wallet",
+                          "library": "lucide",
+                          "fill": "#4285F4"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Cc2Tt",
+                      "name": "Option Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JgqIh",
+                          "name": "OptTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Google Wallet",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pqRZg",
+                          "name": "OptSub",
+                          "fill": "$vv-grey-500",
+                          "content": "Fast, encrypted payments",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "i5Grx",
+                      "name": "ChevronIcon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$vv-grey-300"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "jkm9g",
+                  "name": "Divider",
+                  "fill": "$vv-grey-100",
+                  "width": "fill_container",
+                  "height": 1
+                },
+                {
+                  "type": "frame",
+                  "id": "JEw8p",
+                  "name": "Option Credit or Debit Card",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "padding": 14,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "O3g7A",
+                      "name": "IconChip",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "$vv-grey-100",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "ZQ71m",
+                          "name": "OptIcon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "credit-card",
+                          "library": "lucide",
+                          "fill": "$vv-grey-700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "qizD6",
+                      "name": "Option Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 2,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "x2M1SE",
+                          "name": "OptTitle",
+                          "fill": "$vv-text-primary",
+                          "content": "Credit or Debit Card",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "kbBJT",
+                          "name": "OptSub",
+                          "fill": "$vv-grey-500",
+                          "content": "Visa, Mastercard, Amex accepted",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "Ige2c",
+                      "name": "ChevronIcon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$vv-grey-300"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Jaq8s",
+          "name": "Trust Wrap",
+          "width": "fill_container",
+          "padding": [
+            14,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "JY1ji",
+              "name": "Trust Card",
+              "width": "fill_container",
+              "fill": "$vv-grey-050",
+              "cornerRadius": "$vv-radius-md",
+              "gap": 10,
+              "padding": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "usMzk",
+                  "name": "Lock Chip",
+                  "width": 34,
+                  "height": 34,
+                  "fill": "$vv-green-100",
+                  "cornerRadius": "$vv-radius-full",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "AJWxR",
+                      "name": "LockIcon",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "lock",
+                      "library": "lucide",
+                      "fill": "$vv-green-700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TtBxf",
+                  "name": "Trust Text Col",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "k4lVHA",
+                      "name": "TrustTitle",
+                      "fill": "$vv-text-primary",
+                      "content": "256-bit encrypted & PCI compliant",
+                      "fontFamily": "$vv-font-body",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Pt17c",
+                      "name": "Gateway Logos",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "hnDAM",
+                          "name": "StripeLogo",
+                          "fill": "#635BFF",
+                          "content": "stripe",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 12,
+                          "fontWeight": "800",
+                          "fontStyle": "italic"
+                        },
+                        {
+                          "type": "text",
+                          "id": "iW0Yv",
+                          "name": "Sep",
+                          "fill": "$vv-grey-300",
+                          "content": "·",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "V9dovr",
+                          "name": "AdyenLogo",
+                          "fill": "#0ABF53",
+                          "content": "adyen",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 12,
+                          "fontWeight": "800"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "b1Cjo",
+          "name": "VoltCoins Banner Wrap",
+          "width": "fill_container",
+          "padding": [
+            12,
+            20,
+            0,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Gsrn9",
+              "name": "VoltCoins Banner Card",
+              "width": "fill_container",
+              "fill": "$vv-black",
+              "cornerRadius": "$vv-radius-md",
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#0F0F0F66",
+                "offset": {
+                  "x": 0,
+                  "y": 6
+                },
+                "blur": 18
+              },
+              "gap": 12,
+              "padding": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "aGy1k",
+                  "name": "VoltCoins Left",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Wue6P",
+                      "name": "Coin Chip",
+                      "width": 42,
+                      "height": 42,
+                      "fill": "$vv-green-500",
+                      "cornerRadius": "$vv-radius-sm",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "Q1KpZ",
+                          "name": "CoinIcon",
+                          "width": 22,
+                          "height": 22,
+                          "icon": "coins",
+                          "library": "lucide",
+                          "fill": "$vv-black"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Av5l3",
+                      "name": "VoltCoins Text Col",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 3,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Xxutv",
+                          "name": "VCTitle",
+                          "fill": "$vv-green-500",
+                          "content": "VoltCoins Rewards",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "text",
+                          "id": "AosOU",
+                          "name": "VCSub",
+                          "fill": "#000000",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Earn coins on every ride, redeem for free rides",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "BQ6T9",
+                  "name": "VoltCoins Right",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fhIu2",
+                      "name": "Balance Badge",
+                      "fill": "$vv-green-500",
+                      "cornerRadius": "$vv-radius-full",
+                      "gap": 4,
+                      "padding": [
+                        5,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "lEnUB",
+                          "name": "BadgeCoin",
+                          "width": 13,
+                          "height": 13,
+                          "icon": "zap",
+                          "library": "lucide",
+                          "fill": "$vv-black"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qJIRy",
+                          "name": "BadgeCount",
+                          "fill": "$vv-black",
+                          "content": "1,240",
+                          "fontFamily": "$vv-font-body",
+                          "fontSize": 12,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "PF87i",
+                      "name": "VCChevron",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "chevron-right",
+                      "library": "lucide",
+                      "fill": "$vv-grey-500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "N0GEBe",
+          "layoutPosition": "absolute",
+          "x": 16,
+          "y": 784,
+          "name": "Tab Bar",
+          "width": 361,
+          "height": 56,
+          "fill": "$vv-surface-base",
+          "cornerRadius": "$vv-radius-full",
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#0F0F0F22",
+            "offset": {
+              "x": 0,
+              "y": 4
+            },
+            "blur": 16
+          },
+          "padding": [
+            6,
+            8
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "TqaOS",
+              "name": "Tab Ride",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                4,
+                8
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Bz59F",
+                  "name": "Ride Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "map",
+                  "library": "lucide",
+                  "fill": "$vv-grey-500"
+                },
+                {
+                  "type": "text",
+                  "id": "q09Av0",
+                  "name": "Ride Label",
+                  "fill": "$vv-grey-500",
+                  "content": "Ride",
+                  "fontFamily": "$vv-font-body",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "acOTU",
+              "name": "Tab Discover",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                4,
+                8
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "MKxaY",
+                  "name": "Discover Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "compass",
+                  "library": "lucide",
+                  "fill": "$vv-grey-500"
+                },
+                {
+                  "type": "text",
+                  "id": "cs4Hk",
+                  "name": "Discover Label",
+                  "fill": "$vv-grey-500",
+                  "content": "Discover",
+                  "fontFamily": "$vv-font-body",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ap69q",
+              "name": "Tab Wallet",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                4,
+                8
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "K8SIg",
+                  "name": "Wallet Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "wallet",
+                  "library": "lucide",
+                  "fill": "$vv-grey-500"
+                },
+                {
+                  "type": "text",
+                  "id": "dsKfM",
+                  "name": "Wallet Label",
+                  "fill": "$vv-grey-500",
+                  "content": "Wallet",
+                  "fontFamily": "$vv-font-body",
+                  "fontSize": 10,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "M6UGe",
+              "name": "Tab Account",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "$vv-black",
+              "cornerRadius": "$vv-radius-full",
+              "layout": "vertical",
+              "gap": 2,
+              "padding": [
+                4,
+                8
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "HDwEc",
+                  "name": "Account Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "user",
+                  "library": "lucide",
+                  "fill": "$vv-surface-base"
+                },
+                {
+                  "type": "text",
+                  "id": "p0iXy5",
+                  "name": "Account Label",
+                  "fill": "$vv-surface-base",
+                  "content": "Account",
+                  "fontFamily": "$vv-font-body",
+                  "fontSize": 10,
+                  "fontWeight": "600"
+                }
+              ]
             }
           ]
         }

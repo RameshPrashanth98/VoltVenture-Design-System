@@ -7,11 +7,11 @@ const mono = "font-family:'JetBrains Mono','Courier New',monospace";
 
 function pageHeader(title, sub) {
   return `
-    <div style="background:#0f0f0f;padding:36px 44px 30px;">
-      <div style="${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">
+    <div style="background:var(--vv-color-surface-inverse);padding:36px 44px 30px;">
+      <div style="${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:var(--vv-space-4);">
         Foundation · VoltVenture Design System
       </div>
-      <h1 style="margin:0 0 8px;${sans};font-size:38px;font-weight:800;color:#ffffff;letter-spacing:-0.02em;line-height:1;">
+      <h1 style="margin:0 0 var(--vv-space-3);${sans};font-size:38px;font-weight:800;color:var(--vv-color-text-on-inverse);letter-spacing:-0.02em;line-height:1;">
         ${title}
       </h1>
       <p style="margin:0;${sans};font-size:14px;color:#666;line-height:1.5;">${sub}</p>
@@ -27,22 +27,22 @@ function spaceRow(name, value) {
       display:grid;
       grid-template-columns:150px 1fr 72px;
       align-items:center;
-      gap:20px;
-      padding:16px 0;
+      gap:var(--vv-space-6);
+      padding:var(--vv-space-5) 0;
       border-bottom:1px solid #f0f0f0;
     ">
       <div style="
         display:inline-block;
-        background:#0f0f0f;
-        padding:4px 10px;
+        background:var(--vv-color-surface-inverse);
+        padding:var(--vv-space-2) 10px;
         border-radius:5px;
-        ${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.03em;
+        ${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.03em;
         white-space:nowrap;
       ">${name}</div>
 
       <div style="display:flex;align-items:center;gap:0;">
         <div style="
-          width:3px;height:20px;background:#0f0f0f;border-radius:2px;flex-shrink:0;
+          width:3px;height:20px;background:var(--vv-color-surface-inverse);border-radius:2px;flex-shrink:0;
         "></div>
         <div style="
           width:${barWidth}px;
@@ -51,12 +51,12 @@ function spaceRow(name, value) {
           flex-shrink:0;
         "></div>
         <div style="
-          width:3px;height:20px;background:#0f0f0f;border-radius:2px;flex-shrink:0;
+          width:3px;height:20px;background:var(--vv-color-surface-inverse);border-radius:2px;flex-shrink:0;
         "></div>
       </div>
 
       <div style="
-        ${mono};font-size:12px;font-weight:700;color:#0f0f0f;
+        ${mono};font-size:12px;font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-primary);
         text-align:right;
         white-space:nowrap;
       ">${value}dp</div>
@@ -67,19 +67,19 @@ function spaceRow(name, value) {
 export const SpacingRamp = () => `
   <div style="${sans};max-width:980px;margin:0 auto;background:#f2f2f2;min-height:100vh;">
     ${pageHeader('Spacing', '11 steps on a 4pt grid — use these for all margin, padding, and gap values')}
-    <div style="background:#ffffff;padding:36px 44px 48px;">
+    <div style="background:var(--vv-color-surface-base);padding:36px 44px var(--vv-space-10);">
 
       <div style="
         display:grid;
         grid-template-columns:150px 1fr 72px;
-        gap:20px;
+        gap:var(--vv-space-6);
         padding-bottom:14px;
         border-bottom:2px solid #0f0f0f;
         margin-bottom:0;
       ">
-        <div style="${sans};font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;">Token</div>
-        <div style="${sans};font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;">Visual Scale</div>
-        <div style="${sans};font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;text-align:right;">Value</div>
+        <div style="${sans};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:#999;text-transform:uppercase;letter-spacing:0.1em;">Token</div>
+        <div style="${sans};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:#999;text-transform:uppercase;letter-spacing:0.1em;">Visual Scale</div>
+        <div style="${sans};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:#999;text-transform:uppercase;letter-spacing:0.1em;text-align:right;">Value</div>
       </div>
 
       ${spaceRow('space050',  tokens.space050)}

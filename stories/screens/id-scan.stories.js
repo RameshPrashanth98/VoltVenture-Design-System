@@ -23,16 +23,16 @@ export const Default = () => `
     <!-- Status Bar (62px) -->
     <div style="
       height:62px;
-      background:#0f0f0f;
+      background:var(--vv-color-surface-inverse);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 20px;
+      padding:0 var(--vv-space-6);
       box-sizing:border-box;
       flex-shrink:0;
     ">
-      <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;">9:41</span>
-      <span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">9:41</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>
     </div>
 
     <!-- Top Navigation (52px) -->
@@ -41,7 +41,7 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 16px;
+      padding:0 var(--vv-space-5);
       box-sizing:border-box;
       flex-shrink:0;
     ">
@@ -56,14 +56,14 @@ export const Default = () => `
         justify-content:center;
         cursor:pointer;
       ">
-        <span style="color:#ffffff;font-size:14px;line-height:1;font-family:Inter,sans-serif;">✕</span>
+        <span style="color:var(--vv-color-text-on-inverse);font-size:14px;line-height:1;font-family:Inter,sans-serif;">✕</span>
       </div>
       <!-- Title -->
       <span style="
         font-family:Inter,sans-serif;
         font-size:${tokens.fontSizeHeadingSm}px;
         font-weight:${tokens.fontWeightHeadingSm};
-        color:#ffffff;
+        color:var(--vv-color-text-on-inverse);
       ">ID Scan</span>
       <!-- Flashlight toggle -->
       <div style="
@@ -85,8 +85,8 @@ export const Default = () => `
       height:56px;
       display:flex;
       align-items:center;
-      padding:0 20px;
-      gap:8px;
+      padding:0 var(--vv-space-6);
+      gap:var(--vv-space-3);
       box-sizing:border-box;
       flex-shrink:0;
     ">
@@ -96,10 +96,10 @@ export const Default = () => `
         font-weight:${tokens.fontWeightLabelSm};
         color:${tokens.colorGrey500};
         white-space:nowrap;
-        margin-right:4px;
+        margin-right:var(--vv-space-2);
       ">Step 1 of 2</span>
       <!-- Segment 1 (active) -->
-      <div style="width:80px;height:3px;background:#ffffff;border-radius:2px;flex-shrink:0;"></div>
+      <div style="width:80px;height:3px;background:var(--vv-color-surface-base);border-radius:2px;flex-shrink:0;"></div>
       <!-- Segment 2 (inactive) -->
       <div style="width:80px;height:3px;background:rgba(255,255,255,0.20);border-radius:2px;flex-shrink:0;"></div>
     </div>
@@ -173,7 +173,7 @@ export const Default = () => `
         bottom:60px;
         left:50%;
         transform:translateX(-50%);
-        font-size:20px;
+        font-size:var(--vv-text-heading-lg-size);
       ">&#128274;</div>
 
       <!-- Instructions Banner -->
@@ -193,7 +193,7 @@ export const Default = () => `
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeLabelSm}px;
           font-weight:${tokens.fontWeightLabelSm};
-          color:#ffffff;
+          color:var(--vv-color-text-on-inverse);
         ">Hold your ID steady inside the frame</span>
       </div>
     </div>
@@ -201,7 +201,7 @@ export const Default = () => `
     <!-- Bottom Trust Panel -->
     <div style="
       background:${tokens.colorGrey900};
-      padding:20px 16px;
+      padding:var(--vv-space-6) var(--vv-space-5);
       box-sizing:border-box;
       flex-shrink:0;
     ">
@@ -210,7 +210,7 @@ export const Default = () => `
         display:flex;
         align-items:center;
         gap:10px;
-        margin-bottom:16px;
+        margin-bottom:var(--vv-space-5);
       ">
         <span style="font-size:18px;">&#128737;</span>
         <div>
@@ -218,7 +218,7 @@ export const Default = () => `
             font-family:Inter,sans-serif;
             font-size:${tokens.fontSizeHeadingSm}px;
             font-weight:${tokens.fontWeightHeadingSm};
-            color:#ffffff;
+            color:var(--vv-color-text-on-inverse);
             line-height:1.3;
           ">Your data stays on device</div>
           <div style="
@@ -234,8 +234,8 @@ export const Default = () => `
       <div style="
         width:100%;
         height:56px;
-        background:#ffffff;
-        color:#0f0f0f;
+        background:var(--vv-color-surface-base);
+        color:var(--vv-color-text-primary);
         border-radius:${tokens.radiusFull}px;
         display:flex;
         align-items:center;
@@ -255,25 +255,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -282,7 +282,7 @@ function makePhoneFrame() {
 export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
   // Dark screen override (ID Scan is a dark camera screen)
-  screen.style.background = '#0f0f0f';
+  screen.style.background = 'var(--vv-color-surface-inverse)';
 
   // Inject scan line animation keyframe
   if (!document.getElementById('gsd-idscan-anim')) {
@@ -299,18 +299,18 @@ export const Interactive = () => {
 
   // Top navigation bar
   const topNav = document.createElement('div');
-  topNav.style.cssText = 'flex-shrink:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box;';
+  topNav.style.cssText = 'flex-shrink:0;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-5);box-sizing:border-box;';
 
   const closeBtn = document.createElement('div');
-  closeBtn.style.cssText = 'width:36px;height:36px;border-radius:999px;background:rgba(255,255,255,0.13);display:flex;align-items:center;justify-content:center;cursor:pointer;';
-  closeBtn.innerHTML = '<span style="color:#ffffff;font-size:14px;line-height:1;font-family:Inter,sans-serif;">✕</span>';
+  closeBtn.style.cssText = 'width:36px;height:36px;border-radius:var(--vv-radius-full);background:rgba(255,255,255,0.13);display:flex;align-items:center;justify-content:center;cursor:pointer;';
+  closeBtn.innerHTML = '<span style="color:var(--vv-color-text-on-inverse);font-size:14px;line-height:1;font-family:Inter,sans-serif;">✕</span>';
 
   const titleEl = document.createElement('span');
-  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};color:#ffffff;`;
+  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};color:var(--vv-color-text-on-inverse);`;
   titleEl.textContent = 'ID Scan';
 
   const flashBtn = document.createElement('div');
-  flashBtn.style.cssText = 'width:36px;height:36px;border-radius:999px;background:rgba(255,255,255,0.13);display:flex;align-items:center;justify-content:center;cursor:pointer;';
+  flashBtn.style.cssText = 'width:36px;height:36px;border-radius:var(--vv-radius-full);background:rgba(255,255,255,0.13);display:flex;align-items:center;justify-content:center;cursor:pointer;';
   flashBtn.innerHTML = '<span style="font-size:16px;line-height:1;">&#9889;</span>';
 
   topNav.appendChild(closeBtn);
@@ -319,14 +319,14 @@ export const Interactive = () => {
 
   // Progress strip
   const progressStrip = document.createElement('div');
-  progressStrip.style.cssText = 'flex-shrink:0;height:56px;display:flex;align-items:center;padding:0 20px;gap:8px;box-sizing:border-box;';
+  progressStrip.style.cssText = 'flex-shrink:0;height:56px;display:flex;align-items:center;padding:0 var(--vv-space-6);gap:var(--vv-space-3);box-sizing:border-box;';
 
   const stepLabel = document.createElement('span');
-  stepLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};white-space:nowrap;margin-right:4px;`;
+  stepLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};white-space:nowrap;margin-right:var(--vv-space-2);`;
   stepLabel.textContent = 'Step 1 of 2';
 
   const seg1 = document.createElement('div');
-  seg1.style.cssText = 'width:80px;height:3px;background:#ffffff;border-radius:2px;flex-shrink:0;';
+  seg1.style.cssText = 'width:80px;height:3px;background:var(--vv-color-surface-base);border-radius:2px;flex-shrink:0;';
   const seg2 = document.createElement('div');
   seg2.style.cssText = 'width:80px;height:3px;background:rgba(255,255,255,0.20);border-radius:2px;flex-shrink:0;';
 
@@ -386,7 +386,7 @@ export const Interactive = () => {
 
   // Lock Badge
   const lockBadge = document.createElement('div');
-  lockBadge.style.cssText = 'position:absolute;bottom:60px;left:50%;transform:translateX(-50%);font-size:20px;';
+  lockBadge.style.cssText = 'position:absolute;bottom:60px;left:50%;transform:translateX(-50%);font-size:var(--vv-text-heading-lg-size);';
   lockBadge.innerHTML = '&#128274;';
   cameraViewport.appendChild(lockBadge);
 
@@ -394,21 +394,21 @@ export const Interactive = () => {
   const instrBanner = document.createElement('div');
   instrBanner.style.cssText = 'position:absolute;bottom:0;left:0;width:393px;height:48px;background:rgba(0,0,0,0.53);display:flex;align-items:center;justify-content:center;box-sizing:border-box;';
   const instrText = document.createElement('span');
-  instrText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#ffffff;`;
+  instrText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:var(--vv-color-text-on-inverse);`;
   instrText.textContent = 'Hold your ID steady inside the frame';
   instrBanner.appendChild(instrText);
   cameraViewport.appendChild(instrBanner);
 
   // Bottom Trust Panel
   const trustPanel = document.createElement('div');
-  trustPanel.style.cssText = `background:${tokens.colorGrey900};padding:20px 16px;box-sizing:border-box;flex-shrink:0;`;
+  trustPanel.style.cssText = `background:${tokens.colorGrey900};padding:var(--vv-space-6) var(--vv-space-5);box-sizing:border-box;flex-shrink:0;`;
 
   const shieldRow = document.createElement('div');
-  shieldRow.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:16px;';
-  shieldRow.innerHTML = `<span style="font-size:18px;">&#128737;</span><div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};color:#ffffff;line-height:1.3;">Your data stays on device</div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodySm}px;color:${tokens.colorGrey500};line-height:1.4;">Encrypted and never shared</div></div>`;
+  shieldRow.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:var(--vv-space-5);';
+  shieldRow.innerHTML = `<span style="font-size:18px;">&#128737;</span><div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};color:var(--vv-color-text-on-inverse);line-height:1.3;">Your data stays on device</div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodySm}px;color:${tokens.colorGrey500};line-height:1.4;">Encrypted and never shared</div></div>`;
 
   const ctaBtn = document.createElement('div');
-  ctaBtn.style.cssText = `width:100%;height:56px;background:#ffffff;color:#0f0f0f;border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};transition:transform 100ms ease;`;
+  ctaBtn.style.cssText = `width:100%;height:56px;background:var(--vv-color-surface-base);color:var(--vv-color-text-primary);border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};transition:transform var(--vv-duration-fast) var(--vv-easing-standard);`;
   ctaBtn.innerHTML = 'Scan ID &#8594;';
 
   ctaBtn.addEventListener('pointerdown', () => { ctaBtn.style.transform = 'scale(0.97)'; });
@@ -429,7 +429,7 @@ export const Interactive = () => {
 // ── Source code panel ──────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_IDSCAN_JSX = `// IdScan Screen — React Native Paper
@@ -549,4 +549,4 @@ const styles = StyleSheet.create({
 
 export default IdScanScreen;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// IdScan — React Native Paper</div>${_blk('IdScanScreen', RN_IDSCAN_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// IdScan — React Native Paper</div>${_blk('IdScanScreen', RN_IDSCAN_JSX)}</div>`;

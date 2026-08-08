@@ -7,11 +7,11 @@ const mono = "font-family:'JetBrains Mono','Courier New',monospace";
 
 function pageHeader(title, sub) {
   return `
-    <div style="background:#0f0f0f;padding:36px 44px 30px;">
-      <div style="${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">
+    <div style="background:var(--vv-color-surface-inverse);padding:36px 44px 30px;">
+      <div style="${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:var(--vv-space-4);">
         Foundation · VoltVenture Design System
       </div>
-      <h1 style="margin:0 0 8px;${sans};font-size:38px;font-weight:800;color:#ffffff;letter-spacing:-0.02em;line-height:1;">
+      <h1 style="margin:0 0 var(--vv-space-3);${sans};font-size:38px;font-weight:800;color:var(--vv-color-text-on-inverse);letter-spacing:-0.02em;line-height:1;">
         ${title}
       </h1>
       <p style="margin:0;${sans};font-size:14px;color:#666;line-height:1.5;">${sub}</p>
@@ -22,19 +22,19 @@ function pageHeader(title, sub) {
 function statCard(label, value, unit) {
   return `
     <div style="
-      background:#ffffff;
-      border-radius:12px;
-      padding:18px 20px;
+      background:var(--vv-color-surface-base);
+      border-radius:var(--vv-radius-sm);
+      padding:18px var(--vv-space-6);
       border:1px solid #ebebeb;
       display:flex;
       flex-direction:column;
-      gap:4px;
+      gap:var(--vv-space-2);
       min-width:140px;
     ">
-      <div style="${mono};font-size:20px;font-weight:800;color:#0f0f0f;line-height:1;">
-        ${value}<span style="font-size:13px;font-weight:400;color:#999;margin-left:3px;">${unit}</span>
+      <div style="${mono};font-size:var(--vv-text-heading-lg-size);font-weight:800;color:var(--vv-color-text-primary);line-height:1;">
+        ${value}<span style="font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-body);color:#999;margin-left:3px;">${unit}</span>
       </div>
-      <div style="${sans};font-size:11px;color:#888;">${label}</div>
+      <div style="${sans};font-size:var(--vv-text-label-sm-size);color:#888;">${label}</div>
     </div>
   `;
 }
@@ -95,10 +95,10 @@ export const GridLayout = () => {
   return `
     <div style="${sans};max-width:980px;margin:0 auto;background:#f2f2f2;min-height:100vh;">
       ${pageHeader('Grid', '4-column layout system — 393dp iPhone reference with 20dp margins and 16dp gutters')}
-      <div style="padding:36px 44px 48px;">
+      <div style="padding:36px 44px var(--vv-space-10);">
 
         <!-- Stats row -->
-        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px;">
+        <div style="display:flex;flex-wrap:wrap;gap:var(--vv-space-4);margin-bottom:36px;">
           ${statCard('Columns',      tokens.gridColumns,      'col')}
           ${statCard('Margin',       tokens.gridMargin,       'dp')}
           ${statCard('Gutter',       tokens.gridGutter,       'dp')}
@@ -113,9 +113,9 @@ export const GridLayout = () => {
         ">
           <div style="
             width:393px;
-            background:#1a1a1a;
+            background:var(--ds-color-grey-900);
             border-radius:40px;
-            padding:20px 0;
+            padding:var(--vv-space-6) 0;
             box-shadow:0 24px 64px rgba(0,0,0,0.35),0 4px 16px rgba(0,0,0,0.2);
             overflow:hidden;
             box-sizing:border-box;
@@ -124,10 +124,10 @@ export const GridLayout = () => {
             <div style="
               height:44px;
               display:flex;align-items:center;justify-content:space-between;
-              padding:0 24px;
-              margin-bottom:4px;
+              padding:0 var(--vv-space-7);
+              margin-bottom:var(--vv-space-2);
             ">
-              <span style="${mono};font-size:11px;color:#fff;font-weight:600;">9:41</span>
+              <span style="${mono};font-size:var(--vv-text-label-sm-size);color:#fff;font-weight:var(--ds-font-weight-heading);">9:41</span>
               <div style="display:flex;gap:6px;align-items:center;">
                 <div style="width:16px;height:8px;border:1px solid #fff;border-radius:2px;position:relative;">
                   <div style="width:10px;height:4px;background:#fff;border-radius:1px;position:absolute;top:1px;left:1px;"></div>
@@ -149,7 +149,7 @@ export const GridLayout = () => {
 
             <!-- Labels -->
             <div style="
-              padding:16px ${tokens.gridMargin}px 4px;
+              padding:var(--vv-space-5) ${tokens.gridMargin}px 4px;
             ">
               <div style="${mono};font-size:9px;color:#666;letter-spacing:0.05em;">
                 ←  ${tokens.gridMargin}dp  →  col  ←  ${tokens.gridGutter}dp  →  col  ←  ${tokens.gridGutter}dp  →  col  ←  ${tokens.gridGutter}dp  →  col  ←  ${tokens.gridMargin}dp  →

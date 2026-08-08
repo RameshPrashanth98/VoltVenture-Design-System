@@ -7,11 +7,11 @@ const mono = "font-family:'JetBrains Mono','Courier New',monospace";
 
 function pageHeader(title, sub) {
   return `
-    <div style="background:#0f0f0f;padding:36px 44px 30px;">
-      <div style="${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">
+    <div style="background:var(--vv-color-surface-inverse);padding:36px 44px 30px;">
+      <div style="${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:var(--vv-space-4);">
         Foundation · VoltVenture Design System
       </div>
-      <h1 style="margin:0 0 8px;${sans};font-size:38px;font-weight:800;color:#ffffff;letter-spacing:-0.02em;line-height:1;">
+      <h1 style="margin:0 0 var(--vv-space-3);${sans};font-size:38px;font-weight:800;color:var(--vv-color-text-on-inverse);letter-spacing:-0.02em;line-height:1;">
         ${title}
       </h1>
       <p style="margin:0;${sans};font-size:14px;color:#666;line-height:1.5;">${sub}</p>
@@ -30,7 +30,7 @@ function radiusCard(name, rawValue) {
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:16px;
+      gap:var(--vv-space-5);
     ">
       <div style="
         width:120px;
@@ -43,13 +43,13 @@ function radiusCard(name, rawValue) {
       <div style="text-align:center;">
         <div style="
           display:inline-block;
-          background:#0f0f0f;
-          padding:4px 10px;
+          background:var(--vv-color-surface-inverse);
+          padding:var(--vv-space-2) 10px;
           border-radius:5px;
-          ${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.03em;
+          ${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.03em;
           margin-bottom:6px;
         ">${name}</div>
-        <div style="${mono};font-size:13px;font-weight:700;color:#0f0f0f;">${displayLabel}</div>
+        <div style="${mono};font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-primary);">${displayLabel}</div>
       </div>
     </div>
   `;
@@ -58,11 +58,11 @@ function radiusCard(name, rawValue) {
 export const RadiusScale = () => `
   <div style="${sans};max-width:980px;margin:0 auto;background:#f2f2f2;min-height:100vh;">
     ${pageHeader('Radius', '7 corner radius steps — from subtle rounding to fully circular')}
-    <div style="background:#ffffff;padding:48px 44px 56px;">
+    <div style="background:var(--vv-color-surface-base);padding:var(--vv-space-10) 44px 56px;">
       <div style="
         display:flex;
         flex-wrap:wrap;
-        gap:40px 48px;
+        gap:var(--vv-space-9) var(--vv-space-10);
         align-items:flex-end;
         justify-content:flex-start;
       ">

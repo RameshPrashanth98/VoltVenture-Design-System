@@ -6,25 +6,25 @@ export default { title: 'Screens/Profile' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -51,12 +51,12 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 20px;
+      padding:0 var(--vv-space-6);
       box-sizing:border-box;
       flex-shrink:0;
     ">
-      <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
 
     <!-- Header Row -->
@@ -64,19 +64,19 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:12px 16px;
+      padding:var(--vv-space-4) var(--vv-space-5);
       flex-shrink:0;
     ">
       <span style="
         font-family:Manjari,sans-serif;
         font-size:${tokens.typeHeadingMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         color:${tokens.colorTextPrimary};
       ">Profile</span>
       <div style="
         width:34px;
         height:34px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorSurfaceBase};
         border:1px solid ${tokens.colorGrey200};
         display:flex;
@@ -91,7 +91,7 @@ export const Default = () => `
 
     <!-- Avatar Section -->
     <div style="
-      padding:24px 20px;
+      padding:var(--vv-space-7) var(--vv-space-6);
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -101,50 +101,50 @@ export const Default = () => `
       <div style="
         width:76px;
         height:76px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorSurfaceInverse};
         display:flex;
         align-items:center;
         justify-content:center;
         font-size:34px;
-        color:#ffffff;
+        color:var(--vv-color-text-on-inverse);
       ">&#128100;</div>
       <div style="
         font-family:Manjari,sans-serif;
         font-size:${tokens.typeHeadingSm.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         color:${tokens.colorTextPrimary};
-        margin-top:12px;
+        margin-top:var(--vv-space-4);
       ">Alex Johnson</div>
       <div style="
         font-family:Inter,sans-serif;
         font-size:${tokens.typeLabelSm.fontSize}px;
         font-weight:${tokens.typeLabelSm.fontWeight};
         color:${tokens.colorTextSecondary};
-        margin-top:4px;
+        margin-top:var(--vv-space-2);
       ">Member since Jan 2025 &middot; Level 3</div>
     </div>
 
     <!-- Digital Trust Status Card -->
     <div style="
-      margin:0 16px 16px;
+      margin:0 var(--vv-space-5) var(--vv-space-5);
       background:${tokens.colorGreen100};
       border-radius:${tokens.radiusLg}px;
-      padding:16px;
+      padding:var(--vv-space-5);
       box-sizing:border-box;
       flex-shrink:0;
     ">
-      <div style="display:flex;align-items:center;gap:8px;">
+      <div style="display:flex;align-items:center;gap:var(--vv-space-3);">
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.typeBodyMd.fontSize}px;
-          font-weight:600;
+          font-weight:var(--ds-font-weight-heading);
           color:${tokens.colorTextAccent};
         ">&#10003; Verified Account</span>
       </div>
-      <div style="height:1px;background:rgba(168,222,26,0.40);margin:12px 0;"></div>
+      <div style="height:1px;background:rgba(168,222,26,0.40);margin:var(--vv-space-4) 0;"></div>
       <!-- #A8DE1A66 — translucent green divider -->
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:var(--vv-space-3);margin-bottom:var(--vv-space-3);">
         <span style="font-size:16px;">&#128100;</span>
         <span style="
           font-family:Inter,sans-serif;
@@ -153,7 +153,7 @@ export const Default = () => `
           color:${tokens.colorTextAccent};
         ">ID Document Verified</span>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;">
+      <div style="display:flex;align-items:center;gap:var(--vv-space-3);">
         <span style="font-size:16px;">&#128522;</span>
         <span style="
           font-family:Inter,sans-serif;
@@ -162,9 +162,9 @@ export const Default = () => `
           color:${tokens.colorTextAccent};
         ">Facial Scan Verified</span>
       </div>
-      <div style="height:1px;background:rgba(168,222,26,0.40);margin:12px 0;"></div>
+      <div style="height:1px;background:rgba(168,222,26,0.40);margin:var(--vv-space-4) 0;"></div>
       <!-- #A8DE1A66 — translucent green divider -->
-      <div style="display:flex;align-items:center;gap:8px;">
+      <div style="display:flex;align-items:center;gap:var(--vv-space-3);">
         <span style="font-size:14px;">&#128274;</span>
         <span style="
           font-family:Inter,sans-serif;
@@ -177,7 +177,7 @@ export const Default = () => `
 
     <!-- Options List -->
     <div style="
-      margin:0 16px 16px;
+      margin:0 var(--vv-space-5) var(--vv-space-5);
       border-radius:${tokens.radiusLg}px;
       overflow:hidden;
       border:1px solid ${tokens.colorGrey100};
@@ -188,8 +188,8 @@ export const Default = () => `
         min-height:48px;
         display:flex;
         align-items:center;
-        padding:12px 16px;
-        gap:12px;
+        padding:var(--vv-space-4) var(--vv-space-5);
+        gap:var(--vv-space-4);
         cursor:pointer;
         box-sizing:border-box;
       ">
@@ -207,7 +207,7 @@ export const Default = () => `
             color:${tokens.colorTextPrimary};
           ">Edit Profile Information</span>
         </div>
-        <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+        <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
       </div>
       <!-- Divider -->
       <div style="height:1px;background:${tokens.colorGrey100};"></div>
@@ -216,8 +216,8 @@ export const Default = () => `
         min-height:48px;
         display:flex;
         align-items:center;
-        padding:12px 16px;
-        gap:12px;
+        padding:var(--vv-space-4) var(--vv-space-5);
+        gap:var(--vv-space-4);
         cursor:pointer;
         box-sizing:border-box;
       ">
@@ -235,17 +235,17 @@ export const Default = () => `
             color:${tokens.colorTextPrimary};
           ">Ride History &amp; Stats</span>
         </div>
-        <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+        <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
       </div>
     </div>
 
     <!-- Sign Out -->
-    <div style="margin:0 16px 24px;flex-shrink:0;">
+    <div style="margin:0 var(--vv-space-5) var(--vv-space-7);flex-shrink:0;">
       <div style="
         display:flex;
         align-items:center;
-        gap:12px;
-        padding:12px 16px;
+        gap:var(--vv-space-4);
+        padding:var(--vv-space-4) var(--vv-space-5);
         background:${tokens.colorSurfaceBase};
         border:1px solid ${tokens.colorGrey100};
         border-radius:${tokens.radiusLg}px;
@@ -257,7 +257,7 @@ export const Default = () => `
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.typeBodyMd.fontSize}px;
-          font-weight:600;
+          font-weight:var(--ds-font-weight-heading);
           color:#D64545;
         ">Sign Out</span>
       </div>
@@ -271,7 +271,7 @@ export const Default = () => `
       display:flex;
       background:${tokens.colorSurfaceBase};
       border-top:1px solid ${tokens.colorGrey100};
-      padding:8px 0 24px;
+      padding:var(--vv-space-3) 0 var(--vv-space-7);
       flex-shrink:0;
     ">
       ${TABS.map((label, i) => {
@@ -281,7 +281,7 @@ export const Default = () => `
           display:flex;
           flex-direction:column;
           align-items:center;
-          gap:4px;
+          gap:var(--vv-space-2);
           cursor:pointer;
         ">
           <div style="
@@ -308,18 +308,18 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow:auto;background:#ffffff;';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow:auto;background:var(--vv-color-surface-base);';
 
   // Header Row
   const header = document.createElement('div');
-  header.style.cssText = `display:flex;align-items:center;justify-content:space-between;padding:12px 16px;flex-shrink:0;`;
+  header.style.cssText = `display:flex;align-items:center;justify-content:space-between;padding:var(--vv-space-4) var(--vv-space-5);flex-shrink:0;`;
 
   const titleEl = document.createElement('span');
-  titleEl.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  titleEl.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   titleEl.textContent = 'Profile';
 
   const settingsBtn = document.createElement('div');
-  settingsBtn.style.cssText = `width:34px;height:34px;border-radius:50%;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};display:flex;align-items:center;justify-content:center;font-size:16px;color:${tokens.colorGrey700};cursor:pointer;box-sizing:border-box;`;
+  settingsBtn.style.cssText = `width:34px;height:34px;border-radius:var(--vv-radius-full);background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};display:flex;align-items:center;justify-content:center;font-size:16px;color:${tokens.colorGrey700};cursor:pointer;box-sizing:border-box;`;
   settingsBtn.textContent = '\u2699';
   settingsBtn.addEventListener('pointerdown', () => { settingsBtn.style.backgroundColor = tokens.colorGrey050; });
   settingsBtn.addEventListener('pointerup', () => { settingsBtn.style.backgroundColor = tokens.colorSurfaceBase; });
@@ -331,18 +331,18 @@ export const Interactive = () => {
 
   // Avatar Section
   const avatarSection = document.createElement('div');
-  avatarSection.style.cssText = 'padding:24px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0;';
+  avatarSection.style.cssText = 'padding:var(--vv-space-7) var(--vv-space-6);display:flex;flex-direction:column;align-items:center;text-align:center;flex-shrink:0;';
 
   const avatarCircle = document.createElement('div');
-  avatarCircle.style.cssText = `width:76px;height:76px;border-radius:50%;background:${tokens.colorSurfaceInverse};display:flex;align-items:center;justify-content:center;font-size:34px;color:#ffffff;`;
+  avatarCircle.style.cssText = `width:76px;height:76px;border-radius:var(--vv-radius-full);background:${tokens.colorSurfaceInverse};display:flex;align-items:center;justify-content:center;font-size:34px;color:var(--vv-color-text-on-inverse);`;
   avatarCircle.textContent = '\uD83D\uDC64';
 
   const userName = document.createElement('div');
-  userName.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};margin-top:12px;`;
+  userName.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};margin-top:var(--vv-space-4);`;
   userName.textContent = 'Alex Johnson';
 
   const userMeta = document.createElement('div');
-  userMeta.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:4px;`;
+  userMeta.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-2);`;
   userMeta.textContent = 'Member since Jan 2025 \u00B7 Level 3';
 
   avatarSection.appendChild(avatarCircle);
@@ -352,26 +352,26 @@ export const Interactive = () => {
 
   // Digital Trust Status Card
   const trustCard = document.createElement('div');
-  trustCard.style.cssText = `margin:0 16px 16px;background:${tokens.colorGreen100};border-radius:${tokens.radiusLg}px;padding:16px;box-sizing:border-box;flex-shrink:0;`;
+  trustCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorGreen100};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-5);box-sizing:border-box;flex-shrink:0;`;
 
   const trustTopRow = document.createElement('div');
-  trustTopRow.style.cssText = 'display:flex;align-items:center;gap:8px;';
+  trustTopRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-3);';
   const trustLabel = document.createElement('span');
-  trustLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextAccent};`;
+  trustLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextAccent};`;
   trustLabel.textContent = '\u2713 Verified Account';
   trustTopRow.appendChild(trustLabel);
   trustCard.appendChild(trustTopRow);
 
   const makeTrustDivider = () => {
     const d = document.createElement('div');
-    d.style.cssText = 'height:1px;background:rgba(168,222,26,0.40);margin:12px 0;'; /* #A8DE1A66 — translucent green */
+    d.style.cssText = 'height:1px;background:rgba(168,222,26,0.40);margin:var(--vv-space-4) 0;'; /* #A8DE1A66 — translucent green */
     return d;
   };
 
   trustCard.appendChild(makeTrustDivider());
 
   const verifyRow1 = document.createElement('div');
-  verifyRow1.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:8px;';
+  verifyRow1.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-3);margin-bottom:var(--vv-space-3);';
   const v1Icon = document.createElement('span');
   v1Icon.style.cssText = 'font-size:16px;';
   v1Icon.textContent = '\uD83E\uDEAA'; // ID card
@@ -383,7 +383,7 @@ export const Interactive = () => {
   trustCard.appendChild(verifyRow1);
 
   const verifyRow2 = document.createElement('div');
-  verifyRow2.style.cssText = 'display:flex;align-items:center;gap:8px;';
+  verifyRow2.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-3);';
   const v2Icon = document.createElement('span');
   v2Icon.style.cssText = 'font-size:16px;';
   v2Icon.textContent = '\uD83D\uDE0A'; // Smiling face
@@ -397,7 +397,7 @@ export const Interactive = () => {
   trustCard.appendChild(makeTrustDivider());
 
   const reassureRow = document.createElement('div');
-  reassureRow.style.cssText = 'display:flex;align-items:center;gap:8px;';
+  reassureRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-3);';
   const lockIcon = document.createElement('span');
   lockIcon.style.cssText = 'font-size:14px;';
   lockIcon.textContent = '\uD83D\uDD12'; // Lock
@@ -412,11 +412,11 @@ export const Interactive = () => {
 
   // Options List
   const optionsList = document.createElement('div');
-  optionsList.style.cssText = `margin:0 16px 16px;border-radius:${tokens.radiusLg}px;overflow:hidden;border:1px solid ${tokens.colorGrey100};flex-shrink:0;`;
+  optionsList.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);border-radius:${tokens.radiusLg}px;overflow:hidden;border:1px solid ${tokens.colorGrey100};flex-shrink:0;`;
 
   function makeOptionRow(icon, label) {
     const row = document.createElement('div');
-    row.style.cssText = `min-height:48px;display:flex;align-items:center;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;background:${tokens.colorSurfaceBase};`;
+    row.style.cssText = `min-height:48px;display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;background:${tokens.colorSurfaceBase};`;
     row.addEventListener('pointerdown', () => { row.style.backgroundColor = tokens.colorGrey100; });
     row.addEventListener('pointerup', () => { row.style.backgroundColor = tokens.colorSurfaceBase; });
     row.addEventListener('pointerleave', () => { row.style.backgroundColor = tokens.colorSurfaceBase; });
@@ -433,7 +433,7 @@ export const Interactive = () => {
     textCol.appendChild(textEl);
 
     const chevron = document.createElement('span');
-    chevron.style.cssText = `color:${tokens.colorGrey300};font-size:20px;line-height:1;`;
+    chevron.style.cssText = `color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;`;
     chevron.textContent = '\u203A';
 
     row.appendChild(chip);
@@ -454,10 +454,10 @@ export const Interactive = () => {
 
   // Sign Out
   const signOutWrap = document.createElement('div');
-  signOutWrap.style.cssText = 'margin:0 16px 24px;flex-shrink:0;';
+  signOutWrap.style.cssText = 'margin:0 var(--vv-space-5) var(--vv-space-7);flex-shrink:0;';
 
   const signOutBtn = document.createElement('div');
-  signOutBtn.style.cssText = `display:flex;align-items:center;gap:12px;padding:12px 16px;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;cursor:pointer;box-sizing:border-box;`;
+  signOutBtn.style.cssText = `display:flex;align-items:center;gap:var(--vv-space-4);padding:var(--vv-space-4) var(--vv-space-5);background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;cursor:pointer;box-sizing:border-box;`;
   signOutBtn.addEventListener('pointerdown', () => { signOutBtn.style.backgroundColor = '#FEF2F2'; });
   signOutBtn.addEventListener('pointerup', () => { signOutBtn.style.backgroundColor = tokens.colorSurfaceBase; });
   signOutBtn.addEventListener('pointerleave', () => { signOutBtn.style.backgroundColor = tokens.colorSurfaceBase; });
@@ -467,7 +467,7 @@ export const Interactive = () => {
   signOutIcon.textContent = '\u21A9';
 
   const signOutText = document.createElement('span');
-  signOutText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:#D64545;`;
+  signOutText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:#D64545;`;
   signOutText.textContent = 'Sign Out';
 
   signOutBtn.appendChild(signOutIcon);
@@ -484,14 +484,14 @@ export const Interactive = () => {
 
   // Tab Bar
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:8px 0 24px;flex-shrink:0;`;
+  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:var(--vv-space-3) 0 var(--vv-space-7);flex-shrink:0;`;
 
   let activeTab = 3; // Account
   const tabEls = [];
 
   TABS.forEach((label, i) => {
     const tab = document.createElement('div');
-    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;';
+    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;';
 
     const pill = document.createElement('div');
     pill.style.cssText = `width:40px;height:26px;border-radius:${tokens.radiusFull}px;background:${i === activeTab ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;`;
@@ -523,7 +523,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const _profileSnippet = `import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
@@ -615,7 +615,7 @@ export default function ProfileScreen() {
 }`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Profile Screen — React Native Paper</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// Profile Screen — React Native Paper</div>` +
   _blk('Profile Screen (frame N0nOZ)', _profileSnippet) +
   `</div>`;

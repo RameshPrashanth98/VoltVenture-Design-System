@@ -34,7 +34,7 @@ export const Default = () => `
       <span style="
         font-family:Inter,sans-serif;
         font-size:${tokens.fontSizeLabelSm}px;
-        font-weight:600;
+        font-weight:var(--ds-font-weight-heading);
         color:${tokens.colorTextPrimary};
       ">9:41</span>
       <span style="
@@ -53,7 +53,7 @@ export const Default = () => `
       <div style="
         font-family:Inter,sans-serif;
         font-size:${tokens.fontSizeHeadingLg}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         color:${tokens.colorTextPrimary};
         line-height:${tokens.fontLineHeightHeadingLg}px;
       ">Curated Routes</div>
@@ -62,7 +62,7 @@ export const Default = () => `
         font-size:${tokens.fontSizeBodyMd}px;
         font-weight:${tokens.fontWeightBodyMd};
         color:${tokens.colorTextSecondary};
-        margin-top:4px;
+        margin-top:var(--vv-space-2);
         line-height:${tokens.fontLineHeightBodyMd}px;
       ">Handpicked rides for every rider</div>
     </div>
@@ -93,7 +93,7 @@ export const Default = () => `
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeLabelSm}px;
-          font-weight:600;
+          font-weight:var(--ds-font-weight-heading);
           color:${tokens.colorTextPrimary};
         ">100km</span>
         <span style="
@@ -101,12 +101,12 @@ export const Default = () => `
           font-size:${tokens.fontSizeLabelSm}px;
           font-weight:${tokens.fontWeightLabelSm};
           color:${tokens.colorTextSecondary};
-          margin-top:2px;
+          margin-top:var(--vv-space-1);
         ">Best range</span>
       </button>
       <!-- Pill 2: inactive (200km) -->
       <button style="
-        background:#ffffff;
+        background:var(--vv-color-surface-base);
         border:1px solid ${tokens.colorGrey100};
         color:${tokens.colorTextPrimary};
         border-radius:${tokens.radiusFull}px;
@@ -121,13 +121,13 @@ export const Default = () => `
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeLabelSm}px;
-          font-weight:600;
+          font-weight:var(--ds-font-weight-heading);
           color:${tokens.colorTextPrimary};
         ">200km</span>
       </button>
       <!-- Pill 3: inactive (300km) -->
       <button style="
-        background:#ffffff;
+        background:var(--vv-color-surface-base);
         border:1px solid ${tokens.colorGrey100};
         color:${tokens.colorTextPrimary};
         border-radius:${tokens.radiusFull}px;
@@ -142,7 +142,7 @@ export const Default = () => `
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeLabelSm}px;
-          font-weight:600;
+          font-weight:var(--ds-font-weight-heading);
           color:${tokens.colorTextPrimary};
         ">300km</span>
       </button>
@@ -173,7 +173,7 @@ export const Default = () => `
         border-radius:${tokens.radiusLg}px;
         overflow:hidden;
         box-sizing:border-box;
-        box-shadow:0 2px 8px 0 rgba(15,15,15,0.06);
+        box-shadow:var(--vv-elevation-raised);
       ">
         <!-- Hero Image -->
         <div style="
@@ -199,7 +199,7 @@ export const Default = () => `
             left:12px;
             background:rgba(255,255,255,0.93);
             border-radius:${tokens.radiusFull}px;
-            padding:4px 10px;
+            padding:var(--vv-space-2) 10px;
             display:inline-flex;
             align-items:center;
             box-sizing:border-box;
@@ -207,7 +207,7 @@ export const Default = () => `
             <span style="
               font-family:Inter,sans-serif;
               font-size:${tokens.fontSizeLabelSm}px;
-              font-weight:600;
+              font-weight:var(--ds-font-weight-heading);
               color:${tokens.colorTextPrimary};
             ">&#9889; 32km</span>
           </div>
@@ -218,7 +218,7 @@ export const Default = () => `
             right:12px;
             background:rgba(15,15,15,0.87);
             border-radius:${tokens.radiusFull}px;
-            padding:4px 10px;
+            padding:var(--vv-space-2) 10px;
             display:inline-flex;
             align-items:center;
             box-sizing:border-box;
@@ -226,8 +226,8 @@ export const Default = () => `
             <span style="
               font-family:Inter,sans-serif;
               font-size:${tokens.fontSizeLabelSm}px;
-              font-weight:600;
-              color:#ffffff;
+              font-weight:var(--ds-font-weight-heading);
+              color:var(--vv-color-text-on-inverse);
             ">&#9201; 45 min</span>
           </div>
           <!-- Title Overlay -->
@@ -239,8 +239,8 @@ export const Default = () => `
             <span style="
               font-family:Inter,sans-serif;
               font-size:${tokens.fontSizeBodyMd}px;
-              font-weight:700;
-              color:#ffffff;
+              font-weight:var(--ds-font-weight-display);
+              color:var(--vv-color-text-on-inverse);
             ">Old Town Loop</span>
           </div>
         </div>
@@ -248,24 +248,24 @@ export const Default = () => `
         <div style="padding:${tokens.space400}px;box-sizing:border-box;">
           <!-- Meta Row -->
           <div style="display:flex;gap:${tokens.space200}px;margin-bottom:${tokens.space200}px;flex-wrap:wrap;">
-            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">&#129001; Easy</span>
             </div>
-            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">&#127961; City Tour</span>
             </div>
           </div>
           <!-- Stops Label -->
           <div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-bottom:6px;">3 stops</div>
           <!-- Stops Row -->
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--vv-space-4);">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Town Hall</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Market</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">River Park</span>
             </div>
           </div>
@@ -279,7 +279,7 @@ export const Default = () => `
             cursor:pointer;
             font-family:Inter,sans-serif;
             font-size:${tokens.fontSizeHeadingSm}px;
-            font-weight:600;
+            font-weight:var(--ds-font-weight-heading);
             color:${tokens.colorTextPrimary};
             display:flex;
             align-items:center;
@@ -295,7 +295,7 @@ export const Default = () => `
         border-radius:${tokens.radiusLg}px;
         overflow:hidden;
         box-sizing:border-box;
-        box-shadow:0 2px 8px 0 rgba(15,15,15,0.06);
+        box-shadow:var(--vv-elevation-raised);
       ">
         <!-- Hero Image -->
         <div style="
@@ -319,12 +319,12 @@ export const Default = () => `
             left:12px;
             background:rgba(255,255,255,0.93);
             border-radius:${tokens.radiusFull}px;
-            padding:4px 10px;
+            padding:var(--vv-space-2) 10px;
             display:inline-flex;
             align-items:center;
             box-sizing:border-box;
           ">
-            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:${tokens.colorTextPrimary};">&#9889; 58km</span>
+            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">&#9889; 58km</span>
           </div>
           <div style="
             position:absolute;
@@ -332,39 +332,39 @@ export const Default = () => `
             right:12px;
             background:rgba(15,15,15,0.87);
             border-radius:${tokens.radiusFull}px;
-            padding:4px 10px;
+            padding:var(--vv-space-2) 10px;
             display:inline-flex;
             align-items:center;
             box-sizing:border-box;
           ">
-            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:#ffffff;">&#9201; 1h 20 min</span>
+            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">&#9201; 1h 20 min</span>
           </div>
           <div style="position:absolute;bottom:12px;left:12px;">
-            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:#ffffff;">Coastal Sunset Ride</span>
+            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);">Coastal Sunset Ride</span>
           </div>
         </div>
         <!-- Card Body -->
         <div style="padding:${tokens.space400}px;box-sizing:border-box;">
           <div style="display:flex;gap:${tokens.space200}px;margin-bottom:${tokens.space200}px;flex-wrap:wrap;">
-            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">&#128993; Moderate</span>
             </div>
-            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">&#127754; Coastal</span>
             </div>
           </div>
           <div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-bottom:6px;">4 stops</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--vv-space-4);">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Harbor</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Pier</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Lighthouse</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Dunes</span>
             </div>
           </div>
@@ -377,7 +377,7 @@ export const Default = () => `
             cursor:pointer;
             font-family:Inter,sans-serif;
             font-size:${tokens.fontSizeHeadingSm}px;
-            font-weight:600;
+            font-weight:var(--ds-font-weight-heading);
             color:${tokens.colorTextPrimary};
             display:flex;
             align-items:center;
@@ -393,7 +393,7 @@ export const Default = () => `
         border-radius:${tokens.radiusLg}px;
         overflow:hidden;
         box-sizing:border-box;
-        box-shadow:0 2px 8px 0 rgba(15,15,15,0.06);
+        box-shadow:var(--vv-elevation-raised);
       ">
         <!-- Hero Image -->
         <div style="
@@ -417,12 +417,12 @@ export const Default = () => `
             left:12px;
             background:rgba(255,255,255,0.93);
             border-radius:${tokens.radiusFull}px;
-            padding:4px 10px;
+            padding:var(--vv-space-2) 10px;
             display:inline-flex;
             align-items:center;
             box-sizing:border-box;
           ">
-            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:${tokens.colorTextPrimary};">&#9889; 89km</span>
+            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">&#9889; 89km</span>
           </div>
           <div style="
             position:absolute;
@@ -430,42 +430,42 @@ export const Default = () => `
             right:12px;
             background:rgba(15,15,15,0.87);
             border-radius:${tokens.radiusFull}px;
-            padding:4px 10px;
+            padding:var(--vv-space-2) 10px;
             display:inline-flex;
             align-items:center;
             box-sizing:border-box;
           ">
-            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:#ffffff;">&#9201; 2h 10 min</span>
+            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">&#9201; 2h 10 min</span>
           </div>
           <div style="position:absolute;bottom:12px;left:12px;">
-            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:#ffffff;">Mountain Pass Adventure</span>
+            <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);">Mountain Pass Adventure</span>
           </div>
         </div>
         <!-- Card Body -->
         <div style="padding:${tokens.space400}px;box-sizing:border-box;">
           <div style="display:flex;gap:${tokens.space200}px;margin-bottom:${tokens.space200}px;flex-wrap:wrap;">
-            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">&#128308; Challenging</span>
             </div>
-            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">&#9968; Mountain</span>
             </div>
           </div>
           <div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-bottom:6px;">5 stops</div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;">
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--vv-space-4);">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Base Camp</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Vista Point</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Ridge</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Summit</span>
             </div>
-            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;">
+            <div style="background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;">
               <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};">Valley</span>
             </div>
           </div>
@@ -478,7 +478,7 @@ export const Default = () => `
             cursor:pointer;
             font-family:Inter,sans-serif;
             font-size:${tokens.fontSizeHeadingSm}px;
-            font-weight:600;
+            font-weight:var(--ds-font-weight-heading);
             color:${tokens.colorTextPrimary};
             display:flex;
             align-items:center;
@@ -503,7 +503,7 @@ export const Default = () => `
         <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};">Ride</span>
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;cursor:pointer;">
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:700;color:${tokens.colorTextPrimary};">Discover</span>
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Discover</span>
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;cursor:pointer;">
         <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};">Wallet</span>
@@ -520,25 +520,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -560,18 +560,18 @@ function buildRouteCard(route) {
 
   // Range badge
   const rangeBadge = document.createElement('div');
-  rangeBadge.style.cssText = `position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.93);border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;`;
+  rangeBadge.style.cssText = `position:absolute;top:12px;left:12px;background:rgba(255,255,255,0.93);border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;`;
   const rangeText = document.createElement('span');
-  rangeText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  rangeText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   rangeText.textContent = route.range;
   rangeBadge.appendChild(rangeText);
   hero.appendChild(rangeBadge);
 
   // Time badge
   const timeBadge = document.createElement('div');
-  timeBadge.style.cssText = `position:absolute;top:12px;right:12px;background:rgba(15,15,15,0.87);border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;`;
+  timeBadge.style.cssText = `position:absolute;top:12px;right:12px;background:rgba(15,15,15,0.87);border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;`;
   const timeText = document.createElement('span');
-  timeText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:#ffffff;`;
+  timeText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);`;
   timeText.textContent = route.time;
   timeBadge.appendChild(timeText);
   hero.appendChild(timeBadge);
@@ -580,7 +580,7 @@ function buildRouteCard(route) {
   const titleOverlay = document.createElement('div');
   titleOverlay.style.cssText = 'position:absolute;bottom:12px;left:12px;';
   const titleText = document.createElement('span');
-  titleText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:#ffffff;`;
+  titleText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);`;
   titleText.textContent = route.title;
   titleOverlay.appendChild(titleText);
   hero.appendChild(titleOverlay);
@@ -589,14 +589,14 @@ function buildRouteCard(route) {
 
   // Card body
   const body = document.createElement('div');
-  body.style.cssText = 'padding:16px;box-sizing:border-box;';
+  body.style.cssText = 'padding:var(--vv-space-5);box-sizing:border-box;';
 
   // Meta row
   const metaRow = document.createElement('div');
-  metaRow.style.cssText = 'display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;';
+  metaRow.style.cssText = 'display:flex;gap:var(--vv-space-3);margin-bottom:var(--vv-space-3);flex-wrap:wrap;';
   [route.difficulty, route.category].forEach(label => {
     const chip = document.createElement('div');
-    chip.style.cssText = `background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;`;
+    chip.style.cssText = `background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;`;
     const chipText = document.createElement('span');
     chipText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};`;
     chipText.textContent = label;
@@ -613,10 +613,10 @@ function buildRouteCard(route) {
 
   // Stops row
   const stopsRow = document.createElement('div');
-  stopsRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;';
+  stopsRow.style.cssText = 'display:flex;gap:6px;flex-wrap:wrap;margin-bottom:var(--vv-space-4);';
   route.stops.forEach(stop => {
     const chip = document.createElement('div');
-    chip.style.cssText = `background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;`;
+    chip.style.cssText = `background:${tokens.colorGrey050};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;`;
     const chipText = document.createElement('span');
     chipText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextPrimary};`;
     chipText.textContent = stop;
@@ -628,11 +628,11 @@ function buildRouteCard(route) {
   // Start Route button
   const startBtn = document.createElement('button');
   startBtn.type = 'button';
-  startBtn.style.cssText = `width:100%;height:${tokens.space1200}px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};display:flex;align-items:center;justify-content:center;box-sizing:border-box;transition:background-color 100ms ease,transform 100ms ease;`;
+  startBtn.style.cssText = `width:100%;height:${tokens.space1200}px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};display:flex;align-items:center;justify-content:center;box-sizing:border-box;transition:background-color var(--vv-duration-fast) var(--vv-easing-standard),transform var(--vv-duration-fast) var(--vv-easing-standard);`;
   startBtn.textContent = '\u25B6 Start Route';
 
   startBtn.addEventListener('pointerdown', () => {
-    startBtn.style.background = '#a8de1a';
+    startBtn.style.background = 'var(--vv-color-action-primary-pressed)';
     startBtn.style.transform = 'scale(0.97)';
   });
   startBtn.addEventListener('pointerup', () => {
@@ -684,16 +684,16 @@ export const Interactive = () => {
 
   // Inner scrollable area (all content below phone status bar)
   const inner = document.createElement('div');
-  inner.style.cssText = 'flex:1;overflow-y:auto;display:flex;flex-direction:column;background:#ffffff;';
+  inner.style.cssText = 'flex:1;overflow-y:auto;display:flex;flex-direction:column;background:var(--vv-color-surface-base);';
 
   // Header
   const header = document.createElement('div');
   header.style.cssText = `padding:${tokens.space400}px ${tokens.space400}px ${tokens.space200}px;box-sizing:border-box;flex-shrink:0;`;
   const title = document.createElement('div');
-  title.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingLg}px;font-weight:700;color:${tokens.colorTextPrimary};line-height:${tokens.fontLineHeightHeadingLg}px;`;
+  title.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingLg}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:${tokens.fontLineHeightHeadingLg}px;`;
   title.textContent = 'Curated Routes';
   const subtitle = document.createElement('div');
-  subtitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};color:${tokens.colorTextSecondary};margin-top:4px;line-height:${tokens.fontLineHeightBodyMd}px;`;
+  subtitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-2);line-height:${tokens.fontLineHeightBodyMd}px;`;
   subtitle.textContent = 'Handpicked rides for every rider';
   header.appendChild(title);
   header.appendChild(subtitle);
@@ -719,7 +719,7 @@ export const Interactive = () => {
         pill.style.background = tokens.colorActionPrimary;
         pill.style.border = 'none';
       } else {
-        pill.style.background = '#ffffff';
+        pill.style.background = 'var(--vv-color-surface-base)';
         pill.style.border = `1px solid ${tokens.colorGrey100}`;
       }
     });
@@ -732,13 +732,13 @@ export const Interactive = () => {
     pill.style.cssText = `background:${isActive ? tokens.colorActionPrimary : '#ffffff'};border:${isActive ? 'none' : `1px solid ${tokens.colorGrey100}`};border-radius:${tokens.radiusFull}px;padding:${tokens.space200}px ${tokens.space400}px;cursor:pointer;display:flex;flex-direction:column;align-items:center;flex-shrink:0;box-sizing:border-box;`;
 
     const pillLabel = document.createElement('span');
-    pillLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+    pillLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
     pillLabel.textContent = pillData.label;
     pill.appendChild(pillLabel);
 
     if (pillData.subLabel) {
       const subLabel = document.createElement('span');
-      subLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:2px;`;
+      subLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);`;
       subLabel.textContent = pillData.subLabel;
       pill.appendChild(subLabel);
     }
@@ -791,7 +791,7 @@ export const Interactive = () => {
 // ── SourceCode panel ──────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `// CuratedRoutes Screen — React Native Paper
@@ -1172,4 +1172,4 @@ const styles = StyleSheet.create({
   },
 });`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// CuratedRoutes — React Native Paper</div>${_blk('CuratedRoutes', RN_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// CuratedRoutes — React Native Paper</div>${_blk('CuratedRoutes', RN_JSX)}</div>`;

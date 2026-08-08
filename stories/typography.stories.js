@@ -7,11 +7,11 @@ const mono = "font-family:'JetBrains Mono','Courier New',monospace";
 
 function pageHeader(title, sub) {
   return `
-    <div style="background:#0f0f0f;padding:36px 44px 30px;">
-      <div style="${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">
+    <div style="background:var(--vv-color-surface-inverse);padding:36px 44px 30px;">
+      <div style="${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:var(--vv-space-4);">
         Foundation · VoltVenture Design System
       </div>
-      <h1 style="margin:0 0 8px;${sans};font-size:38px;font-weight:800;color:#ffffff;letter-spacing:-0.02em;line-height:1;">
+      <h1 style="margin:0 0 var(--vv-space-3);${sans};font-size:38px;font-weight:800;color:var(--vv-color-text-on-inverse);letter-spacing:-0.02em;line-height:1;">
         ${title}
       </h1>
       <p style="margin:0;${sans};font-size:14px;color:#666;line-height:1.5;">${sub}</p>
@@ -26,7 +26,7 @@ function specimen(tokenName, t, copy, extra) {
     `font-weight:${t.fontWeight}`,
     `line-height:${t.lineHeight}px`,
     `letter-spacing:${t.letterSpacing}em`,
-    `color:#0f0f0f`,
+    `color:var(--vv-color-text-primary)`,
     `word-break:break-word`,
   ];
   if (extra) styleParts.push(extra);
@@ -44,10 +44,10 @@ function specimen(tokenName, t, copy, extra) {
       <div>
         <div style="
           display:inline-block;
-          background:#0f0f0f;
-          padding:4px 10px;
+          background:var(--vv-color-surface-inverse);
+          padding:var(--vv-space-2) 10px;
           border-radius:5px;
-          ${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.03em;
+          ${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.03em;
         ">${tokenName}</div>
       </div>
       <div style="${specimenStyle}">${copy}</div>
@@ -57,13 +57,13 @@ function specimen(tokenName, t, copy, extra) {
         padding:10px 14px;
         text-align:right;
       ">
-        <div style="${mono};font-size:10px;font-weight:700;color:#0f0f0f;">
+        <div style="${mono};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-primary);">
           ${t.fontSize}px / ${t.fontWeight}
         </div>
-        <div style="${mono};font-size:10px;color:#999;margin-top:3px;">
+        <div style="${mono};font-size:var(--vv-text-overline-size);color:#999;margin-top:3px;">
           ${t.lineHeight}px leading
         </div>
-        <div style="${mono};font-size:10px;color:#bbb;margin-top:3px;">
+        <div style="${mono};font-size:var(--vv-text-overline-size);color:#bbb;margin-top:3px;">
           ${t.fontFamily}
         </div>
       </div>
@@ -74,7 +74,7 @@ function specimen(tokenName, t, copy, extra) {
 export const TypeScale = () => `
   <div style="${sans};max-width:980px;margin:0 auto;background:#f2f2f2;min-height:100vh;">
     ${pageHeader('Type Scale', '14 styles — Manjari for display, Inter for UI, JetBrains Mono for code & numerics')}
-    <div style="background:#ffffff;padding:36px 44px 48px;">
+    <div style="background:var(--vv-color-surface-base);padding:36px 44px var(--vv-space-10);">
 
       <div style="
         display:grid;
@@ -83,9 +83,9 @@ export const TypeScale = () => `
         padding-bottom:14px;
         border-bottom:2px solid #0f0f0f;
       ">
-        <div style="${sans};font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;">Token</div>
-        <div style="${sans};font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;">Specimen</div>
-        <div style="${sans};font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:0.1em;text-align:right;">Metrics</div>
+        <div style="${sans};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:#999;text-transform:uppercase;letter-spacing:0.1em;">Token</div>
+        <div style="${sans};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:#999;text-transform:uppercase;letter-spacing:0.1em;">Specimen</div>
+        <div style="${sans};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:#999;text-transform:uppercase;letter-spacing:0.1em;text-align:right;">Metrics</div>
       </div>
 
       ${specimen('typeDisplayXl',  tokens.typeDisplayXl,  'Good morning, Arjun')}

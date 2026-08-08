@@ -6,25 +6,25 @@ export default { title: 'Components/VoltCoinsBalance' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -39,7 +39,7 @@ export const Default = () => `
   display:flex;
   align-items:flex-start;
   justify-content:center;
-  padding:24px 16px;
+  padding:var(--vv-space-7) var(--vv-space-5);
   box-sizing:border-box;
   font-family:Inter,sans-serif;
 ">
@@ -48,18 +48,18 @@ export const Default = () => `
     width:100%;
     background:${tokens.colorSurfaceInverse};
     border-radius:${tokens.radiusXl}px;
-    padding:24px 20px;
+    padding:var(--vv-space-7) var(--vv-space-6);
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:12px;
+    gap:var(--vv-space-4);
     box-sizing:border-box;
   ">
     <!-- Coin Badge + Balance row -->
     <div style="
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:var(--vv-space-4);
       width:100%;
       justify-content:center;
     ">
@@ -68,7 +68,7 @@ export const Default = () => `
         width:48px;
         height:48px;
         background:${tokens.colorActionPrimary};
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         display:flex;
         align-items:center;
         justify-content:center;
@@ -77,11 +77,11 @@ export const Default = () => `
         flex-shrink:0;
       ">&#9889;</div>
       <!-- Balance text -->
-      <div style="display:flex;flex-direction:column;gap:2px;">
+      <div style="display:flex;flex-direction:column;gap:var(--vv-space-1);">
         <div style="
-          font-size:40px;
-          font-weight:700;
-          color:#ffffff;
+          font-size:var(--vv-text-display-xl-size);
+          font-weight:var(--ds-font-weight-display);
+          color:var(--vv-color-text-on-inverse);
           line-height:1;
           font-family:Inter,sans-serif;
         ">1,240</div>
@@ -109,7 +109,7 @@ export const Default = () => `
         font-family:Inter,sans-serif;
         font-size:${tokens.fontSizeLabelSm}px;
         font-weight:${tokens.fontWeightLabelSm};
-        color:#ffffff;
+        color:var(--vv-color-text-on-inverse);
         line-height:${tokens.fontLineHeightLabelSm}px;
       ">Level 3 &mdash; Explorer</span>
     </div>
@@ -124,8 +124,8 @@ export const Interactive = () => {
   const content = document.createElement('div');
   content.style.cssText = [
     'flex:1', 'overflow-y:auto', 'display:flex', 'flex-direction:column',
-    'align-items:center', 'padding:24px 16px', 'box-sizing:border-box',
-    'gap:16px', `background:${tokens.colorSurfaceBase}`
+    'align-items:center', 'padding:var(--vv-space-7) var(--vv-space-5)', 'box-sizing:border-box',
+    'gap:var(--vv-space-5)', `background:${tokens.colorSurfaceBase}`
   ].join(';');
 
   // ── Card ──
@@ -134,20 +134,20 @@ export const Interactive = () => {
     'width:100%',
     `background:${tokens.colorSurfaceInverse}`,
     `border-radius:${tokens.radiusXl}px`,
-    'padding:24px 20px',
+    'padding:var(--vv-space-7) var(--vv-space-6)',
     'display:flex', 'flex-direction:column', 'align-items:center',
-    'gap:12px', 'box-sizing:border-box'
+    'gap:var(--vv-space-4)', 'box-sizing:border-box'
   ].join(';');
 
   // Badge + balance row
   const badgeRow = document.createElement('div');
-  badgeRow.style.cssText = 'display:flex;align-items:center;gap:12px;width:100%;justify-content:center;';
+  badgeRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-4);width:100%;justify-content:center;';
 
   const coinBadge = document.createElement('div');
   coinBadge.style.cssText = [
     'width:48px', 'height:48px',
     `background:${tokens.colorActionPrimary}`,
-    'border-radius:50%',
+    'border-radius:var(--vv-radius-full)',
     'display:flex', 'align-items:center', 'justify-content:center',
     'font-size:24px',
     `color:${tokens.colorTextPrimary}`,
@@ -156,11 +156,11 @@ export const Interactive = () => {
   coinBadge.textContent = '⚡';
 
   const balanceText = document.createElement('div');
-  balanceText.style.cssText = 'display:flex;flex-direction:column;gap:2px;';
+  balanceText.style.cssText = 'display:flex;flex-direction:column;gap:var(--vv-space-1);';
 
   const balanceValue = document.createElement('div');
   balanceValue.style.cssText = [
-    'font-size:40px', 'font-weight:700', 'color:#ffffff',
+    'font-size:var(--vv-text-display-xl-size)', 'font-weight:var(--ds-font-weight-display)', 'color:var(--vv-color-text-on-inverse)',
     'line-height:1', 'font-family:Inter,sans-serif'
   ].join(';');
   balanceValue.textContent = '1,240';
@@ -198,7 +198,7 @@ export const Interactive = () => {
     'font-family:Inter,sans-serif',
     `font-size:${tokens.fontSizeLabelSm}px`,
     `font-weight:${tokens.fontWeightLabelSm}`,
-    'color:#ffffff',
+    'color:var(--vv-color-text-on-inverse)',
     `line-height:${tokens.fontLineHeightLabelSm}px`
   ].join(';');
   levelText.textContent = 'Level 3 — Explorer';
@@ -216,7 +216,7 @@ export const Interactive = () => {
 // ── SourceCode ─────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `import React from 'react';
@@ -316,4 +316,4 @@ const styles = StyleSheet.create({
 
 export default VoltCoinsBalance;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// VoltCoinsBalance — React Native Paper</div>${_blk('VoltCoinsBalance.tsx', RN_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// VoltCoinsBalance — React Native Paper</div>${_blk('VoltCoinsBalance.tsx', RN_JSX)}</div>`;

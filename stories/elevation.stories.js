@@ -7,11 +7,11 @@ const mono = "font-family:'JetBrains Mono','Courier New',monospace";
 
 function pageHeader(title, sub) {
   return `
-    <div style="background:#0f0f0f;padding:36px 44px 30px;">
-      <div style="${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">
+    <div style="background:var(--vv-color-surface-inverse);padding:36px 44px 30px;">
+      <div style="${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:var(--vv-space-4);">
         Foundation · VoltVenture Design System
       </div>
-      <h1 style="margin:0 0 8px;${sans};font-size:38px;font-weight:800;color:#ffffff;letter-spacing:-0.02em;line-height:1;">
+      <h1 style="margin:0 0 var(--vv-space-3);${sans};font-size:38px;font-weight:800;color:var(--vv-color-text-on-inverse);letter-spacing:-0.02em;line-height:1;">
         ${title}
       </h1>
       <p style="margin:0;${sans};font-size:14px;color:#666;line-height:1.5;">${sub}</p>
@@ -47,13 +47,13 @@ export const ElevationScale = () => {
 
     return `
       <div style="
-        background:#ffffff;
-        border-radius:16px;
-        padding:24px 22px 20px;
+        background:var(--vv-color-surface-base);
+        border-radius:var(--vv-radius-md);
+        padding:var(--vv-space-7) 22px var(--vv-space-6);
         box-shadow:${shadowValue};
         display:flex;
         flex-direction:column;
-        gap:12px;
+        gap:var(--vv-space-4);
         width:200px;
         box-sizing:border-box;
         ${isFlat ? 'border:1px solid #e8e8e8;' : ''}
@@ -66,10 +66,10 @@ export const ElevationScale = () => {
         <div>
           <div style="
             display:inline-block;
-            background:#0f0f0f;
-            padding:3px 8px;
+            background:var(--vv-color-surface-inverse);
+            padding:3px var(--vv-space-3);
             border-radius:4px;
-            ${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.03em;
+            ${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.03em;
             margin-bottom:6px;
           ">${name}</div>
           <div style="${sans};font-size:12px;color:#888;line-height:1.4;">${desc}</div>
@@ -79,7 +79,7 @@ export const ElevationScale = () => {
           word-break:break-all;
           line-height:1.5;
           margin-top:auto;
-          padding-top:12px;
+          padding-top:var(--vv-space-4);
           border-top:1px solid #f0f0f0;
         ">${shadowValue}</div>
       </div>
@@ -90,20 +90,20 @@ export const ElevationScale = () => {
     <div style="${sans};max-width:980px;margin:0 auto;background:#f2f2f2;min-height:100vh;">
       ${pageHeader('Elevation', '4 shadow levels — use to communicate surface hierarchy to users')}
       <div style="
-        background:#1a1a1a;
-        padding:56px 44px 64px;
+        background:var(--ds-color-grey-900);
+        padding:56px 44px var(--vv-space-11);
       ">
         <div style="
           display:flex;
           flex-wrap:wrap;
-          gap:32px;
+          gap:var(--vv-space-8);
           align-items:flex-start;
         ">
           ${cards}
         </div>
         <div style="
           margin-top:36px;
-          padding:16px 20px;
+          padding:var(--vv-space-5) var(--vv-space-6);
           background:rgba(255,255,255,0.04);
           border:1px solid rgba(255,255,255,0.08);
           border-radius:10px;

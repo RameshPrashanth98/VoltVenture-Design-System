@@ -6,25 +6,25 @@ export default { title: 'Components/FaqRow' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -33,20 +33,20 @@ function makePhoneFrame() {
 // ── Collapsed — question visible, answer hidden ────────────────────────────────
 export const Collapsed = () => `
   <div style="
-    padding:16px 0;border-bottom:1px solid ${tokens.colorGrey100};
+    padding:var(--vv-space-5) 0;border-bottom:1px solid ${tokens.colorGrey100};
     cursor:pointer;font-family:Inter,sans-serif;max-width:390px;
     box-sizing:border-box;
   ">
-    <div style="display:flex;align-items:center;padding:0 16px;">
+    <div style="display:flex;align-items:center;padding:0 var(--vv-space-5);">
       <span style="
-        flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;
+        flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);
         line-height:${tokens.fontLineHeightBodyMd}px;
         color:${tokens.colorTextPrimary};
       ">How is the price calculated?</span>
       <span style="
-        color:${tokens.colorGrey300};font-size:20px;line-height:1;
+        color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;
         display:inline-block;transform:rotate(0deg);
-        transition:transform 200ms ease;flex-shrink:0;margin-left:8px;
+        transition:transform var(--vv-duration-standard) var(--vv-easing-standard);flex-shrink:0;margin-left:var(--vv-space-3);
       ">›</span>
     </div>
   </div>
@@ -55,24 +55,24 @@ export const Collapsed = () => `
 // ── Expanded — question + answer visible, chevron rotated 90deg ────────────────
 export const Expanded = () => `
   <div style="
-    padding:16px 0;border-bottom:1px solid ${tokens.colorGrey100};
+    padding:var(--vv-space-5) 0;border-bottom:1px solid ${tokens.colorGrey100};
     cursor:pointer;font-family:Inter,sans-serif;max-width:390px;
     box-sizing:border-box;
   ">
-    <div style="display:flex;align-items:center;padding:0 16px;">
+    <div style="display:flex;align-items:center;padding:0 var(--vv-space-5);">
       <span style="
-        flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;
+        flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);
         line-height:${tokens.fontLineHeightBodyMd}px;
         color:${tokens.colorTextPrimary};
       ">How is the price calculated?</span>
       <span style="
-        color:${tokens.colorTextPrimary};font-size:20px;line-height:1;
+        color:${tokens.colorTextPrimary};font-size:var(--vv-text-heading-lg-size);line-height:1;
         display:inline-block;transform:rotate(90deg);
-        transition:transform 200ms ease;flex-shrink:0;margin-left:8px;
+        transition:transform var(--vv-duration-standard) var(--vv-easing-standard);flex-shrink:0;margin-left:var(--vv-space-3);
       ">›</span>
     </div>
     <div style="
-      display:block;margin-top:8px;padding:0 16px;
+      display:block;margin-top:var(--vv-space-3);padding:0 var(--vv-space-5);
       font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};
       line-height:1.5;color:${tokens.colorTextSecondary};
     ">Rides are billed per minute based on the rate shown at ride start. Electricity surcharges may apply during peak hours. The final bill is displayed on the Ride Complete screen.</div>
@@ -85,11 +85,11 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;padding:0 0 16px;box-sizing:border-box;overflow:auto;';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;padding:0 0 var(--vv-space-5);box-sizing:border-box;overflow:auto;';
 
   // Section header
   const sectionHdr = document.createElement('div');
-  sectionHdr.style.cssText = `padding:16px 16px 8px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  sectionHdr.style.cssText = `padding:var(--vv-space-5) var(--vv-space-5) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   sectionHdr.textContent = 'Frequently Asked Questions';
   content.appendChild(sectionHdr);
 
@@ -126,19 +126,19 @@ export const Interactive = () => {
 
     // Question row (clickable)
     const qRow = document.createElement('div');
-    qRow.style.cssText = 'display:flex;align-items:center;padding:16px 16px 0;cursor:pointer;user-select:none;';
+    qRow.style.cssText = 'display:flex;align-items:center;padding:var(--vv-space-5) var(--vv-space-5) 0;cursor:pointer;user-select:none;';
 
     const qText = document.createElement('span');
-    qText.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;line-height:${tokens.fontLineHeightBodyMd}px;color:${tokens.colorTextPrimary};`;
+    qText.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);line-height:${tokens.fontLineHeightBodyMd}px;color:${tokens.colorTextPrimary};`;
     qText.textContent = question;
 
     const chevron = document.createElement('span');
-    chevron.style.cssText = `font-size:20px;line-height:1;display:inline-block;flex-shrink:0;margin-left:8px;transition:transform 200ms ease;`;
+    chevron.style.cssText = `font-size:var(--vv-text-heading-lg-size);line-height:1;display:inline-block;flex-shrink:0;margin-left:var(--vv-space-3);transition:transform var(--vv-duration-standard) var(--vv-easing-standard);`;
     chevron.textContent = '›';
 
     // Answer element
     const answerEl = document.createElement('div');
-    answerEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};line-height:1.5;color:${tokens.colorTextSecondary};padding:8px 16px 16px;`;
+    answerEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};line-height:1.5;color:${tokens.colorTextSecondary};padding:var(--vv-space-3) var(--vv-space-5) var(--vv-space-5);`;
     answerEl.textContent = answer;
 
     // Set initial state
@@ -181,7 +181,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, html) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;
 }
 
 const _collapsedSnippet = `import React, { useState } from 'react';
@@ -248,8 +248,8 @@ const [expanded, setExpanded] = useState(true);
 </View>`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// FaqRow — React Native Paper</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// FaqRow — React Native Paper</div>` +
   _blk('Collapsed state', _collapsedSnippet) +
   _blk('Expanded state (stateful)', _expandedSnippet) +
   `</div>`;

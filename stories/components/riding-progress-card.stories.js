@@ -6,25 +6,25 @@ export default { title: 'Components/RidingProgressCard' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -42,34 +42,34 @@ export const Default = () => `
   <div style="
     width:393px;background:${tokens.colorSurfaceBase};
     border-radius:${tokens.radiusLg}px;
-    padding:16px;box-sizing:border-box;
+    padding:var(--vv-space-5);box-sizing:border-box;
     font-family:Inter,sans-serif;
   ">
     <!-- Progress Row -->
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:var(--vv-space-4);margin-bottom:var(--vv-space-4);">
       <!-- Distance Block -->
       <div style="flex:1;">
-        <div style="font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">2.1 km</div>
+        <div style="font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">2.1 km</div>
         <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">left</div>
       </div>
       <!-- Divider -->
       <div style="width:1px;height:32px;background:${tokens.colorGrey200};flex-shrink:0;"></div>
       <!-- ETA Block -->
       <div style="flex:1;">
-        <div style="font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">12 min</div>
+        <div style="font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">12 min</div>
         <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">ETA</div>
       </div>
       <div style="flex:1;display:flex;justify-content:flex-end;">
         <!-- Bike Chip (colorGreen100) -->
-        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextAccent};">&#128690; VV-4829</div>
+        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextAccent};">&#128690; VV-4829</div>
       </div>
     </div>
     <!-- Divider -->
-    <div style="height:1px;background:${tokens.colorGrey100};margin-bottom:12px;"></div>
+    <div style="height:1px;background:${tokens.colorGrey100};margin-bottom:var(--vv-space-4);"></div>
     <!-- Primary CTA -->
-    <button style="width:100%;height:48px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};">I've Arrived</button>
+    <button style="width:100%;height:48px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">I've Arrived</button>
     <!-- Secondary Link -->
-    <div style="text-align:center;margin-top:8px;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};cursor:pointer;">Cancel Navigation</div>
+    <div style="text-align:center;margin-top:var(--vv-space-3);font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};cursor:pointer;">Cancel Navigation</div>
   </div>
 `;
 
@@ -85,17 +85,17 @@ export const Interactive = () => {
 
   // Card pinned to bottom
   const card = document.createElement('div');
-  card.style.cssText = `background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px ${tokens.radiusLg}px 0 0;padding:16px;box-sizing:border-box;flex-shrink:0;`;
+  card.style.cssText = `background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px ${tokens.radiusLg}px 0 0;padding:var(--vv-space-5);box-sizing:border-box;flex-shrink:0;`;
 
   // Progress Row
   const progRow = document.createElement('div');
-  progRow.style.cssText = 'display:flex;align-items:center;gap:12px;margin-bottom:12px;';
+  progRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-4);margin-bottom:var(--vv-space-4);';
 
   // Distance block
   const distBlock = document.createElement('div');
   distBlock.style.cssText = 'flex:1;';
   const distValue = document.createElement('div');
-  distValue.style.cssText = `font-family:Inter,sans-serif;font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;`;
+  distValue.style.cssText = `font-family:Inter,sans-serif;font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;`;
   distValue.textContent = DEMO_STATES[0].distance;
   const distLabel = document.createElement('div');
   distLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};`;
@@ -111,7 +111,7 @@ export const Interactive = () => {
   const etaBlock = document.createElement('div');
   etaBlock.style.cssText = 'flex:1;';
   const etaValue = document.createElement('div');
-  etaValue.style.cssText = `font-family:Inter,sans-serif;font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;`;
+  etaValue.style.cssText = `font-family:Inter,sans-serif;font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;`;
   etaValue.textContent = DEMO_STATES[0].eta;
   const etaLabel = document.createElement('div');
   etaLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};`;
@@ -123,7 +123,7 @@ export const Interactive = () => {
   const chipWrap = document.createElement('div');
   chipWrap.style.cssText = 'flex:1;display:flex;justify-content:flex-end;';
   const bikeChip = document.createElement('div');
-  bikeChip.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextAccent};`;
+  bikeChip.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextAccent};`;
   bikeChip.textContent = '\uD83D\uDEB2 VV-4829';
   chipWrap.appendChild(bikeChip);
 
@@ -135,13 +135,13 @@ export const Interactive = () => {
 
   // Horizontal divider
   const rowDivider = document.createElement('div');
-  rowDivider.style.cssText = `height:1px;background:${tokens.colorGrey100};margin-bottom:12px;`;
+  rowDivider.style.cssText = `height:1px;background:${tokens.colorGrey100};margin-bottom:var(--vv-space-4);`;
   card.appendChild(rowDivider);
 
   // Primary CTA
   let demoState = 0;
   const ctaBtn = document.createElement('button');
-  ctaBtn.style.cssText = `width:100%;height:48px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  ctaBtn.style.cssText = `width:100%;height:48px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   ctaBtn.textContent = DEMO_STATES[0].cta;
 
   ctaBtn.addEventListener('pointerdown', () => {
@@ -156,7 +156,7 @@ export const Interactive = () => {
 
   // Secondary link
   const cancelLink = document.createElement('div');
-  cancelLink.style.cssText = `text-align:center;margin-top:8px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};cursor:pointer;`;
+  cancelLink.style.cssText = `text-align:center;margin-top:var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};cursor:pointer;`;
   cancelLink.textContent = 'Cancel Navigation';
   card.appendChild(cancelLink);
 
@@ -169,33 +169,33 @@ export const WithApproaching = () => `
   <div style="
     width:393px;background:${tokens.colorSurfaceBase};
     border-radius:${tokens.radiusLg}px;
-    padding:16px;box-sizing:border-box;
+    padding:var(--vv-space-5);box-sizing:border-box;
     font-family:Inter,sans-serif;
   ">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+    <div style="display:flex;align-items:center;gap:var(--vv-space-4);margin-bottom:var(--vv-space-4);">
       <div style="flex:1;">
-        <div style="font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">0.4 km</div>
+        <div style="font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">0.4 km</div>
         <div style="font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorGrey500};">left</div>
       </div>
       <div style="width:1px;height:32px;background:${tokens.colorGrey200};flex-shrink:0;"></div>
       <div style="flex:1;">
-        <div style="font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">2 min</div>
+        <div style="font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">2 min</div>
         <div style="font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorGrey500};">ETA</div>
       </div>
       <div style="flex:1;display:flex;justify-content:flex-end;">
-        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorTextAccent};">&#128690; VV-4829</div>
+        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorTextAccent};">&#128690; VV-4829</div>
       </div>
     </div>
-    <div style="height:1px;background:${tokens.colorGrey100};margin-bottom:12px;"></div>
-    <button style="width:100%;height:48px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};">I'm Almost There</button>
-    <div style="text-align:center;margin-top:8px;font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorTextSecondary};cursor:pointer;">Cancel Navigation</div>
+    <div style="height:1px;background:${tokens.colorGrey100};margin-bottom:var(--vv-space-4);"></div>
+    <button style="width:100%;height:48px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">I'm Almost There</button>
+    <div style="text-align:center;margin-top:var(--vv-space-3);font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorTextSecondary};cursor:pointer;">Cancel Navigation</div>
   </div>
 `;
 
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `import React, { useState } from 'react';
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
 export default RidingProgressCard;`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// RidingProgressCard — React Native Paper (C-06)</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// RidingProgressCard — React Native Paper (C-06)</div>` +
   _blk('RidingProgressCard.tsx', RN_JSX) +
   `</div>`;

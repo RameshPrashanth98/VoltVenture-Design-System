@@ -6,25 +6,25 @@ export default { title: 'Screens/VoltCoinsRewards' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -39,104 +39,104 @@ export const Default = () => `
     background:${tokens.colorSurfaceBase};box-sizing:border-box;font-family:Inter,sans-serif;
   ">
     <!-- Status Bar (62px) -->
-    <div style="height:62px;background:${tokens.colorSurfaceBase};display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-sizing:border-box;flex-shrink:0;">
-      <span style="font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+    <div style="height:62px;background:${tokens.colorSurfaceBase};display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-6);box-sizing:border-box;flex-shrink:0;">
+      <span style="font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
     <!-- Header Row -->
-    <div style="display:flex;align-items:center;padding:12px 16px;justify-content:space-between;flex-shrink:0;">
+    <div style="display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);justify-content:space-between;flex-shrink:0;">
       <div>
-        <div style="font-size:${tokens.fontSizeHeadingMd}px;font-weight:700;color:${tokens.colorTextPrimary};">VoltCoins</div>
+        <div style="font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">VoltCoins</div>
         <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};">Your rewards</div>
       </div>
       <!-- Streak Badge — colors hardcoded, no VV token -->
-      <div style="background:#FFF1DC;border-radius:${tokens.radiusFull}px;padding:4px 10px;display:inline-flex;align-items:center;gap:4px;">
+      <div style="background:#FFF1DC;border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;gap:var(--vv-space-2);">
         <span style="font-size:14px;color:#F5871F;">&#128293;</span>
-        <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:#B5590A;">7 Day Streak</span>
+        <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:#B5590A;">7 Day Streak</span>
       </div>
     </div>
     <!-- Balance Dashboard Card -->
-    <div style="margin:0 16px 16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:24px 20px;display:flex;flex-direction:column;gap:12px;box-sizing:border-box;">
+    <div style="margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:var(--vv-space-7) var(--vv-space-6);display:flex;flex-direction:column;gap:var(--vv-space-4);box-sizing:border-box;">
       <!-- Coin Badge + Balance row -->
-      <div style="display:flex;align-items:center;gap:16px;">
-        <div style="width:48px;height:48px;background:${tokens.colorActionPrimary};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:${tokens.colorTextPrimary};flex-shrink:0;">&#9889;</div>
+      <div style="display:flex;align-items:center;gap:var(--vv-space-5);">
+        <div style="width:48px;height:48px;background:${tokens.colorActionPrimary};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;font-size:24px;color:${tokens.colorTextPrimary};flex-shrink:0;">&#9889;</div>
         <div>
-          <div style="font-size:40px;font-weight:700;color:#ffffff;line-height:1;">1,240</div>
+          <div style="font-size:var(--vv-text-display-xl-size);font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);line-height:1;">1,240</div>
           <div style="font-size:${tokens.fontSizeLabelMd}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">VoltCoins</div>
         </div>
       </div>
       <!-- Level Badge -->
       <div style="display:inline-flex;align-items:center;background:rgba(255,255,255,0.13);border-radius:${tokens.radiusFull}px;padding:6px 14px;gap:6px;">
         <span style="font-size:14px;">&#127942;</span>
-        <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#ffffff;">Level 3 &mdash; Explorer</span>
+        <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:var(--vv-color-text-on-inverse);">Level 3 &mdash; Explorer</span>
       </div>
     </div>
     <!-- Next Reward Progress Card -->
-    <div style="margin:0 16px 16px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:16px;box-sizing:border-box;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-        <div style="width:38px;height:38px;background:${tokens.colorGrey100};border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">&#127873;</div>
+    <div style="margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:var(--vv-space-5);box-sizing:border-box;">
+      <div style="display:flex;align-items:center;gap:var(--vv-space-4);margin-bottom:var(--vv-space-4);">
+        <div style="width:38px;height:38px;background:${tokens.colorGrey100};border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-heading-lg-size);flex-shrink:0;">&#127873;</div>
         <div>
-          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Next Reward</div>
+          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Next Reward</div>
           <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};">260 more coins to Level 4 reward</div>
         </div>
       </div>
       <!-- Progress Track 70% -->
       <div style="position:relative;height:8px;background:${tokens.colorGrey100};border-radius:4px;">
         <div style="position:absolute;left:0;top:0;width:70%;height:8px;background:${tokens.colorActionPrimary};border-radius:4px;"></div>
-        <div style="position:absolute;left:calc(70% - 6px);top:-2px;width:12px;height:12px;background:${tokens.colorSurfaceBase};border-radius:50%;border:2px solid ${tokens.colorActionPrimary};"></div>
+        <div style="position:absolute;left:calc(70% - 6px);top:-2px;width:12px;height:12px;background:${tokens.colorSurfaceBase};border-radius:var(--vv-radius-full);border:2px solid ${tokens.colorActionPrimary};"></div>
       </div>
     </div>
     <!-- Earn Tip -->
-    <div style="margin:0 16px 16px;background:${tokens.colorGreen100};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-sizing:border-box;">
-      <div style="width:32px;height:32px;background:${tokens.colorActionPrimary};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;color:${tokens.colorTextPrimary};flex-shrink:0;">&#128692;</div>
+    <div style="margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorGreen100};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);box-sizing:border-box;">
+      <div style="width:32px;height:32px;background:${tokens.colorActionPrimary};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;font-size:16px;color:${tokens.colorTextPrimary};flex-shrink:0;">&#128692;</div>
       <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextAccent};">Earn VoltCoins on every ride. More coins = better rewards!</span>
     </div>
     <!-- EARN HISTORY -->
-    <div style="padding:0 16px 8px;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">EARN HISTORY</div>
-    <div style="margin:0 16px 16px;border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};overflow:hidden;box-sizing:border-box;">
+    <div style="padding:0 var(--vv-space-5) var(--vv-space-3);font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">EARN HISTORY</div>
+    <div style="margin:0 var(--vv-space-5) var(--vv-space-5);border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};overflow:hidden;box-sizing:border-box;">
       <!-- Row 1 -->
-      <div style="display:flex;align-items:center;min-height:56px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;min-height:56px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
         <div style="width:36px;height:36px;background:${tokens.colorGreen100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#128692;</div>
         <div style="flex:1;">
-          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Coastal Sunset Ride</div>
+          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Coastal Sunset Ride</div>
           <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};">Today &middot; 3.2 km</div>
         </div>
-        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:700;color:${tokens.colorTextAccent};">+15</div>
+        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextAccent};">+15</div>
       </div>
       <div style="height:1px;background:${tokens.colorGrey100};"></div>
       <!-- Row 2 -->
-      <div style="display:flex;align-items:center;min-height:56px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;min-height:56px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
         <div style="width:36px;height:36px;background:${tokens.colorGreen100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#128692;</div>
         <div style="flex:1;">
-          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Old Town Loop</div>
+          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Old Town Loop</div>
           <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};">Yesterday &middot; 2.1 km</div>
         </div>
-        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:700;color:${tokens.colorTextAccent};">+8</div>
+        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextAccent};">+8</div>
       </div>
       <div style="height:1px;background:${tokens.colorGrey100};"></div>
       <!-- Row 3 -->
-      <div style="display:flex;align-items:center;min-height:56px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
+      <div style="display:flex;align-items:center;min-height:56px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
         <div style="width:36px;height:36px;background:${tokens.colorGreen100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#128692;</div>
         <div style="flex:1;">
-          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Quick City Ride</div>
+          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Quick City Ride</div>
           <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};">2 days ago &middot; 1.8 km</div>
         </div>
-        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:700;color:${tokens.colorTextAccent};">+12</div>
+        <div style="background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextAccent};">+12</div>
       </div>
     </div>
     <!-- Spacer -->
     <div style="flex:1;"></div>
     <!-- Redeem CTA -->
-    <div style="padding:0 16px 16px;">
+    <div style="padding:0 var(--vv-space-5) var(--vv-space-5);">
       <div style="height:56px;display:flex;align-items:center;justify-content:center;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;cursor:pointer;box-sizing:border-box;">
-        <span style="font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};">&#127873; Redeem Rewards</span>
+        <span style="font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">&#127873; Redeem Rewards</span>
       </div>
     </div>
     <!-- Tab Bar — Wallet active (index 2) -->
-    <div style="display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:8px 0 24px;flex-shrink:0;">
+    <div style="display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:var(--vv-space-3) 0 var(--vv-space-7);flex-shrink:0;">
       ${TABS.map((label, i) => {
         const isActive = i === 2; // Wallet
-        return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;">
+        return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;">
           <div style="width:40px;height:26px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};"></div>
           <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};">${label}</span>
         </div>`;
@@ -160,10 +160,10 @@ export const Interactive = () => {
 
   // Header row
   const header = document.createElement('div');
-  header.style.cssText = 'display:flex;align-items:center;padding:12px 16px;justify-content:space-between;flex-shrink:0;';
+  header.style.cssText = 'display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);justify-content:space-between;flex-shrink:0;';
   const titleCol = document.createElement('div');
   const titleEl = document.createElement('div');
-  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   titleEl.textContent = 'VoltCoins';
   const subtitleEl = document.createElement('div');
   subtitleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};`;
@@ -173,12 +173,12 @@ export const Interactive = () => {
 
   // Streak badge — colors hardcoded, no VV token
   const streak = document.createElement('div');
-  streak.style.cssText = 'background:#FFF1DC;border-radius:' + tokens.radiusFull + 'px;padding:4px 10px;display:inline-flex;align-items:center;gap:4px;';
+  streak.style.cssText = 'background:#FFF1DC;border-radius:' + tokens.radiusFull + 'px;padding:var(--vv-space-2) 10px;display:inline-flex;align-items:center;gap:var(--vv-space-2);';
   const flameIcon = document.createElement('span');
   flameIcon.style.cssText = 'font-size:14px;color:#F5871F;';
   flameIcon.textContent = '\uD83D\uDD25';
   const streakText = document.createElement('span');
-  streakText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:600;color:#B5590A;`;
+  streakText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-heading);color:#B5590A;`;
   streakText.textContent = '7 Day Streak';
   streak.appendChild(flameIcon);
   streak.appendChild(streakText);
@@ -189,16 +189,16 @@ export const Interactive = () => {
 
   // Balance Dashboard Card
   const balCard = document.createElement('div');
-  balCard.style.cssText = `margin:0 16px 16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:24px 20px;display:flex;flex-direction:column;gap:12px;box-sizing:border-box;`;
+  balCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:var(--vv-space-7) var(--vv-space-6);display:flex;flex-direction:column;gap:var(--vv-space-4);box-sizing:border-box;`;
 
   const coinRow = document.createElement('div');
-  coinRow.style.cssText = 'display:flex;align-items:center;gap:16px;';
+  coinRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-5);';
   const coinBadge = document.createElement('div');
-  coinBadge.style.cssText = `width:48px;height:48px;background:${tokens.colorActionPrimary};border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;color:${tokens.colorTextPrimary};flex-shrink:0;`;
+  coinBadge.style.cssText = `width:48px;height:48px;background:${tokens.colorActionPrimary};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;font-size:24px;color:${tokens.colorTextPrimary};flex-shrink:0;`;
   coinBadge.textContent = '\u26A1';
   const balText = document.createElement('div');
   const balValue = document.createElement('div');
-  balValue.style.cssText = 'font-family:Inter,sans-serif;font-size:40px;font-weight:700;color:#ffffff;line-height:1;';
+  balValue.style.cssText = 'font-family:Inter,sans-serif;font-size:var(--vv-text-display-xl-size);font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);line-height:1;';
   balValue.textContent = '1,240';
   const balLabel = document.createElement('div');
   balLabel.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelMd}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};`;
@@ -214,7 +214,7 @@ export const Interactive = () => {
   trophy.style.cssText = 'font-size:14px;';
   trophy.textContent = '\uD83C\uDFC6';
   const levelText = document.createElement('span');
-  levelText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#ffffff;`;
+  levelText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:var(--vv-color-text-on-inverse);`;
   levelText.textContent = 'Level 3 \u2014 Explorer';
   levelBadge.appendChild(trophy);
   levelBadge.appendChild(levelText);
@@ -225,15 +225,15 @@ export const Interactive = () => {
 
   // Progress Card
   const progCard = document.createElement('div');
-  progCard.style.cssText = `margin:0 16px 16px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:16px;box-sizing:border-box;`;
+  progCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:var(--vv-space-5);box-sizing:border-box;`;
   const progTop = document.createElement('div');
-  progTop.style.cssText = 'display:flex;align-items:center;gap:12px;margin-bottom:12px;';
+  progTop.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-4);margin-bottom:var(--vv-space-4);';
   const progIcon = document.createElement('div');
-  progIcon.style.cssText = `width:38px;height:38px;background:${tokens.colorGrey100};border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;`;
+  progIcon.style.cssText = `width:38px;height:38px;background:${tokens.colorGrey100};border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-heading-lg-size);flex-shrink:0;`;
   progIcon.textContent = '\uD83C\uDF81';
   const progTextCol = document.createElement('div');
   const progTitle = document.createElement('div');
-  progTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  progTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   progTitle.textContent = 'Next Reward';
   const progSub = document.createElement('div');
   progSub.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};`;
@@ -248,7 +248,7 @@ export const Interactive = () => {
   const trackFill = document.createElement('div');
   trackFill.style.cssText = `position:absolute;left:0;top:0;width:70%;height:8px;background:${tokens.colorActionPrimary};border-radius:4px;`;
   const trackDot = document.createElement('div');
-  trackDot.style.cssText = `position:absolute;left:calc(70% - 6px);top:-2px;width:12px;height:12px;background:${tokens.colorSurfaceBase};border-radius:50%;border:2px solid ${tokens.colorActionPrimary};`;
+  trackDot.style.cssText = `position:absolute;left:calc(70% - 6px);top:-2px;width:12px;height:12px;background:${tokens.colorSurfaceBase};border-radius:var(--vv-radius-full);border:2px solid ${tokens.colorActionPrimary};`;
   trackWrap.appendChild(trackFill);
   trackWrap.appendChild(trackDot);
 
@@ -258,12 +258,12 @@ export const Interactive = () => {
 
   // Earn history rows
   const histLabel = document.createElement('div');
-  histLabel.style.cssText = `padding:0 16px 8px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;`;
+  histLabel.style.cssText = `padding:0 var(--vv-space-5) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;`;
   histLabel.textContent = 'EARN HISTORY';
   content.appendChild(histLabel);
 
   const histList = document.createElement('div');
-  histList.style.cssText = `margin:0 16px 16px;border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};overflow:hidden;`;
+  histList.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};overflow:hidden;`;
 
   const histRows = [
     { label: 'Coastal Sunset Ride', sub: 'Today \u00B7 3.2 km', coins: '+15' },
@@ -278,7 +278,7 @@ export const Interactive = () => {
       histList.appendChild(div);
     }
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;min-height:56px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;`;
+    row.style.cssText = `display:flex;align-items:center;min-height:56px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;`;
     row.addEventListener('pointerdown', () => { row.style.background = tokens.colorGrey100; });
     row.addEventListener('pointerup', () => { row.style.background = tokens.colorSurfaceBase; });
     row.addEventListener('pointerleave', () => { row.style.background = tokens.colorSurfaceBase; });
@@ -289,7 +289,7 @@ export const Interactive = () => {
     const textCol = document.createElement('div');
     textCol.style.cssText = 'flex:1;';
     const rowTitle = document.createElement('div');
-    rowTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+    rowTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
     rowTitle.textContent = data.label;
     const rowSub = document.createElement('div');
     rowSub.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};`;
@@ -297,7 +297,7 @@ export const Interactive = () => {
     textCol.appendChild(rowTitle);
     textCol.appendChild(rowSub);
     const coinChip = document.createElement('div');
-    coinChip.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:4px 10px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:700;color:${tokens.colorTextAccent};`;
+    coinChip.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextAccent};`;
     coinChip.textContent = data.coins;
 
     row.appendChild(chip);
@@ -314,14 +314,14 @@ export const Interactive = () => {
 
   // Redeem CTA
   const ctaWrap = document.createElement('div');
-  ctaWrap.style.cssText = 'padding:0 16px 16px;';
+  ctaWrap.style.cssText = 'padding:0 var(--vv-space-5) var(--vv-space-5);';
   const redeemBtn = document.createElement('div');
   redeemBtn.style.cssText = `height:56px;display:flex;align-items:center;justify-content:center;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;cursor:pointer;box-sizing:border-box;`;
   redeemBtn.addEventListener('pointerdown', () => { redeemBtn.style.background = tokens.colorGreen600; redeemBtn.style.transform = 'scale(0.97)'; });
   redeemBtn.addEventListener('pointerup', () => { redeemBtn.style.background = tokens.colorActionPrimary; redeemBtn.style.transform = ''; });
   redeemBtn.addEventListener('pointerleave', () => { redeemBtn.style.background = tokens.colorActionPrimary; redeemBtn.style.transform = ''; });
   const redeemText = document.createElement('span');
-  redeemText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  redeemText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   redeemText.textContent = '\uD83C\uDF81 Redeem Rewards';
   redeemBtn.appendChild(redeemText);
   ctaWrap.appendChild(redeemBtn);
@@ -331,13 +331,13 @@ export const Interactive = () => {
 
   // Tab Bar — Wallet active (index 2)
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:8px 0 24px;flex-shrink:0;`;
+  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:var(--vv-space-3) 0 var(--vv-space-7);flex-shrink:0;`;
 
   let activeTab = 2; // Wallet
   const tabEls = [];
   TABS.forEach((label, i) => {
     const tab = document.createElement('div');
-    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;';
+    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;';
     const pill = document.createElement('div');
     pill.style.cssText = `width:40px;height:26px;border-radius:${tokens.radiusFull}px;background:${i === activeTab ? tokens.colorSurfaceInverse : tokens.colorGrey200};`;
     const lbl = document.createElement('span');
@@ -362,7 +362,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `import React from 'react';
@@ -412,7 +412,7 @@ const VoltCoinsRewardsScreen = () => (
 export default VoltCoinsRewardsScreen;`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// VoltCoins Rewards — React Native Paper</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// VoltCoins Rewards — React Native Paper</div>` +
   _blk('VoltCoinsRewardsScreen.tsx', RN_JSX) +
   `</div>`;

@@ -35,20 +35,20 @@ const HUB_ROWS = [
 
 function cafePinsHtml() {
   return CAFE_PINS.map(([top, left, name]) =>
-    `<div style="position:absolute;top:${top}px;left:${left}px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;padding:5px 10px;box-shadow:${shadowFromToken(tokens.elevationRaised)};display:inline-flex;align-items:center;gap:5px;"><span style="font-size:13px;">&#x2615;</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">${name}</span></div>`
+    `<div style="position:absolute;top:${top}px;left:${left}px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;padding:5px 10px;box-shadow:${shadowFromToken(tokens.elevationRaised)};display:inline-flex;align-items:center;gap:5px;"><span style="font-size:var(--vv-text-body-sm-size);">&#x2615;</span><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-heading);">${name}</span></div>`
   ).join('');
 }
 
 function hubRowsHtml() {
   return HUB_ROWS.map(([name, dist, slots]) =>
-    `<div style="display:flex;align-items:center;padding:12px 16px;gap:12px;cursor:pointer;border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;"><div style="width:72px;height:72px;background:#e8e8e8;border-radius:${tokens.radiusMd}px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;">&#x2615;</div><div style="flex:1;display:flex;flex-direction:column;gap:3px;"><div style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">${name}</div><div style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};">&#x2615; VIP Hub &middot; ${dist}</div><div style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">${slots}</div></div><span style="font-size:18px;color:${tokens.colorGrey300};">&#x203A;</span></div>`
+    `<div style="display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;"><div style="width:72px;height:72px;background:#e8e8e8;border-radius:${tokens.radiusMd}px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-numeric-md-size);">&#x2615;</div><div style="flex:1;display:flex;flex-direction:column;gap:3px;"><div style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-heading);">${name}</div><div style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};">&#x2615; VIP Hub &middot; ${dist}</div><div style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">${slots}</div></div><span style="font-size:18px;color:${tokens.colorGrey300};">&#x203A;</span></div>`
   ).join('');
 }
 
 function tabsHtml(activeLabel) {
   return TABS.map(label => {
     const isActive = label === activeLabel;
-    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;"><div style="width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;color:${isActive ? '#ffffff' : tokens.colorTextSecondary};">&#x25CF;</span></div><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};">${label}</span></div>`;
+    return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;"><div style="width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;"><span style="font-size:14px;color:${isActive ? '#ffffff' : tokens.colorTextSecondary};">&#x25CF;</span></div><span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};">${label}</span></div>`;
   }).join('');
 }
 
@@ -60,20 +60,20 @@ export const Default = () => `<div style="width:393px;height:852px;display:flex;
     <!-- 5 Cafe Pins -->
     ${cafePinsHtml()}
     <!-- Location Pulse -->
-    <div style="position:absolute;top:290px;left:182px;width:30px;height:30px;border-radius:50%;background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;">
-      <div style="width:14px;height:14px;border-radius:50%;background:${tokens.colorActionPrimary};"></div>
+    <div style="position:absolute;top:290px;left:182px;width:30px;height:30px;border-radius:var(--vv-radius-full);background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;">
+      <div style="width:14px;height:14px;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};"></div>
     </div>
     <!-- Top Gradient -->
     <div style="position:absolute;top:0;left:0;right:0;height:110px;background:linear-gradient(to bottom,rgba(255,255,255,0.90),transparent);pointer-events:none;"></div>
     <!-- Status Bar -->
-    <div style="position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box;">
+    <div style="position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-5);box-sizing:border-box;">
       <span style="font-family:'${tokens.typeLabelMd.fontFamily}',sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextPrimary};">9:41</span>
       <span style="font-size:12px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#x25B2; WiFi &#x25A0;</span>
     </div>
     <!-- Title Row -->
     <div style="position:absolute;top:72px;left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-family:'${tokens.typeHeadingMd.fontFamily}',sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};">Discover VIP Hubs</span>
-      <div style="width:36px;height:36px;background:${tokens.colorSurfaceBase};border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:${shadowFromToken(tokens.elevationRaised)};cursor:pointer;">&#x2699;</div>
+      <span style="font-family:'${tokens.typeHeadingMd.fontFamily}',sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Discover VIP Hubs</span>
+      <div style="width:36px;height:36px;background:${tokens.colorSurfaceBase};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;box-shadow:${shadowFromToken(tokens.elevationRaised)};cursor:pointer;">&#x2699;</div>
     </div>
   </div>
   <!-- Bottom Sheet: flex:1 -->
@@ -83,15 +83,15 @@ export const Default = () => `<div style="width:393px;height:852px;display:flex;
       <div style="width:36px;height:4px;background:${tokens.colorGrey300};border-radius:4px;"></div>
     </div>
     <!-- Sheet Header -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 16px;flex-shrink:0;">
-      <span style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">VIP Hubs Nearby</span>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:var(--vv-space-4) var(--vv-space-5);flex-shrink:0;">
+      <span style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">VIP Hubs Nearby</span>
       <span style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};">Sort by: Nearest &#x203A;</span>
     </div>
     <!-- Routes Promo Card: colorSurfaceInverse (black) -->
-    <div style="margin:0 16px 12px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;flex-shrink:0;">
+    <div style="margin:0 var(--vv-space-5) var(--vv-space-4);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);cursor:pointer;flex-shrink:0;">
       <div style="width:38px;height:38px;background:rgba(198,255,45,0.13);border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;font-size:18px;">&#x1F5FA;</div>
       <div style="flex:1;">
-        <div style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:#ffffff;">Curated Routes</div>
+        <div style="font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">Curated Routes</div>
         <div style="font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorGrey500};">Explore hand-picked bike routes</div>
       </div>
       <span style="font-size:18px;color:${tokens.colorGrey300};">&#x203A;</span>
@@ -102,7 +102,7 @@ export const Default = () => `<div style="width:393px;height:852px;display:flex;
     </div>
   </div>
   <!-- Tab Bar: Discover active -->
-  <div style="flex-shrink:0;background:${tokens.colorSurfaceBase};height:56px;display:flex;align-items:center;padding:0 16px;box-sizing:border-box;box-shadow:${shadowFromToken(tokens.elevationFloating)};">${tabsHtml('Discover')}</div>
+  <div style="flex-shrink:0;background:${tokens.colorSurfaceBase};height:56px;display:flex;align-items:center;padding:0 var(--vv-space-5);box-sizing:border-box;box-shadow:${shadowFromToken(tokens.elevationFloating)};">${tabsHtml('Discover')}</div>
 </div>`;
 
 // ── Interactive ─────────────────────────────────────────────────────────────────
@@ -121,9 +121,9 @@ export const Interactive = () => {
 
   // Phone frame — screen is flex-column
   const frame = document.createElement('div');
-  frame.style.cssText = 'width:402px;height:874px;background:#0f0f0f;border-radius:44px;padding:11px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;';
+  frame.style.cssText = 'width:402px;height:874px;background:var(--vv-color-surface-inverse);border-radius:44px;padding:11px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;';
   const screen = document.createElement('div');
-  screen.style.cssText = 'flex:1;background:#ffffff;border-radius:34px;overflow:hidden;display:flex;flex-direction:column;';
+  screen.style.cssText = 'flex:1;background:var(--vv-color-surface-base);border-radius:34px;overflow:hidden;display:flex;flex-direction:column;';
   frame.appendChild(screen);
 
   // Inject locationPulse keyframe
@@ -139,15 +139,15 @@ export const Interactive = () => {
   CAFE_PINS.forEach(([top, left, name]) => {
     const pin = document.createElement('div');
     pin.style.cssText = `position:absolute;top:${top}px;left:${left}px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusFull}px;padding:5px 10px;box-shadow:${shadowFromToken(tokens.elevationRaised)};display:inline-flex;align-items:center;gap:5px;cursor:pointer;`;
-    pin.innerHTML = `<span style="font-size:13px;">&#x2615;</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">${name}</span>`;
+    pin.innerHTML = `<span style="font-size:var(--vv-text-body-sm-size);">&#x2615;</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-heading);">${name}</span>`;
     mapArea.appendChild(pin);
   });
 
   // Location Pulse
   const pulse = document.createElement('div');
-  pulse.style.cssText = 'position:absolute;top:290px;left:182px;width:30px;height:30px;border-radius:50%;background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;animation:locationPulse 2s ease-in-out infinite;';
+  pulse.style.cssText = 'position:absolute;top:290px;left:182px;width:30px;height:30px;border-radius:var(--vv-radius-full);background:rgba(198,255,45,0.20);display:flex;align-items:center;justify-content:center;animation:locationPulse 2s ease-in-out infinite;';
   const dot = document.createElement('div');
-  dot.style.cssText = `width:14px;height:14px;border-radius:50%;background:${tokens.colorActionPrimary};`;
+  dot.style.cssText = `width:14px;height:14px;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};`;
   pulse.appendChild(dot);
   mapArea.appendChild(pulse);
 
@@ -158,7 +158,7 @@ export const Interactive = () => {
 
   // Status Bar
   const sb = document.createElement('div');
-  sb.style.cssText = 'position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 16px;box-sizing:border-box;';
+  sb.style.cssText = 'position:absolute;top:0;left:0;right:0;height:62px;background:rgba(255,255,255,0.90);display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-5);box-sizing:border-box;';
   sb.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextPrimary};">9:41</span><span style="font-size:12px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#x25B2; WiFi &#x25A0;</span>`;
   mapArea.appendChild(sb);
 
@@ -166,10 +166,10 @@ export const Interactive = () => {
   const titleRow = document.createElement('div');
   titleRow.style.cssText = 'position:absolute;top:72px;left:16px;right:16px;display:flex;align-items:center;justify-content:space-between;';
   const titleText = document.createElement('span');
-  titleText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  titleText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   titleText.textContent = 'Discover VIP Hubs';
   const filterBtn = document.createElement('div');
-  filterBtn.style.cssText = `width:36px;height:36px;background:${tokens.colorSurfaceBase};border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:${shadowFromToken(tokens.elevationRaised)};cursor:pointer;`;
+  filterBtn.style.cssText = `width:36px;height:36px;background:${tokens.colorSurfaceBase};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;box-shadow:${shadowFromToken(tokens.elevationRaised)};cursor:pointer;`;
   filterBtn.textContent = '\u2699';
   titleRow.appendChild(titleText);
   titleRow.appendChild(filterBtn);
@@ -189,14 +189,14 @@ export const Interactive = () => {
   sheet.appendChild(handleRow);
 
   const sheetHeader = document.createElement('div');
-  sheetHeader.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:12px 16px;flex-shrink:0;';
-  sheetHeader.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">VIP Hubs Nearby</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};">Sort by: Nearest &#x203A;</span>`;
+  sheetHeader.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:var(--vv-space-4) var(--vv-space-5);flex-shrink:0;';
+  sheetHeader.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">VIP Hubs Nearby</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};">Sort by: Nearest &#x203A;</span>`;
   sheet.appendChild(sheetHeader);
 
   // Routes Promo Card (colorSurfaceInverse)
   const promoCard = document.createElement('div');
-  promoCard.style.cssText = `margin:0 16px 12px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;flex-shrink:0;`;
-  promoCard.innerHTML = `<div style="width:38px;height:38px;background:rgba(198,255,45,0.13);border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;font-size:18px;">&#x1F5FA;</div><div style="flex:1;"><div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:#ffffff;">Curated Routes</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorGrey500};">Explore hand-picked bike routes</div></div><span style="font-size:18px;color:${tokens.colorGrey300};">&#x203A;</span>`;
+  promoCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-4);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);cursor:pointer;flex-shrink:0;`;
+  promoCard.innerHTML = `<div style="width:38px;height:38px;background:rgba(198,255,45,0.13);border-radius:${tokens.radiusMd}px;display:flex;align-items:center;justify-content:center;font-size:18px;">&#x1F5FA;</div><div style="flex:1;"><div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">Curated Routes</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorGrey500};">Explore hand-picked bike routes</div></div><span style="font-size:18px;color:${tokens.colorGrey300};">&#x203A;</span>`;
   promoCard.addEventListener('pointerdown', () => { promoCard.style.background = 'rgba(255,255,255,0.05)'; });
   promoCard.addEventListener('pointerup', () => { promoCard.style.background = tokens.colorSurfaceInverse; });
   promoCard.addEventListener('pointerleave', () => { promoCard.style.background = tokens.colorSurfaceInverse; });
@@ -207,8 +207,8 @@ export const Interactive = () => {
   hubList.style.cssText = 'flex:1;overflow-y:auto;';
   HUB_ROWS.forEach(([name, dist, slots]) => {
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;padding:12px 16px;gap:12px;cursor:pointer;border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;background:${tokens.colorSurfaceBase};`;
-    row.innerHTML = `<div style="width:72px;height:72px;background:#e8e8e8;border-radius:${tokens.radiusMd}px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px;">&#x2615;</div><div style="flex:1;display:flex;flex-direction:column;gap:3px;"><div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:600;">${name}</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};">&#x2615; VIP Hub &middot; ${dist}</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">${slots}</div></div><span style="font-size:18px;color:${tokens.colorGrey300};">&#x203A;</span>`;
+    row.style.cssText = `display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;background:${tokens.colorSurfaceBase};`;
+    row.innerHTML = `<div style="width:72px;height:72px;background:#e8e8e8;border-radius:${tokens.radiusMd}px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-numeric-md-size);">&#x2615;</div><div style="flex:1;display:flex;flex-direction:column;gap:3px;"><div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-heading);">${name}</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};">&#x2615; VIP Hub &middot; ${dist}</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextAccent};">${slots}</div></div><span style="font-size:18px;color:${tokens.colorGrey300};">&#x203A;</span>`;
     row.addEventListener('pointerdown', () => { row.style.background = tokens.colorGrey050 || '#FAFAFA'; });
     row.addEventListener('pointerup', () => { row.style.background = tokens.colorSurfaceBase; });
     row.addEventListener('pointerleave', () => { row.style.background = tokens.colorSurfaceBase; });
@@ -221,11 +221,11 @@ export const Interactive = () => {
   // ── Tab Bar (flex child, Discover active) ──
   let activeTab = 'Discover';
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `flex-shrink:0;background:${tokens.colorSurfaceBase};height:56px;display:flex;align-items:center;padding:0 16px;box-sizing:border-box;box-shadow:${shadowFromToken(tokens.elevationFloating)};`;
+  tabBar.style.cssText = `flex-shrink:0;background:${tokens.colorSurfaceBase};height:56px;display:flex;align-items:center;padding:0 var(--vv-space-5);box-sizing:border-box;box-shadow:${shadowFromToken(tokens.elevationFloating)};`;
   const tabEls = [];
   TABS.forEach(label => {
     const tab = document.createElement('div');
-    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;';
+    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;';
     const isActive = label === 'Discover';
     const pill = document.createElement('div');
     pill.style.cssText = `width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;`;
@@ -257,5 +257,5 @@ export const Interactive = () => {
 
 // ── Source Code ─────────────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/DiscoverVipHubs — Hi-Fi frame PS2Xe — 388px map + bottom sheet<br>// rgba(198,255,45,0.13) promo icon chip / #0F0F0F surface inverse</div>${_blk('Default',Default())}</div>`;
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// Screens/DiscoverVipHubs — Hi-Fi frame PS2Xe — 388px map + bottom sheet<br>// rgba(198,255,45,0.13) promo icon chip / #0F0F0F surface inverse</div>${_blk('Default',Default())}</div>`;

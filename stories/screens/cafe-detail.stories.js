@@ -38,7 +38,7 @@ export const Default = () => `
         right:0;
         height:100px;
         background:linear-gradient(to top, rgba(0,0,0,0.40), transparent);
-        z-index:1;
+        z-index:var(--vv-z-raised);
       "></div>
 
       <!-- Status Bar (overlaid on hero, white text) -->
@@ -51,12 +51,12 @@ export const Default = () => `
         display:flex;
         align-items:center;
         justify-content:space-between;
-        padding:0 20px;
+        padding:0 var(--vv-space-6);
         box-sizing:border-box;
-        z-index:3;
+        z-index:var(--vv-z-overlay);
       ">
-        <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;">9:41</span>
-        <span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>
+        <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">9:41</span>
+        <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>
       </div>
 
       <!-- Back Button -->
@@ -66,15 +66,15 @@ export const Default = () => `
         left:16px;
         width:36px;
         height:36px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:rgba(255,255,255,0.87);
         display:flex;
         align-items:center;
         justify-content:center;
         cursor:pointer;
-        z-index:3;
+        z-index:var(--vv-z-overlay);
       ">
-        <span style="font-size:16px;color:#0f0f0f;">&#8592;</span>
+        <span style="font-size:16px;color:var(--vv-color-text-primary);">&#8592;</span>
       </div>
 
       <!-- Share Button -->
@@ -84,15 +84,15 @@ export const Default = () => `
         right:16px;
         width:36px;
         height:36px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:rgba(255,255,255,0.87);
         display:flex;
         align-items:center;
         justify-content:center;
         cursor:pointer;
-        z-index:3;
+        z-index:var(--vv-z-overlay);
       ">
-        <span style="font-size:16px;color:#0f0f0f;">&#10548;</span>
+        <span style="font-size:16px;color:var(--vv-color-text-primary);">&#10548;</span>
       </div>
 
       <!-- Photo Dots (carousel indicator) -->
@@ -102,13 +102,13 @@ export const Default = () => `
         left:50%;
         transform:translateX(-50%);
         display:flex;
-        gap:4px;
+        gap:var(--vv-space-2);
         align-items:center;
-        z-index:2;
+        z-index:var(--vv-z-sticky);
       ">
-        <div style="width:16px;height:5px;background:#ffffff;border-radius:4px;"></div>
-        <div style="width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:50%;"></div>
-        <div style="width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:50%;"></div>
+        <div style="width:16px;height:5px;background:var(--vv-color-surface-base);border-radius:4px;"></div>
+        <div style="width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:var(--vv-radius-full);"></div>
+        <div style="width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:var(--vv-radius-full);"></div>
       </div>
 
       <!-- VIP Tag -->
@@ -118,18 +118,18 @@ export const Default = () => `
         right:16px;
         background:${tokens.colorSurfaceInverse};
         border-radius:${tokens.radiusFull}px;
-        padding:4px 10px;
+        padding:var(--vv-space-2) 10px;
         display:flex;
         align-items:center;
-        gap:4px;
-        z-index:2;
+        gap:var(--vv-space-2);
+        z-index:var(--vv-z-sticky);
       ">
         <span style="font-size:14px;color:${VIP_GOLD};">&#9819;</span>
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.typeLabelSm.fontSize}px;
-          font-weight:700;
-          color:#ffffff;
+          font-weight:var(--ds-font-weight-display);
+          color:var(--vv-color-text-on-inverse);
         ">VIP</span>
       </div>
     </div>
@@ -137,27 +137,27 @@ export const Default = () => `
     <!-- Content Area -->
     <div style="
       flex:1;
-      padding:16px 20px;
+      padding:var(--vv-space-5) var(--vv-space-6);
       overflow-y:auto;
       box-sizing:border-box;
       display:flex;
       flex-direction:column;
     ">
       <!-- Title Block -->
-      <div style="margin-bottom:12px;">
+      <div style="margin-bottom:var(--vv-space-4);">
         <div style="
           font-family:Manjari,sans-serif;
           font-size:${tokens.typeHeadingMd.fontSize}px;
           font-weight:${tokens.typeHeadingMd.fontWeight};
           color:${tokens.colorTextPrimary};
-          margin-bottom:4px;
+          margin-bottom:var(--vv-space-2);
         ">The Grind — VIP Hub</div>
         <div style="
           font-family:Inter,sans-serif;
           font-size:${tokens.typeBodyMd.fontSize}px;
           font-weight:${tokens.typeBodyMd.fontWeight};
           color:${tokens.colorTextSecondary};
-          margin-bottom:4px;
+          margin-bottom:var(--vv-space-2);
         ">Specialty coffee &amp; VoltVenture charging</div>
         <div style="
           font-family:Inter,sans-serif;
@@ -171,11 +171,11 @@ export const Default = () => `
       <div style="
         background:${tokens.colorGreen100};
         border-radius:${tokens.radiusLg}px;
-        padding:12px 16px;
-        margin:0 0 12px;
+        padding:var(--vv-space-4) var(--vv-space-5);
+        margin:0 0 var(--vv-space-4);
         display:flex;
         align-items:center;
-        gap:12px;
+        gap:var(--vv-space-4);
         box-sizing:border-box;
         flex-shrink:0;
       ">
@@ -183,18 +183,18 @@ export const Default = () => `
         <div style="
           width:44px;
           height:44px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorActionPrimary};
           display:flex;
           align-items:center;
           justify-content:center;
           flex-shrink:0;
         ">
-          <span style="font-size:20px;color:#0f0f0f;">&#9889;</span>
+          <span style="font-size:var(--vv-text-heading-lg-size);color:var(--vv-color-text-primary);">&#9889;</span>
         </div>
 
         <!-- Text Col -->
-        <div style="display:flex;flex-direction:column;gap:2px;">
+        <div style="display:flex;flex-direction:column;gap:var(--vv-space-1);">
           <span style="
             font-family:Inter,sans-serif;
             font-size:${tokens.typeBodyMd.fontSize}px;
@@ -216,20 +216,20 @@ export const Default = () => `
         font-size:${tokens.typeBodyMd.fontSize}px;
         font-weight:${tokens.typeBodyMd.fontWeight};
         color:${tokens.colorGrey700};
-        margin-bottom:12px;
+        margin-bottom:var(--vv-space-4);
         line-height:1.5;
       ">A specialty coffee shop and VoltVenture VIP Hub. Enjoy premium beverages while your bike charges.</div>
 
       <!-- Perks Row -->
       <div style="
         display:flex;
-        gap:8px;
+        gap:var(--vv-space-3);
         flex-wrap:wrap;
-        margin-bottom:16px;
+        margin-bottom:var(--vv-space-5);
       ">
-          <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px 12px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};">&#9749; 20% off drinks</div>
-        <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px 12px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};">&#128246; Free WiFi</div>
-        <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px 12px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};">&#128336; 7am - 9pm</div>
+          <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px var(--vv-space-4);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};">&#9749; 20% off drinks</div>
+        <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px var(--vv-space-4);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};">&#128246; Free WiFi</div>
+        <div style="background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px var(--vv-space-4);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};">&#128336; 7am - 9pm</div>
       </div>
 
       <!-- Spacer -->
@@ -247,12 +247,12 @@ export const Default = () => `
         cursor:pointer;
         box-sizing:border-box;
         flex-shrink:0;
-        margin-bottom:8px;
+        margin-bottom:var(--vv-space-3);
       ">
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.typeHeadingSm.fontSize}px;
-          font-weight:600;
+          font-weight:var(--ds-font-weight-heading);
           color:${tokens.colorTextPrimary};
         ">&#9644; Show VIP Barcode</span>
       </div>
@@ -264,13 +264,13 @@ export const Default = () => `
       background:${tokens.colorSurfaceBase};
       display:flex;
       align-items:center;
-      padding:8px 16px 20px;
+      padding:var(--vv-space-3) var(--vv-space-5) var(--vv-space-6);
       box-sizing:border-box;
     ">
       ${TABS.map(label => {
         const isActive = label === 'Discover';
         return `
-          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);flex:1;">
             <div style="
               width:48px;height:32px;border-radius:${tokens.radiusFull}px;
               background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};
@@ -297,25 +297,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -333,41 +333,41 @@ export const Interactive = () => {
 
   // Photo Gradient
   const photoGradient = document.createElement('div');
-  photoGradient.style.cssText = 'position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top, rgba(0,0,0,0.40), transparent);z-index:1;pointer-events:none;';
+  photoGradient.style.cssText = 'position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top, rgba(0,0,0,0.40), transparent);z-index:var(--vv-z-raised);pointer-events:none;';
 
   // Back Button
   const backBtn = document.createElement('div');
-  backBtn.style.cssText = 'position:absolute;top:8px;left:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.87);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;';
-  backBtn.innerHTML = '<span style="font-size:16px;color:#0f0f0f;">&#8592;</span>';
+  backBtn.style.cssText = 'position:absolute;top:8px;left:16px;width:36px;height:36px;border-radius:var(--vv-radius-full);background:rgba(255,255,255,0.87);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:var(--vv-z-overlay);';
+  backBtn.innerHTML = '<span style="font-size:16px;color:var(--vv-color-text-primary);">&#8592;</span>';
   backBtn.addEventListener('pointerdown', () => { backBtn.style.opacity = '0.7'; });
   backBtn.addEventListener('pointerup', () => { backBtn.style.opacity = '1'; });
   backBtn.addEventListener('pointerleave', () => { backBtn.style.opacity = '1'; });
 
   // Share Button
   const shareBtn = document.createElement('div');
-  shareBtn.style.cssText = 'position:absolute;top:8px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.87);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;';
-  shareBtn.innerHTML = '<span style="font-size:16px;color:#0f0f0f;">&#10548;</span>';
+  shareBtn.style.cssText = 'position:absolute;top:8px;right:16px;width:36px;height:36px;border-radius:var(--vv-radius-full);background:rgba(255,255,255,0.87);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:var(--vv-z-overlay);';
+  shareBtn.innerHTML = '<span style="font-size:16px;color:var(--vv-color-text-primary);">&#10548;</span>';
   shareBtn.addEventListener('pointerdown', () => { shareBtn.style.opacity = '0.7'; });
   shareBtn.addEventListener('pointerup', () => { shareBtn.style.opacity = '1'; });
   shareBtn.addEventListener('pointerleave', () => { shareBtn.style.opacity = '1'; });
 
   // Photo Dots
   const photoDots = document.createElement('div');
-  photoDots.style.cssText = 'position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:4px;align-items:center;z-index:2;';
+  photoDots.style.cssText = 'position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:var(--vv-space-2);align-items:center;z-index:var(--vv-z-sticky);';
   const activeDot = document.createElement('div');
-  activeDot.style.cssText = 'width:16px;height:5px;background:#ffffff;border-radius:4px;';
+  activeDot.style.cssText = 'width:16px;height:5px;background:var(--vv-color-surface-base);border-radius:4px;';
   const inactiveDot1 = document.createElement('div');
-  inactiveDot1.style.cssText = 'width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:50%;';
+  inactiveDot1.style.cssText = 'width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:var(--vv-radius-full);';
   const inactiveDot2 = document.createElement('div');
-  inactiveDot2.style.cssText = 'width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:50%;';
+  inactiveDot2.style.cssText = 'width:5px;height:5px;background:rgba(255,255,255,0.50);border-radius:var(--vv-radius-full);';
   photoDots.appendChild(activeDot);
   photoDots.appendChild(inactiveDot1);
   photoDots.appendChild(inactiveDot2);
 
   // VIP Tag
   const vipTag = document.createElement('div');
-  vipTag.style.cssText = `position:absolute;bottom:16px;right:16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;padding:4px 10px;display:flex;align-items:center;gap:4px;z-index:2;`;
-  vipTag.innerHTML = `<span style="font-size:14px;color:${VIP_GOLD};">&#9819;</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:700;color:#ffffff;">VIP</span>`;
+  vipTag.style.cssText = `position:absolute;bottom:16px;right:16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;display:flex;align-items:center;gap:var(--vv-space-2);z-index:var(--vv-z-sticky);`;
+  vipTag.innerHTML = `<span style="font-size:14px;color:${VIP_GOLD};">&#9819;</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);">VIP</span>`;
 
   heroSection.appendChild(photoGradient);
   heroSection.appendChild(backBtn);
@@ -377,18 +377,18 @@ export const Interactive = () => {
 
   // Content Area (scrollable)
   const contentArea = document.createElement('div');
-  contentArea.style.cssText = 'flex:1;padding:16px 20px;overflow-y:auto;box-sizing:border-box;display:flex;flex-direction:column;';
+  contentArea.style.cssText = 'flex:1;padding:var(--vv-space-5) var(--vv-space-6);overflow-y:auto;box-sizing:border-box;display:flex;flex-direction:column;';
 
   // Title Block
   const titleBlock = document.createElement('div');
-  titleBlock.style.cssText = 'margin-bottom:12px;flex-shrink:0;';
+  titleBlock.style.cssText = 'margin-bottom:var(--vv-space-4);flex-shrink:0;';
 
   const cafeName = document.createElement('div');
-  cafeName.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:${tokens.colorTextPrimary};margin-bottom:4px;`;
+  cafeName.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:${tokens.colorTextPrimary};margin-bottom:var(--vv-space-2);`;
   cafeName.textContent = 'The Grind \u2014 VIP Hub';
 
   const cafeDesc = document.createElement('div');
-  cafeDesc.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:${tokens.typeBodyMd.fontWeight};color:${tokens.colorTextSecondary};margin-bottom:4px;`;
+  cafeDesc.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:${tokens.typeBodyMd.fontWeight};color:${tokens.colorTextSecondary};margin-bottom:var(--vv-space-2);`;
   cafeDesc.textContent = 'Specialty coffee & VoltVenture charging';
 
   const cafeMeta = document.createElement('div');
@@ -401,14 +401,14 @@ export const Interactive = () => {
 
   // Battery Status Card
   const batteryCard = document.createElement('div');
-  batteryCard.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusLg}px;padding:12px 16px;margin-bottom:12px;display:flex;align-items:center;gap:12px;box-sizing:border-box;flex-shrink:0;`;
+  batteryCard.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);margin-bottom:var(--vv-space-4);display:flex;align-items:center;gap:var(--vv-space-4);box-sizing:border-box;flex-shrink:0;`;
 
   const batteryIcon = document.createElement('div');
-  batteryIcon.style.cssText = `width:44px;height:44px;border-radius:50%;background:${tokens.colorActionPrimary};display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
-  batteryIcon.innerHTML = '<span style="font-size:20px;color:#0f0f0f;">&#9889;</span>';
+  batteryIcon.style.cssText = `width:44px;height:44px;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
+  batteryIcon.innerHTML = '<span style="font-size:var(--vv-text-heading-lg-size);color:var(--vv-color-text-primary);">&#9889;</span>';
 
   const batteryText = document.createElement('div');
-  batteryText.style.cssText = 'display:flex;flex-direction:column;gap:2px;';
+  batteryText.style.cssText = 'display:flex;flex-direction:column;gap:var(--vv-space-1);';
   batteryText.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:${tokens.typeBodyMd.fontWeight};color:${tokens.colorTextPrimary};">8 charging slots</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextAccent};">All available</span>`;
 
   batteryCard.appendChild(batteryIcon);
@@ -416,17 +416,17 @@ export const Interactive = () => {
 
   // About Text
   const aboutText = document.createElement('div');
-  aboutText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorGrey700};margin-bottom:12px;line-height:1.5;flex-shrink:0;`;
+  aboutText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorGrey700};margin-bottom:var(--vv-space-4);line-height:1.5;flex-shrink:0;`;
   aboutText.textContent = 'A specialty coffee shop and VoltVenture VIP Hub. Enjoy premium beverages while your bike charges.';
 
   // Perks Row
   const perksRow = document.createElement('div');
-  perksRow.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;flex-shrink:0;';
+  perksRow.style.cssText = 'display:flex;gap:var(--vv-space-3);flex-wrap:wrap;margin-bottom:var(--vv-space-5);flex-shrink:0;';
 
   const perks = ['\u2615 20% off drinks', '\uD83D\uDCF6 Free WiFi', '\u23F0 7am - 9pm'];
   perks.forEach(perk => {
     const chip = document.createElement('div');
-    chip.style.cssText = `background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px 12px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};`;
+    chip.style.cssText = `background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:6px var(--vv-space-4);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};`;
     chip.textContent = perk;
     perksRow.appendChild(chip);
   });
@@ -437,9 +437,9 @@ export const Interactive = () => {
 
   // Show VIP Barcode Button
   const barcodeBtn = document.createElement('div');
-  barcodeBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;flex-shrink:0;margin-bottom:8px;transition:transform 100ms ease,background-color 100ms ease;`;
+  barcodeBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;flex-shrink:0;margin-bottom:var(--vv-space-3);transition:transform var(--vv-duration-fast) var(--vv-easing-standard),background-color var(--vv-duration-fast) var(--vv-easing-standard);`;
   const barcodeBtnText = document.createElement('span');
-  barcodeBtnText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  barcodeBtnText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   barcodeBtnText.innerHTML = '&#9644; Show VIP Barcode';
   barcodeBtn.appendChild(barcodeBtnText);
 
@@ -465,12 +465,12 @@ export const Interactive = () => {
 
   // Tab Bar
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `flex-shrink:0;background:${tokens.colorSurfaceBase};display:flex;align-items:center;padding:8px 16px 20px;box-sizing:border-box;`;
+  tabBar.style.cssText = `flex-shrink:0;background:${tokens.colorSurfaceBase};display:flex;align-items:center;padding:var(--vv-space-3) var(--vv-space-5) var(--vv-space-6);box-sizing:border-box;`;
 
   TABS.forEach(label => {
     const isActive = label === 'Discover';
     const tabItem = document.createElement('div');
-    tabItem.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;';
+    tabItem.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);flex:1;';
 
     const pill = document.createElement('div');
     pill.style.cssText = `width:48px;height:32px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;`;
@@ -496,7 +496,7 @@ export const Interactive = () => {
 
 function _esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_CAFEDETAIL_JSX = `// CafeDetail Screen — React Native Paper
@@ -652,4 +652,4 @@ const styles = StyleSheet.create({
 
 export default CafeDetailScreen;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// CafeDetail — React Native Paper</div>${_blk('CafeDetailScreen', RN_CAFEDETAIL_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// CafeDetail — React Native Paper</div>${_blk('CafeDetailScreen', RN_CAFEDETAIL_JSX)}</div>`;

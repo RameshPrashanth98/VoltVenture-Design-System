@@ -5,25 +5,25 @@ export default { title: 'Components/PhoneInput' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -45,11 +45,11 @@ export const Interactive = () => {
   let digits = '';
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 16px;box-sizing:border-box';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 var(--vv-space-5);box-sizing:border-box';
 
   // Visible display div
   const displayDiv = document.createElement('div');
-  displayDiv.style.cssText = `background:${tokens.colorGrey050};border-radius:${tokens.radiusSm}px;padding:14px 16px;border:2px solid ${tokens.colorGrey200};transition:border-color 150ms ease;box-sizing:border-box;width:100%;display:flex;align-items:center;cursor:text`;
+  displayDiv.style.cssText = `background:${tokens.colorGrey050};border-radius:${tokens.radiusSm}px;padding:14px var(--vv-space-5);border:2px solid ${tokens.colorGrey200};transition:border-color var(--vv-duration-quick) var(--vv-easing-standard);box-sizing:border-box;width:100%;display:flex;align-items:center;cursor:text`;
 
   // Phone number display span
   const phoneSpan = document.createElement('span');
@@ -58,7 +58,7 @@ export const Interactive = () => {
 
   // Blinking cursor
   const cursor = document.createElement('span');
-  cursor.style.cssText = 'display:none;width:2px;height:20px;background:#0f0f0f;vertical-align:middle;margin-left:2px;animation:vv-blink 1s infinite;border-radius:1px';
+  cursor.style.cssText = 'display:none;width:2px;height:20px;background:var(--vv-color-surface-inverse);vertical-align:middle;margin-left:var(--vv-space-1);animation:vv-blink 1s infinite;border-radius:1px';
 
   displayDiv.appendChild(phoneSpan);
   displayDiv.appendChild(cursor);
@@ -160,5 +160,5 @@ export const Filled = () => `
 
 // ── Source code panel ─────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// PhoneInput — HTML Source</div>${_blk('Default',Default())}${_blk('Filled',Filled())}</div>`;
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// PhoneInput — HTML Source</div>${_blk('Default',Default())}${_blk('Filled',Filled())}</div>`;

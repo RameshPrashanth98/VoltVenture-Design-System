@@ -22,12 +22,12 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 20px;
+      padding:0 var(--vv-space-6);
       box-sizing:border-box;
       flex-shrink:0;
     ">
-      <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
 
     <!-- Header Row (44px) -->
@@ -35,8 +35,8 @@ export const Default = () => `
       height:44px;
       display:flex;
       align-items:center;
-      padding:0 16px;
-      gap:12px;
+      padding:0 var(--vv-space-5);
+      gap:var(--vv-space-4);
       flex-shrink:0;
       box-sizing:border-box;
     ">
@@ -44,7 +44,7 @@ export const Default = () => `
       <div style="
         width:36px;
         height:36px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorGrey100};
         display:flex;
         align-items:center;
@@ -52,13 +52,13 @@ export const Default = () => `
         flex-shrink:0;
         cursor:pointer;
       ">
-        <span style="font-size:16px;color:${tokens.colorTextPrimary};font-weight:600;">&#8249;</span>
+        <span style="font-size:16px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-heading);">&#8249;</span>
       </div>
       <!-- Screen Title -->
       <span style="
         font-family:Manjari,sans-serif;
         font-size:${tokens.typeHeadingMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         color:${tokens.colorTextPrimary};
         line-height:1.2;
       ">Security Deposit</span>
@@ -66,7 +66,7 @@ export const Default = () => `
 
     <!-- Subtitle Row -->
     <div style="
-      padding:4px 16px 16px;
+      padding:var(--vv-space-2) var(--vv-space-5) var(--vv-space-5);
       font-family:Inter,sans-serif;
       font-size:${tokens.typeBodyMd.fontSize}px;
       font-weight:${tokens.typeBodyMd.fontWeight};
@@ -77,10 +77,10 @@ export const Default = () => `
 
     <!-- Deposit Status Banner (dark card) -->
     <div style="
-      margin:0 16px 16px;
+      margin:0 var(--vv-space-5) var(--vv-space-5);
       background:${tokens.colorSurfaceInverse};
       border-radius:${tokens.radiusLg}px;
-      padding:20px;
+      padding:var(--vv-space-6);
       flex-shrink:0;
       box-sizing:border-box;
     ">
@@ -95,9 +95,9 @@ export const Default = () => `
         <!-- Status Chip -->
         <span style="
           background:${tokens.colorGrey700};
-          color:#ffffff;
+          color:var(--vv-color-text-on-inverse);
           border-radius:${tokens.radiusFull}px;
-          padding:4px 10px;
+          padding:var(--vv-space-2) 10px;
           font-family:Inter,sans-serif;
           font-size:${tokens.typeLabelSm.fontSize}px;
           font-weight:${tokens.typeLabelSm.fontWeight};
@@ -106,16 +106,16 @@ export const Default = () => `
 
       <!-- Amount Row -->
       <div style="
-        margin-top:8px;
+        margin-top:var(--vv-space-3);
         font-family:Manjari,sans-serif;
-        font-size:32px;
-        font-weight:700;
-        color:#ffffff;
+        font-size:var(--vv-text-display-lg-size);
+        font-weight:var(--ds-font-weight-display);
+        color:var(--vv-color-text-on-inverse);
       ">&#8377; 200.00</div>
 
       <!-- Conversion Row -->
       <div style="
-        margin-top:4px;
+        margin-top:var(--vv-space-2);
         font-family:Inter,sans-serif;
         font-size:${tokens.typeLabelSm.fontSize}px;
         font-weight:${tokens.typeLabelSm.fontWeight};
@@ -123,10 +123,10 @@ export const Default = () => `
       ">&#8776; 80 VoltCoins value</div>
 
       <!-- Divider -->
-      <div style="height:1px;background:rgba(255,255,255,0.13);margin:16px 0;"></div>
+      <div style="height:1px;background:rgba(255,255,255,0.13);margin:var(--vv-space-5) 0;"></div>
 
       <!-- Note Row -->
-      <div style="display:flex;align-items:center;gap:8px;">
+      <div style="display:flex;align-items:center;gap:var(--vv-space-3);">
         <span style="font-size:14px;color:${tokens.colorGrey500};">&#9432;</span>
         <span style="
           font-family:Inter,sans-serif;
@@ -139,8 +139,8 @@ export const Default = () => `
 
     <!-- Tracker Section Label -->
     <div style="
-      padding:0 16px 8px;
-      margin-top:8px;
+      padding:0 var(--vv-space-5) var(--vv-space-3);
+      margin-top:var(--vv-space-3);
       font-family:Inter,sans-serif;
       font-size:${tokens.typeLabelSm.fontSize}px;
       font-weight:${tokens.typeLabelSm.fontWeight};
@@ -153,16 +153,16 @@ export const Default = () => `
 
     <!-- Tracker Card -->
     <div style="
-      margin:0 16px 16px;
+      margin:0 var(--vv-space-5) var(--vv-space-5);
       background:${tokens.colorSurfaceBase};
       border-radius:${tokens.radiusLg}px;
       border:1px solid ${tokens.colorGrey100};
-      padding:24px 20px;
+      padding:var(--vv-space-7) var(--vv-space-6);
       flex-shrink:0;
       box-sizing:border-box;
     ">
       <!-- Track Container (position:relative, margin for step circles + labels) -->
-      <div style="position:relative;margin:16px 0 56px;">
+      <div style="position:relative;margin:var(--vv-space-5) 0 56px;">
         <!-- Track BG: 281x3px -->
         <div style="
           width:281px;
@@ -190,14 +190,14 @@ export const Default = () => `
           top:-14px;
           width:32px;
           height:32px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorGreen100};
           display:flex;
           align-items:center;
           justify-content:center;
           box-sizing:border-box;
         ">
-          <span style="font-size:14px;color:${tokens.colorTextAccent};font-weight:700;">&#10003;</span>
+          <span style="font-size:14px;color:${tokens.colorTextAccent};font-weight:var(--ds-font-weight-display);">&#10003;</span>
         </div>
         <div style="position:absolute;top:22px;left:0;width:60px;text-align:center;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};line-height:1.3;">Ride Ended</div>
 
@@ -208,14 +208,14 @@ export const Default = () => `
           top:-14px;
           width:32px;
           height:32px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorGreen100};
           display:flex;
           align-items:center;
           justify-content:center;
           box-sizing:border-box;
         ">
-          <span style="font-size:14px;color:${tokens.colorTextAccent};font-weight:700;">&#10003;</span>
+          <span style="font-size:14px;color:${tokens.colorTextAccent};font-weight:var(--ds-font-weight-display);">&#10003;</span>
         </div>
         <div style="position:absolute;top:22px;left:62px;width:64px;text-align:center;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};line-height:1.3;">Hold Confirmed</div>
 
@@ -226,15 +226,15 @@ export const Default = () => `
           top:-14px;
           width:32px;
           height:32px;
-          border-radius:50%;
-          background:#ffffff;
+          border-radius:var(--vv-radius-full);
+          background:var(--vv-color-surface-base);
           border:2px solid ${tokens.colorActionPrimary};
           display:flex;
           align-items:center;
           justify-content:center;
           box-sizing:border-box;
         ">
-          <span style="font-size:10px;color:${tokens.colorTextPrimary};font-weight:700;">&#9679;</span>
+          <span style="font-size:var(--vv-text-overline-size);color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-display);">&#9679;</span>
         </div>
         <div style="position:absolute;top:22px;left:155px;width:60px;text-align:center;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextPrimary};line-height:1.3;">Verifying</div>
 
@@ -245,14 +245,14 @@ export const Default = () => `
           top:-14px;
           width:32px;
           height:32px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorGrey100};
           display:flex;
           align-items:center;
           justify-content:center;
           box-sizing:border-box;
         ">
-          <span style="font-size:18px;color:${tokens.colorGrey300};font-weight:700;">&#183;</span>
+          <span style="font-size:18px;color:${tokens.colorGrey300};font-weight:var(--ds-font-weight-display);">&#183;</span>
         </div>
         <div style="position:absolute;top:22px;left:233px;width:64px;text-align:center;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey300};line-height:1.3;">Released</div>
       </div>
@@ -260,8 +260,8 @@ export const Default = () => `
 
     <!-- Info Section Label -->
     <div style="
-      padding:0 16px 8px;
-      margin-top:8px;
+      padding:0 var(--vv-space-5) var(--vv-space-3);
+      margin-top:var(--vv-space-3);
       font-family:Inter,sans-serif;
       font-size:${tokens.typeLabelSm.fontSize}px;
       font-weight:${tokens.typeLabelSm.fontWeight};
@@ -272,36 +272,36 @@ export const Default = () => `
 
     <!-- Info Card -->
     <div style="
-      margin:0 16px 16px;
+      margin:0 var(--vv-space-5) var(--vv-space-5);
       border-radius:${tokens.radiusLg}px;
       border:1px solid ${tokens.colorGrey100};
-      padding:16px;
+      padding:var(--vv-space-5);
       flex-shrink:0;
       box-sizing:border-box;
     ">
       <!-- Credit Hold Row -->
       <div style="display:flex;justify-content:space-between;align-items:center;">
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Credit Hold</span>
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">&#8377; 200.00</span>
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">&#8377; 200.00</span>
       </div>
       <!-- Divider -->
-      <div style="height:1px;background:${tokens.colorGrey100};margin:12px 0;"></div>
+      <div style="height:1px;background:${tokens.colorGrey100};margin:var(--vv-space-4) 0;"></div>
       <!-- Actual Charge Row -->
       <div style="display:flex;justify-content:space-between;align-items:center;">
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Actual Charge</span>
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextAccent};">&#8377; 18.20</span>
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextAccent};">&#8377; 18.20</span>
       </div>
     </div>
 
     <!-- Contact Support Row -->
     <div style="
-      margin:0 16px;
+      margin:0 var(--vv-space-5);
       background:${tokens.colorGrey050};
       border-radius:${tokens.radiusLg}px;
-      padding:16px;
+      padding:var(--vv-space-5);
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:var(--vv-space-4);
       cursor:pointer;
       flex-shrink:0;
       box-sizing:border-box;
@@ -310,7 +310,7 @@ export const Default = () => `
       <div style="
         width:34px;
         height:34px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorGrey100};
         display:flex;
         align-items:center;
@@ -320,16 +320,16 @@ export const Default = () => `
         <span style="font-size:16px;">&#127911;</span>
       </div>
       <!-- Text Col -->
-      <div style="flex:1;display:flex;flex-direction:column;gap:2px;">
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--vv-space-1);">
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.typeBodyMd.fontSize}px;
-          font-weight:500;
+          font-weight:var(--ds-font-weight-label-sm);
           color:${tokens.colorTextPrimary};
         ">Contact Support</span>
       </div>
       <!-- Chevron -->
-      <span style="font-size:20px;color:${tokens.colorGrey300};font-weight:400;">&#8250;</span>
+      <span style="font-size:var(--vv-text-heading-lg-size);color:${tokens.colorGrey300};font-weight:var(--ds-font-weight-body);">&#8250;</span>
     </div>
 
     <!-- Spacer -->
@@ -340,34 +340,34 @@ export const Default = () => `
       display:flex;
       align-items:center;
       height:60px;
-      padding-bottom:8px;
+      padding-bottom:var(--vv-space-3);
       flex-shrink:0;
       box-sizing:border-box;
       border-top:1px solid ${tokens.colorGrey100};
     ">
       <!-- Ride Tab -->
-      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--vv-space-2);cursor:pointer;">
         <div style="width:28px;height:28px;border-radius:${tokens.radiusFull}px;background:${tokens.colorGrey200};display:flex;align-items:center;justify-content:center;">
           <span style="font-size:14px;">&#9889;</span>
         </div>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};">Ride</span>
       </div>
       <!-- Discover Tab -->
-      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--vv-space-2);cursor:pointer;">
         <div style="width:28px;height:28px;border-radius:${tokens.radiusFull}px;background:${tokens.colorGrey200};display:flex;align-items:center;justify-content:center;">
           <span style="font-size:14px;">&#128205;</span>
         </div>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};">Discover</span>
       </div>
       <!-- Wallet Tab (ACTIVE) -->
-      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--vv-space-2);cursor:pointer;">
         <div style="width:28px;height:28px;border-radius:${tokens.radiusFull}px;background:${tokens.colorSurfaceInverse};display:flex;align-items:center;justify-content:center;">
           <span style="font-size:14px;filter:invert(1);">&#128179;</span>
         </div>
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:600;color:${tokens.colorTextAccent};">Wallet</span>
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextAccent};">Wallet</span>
       </div>
       <!-- Account Tab -->
-      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--vv-space-2);cursor:pointer;">
         <div style="width:28px;height:28px;border-radius:${tokens.radiusFull}px;background:${tokens.colorGrey200};display:flex;align-items:center;justify-content:center;">
           <span style="font-size:14px;">&#128100;</span>
         </div>
@@ -383,25 +383,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -418,14 +418,14 @@ export const Interactive = () => {
 
   // ── Header Row ──
   const headerRow = document.createElement('div');
-  headerRow.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;box-sizing:border-box;';
+  headerRow.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);flex-shrink:0;box-sizing:border-box;';
 
   const backBtn = document.createElement('div');
-  backBtn.style.cssText = `width:36px;height:36px;border-radius:50%;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;`;
-  backBtn.innerHTML = `<span style="font-size:16px;color:${tokens.colorTextPrimary};font-weight:600;">&#8249;</span>`;
+  backBtn.style.cssText = `width:36px;height:36px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;`;
+  backBtn.innerHTML = `<span style="font-size:16px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-heading);">&#8249;</span>`;
 
   const screenTitle = document.createElement('span');
-  screenTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1.2;`;
+  screenTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1.2;`;
   screenTitle.textContent = 'Security Deposit';
 
   headerRow.appendChild(backBtn);
@@ -433,12 +433,12 @@ export const Interactive = () => {
 
   // ── Subtitle ──
   const subtitle = document.createElement('div');
-  subtitle.style.cssText = `padding:4px 16px 16px;font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:${tokens.typeBodyMd.fontWeight};color:${tokens.colorTextSecondary};flex-shrink:0;box-sizing:border-box;`;
+  subtitle.style.cssText = `padding:var(--vv-space-2) var(--vv-space-5) var(--vv-space-5);font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:${tokens.typeBodyMd.fontWeight};color:${tokens.colorTextSecondary};flex-shrink:0;box-sizing:border-box;`;
   subtitle.textContent = 'Your deposit will be released after verification.';
 
   // ── Deposit Status Banner ──
   const banner = document.createElement('div');
-  banner.style.cssText = `margin:0 16px 16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:20px;flex-shrink:0;box-sizing:border-box;`;
+  banner.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-6);flex-shrink:0;box-sizing:border-box;`;
 
   // Banner top row
   const bannerTopRow = document.createElement('div');
@@ -449,7 +449,7 @@ export const Interactive = () => {
   depositAmtLabel.textContent = 'Deposit Amount';
 
   const statusChip = document.createElement('span');
-  statusChip.style.cssText = `background:${tokens.colorGrey700};color:#ffffff;border-radius:${tokens.radiusFull}px;padding:4px 10px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};`;
+  statusChip.style.cssText = `background:${tokens.colorGrey700};color:var(--vv-color-text-on-inverse);border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};`;
   statusChip.textContent = 'Under Review';
 
   bannerTopRow.appendChild(depositAmtLabel);
@@ -457,21 +457,21 @@ export const Interactive = () => {
 
   // Amount
   const amountRow = document.createElement('div');
-  amountRow.style.cssText = 'margin-top:8px;font-family:Manjari,sans-serif;font-size:32px;font-weight:700;color:#ffffff;';
+  amountRow.style.cssText = 'margin-top:var(--vv-space-3);font-family:Manjari,sans-serif;font-size:var(--vv-text-display-lg-size);font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);';
   amountRow.innerHTML = '&#8377; 200.00';
 
   // Conversion
   const conversionRow = document.createElement('div');
-  conversionRow.style.cssText = `margin-top:4px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};`;
+  conversionRow.style.cssText = `margin-top:var(--vv-space-2);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};`;
   conversionRow.innerHTML = '&#8776; 80 VoltCoins value';
 
   // Divider
   const bannerDivider = document.createElement('div');
-  bannerDivider.style.cssText = 'height:1px;background:rgba(255,255,255,0.13);margin:16px 0;';
+  bannerDivider.style.cssText = 'height:1px;background:rgba(255,255,255,0.13);margin:var(--vv-space-5) 0;';
 
   // Note Row
   const noteRow = document.createElement('div');
-  noteRow.style.cssText = 'display:flex;align-items:center;gap:8px;';
+  noteRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-3);';
   const noteIcon = document.createElement('span');
   noteIcon.style.cssText = `font-size:14px;color:${tokens.colorGrey500};`;
   noteIcon.innerHTML = '&#9432;';
@@ -489,16 +489,16 @@ export const Interactive = () => {
 
   // ── Tracker Section Label ──
   const trackerLabel = document.createElement('div');
-  trackerLabel.style.cssText = `padding:0 16px 8px;margin-top:8px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;box-sizing:border-box;`;
+  trackerLabel.style.cssText = `padding:0 var(--vv-space-5) var(--vv-space-3);margin-top:var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;box-sizing:border-box;`;
   trackerLabel.textContent = 'Deposit Tracker';
 
   // ── Tracker Card ──
   const trackerCard = document.createElement('div');
-  trackerCard.style.cssText = `margin:0 16px 16px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:24px 20px;flex-shrink:0;box-sizing:border-box;`;
+  trackerCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:var(--vv-space-7) var(--vv-space-6);flex-shrink:0;box-sizing:border-box;`;
 
   // Track container
   const trackContainer = document.createElement('div');
-  trackContainer.style.cssText = 'position:relative;margin:16px 0 56px;';
+  trackContainer.style.cssText = 'position:relative;margin:var(--vv-space-5) 0 56px;';
 
   // Track BG
   const trackBg = document.createElement('div');
@@ -521,9 +521,9 @@ export const Interactive = () => {
   steps.forEach((step) => {
     // Circle
     const circle = document.createElement('div');
-    circle.style.cssText = `position:absolute;left:${step.left}px;top:-14px;width:32px;height:32px;border-radius:50%;background:${step.bg};${step.border !== 'none' ? 'border:' + step.border + ';' : ''}display:flex;align-items:center;justify-content:center;box-sizing:border-box;`;
+    circle.style.cssText = `position:absolute;left:${step.left}px;top:-14px;width:32px;height:32px;border-radius:var(--vv-radius-full);background:${step.bg};${step.border !== 'none' ? 'border:' + step.border + ';' : ''}display:flex;align-items:center;justify-content:center;box-sizing:border-box;`;
     const iconEl = document.createElement('span');
-    iconEl.style.cssText = `font-size:${step.icon === '&#183;' ? 18 : (step.icon === '&#9679;' ? 10 : 14)}px;color:${step.iconColor};font-weight:700;`;
+    iconEl.style.cssText = `font-size:${step.icon === '&#183;' ? 18 : (step.icon === '&#9679;' ? 10 : 14)}px;color:${step.iconColor};font-weight:var(--ds-font-weight-display);`;
     iconEl.innerHTML = step.icon;
     circle.appendChild(iconEl);
     trackContainer.appendChild(circle);
@@ -539,23 +539,23 @@ export const Interactive = () => {
 
   // ── Info Section Label ──
   const infoLabel = document.createElement('div');
-  infoLabel.style.cssText = `padding:0 16px 8px;margin-top:8px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};flex-shrink:0;box-sizing:border-box;`;
+  infoLabel.style.cssText = `padding:0 var(--vv-space-5) var(--vv-space-3);margin-top:var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};flex-shrink:0;box-sizing:border-box;`;
   infoLabel.textContent = 'Deposit Info';
 
   // ── Info Card ──
   const infoCard = document.createElement('div');
-  infoCard.style.cssText = `margin:0 16px 16px;border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:16px;flex-shrink:0;box-sizing:border-box;`;
+  infoCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:var(--vv-space-5);flex-shrink:0;box-sizing:border-box;`;
 
   const creditHoldRow = document.createElement('div');
   creditHoldRow.style.cssText = 'display:flex;justify-content:space-between;align-items:center;';
-  creditHoldRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Credit Hold</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">&#8377; 200.00</span>`;
+  creditHoldRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Credit Hold</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">&#8377; 200.00</span>`;
 
   const infoDivider = document.createElement('div');
-  infoDivider.style.cssText = `height:1px;background:${tokens.colorGrey100};margin:12px 0;`;
+  infoDivider.style.cssText = `height:1px;background:${tokens.colorGrey100};margin:var(--vv-space-4) 0;`;
 
   const actualChargeRow = document.createElement('div');
   actualChargeRow.style.cssText = 'display:flex;justify-content:space-between;align-items:center;';
-  actualChargeRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Actual Charge</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextAccent};">&#8377; 18.20</span>`;
+  actualChargeRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Actual Charge</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextAccent};">&#8377; 18.20</span>`;
 
   infoCard.appendChild(creditHoldRow);
   infoCard.appendChild(infoDivider);
@@ -563,21 +563,21 @@ export const Interactive = () => {
 
   // ── Contact Support Row (interactive — press feedback) ──
   const supportRow = document.createElement('div');
-  supportRow.style.cssText = `margin:0 16px;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:16px;display:flex;align-items:center;gap:12px;cursor:pointer;flex-shrink:0;box-sizing:border-box;transition:background-color 100ms ease;`;
+  supportRow.style.cssText = `margin:0 var(--vv-space-5);background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);cursor:pointer;flex-shrink:0;box-sizing:border-box;transition:background-color var(--vv-duration-fast) var(--vv-easing-standard);`;
 
   const supportIconChip = document.createElement('div');
-  supportIconChip.style.cssText = `width:34px;height:34px;border-radius:50%;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
+  supportIconChip.style.cssText = `width:34px;height:34px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
   supportIconChip.innerHTML = '<span style="font-size:16px;">&#127911;</span>';
 
   const supportTextCol = document.createElement('div');
-  supportTextCol.style.cssText = 'flex:1;display:flex;flex-direction:column;gap:2px;';
+  supportTextCol.style.cssText = 'flex:1;display:flex;flex-direction:column;gap:var(--vv-space-1);';
   const supportTitle = document.createElement('span');
-  supportTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:500;color:${tokens.colorTextPrimary};`;
+  supportTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextPrimary};`;
   supportTitle.textContent = 'Contact Support';
   supportTextCol.appendChild(supportTitle);
 
   const supportChevron = document.createElement('span');
-  supportChevron.style.cssText = `font-size:20px;color:${tokens.colorGrey300};`;
+  supportChevron.style.cssText = `font-size:var(--vv-text-heading-lg-size);color:${tokens.colorGrey300};`;
   supportChevron.innerHTML = '&#8250;';
 
   supportRow.appendChild(supportIconChip);
@@ -595,7 +595,7 @@ export const Interactive = () => {
 
   // ── Tab Bar ──
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `display:flex;align-items:center;height:60px;padding-bottom:8px;flex-shrink:0;box-sizing:border-box;border-top:1px solid ${tokens.colorGrey100};`;
+  tabBar.style.cssText = `display:flex;align-items:center;height:60px;padding-bottom:var(--vv-space-3);flex-shrink:0;box-sizing:border-box;border-top:1px solid ${tokens.colorGrey100};`;
 
   const tabDefs = [
     { label: 'Ride',     icon: '&#9889;',  active: false },
@@ -606,7 +606,7 @@ export const Interactive = () => {
 
   tabDefs.forEach((tab) => {
     const tabItem = document.createElement('div');
-    tabItem.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;';
+    tabItem.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--vv-space-2);cursor:pointer;';
 
     const iconCircle = document.createElement('div');
     iconCircle.style.cssText = `width:28px;height:28px;border-radius:${tokens.radiusFull}px;background:${tab.active ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;`;
@@ -641,7 +641,7 @@ export const Interactive = () => {
 
 function _esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_SECURITY_DEPOSIT_JSX = `// SecurityDeposit Screen — React Native Paper
@@ -828,4 +828,4 @@ const styles = StyleSheet.create({
 
 export default SecurityDepositScreen;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// SecurityDeposit — React Native Paper</div>${_blk('SecurityDepositScreen', RN_SECURITY_DEPOSIT_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// SecurityDeposit — React Native Paper</div>${_blk('SecurityDepositScreen', RN_SECURITY_DEPOSIT_JSX)}</div>`;

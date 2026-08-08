@@ -27,25 +27,25 @@ function shadowFromToken(token) {
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -60,18 +60,18 @@ export const Interactive = () => {
 
   // Card element — margin-top:auto pushes card to bottom of flex column (avoids absolute positioning overflow issues)
   const card = document.createElement('div');
-  card.style.cssText = `margin-top:auto;width:100%;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px ${tokens.radiusLg}px 0 0;box-shadow:${shadowFromToken(tokens.elevationRaised)};overflow:hidden;transition:height 300ms ease;height:120px;box-sizing:border-box;flex-shrink:0`;
+  card.style.cssText = `margin-top:auto;width:100%;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px ${tokens.radiusLg}px 0 0;box-shadow:${shadowFromToken(tokens.elevationRaised)};overflow:hidden;transition:height var(--vv-duration-deliberate) var(--vv-easing-standard);height:120px;box-sizing:border-box;flex-shrink:0`;
 
   // Drag handle — 23px total (margin-top:12 + height:3 + margin-bottom:8)
   const handle = document.createElement('div');
-  handle.style.cssText = `width:40px;height:3px;border-radius:999px;background:${tokens.colorGrey200};margin:12px auto 8px;cursor:pointer`;
+  handle.style.cssText = `width:40px;height:3px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey200};margin:var(--vv-space-4) auto var(--vv-space-3);cursor:pointer`;
 
   // Card header — fixed height 97px so body content starts exactly at 120px (23px handle + 97px = 120px)
   const cardHeader = document.createElement('div');
-  cardHeader.style.cssText = 'height:97px;padding:0 16px;display:flex;flex-direction:column;justify-content:center;gap:8px;box-sizing:border-box';
+  cardHeader.style.cssText = 'height:97px;padding:0 var(--vv-space-5);display:flex;flex-direction:column;justify-content:center;gap:var(--vv-space-3);box-sizing:border-box';
   cardHeader.innerHTML = `
     <div style="font-family:'${tokens.typeHeadingMd.fontFamily}',sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:${tokens.colorTextPrimary};">Nearby Bikes</div>
-    <div style="display:inline-block;background:${tokens.colorGreen100};color:${tokens.colorGreen700};padding:2px ${tokens.space200}px;border-radius:${tokens.radiusXs}px;font-size:${tokens.typeLabelSm.fontSize}px;align-self:flex-start;">VV-042 · 120m away</div>
+    <div style="display:inline-block;background:${tokens.colorGreen100};color:${tokens.colorGreen700};padding:var(--vv-space-1) ${tokens.space200}px;border-radius:${tokens.radiusXs}px;font-size:${tokens.typeLabelSm.fontSize}px;align-self:flex-start;">VV-042 · 120m away</div>
   `;
 
   // Card body — below the fold at 120px, fully visible at 320px (safe innerHTML — no listeners needed here)
@@ -82,7 +82,7 @@ export const Interactive = () => {
       <div style="width:64px;height:64px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;flex-shrink:0;"></div>
       <div style="flex:1;">
         <div style="font-family:'${tokens.typeHeadingMd.fontFamily}',sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:${tokens.colorTextPrimary};">VoltBike VV-042</div>
-        <div style="display:inline-block;background:${tokens.colorGrey100};color:${tokens.colorGrey700};padding:2px ${tokens.space200}px;border-radius:${tokens.radiusXs}px;font-size:${tokens.typeLabelSm.fontSize}px;margin-top:4px;">120m away</div>
+        <div style="display:inline-block;background:${tokens.colorGrey100};color:${tokens.colorGrey700};padding:var(--vv-space-1) ${tokens.space200}px;border-radius:${tokens.radiusXs}px;font-size:${tokens.typeLabelSm.fontSize}px;margin-top:var(--vv-space-2);">120m away</div>
       </div>
     </div>
     <button style="width:100%;min-height:${tokens.space1200}px;background:${tokens.colorActionPrimary};color:${tokens.colorTextPrimary};border:none;border-radius:${tokens.radiusFull}px;font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:${tokens.typeHeadingSm.fontWeight};cursor:pointer;">Get Directions</button>
@@ -123,10 +123,10 @@ export const BikeSelection = () => `
           display:inline-block;
           background:${tokens.colorGrey100};
           color:${tokens.colorGrey700};
-          padding:2px ${tokens.space200}px;
+          padding:var(--vv-space-1) ${tokens.space200}px;
           border-radius:${tokens.radiusXs}px;
           font-size:${tokens.typeLabelSm.fontSize}px;
-          margin-top:4px;
+          margin-top:var(--vv-space-2);
         ">120m away</div>
       </div>
     </div>
@@ -187,9 +187,9 @@ export const WalkProgress = () => `
         margin-left:auto;
         display:inline-flex;
         align-items:center;
-        gap:4px;
+        gap:var(--vv-space-2);
         background:${tokens.colorGreen100};
-        padding:4px ${tokens.space200}px;
+        padding:var(--vv-space-2) ${tokens.space200}px;
         border-radius:${tokens.radiusXs}px;
       ">
         <span style="color:${tokens.colorGreen700};font-size:12px;">🚲</span>
@@ -218,5 +218,5 @@ export const WalkProgress = () => `
 
 // ── Source code panel ─────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// BottomCard — HTML Source</div>${_blk('BikeSelection',BikeSelection())}${_blk('WalkProgress',WalkProgress())}</div>`;
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// BottomCard — HTML Source</div>${_blk('BikeSelection',BikeSelection())}${_blk('WalkProgress',WalkProgress())}</div>`;

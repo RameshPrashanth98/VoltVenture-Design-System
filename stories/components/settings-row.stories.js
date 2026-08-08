@@ -6,25 +6,25 @@ export default { title: 'Components/SettingsRow' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -33,7 +33,7 @@ function makePhoneFrame() {
 // ── Default — chevron variant ──────────────────────────────────────────────────
 export const Default = () => `
   <div style="
-    display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;
+    display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);
     background:${tokens.colorSurfaceBase};
     border-bottom:1px solid ${tokens.colorGrey100};
     box-sizing:border-box;font-family:Inter,sans-serif;
@@ -47,24 +47,24 @@ export const Default = () => `
     ">⚙</div>
     <div style="flex:1;min-width:0;">
       <div style="
-        font-size:${tokens.fontSizeBodyMd}px;font-weight:600;
+        font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);
         line-height:${tokens.fontLineHeightBodyMd}px;
         color:${tokens.colorTextPrimary};
       ">Account Settings</div>
       <div style="
         font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};
         line-height:${tokens.fontLineHeightLabelSm}px;
-        color:${tokens.colorTextSecondary};margin-top:2px;
+        color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);
       ">Manage your account</div>
     </div>
-    <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">›</span>
+    <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">›</span>
   </div>
 `;
 
 // ── WithToggle — toggle pill variant (ON state) ────────────────────────────────
 export const WithToggle = () => `
   <div style="
-    display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;
+    display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);
     background:${tokens.colorSurfaceBase};
     border-bottom:1px solid ${tokens.colorGrey100};
     box-sizing:border-box;font-family:Inter,sans-serif;
@@ -78,7 +78,7 @@ export const WithToggle = () => `
     ">🔔</div>
     <div style="flex:1;min-width:0;">
       <div style="
-        font-size:${tokens.fontSizeBodyMd}px;font-weight:600;
+        font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);
         line-height:${tokens.fontLineHeightBodyMd}px;
         color:${tokens.colorTextPrimary};
       ">Push Notifications</div>
@@ -86,13 +86,13 @@ export const WithToggle = () => `
     <div style="
       width:50px;height:29px;background:${tokens.colorActionPrimary};
       border-radius:${tokens.radiusFull}px;
-      position:relative;display:inline-flex;align-items:center;padding:0 4px;
+      position:relative;display:inline-flex;align-items:center;padding:0 var(--vv-space-2);
       box-sizing:border-box;flex-shrink:0;
     ">
       <div style="
-        width:21px;height:21px;background:#ffffff;border-radius:50%;
+        width:21px;height:21px;background:var(--vv-color-surface-base);border-radius:var(--vv-radius-full);
         position:absolute;left:26px;
-        transition:left 150ms ease;
+        transition:left var(--vv-duration-quick) var(--vv-easing-standard);
       "></div>
     </div>
   </div>
@@ -101,7 +101,7 @@ export const WithToggle = () => `
 // ── WithValue — value string variant ──────────────────────────────────────────
 export const WithValue = () => `
   <div style="
-    display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;
+    display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);
     background:${tokens.colorSurfaceBase};
     border-bottom:1px solid ${tokens.colorGrey100};
     box-sizing:border-box;font-family:Inter,sans-serif;
@@ -115,18 +115,18 @@ export const WithValue = () => `
     ">🌐</div>
     <div style="flex:1;min-width:0;">
       <div style="
-        font-size:${tokens.fontSizeBodyMd}px;font-weight:600;
+        font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);
         line-height:${tokens.fontLineHeightBodyMd}px;
         color:${tokens.colorTextPrimary};
       ">Language</div>
     </div>
-    <div style="display:flex;align-items:center;gap:4px;flex-shrink:0;">
+    <div style="display:flex;align-items:center;gap:var(--vv-space-2);flex-shrink:0;">
       <span style="
         font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};
         line-height:${tokens.fontLineHeightLabelSm}px;
         color:${tokens.colorTextSecondary};
       ">English</span>
-      <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">›</span>
+      <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">›</span>
     </div>
   </div>
 `;
@@ -137,18 +137,18 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;padding:16px 0;box-sizing:border-box;overflow:auto;';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;padding:var(--vv-space-5) 0;box-sizing:border-box;overflow:auto;';
 
   // ── Section header ────────────────────────────────────────────────────────
   const sectionHdr = document.createElement('div');
-  sectionHdr.style.cssText = `padding:0 16px 8px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  sectionHdr.style.cssText = `padding:0 var(--vv-space-5) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   sectionHdr.textContent = 'Settings';
   content.appendChild(sectionHdr);
 
   // ── Helper: make a settings row DOM element ───────────────────────────────
   function makeRow({ icon, label, sub, rightType }) {
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;background:${tokens.colorSurfaceBase};border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;cursor:pointer;user-select:none;`;
+    row.style.cssText = `display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);background:${tokens.colorSurfaceBase};border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;cursor:pointer;user-select:none;`;
 
     // Press highlight
     row.addEventListener('pointerdown', () => { row.style.background = tokens.colorGrey050; });
@@ -165,12 +165,12 @@ export const Interactive = () => {
     const textCol = document.createElement('div');
     textCol.style.cssText = 'flex:1;min-width:0;';
     const titleEl = document.createElement('div');
-    titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;line-height:${tokens.fontLineHeightBodyMd}px;color:${tokens.colorTextPrimary};`;
+    titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);line-height:${tokens.fontLineHeightBodyMd}px;color:${tokens.colorTextPrimary};`;
     titleEl.textContent = label;
     textCol.appendChild(titleEl);
     if (sub) {
       const subEl = document.createElement('div');
-      subEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};line-height:${tokens.fontLineHeightLabelSm}px;color:${tokens.colorTextSecondary};margin-top:2px;`;
+      subEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};line-height:${tokens.fontLineHeightLabelSm}px;color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);`;
       subEl.textContent = sub;
       textCol.appendChild(subEl);
     }
@@ -180,14 +180,14 @@ export const Interactive = () => {
     let rightEl;
     if (rightType === 'chevron') {
       rightEl = document.createElement('span');
-      rightEl.style.cssText = `color:${tokens.colorGrey300};font-size:20px;line-height:1;flex-shrink:0;`;
+      rightEl.style.cssText = `color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;flex-shrink:0;`;
       rightEl.textContent = '›';
     } else if (rightType === 'toggle') {
       // Build toggle pill
       const pill = document.createElement('div');
-      pill.style.cssText = `width:50px;height:29px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;position:relative;display:inline-flex;align-items:center;padding:0 4px;box-sizing:border-box;flex-shrink:0;cursor:pointer;`;
+      pill.style.cssText = `width:50px;height:29px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;position:relative;display:inline-flex;align-items:center;padding:0 var(--vv-space-2);box-sizing:border-box;flex-shrink:0;cursor:pointer;`;
       const knob = document.createElement('div');
-      knob.style.cssText = 'width:21px;height:21px;background:#ffffff;border-radius:50%;position:absolute;left:26px;transition:left 150ms ease;';
+      knob.style.cssText = 'width:21px;height:21px;background:var(--vv-color-surface-base);border-radius:var(--vv-radius-full);position:absolute;left:26px;transition:left var(--vv-duration-quick) var(--vv-easing-standard);';
       pill.appendChild(knob);
 
       let toggleOn = true;
@@ -205,12 +205,12 @@ export const Interactive = () => {
       rightEl = pill;
     } else if (rightType === 'value') {
       const wrap = document.createElement('div');
-      wrap.style.cssText = 'display:flex;align-items:center;gap:4px;flex-shrink:0;';
+      wrap.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-2);flex-shrink:0;';
       const valEl = document.createElement('span');
       valEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};line-height:${tokens.fontLineHeightLabelSm}px;color:${tokens.colorTextSecondary};`;
       valEl.textContent = 'English';
       const chev = document.createElement('span');
-      chev.style.cssText = `color:${tokens.colorGrey300};font-size:20px;line-height:1;`;
+      chev.style.cssText = `color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;`;
       chev.textContent = '›';
       wrap.appendChild(valEl);
       wrap.appendChild(chev);
@@ -239,7 +239,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, html) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;
 }
 
 const _chevronSnippet = `import { List, Divider } from 'react-native-paper';
@@ -330,8 +330,8 @@ import { View, Text } from 'react-native';
 <Divider style={{ backgroundColor: '#F5F5F5' }} />`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// SettingsRow — React Native Paper</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// SettingsRow — React Native Paper</div>` +
   _blk('Chevron variant (Default)', _chevronSnippet) +
   _blk('Toggle variant (WithToggle)', _toggleSnippet) +
   _blk('Value variant (WithValue)', _valueSnippet) +

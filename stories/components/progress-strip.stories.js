@@ -6,25 +6,25 @@ export default { title: 'Components/ProgressStrip' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -37,36 +37,36 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = `flex:1;background:${tokens.colorGrey900};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:0 24px;box-sizing:border-box`;
+  content.style.cssText = `flex:1;background:${tokens.colorGrey900};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--vv-space-7);padding:0 var(--vv-space-7);box-sizing:border-box`;
 
   // Step label
   const stepLabel = document.createElement('div');
-  stepLabel.style.cssText = 'font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff';
+  stepLabel.style.cssText = 'font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse)';
   stepLabel.textContent = 'Step 1 of 4';
 
   // 4-segment strip
   const stripContainer = document.createElement('div');
-  stripContainer.style.cssText = 'display:flex;gap:8px;width:100%';
+  stripContainer.style.cssText = 'display:flex;gap:var(--vv-space-3);width:100%';
 
   const segs = [];
   for (let i = 0; i < 4; i++) {
     const seg = document.createElement('div');
-    seg.style.cssText = `flex:1;height:8px;border-radius:${tokens.radiusXs}px;transition:background 200ms ease`;
+    seg.style.cssText = `flex:1;height:8px;border-radius:${tokens.radiusXs}px;transition:background var(--vv-duration-standard) var(--vv-easing-standard)`;
     segs.push(seg);
     stripContainer.appendChild(seg);
   }
 
   // Navigation buttons
   const backBtn = document.createElement('button');
-  backBtn.style.cssText = `border-radius:${tokens.radiusFull}px;padding:12px 24px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;border:none;cursor:pointer;background:${tokens.colorGrey200};color:${tokens.colorTextPrimary}`;
+  backBtn.style.cssText = `border-radius:${tokens.radiusFull}px;padding:var(--vv-space-4) var(--vv-space-7);font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);font-family:Inter,sans-serif;border:none;cursor:pointer;background:${tokens.colorGrey200};color:${tokens.colorTextPrimary}`;
   backBtn.textContent = '← Back';
 
   const nextBtn = document.createElement('button');
-  nextBtn.style.cssText = `border-radius:${tokens.radiusFull}px;padding:12px 24px;font-size:15px;font-weight:600;font-family:Inter,sans-serif;border:none;cursor:pointer;background:${tokens.colorActionPrimary};color:${tokens.colorTextPrimary}`;
+  nextBtn.style.cssText = `border-radius:${tokens.radiusFull}px;padding:var(--vv-space-4) var(--vv-space-7);font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);font-family:Inter,sans-serif;border:none;cursor:pointer;background:${tokens.colorActionPrimary};color:${tokens.colorTextPrimary}`;
   nextBtn.textContent = 'Next →';
 
   const navRow = document.createElement('div');
-  navRow.style.cssText = 'display:flex;gap:12px;justify-content:center';
+  navRow.style.cssText = 'display:flex;gap:var(--vv-space-4);justify-content:center';
   navRow.appendChild(backBtn);
   navRow.appendChild(nextBtn);
 
@@ -118,5 +118,5 @@ export const Step2Active = () => strip(2);
 
 // ── Source code panel ─────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// ProgressStrip — HTML Source</div>${_blk('Step1Active',Step1Active())}${_blk('Step2Active',Step2Active())}</div>`;
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// ProgressStrip — HTML Source</div>${_blk('Step1Active',Step1Active())}${_blk('Step2Active',Step2Active())}</div>`;

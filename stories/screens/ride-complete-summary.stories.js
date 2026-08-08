@@ -22,17 +22,17 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 20px;
+      padding:0 var(--vv-space-6);
       box-sizing:border-box;
       flex-shrink:0;
     ">
-      <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
 
     <!-- Header Wrap -->
     <div style="
-      padding:24px 20px;
+      padding:var(--vv-space-7) var(--vv-space-6);
       display:flex;
       flex-direction:column;
       align-items:center;
@@ -45,7 +45,7 @@ export const Default = () => `
         position:relative;
         width:72px;
         height:72px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorGreen100};
         display:flex;
         align-items:center;
@@ -56,13 +56,13 @@ export const Default = () => `
           position:absolute;
           width:52px;
           height:52px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorActionPrimary};
           display:flex;
           align-items:center;
           justify-content:center;
         ">
-          <span style="font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};">&#10003;</span>
+          <span style="font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">&#10003;</span>
         </div>
       </div>
 
@@ -72,7 +72,7 @@ export const Default = () => `
         font-size:${tokens.typeHeadingLg.fontSize}px;
         font-weight:${tokens.typeHeadingLg.fontWeight};
         color:${tokens.colorTextPrimary};
-        margin-top:16px;
+        margin-top:var(--vv-space-5);
         line-height:1.3;
       ">Ride Complete!</div>
 
@@ -89,17 +89,17 @@ export const Default = () => `
 
     <!-- Ride Stats Card (dark) -->
     <div style="
-      margin:0 16px;
+      margin:0 var(--vv-space-5);
       background:${tokens.colorSurfaceInverse};
       border-radius:${tokens.radiusXl}px;
-      padding:20px 0;
+      padding:var(--vv-space-6) 0;
       display:flex;
       flex-shrink:0;
       box-sizing:border-box;
     ">
       <!-- Block 1: Distance -->
-      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-        <span style="font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:#ffffff;">3.2 km</span>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);">
+        <span style="font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:var(--vv-color-text-on-inverse);">3.2 km</span>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">Distance</span>
       </div>
 
@@ -107,8 +107,8 @@ export const Default = () => `
       <div style="width:1px;height:40px;background:rgba(255,255,255,0.13);align-self:center;"></div>
 
       <!-- Block 2: Duration -->
-      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-        <span style="font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:#ffffff;">00:12:34</span>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);">
+        <span style="font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:var(--vv-color-text-on-inverse);">00:12:34</span>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">Duration</span>
       </div>
 
@@ -116,7 +116,7 @@ export const Default = () => `
       <div style="width:1px;height:40px;background:rgba(255,255,255,0.13);align-self:center;"></div>
 
       <!-- Block 3: VoltCoins -->
-      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);">
         <span style="font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:${tokens.colorActionPrimary};">+12</span>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">VoltCoins</span>
       </div>
@@ -124,7 +124,7 @@ export const Default = () => `
 
     <!-- Billing Label -->
     <div style="
-      margin:16px 16px 8px;
+      margin:var(--vv-space-5) var(--vv-space-5) var(--vv-space-3);
       font-family:Inter,sans-serif;
       font-size:${tokens.typeLabelMd.fontSize}px;
       font-weight:${tokens.typeLabelMd.fontWeight};
@@ -133,51 +133,51 @@ export const Default = () => `
 
     <!-- Billing Card -->
     <div style="
-      margin:0 16px;
+      margin:0 var(--vv-space-5);
       background:${tokens.colorSurfaceBase};
       border-radius:${tokens.radiusLg}px;
       border:1px solid ${tokens.colorGrey100};
-      padding:16px;
+      padding:var(--vv-space-5);
       box-sizing:border-box;
       flex-shrink:0;
     ">
       <!-- Base Cost Row -->
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-        <div style="display:flex;align-items:center;gap:8px;">
-          <div style="width:8px;height:8px;border-radius:50%;background:${tokens.colorGrey500};flex-shrink:0;"></div>
+        <div style="display:flex;align-items:center;gap:var(--vv-space-3);">
+          <div style="width:8px;height:8px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey500};flex-shrink:0;"></div>
           <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Base Rental</span>
         </div>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">&#8377; 15.00</span>
       </div>
 
       <!-- Electricity Row -->
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
-        <div style="display:flex;align-items:center;gap:8px;">
-          <div style="width:8px;height:8px;border-radius:50%;background:${tokens.colorActionPrimary};flex-shrink:0;"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--vv-space-4);">
+        <div style="display:flex;align-items:center;gap:var(--vv-space-3);">
+          <div style="width:8px;height:8px;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};flex-shrink:0;"></div>
           <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Electricity Charge</span>
         </div>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">&#8377; 3.20</span>
       </div>
 
       <!-- Divider -->
-      <div style="height:1px;background:${tokens.colorGrey100};margin-bottom:12px;"></div>
+      <div style="height:1px;background:${tokens.colorGrey100};margin-bottom:var(--vv-space-4);"></div>
 
       <!-- Total Row -->
       <div style="display:flex;align-items:center;justify-content:space-between;">
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};">Total</span>
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};">&#8377; 18.20</span>
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Total</span>
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">&#8377; 18.20</span>
       </div>
     </div>
 
     <!-- Deposit Note Row -->
     <div style="
-      margin:8px 16px;
+      margin:var(--vv-space-3) var(--vv-space-5);
       background:${tokens.colorGreen100};
       border-radius:${tokens.radiusMd}px;
-      padding:12px 16px;
+      padding:var(--vv-space-4) var(--vv-space-5);
       display:flex;
       align-items:center;
-      gap:8px;
+      gap:var(--vv-space-3);
       box-sizing:border-box;
       flex-shrink:0;
     ">
@@ -193,13 +193,13 @@ export const Default = () => `
 
     <!-- VoltCoins Banner -->
     <div style="
-      margin:8px 16px 0;
+      margin:var(--vv-space-3) var(--vv-space-5) 0;
       background:${tokens.colorSurfaceInverse};
       border-radius:${tokens.radiusLg}px;
-      padding:16px;
+      padding:var(--vv-space-5);
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:var(--vv-space-4);
       box-sizing:border-box;
       flex-shrink:0;
     ">
@@ -207,29 +207,29 @@ export const Default = () => `
       <div style="
         width:36px;
         height:36px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorActionPrimary};
         display:flex;
         align-items:center;
         justify-content:center;
         flex-shrink:0;
       ">
-        <span style="font-size:18px;color:#0f0f0f;">&#9889;</span>
+        <span style="font-size:18px;color:var(--vv-color-text-primary);">&#9889;</span>
       </div>
 
       <!-- Coins Text -->
-      <div style="flex:1;display:flex;flex-direction:column;gap:2px;">
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:${tokens.typeBodyMd.fontWeight};color:#ffffff;">You earned 12 VoltCoins!</span>
+      <div style="flex:1;display:flex;flex-direction:column;gap:var(--vv-space-1);">
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:${tokens.typeBodyMd.fontWeight};color:var(--vv-color-text-on-inverse);">You earned 12 VoltCoins!</span>
         <span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">Redeem for rewards</span>
       </div>
 
       <!-- Chevron -->
-      <span style="font-size:18px;color:#ffffff;font-weight:600;">&#8250;</span>
+      <span style="font-size:18px;color:var(--vv-color-text-on-inverse);font-weight:var(--ds-font-weight-heading);">&#8250;</span>
     </div>
 
     <!-- CTA Wrap -->
     <div style="
-      padding:16px;
+      padding:var(--vv-space-5);
       margin-top:auto;
       box-sizing:border-box;
       flex-shrink:0;
@@ -257,7 +257,7 @@ export const Default = () => `
       <!-- View Receipt Link -->
       <div style="
         text-align:center;
-        margin-top:12px;
+        margin-top:var(--vv-space-4);
         font-family:Inter,sans-serif;
         font-size:${tokens.typeLabelMd.fontSize}px;
         font-weight:${tokens.typeLabelMd.fontWeight};
@@ -274,25 +274,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -309,23 +309,23 @@ export const Interactive = () => {
 
   // Header Wrap
   const headerWrap = document.createElement('div');
-  headerWrap.style.cssText = 'padding:24px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;box-sizing:border-box;flex-shrink:0;';
+  headerWrap.style.cssText = 'padding:var(--vv-space-7) var(--vv-space-6);display:flex;flex-direction:column;align-items:center;text-align:center;box-sizing:border-box;flex-shrink:0;';
 
   // Check Circle Outer
   const outerCircle = document.createElement('div');
-  outerCircle.style.cssText = `position:relative;width:72px;height:72px;border-radius:50%;background:${tokens.colorGreen100};display:flex;align-items:center;justify-content:center;`;
+  outerCircle.style.cssText = `position:relative;width:72px;height:72px;border-radius:var(--vv-radius-full);background:${tokens.colorGreen100};display:flex;align-items:center;justify-content:center;`;
 
   // Inner Circle
   const innerCircle = document.createElement('div');
-  innerCircle.style.cssText = `position:absolute;width:52px;height:52px;border-radius:50%;background:${tokens.colorActionPrimary};display:flex;align-items:center;justify-content:center;`;
+  innerCircle.style.cssText = `position:absolute;width:52px;height:52px;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};display:flex;align-items:center;justify-content:center;`;
   const checkmark = document.createElement('span');
-  checkmark.style.cssText = `font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  checkmark.style.cssText = `font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   checkmark.innerHTML = '&#10003;';
   innerCircle.appendChild(checkmark);
   outerCircle.appendChild(innerCircle);
 
   const headerTitle = document.createElement('div');
-  headerTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingLg.fontSize}px;font-weight:${tokens.typeHeadingLg.fontWeight};color:${tokens.colorTextPrimary};margin-top:16px;line-height:1.3;`;
+  headerTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingLg.fontSize}px;font-weight:${tokens.typeHeadingLg.fontWeight};color:${tokens.colorTextPrimary};margin-top:var(--vv-space-5);line-height:1.3;`;
   headerTitle.textContent = 'Ride Complete!';
 
   const headerSubtitle = document.createElement('div');
@@ -338,7 +338,7 @@ export const Interactive = () => {
 
   // Ride Stats Card
   const statsCard = document.createElement('div');
-  statsCard.style.cssText = `margin:0 16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:20px 0;display:flex;flex-shrink:0;box-sizing:border-box;`;
+  statsCard.style.cssText = `margin:0 var(--vv-space-5);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:var(--vv-space-6) 0;display:flex;flex-shrink:0;box-sizing:border-box;`;
 
   const statBlocks = [
     { value: '3.2 km', label: 'Distance', color: '#ffffff' },
@@ -348,7 +348,7 @@ export const Interactive = () => {
 
   statBlocks.forEach((stat, i) => {
     const block = document.createElement('div');
-    block.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;';
+    block.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);';
 
     const val = document.createElement('span');
     val.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:${tokens.typeHeadingMd.fontWeight};color:${stat.color};`;
@@ -371,31 +371,31 @@ export const Interactive = () => {
 
   // Billing Label
   const billingLabel = document.createElement('div');
-  billingLabel.style.cssText = `margin:16px 16px 8px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextSecondary};flex-shrink:0;`;
+  billingLabel.style.cssText = `margin:var(--vv-space-5) var(--vv-space-5) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextSecondary};flex-shrink:0;`;
   billingLabel.textContent = 'Billing Summary';
 
   // Billing Card
   const billingCard = document.createElement('div');
-  billingCard.style.cssText = `margin:0 16px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:16px;box-sizing:border-box;flex-shrink:0;`;
+  billingCard.style.cssText = `margin:0 var(--vv-space-5);background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};padding:var(--vv-space-5);box-sizing:border-box;flex-shrink:0;`;
 
   // Base Cost Row
   const baseRow = document.createElement('div');
   baseRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;';
-  baseRow.innerHTML = `<div style="display:flex;align-items:center;gap:8px;"><div style="width:8px;height:8px;border-radius:50%;background:${tokens.colorGrey500};"></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Base Rental</span></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">&#8377; 15.00</span>`;
+  baseRow.innerHTML = `<div style="display:flex;align-items:center;gap:var(--vv-space-3);"><div style="width:8px;height:8px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey500};"></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Base Rental</span></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">&#8377; 15.00</span>`;
 
   // Electricity Row
   const electricRow = document.createElement('div');
-  electricRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;';
-  electricRow.innerHTML = `<div style="display:flex;align-items:center;gap:8px;"><div style="width:8px;height:8px;border-radius:50%;background:${tokens.colorActionPrimary};"></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Electricity Charge</span></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">&#8377; 3.20</span>`;
+  electricRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--vv-space-4);';
+  electricRow.innerHTML = `<div style="display:flex;align-items:center;gap:var(--vv-space-3);"><div style="width:8px;height:8px;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};"></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">Electricity Charge</span></div><span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextPrimary};">&#8377; 3.20</span>`;
 
   // Divider
   const billingDivider = document.createElement('div');
-  billingDivider.style.cssText = `height:1px;background:${tokens.colorGrey100};margin-bottom:12px;`;
+  billingDivider.style.cssText = `height:1px;background:${tokens.colorGrey100};margin-bottom:var(--vv-space-4);`;
 
   // Total Row
   const totalRow = document.createElement('div');
   totalRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;';
-  totalRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};">Total</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};">&#8377; 18.20</span>`;
+  totalRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Total</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">&#8377; 18.20</span>`;
 
   billingCard.appendChild(baseRow);
   billingCard.appendChild(electricRow);
@@ -404,7 +404,7 @@ export const Interactive = () => {
 
   // Deposit Note Row
   const depositNote = document.createElement('div');
-  depositNote.style.cssText = `margin:8px 16px;background:${tokens.colorGreen100};border-radius:${tokens.radiusMd}px;padding:12px 16px;display:flex;align-items:center;gap:8px;box-sizing:border-box;flex-shrink:0;`;
+  depositNote.style.cssText = `margin:var(--vv-space-3) var(--vv-space-5);background:${tokens.colorGreen100};border-radius:${tokens.radiusMd}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-3);box-sizing:border-box;flex-shrink:0;`;
   const depositIcon = document.createElement('span');
   depositIcon.style.cssText = `font-size:16px;color:${tokens.colorTextAccent};`;
   depositIcon.innerHTML = '&#128737;';
@@ -416,18 +416,18 @@ export const Interactive = () => {
 
   // VoltCoins Banner
   const voltcoinsBanner = document.createElement('div');
-  voltcoinsBanner.style.cssText = `margin:8px 16px 0;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:16px;display:flex;align-items:center;gap:12px;box-sizing:border-box;flex-shrink:0;`;
+  voltcoinsBanner.style.cssText = `margin:var(--vv-space-3) var(--vv-space-5) 0;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);box-sizing:border-box;flex-shrink:0;`;
 
   const coinBadge = document.createElement('div');
-  coinBadge.style.cssText = `width:36px;height:36px;border-radius:50%;background:${tokens.colorActionPrimary};display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
-  coinBadge.innerHTML = '<span style="font-size:18px;color:#0f0f0f;">&#9889;</span>';
+  coinBadge.style.cssText = `width:36px;height:36px;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
+  coinBadge.innerHTML = '<span style="font-size:18px;color:var(--vv-color-text-primary);">&#9889;</span>';
 
   const coinsText = document.createElement('div');
-  coinsText.style.cssText = 'flex:1;display:flex;flex-direction:column;gap:2px;';
-  coinsText.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:#ffffff;">You earned 12 VoltCoins!</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorGrey500};">Redeem for rewards</span>`;
+  coinsText.style.cssText = 'flex:1;display:flex;flex-direction:column;gap:var(--vv-space-1);';
+  coinsText.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:var(--vv-color-text-on-inverse);">You earned 12 VoltCoins!</span><span style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorGrey500};">Redeem for rewards</span>`;
 
   const chevron = document.createElement('span');
-  chevron.style.cssText = 'font-size:18px;color:#ffffff;font-weight:600;';
+  chevron.style.cssText = 'font-size:18px;color:var(--vv-color-text-on-inverse);font-weight:var(--ds-font-weight-heading);';
   chevron.innerHTML = '&#8250;';
 
   voltcoinsBanner.appendChild(coinBadge);
@@ -436,11 +436,11 @@ export const Interactive = () => {
 
   // CTA Wrap
   const ctaWrap = document.createElement('div');
-  ctaWrap.style.cssText = 'padding:16px;margin-top:auto;box-sizing:border-box;flex-shrink:0;';
+  ctaWrap.style.cssText = 'padding:var(--vv-space-5);margin-top:auto;box-sizing:border-box;flex-shrink:0;';
 
   // Done Button
   const doneBtn = document.createElement('div');
-  doneBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform 100ms ease,background-color 100ms ease;`;
+  doneBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;transition:transform var(--vv-duration-fast) var(--vv-easing-standard),background-color var(--vv-duration-fast) var(--vv-easing-standard);`;
   const doneBtnText = document.createElement('span');
   doneBtnText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:${tokens.typeHeadingSm.fontWeight};color:${tokens.colorTextPrimary};`;
   doneBtnText.innerHTML = '&#127968; Done';
@@ -461,7 +461,7 @@ export const Interactive = () => {
 
   // View Receipt Link
   const receiptLink = document.createElement('div');
-  receiptLink.style.cssText = `text-align:center;margin-top:12px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextSecondary};cursor:pointer;`;
+  receiptLink.style.cssText = `text-align:center;margin-top:var(--vv-space-4);font-family:Inter,sans-serif;font-size:${tokens.typeLabelMd.fontSize}px;font-weight:${tokens.typeLabelMd.fontWeight};color:${tokens.colorTextSecondary};cursor:pointer;`;
   receiptLink.textContent = 'View Receipt';
 
   ctaWrap.appendChild(doneBtn);
@@ -484,7 +484,7 @@ export const Interactive = () => {
 
 function _esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_RIDECOMPLETE_JSX = `// RideCompleteSummary Screen — React Native Paper
@@ -635,4 +635,4 @@ const styles = StyleSheet.create({
 
 export default RideCompleteSummaryScreen;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// RideCompleteSummary — React Native Paper</div>${_blk('RideCompleteSummaryScreen', RN_RIDECOMPLETE_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// RideCompleteSummary — React Native Paper</div>${_blk('RideCompleteSummaryScreen', RN_RIDECOMPLETE_JSX)}</div>`;

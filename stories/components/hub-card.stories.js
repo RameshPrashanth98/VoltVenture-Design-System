@@ -11,8 +11,8 @@ export const Default = () => `
   <div style="
     display:flex;
     align-items:center;
-    padding:12px 16px;
-    gap:12px;
+    padding:var(--vv-space-4) var(--vv-space-5);
+    gap:var(--vv-space-4);
     background:${tokens.colorSurfaceBase};
     border-bottom:1px solid ${tokens.colorGrey100};
     box-sizing:border-box;
@@ -36,12 +36,12 @@ export const Default = () => `
     </div>
 
     <!-- Hub Info -->
-    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;">
+    <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--vv-space-2);">
       <!-- Hub Name -->
       <span style="
         font-family:Inter,sans-serif;
         font-size:${tokens.fontSizeBodyMd}px;
-        font-weight:600;
+        font-weight:var(--ds-font-weight-heading);
         color:${tokens.colorTextPrimary};
         white-space:nowrap;
         overflow:hidden;
@@ -66,7 +66,7 @@ export const Default = () => `
     <!-- Chevron -->
     <span style="
       font-family:Inter,sans-serif;
-      font-size:20px;
+      font-size:var(--vv-text-heading-lg-size);
       color:${tokens.colorGrey300};
       flex-shrink:0;
       line-height:1;
@@ -79,25 +79,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -115,11 +115,11 @@ const HUB_DATA = [
 export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
   // Light screen (hub list is a light surface)
-  screen.style.background = '#ffffff';
+  screen.style.background = 'var(--vv-color-surface-base)';
 
   // Screen header
   const header = document.createElement('div');
-  header.style.cssText = `flex-shrink:0;padding:16px 16px 12px;box-sizing:border-box;border-bottom:1px solid ${tokens.colorGrey100};`;
+  header.style.cssText = `flex-shrink:0;padding:var(--vv-space-5) var(--vv-space-5) var(--vv-space-4);box-sizing:border-box;border-bottom:1px solid ${tokens.colorGrey100};`;
   const headerTitle = document.createElement('span');
   headerTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:${tokens.fontWeightHeadingMd};color:${tokens.colorTextPrimary};`;
   headerTitle.textContent = 'VIP Charging Hubs';
@@ -132,7 +132,7 @@ export const Interactive = () => {
 
   HUB_DATA.forEach(hub => {
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;padding:12px 16px;gap:12px;background:${tokens.colorSurfaceBase};border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;cursor:pointer;`;
+    row.style.cssText = `display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);background:${tokens.colorSurfaceBase};border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;cursor:pointer;`;
 
     // Cafe photo placeholder
     const photo = document.createElement('div');
@@ -144,10 +144,10 @@ export const Interactive = () => {
 
     // Hub info column
     const info = document.createElement('div');
-    info.style.cssText = 'flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;';
+    info.style.cssText = 'flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--vv-space-2);';
 
     const nameEl = document.createElement('span');
-    nameEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;`;
+    nameEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};white-space:nowrap;overflow:hidden;text-overflow:ellipsis;`;
     nameEl.textContent = hub.name;
 
     const subtitleEl = document.createElement('span');
@@ -164,7 +164,7 @@ export const Interactive = () => {
 
     // Chevron
     const chevron = document.createElement('span');
-    chevron.style.cssText = `font-family:Inter,sans-serif;font-size:20px;color:${tokens.colorGrey300};flex-shrink:0;line-height:1;`;
+    chevron.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-heading-lg-size);color:${tokens.colorGrey300};flex-shrink:0;line-height:1;`;
     chevron.textContent = '\u203A';
 
     row.appendChild(photo);
@@ -187,7 +187,7 @@ export const Interactive = () => {
 // ── Source code panel ────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_HUBCARD_JSX = `// HubCard Component — React Native Paper
@@ -283,4 +283,4 @@ const styles = StyleSheet.create({
 
 export default HubCard;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// HubCard — React Native Paper</div>${_blk('HubCard', RN_HUBCARD_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// HubCard — React Native Paper</div>${_blk('HubCard', RN_HUBCARD_JSX)}</div>`;

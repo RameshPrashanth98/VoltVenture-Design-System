@@ -5,25 +5,25 @@ export default { title: 'Components/MapPin' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -48,11 +48,11 @@ export const Interactive = () => {
 
   // Pins container (centered)
   const pinsContainer = document.createElement('div');
-  pinsContainer.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:24px;align-items:center';
+  pinsContainer.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:var(--vv-space-7);align-items:center';
 
   // RangePin — static
   const rangePin = document.createElement('div');
-  rangePin.style.cssText = `width:48px;height:48px;border-radius:50%;background:${tokens.colorGrey900};display:flex;align-items:center;justify-content:center`;
+  rangePin.style.cssText = `width:48px;height:48px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey900};display:flex;align-items:center;justify-content:center`;
 
   // SelectedPin wrapper
   const selectedPinWrapper = document.createElement('div');
@@ -60,11 +60,11 @@ export const Interactive = () => {
 
   // Pulse ring
   const pulseRing = document.createElement('div');
-  pulseRing.style.cssText = 'position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;background:rgba(198,255,45,0.20)'; /* colorActionPrimary at 20% — no token */
+  pulseRing.style.cssText = 'position:absolute;top:0;right:0;bottom:0;left:0;border-radius:var(--vv-radius-full);background:rgba(198,255,45,0.20)'; /* colorActionPrimary at 20% — no token */
 
   // Selected pin (clickable)
   const selectedPin = document.createElement('div');
-  selectedPin.style.cssText = `position:absolute;top:0;right:0;bottom:0;left:0;border-radius:50%;background:${tokens.colorActionPrimary};cursor:pointer`;
+  selectedPin.style.cssText = `position:absolute;top:0;right:0;bottom:0;left:0;border-radius:var(--vv-radius-full);background:${tokens.colorActionPrimary};cursor:pointer`;
 
   // Animation restart on click
   selectedPin.addEventListener('click', () => {
@@ -142,5 +142,5 @@ export const SelectedPin = () => `
 
 // ── Source code panel ─────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// MapPin — HTML Source</div>${_blk('RangePin',RangePin())}${_blk('SelectedPin',SelectedPin())}</div>`;
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// MapPin — HTML Source</div>${_blk('RangePin',RangePin())}${_blk('SelectedPin',SelectedPin())}</div>`;

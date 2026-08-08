@@ -23,17 +23,17 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 20px;
+      padding:0 var(--vv-space-6);
       box-sizing:border-box;
       flex-shrink:0;
     ">
-      <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
 
     <!-- Header Section -->
     <div style="
-      padding:20px 16px 16px;
+      padding:var(--vv-space-6) var(--vv-space-5) var(--vv-space-5);
       box-sizing:border-box;
       flex-shrink:0;
     ">
@@ -42,24 +42,24 @@ export const Default = () => `
         display:inline-flex;
         align-items:center;
         background:${tokens.colorSurfaceInverse};
-        color:#ffffff;
-        padding:4px 12px;
+        color:var(--vv-color-text-on-inverse);
+        padding:var(--vv-space-2) var(--vv-space-4);
         border-radius:${tokens.radiusFull}px;
-        margin-bottom:12px;
+        margin-bottom:var(--vv-space-4);
       ">
         <span style="
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeLabelSm}px;
           font-weight:${tokens.fontWeightLabelSm};
-          color:#ffffff;
+          color:var(--vv-color-text-on-inverse);
         ">&#128737; Safety Step</span>
       </div>
 
       <!-- Step Dots -->
-      <div style="display:flex;gap:6px;margin-bottom:16px;">
-        <div style="width:8px;height:8px;border-radius:50%;background:${tokens.colorSurfaceInverse};"></div>
-        <div style="width:8px;height:8px;border-radius:50%;background:${tokens.colorSurfaceInverse};"></div>
-        <div style="width:8px;height:8px;border-radius:50%;background:${tokens.colorGrey300};"></div>
+      <div style="display:flex;gap:6px;margin-bottom:var(--vv-space-5);">
+        <div style="width:8px;height:8px;border-radius:var(--vv-radius-full);background:${tokens.colorSurfaceInverse};"></div>
+        <div style="width:8px;height:8px;border-radius:var(--vv-radius-full);background:${tokens.colorSurfaceInverse};"></div>
+        <div style="width:8px;height:8px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey300};"></div>
       </div>
 
       <!-- Main Title -->
@@ -85,7 +85,7 @@ export const Default = () => `
     <!-- Mount Illustration -->
     <div style="
       background:${tokens.colorGrey100};
-      padding:24px 0;
+      padding:var(--vv-space-7) 0;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -98,9 +98,9 @@ export const Default = () => `
         position:absolute;
         width:148px;
         height:148px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorGrey200};
-        z-index:0;
+        z-index:var(--vv-z-base);
       "></div>
 
       <!-- Handlebar (285x22) -->
@@ -110,7 +110,7 @@ export const Default = () => `
         height:22px;
         background:${tokens.colorSurfaceInverse};
         border-radius:${tokens.radiusMd}px;
-        z-index:1;
+        z-index:var(--vv-z-raised);
         top:50%;
         left:50%;
         transform:translate(-50%, -50%);
@@ -120,7 +120,7 @@ export const Default = () => `
           position:absolute;
           width:42px;
           height:42px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorGrey700};
           top:50%;
           left:-10px;
@@ -131,7 +131,7 @@ export const Default = () => `
           position:absolute;
           width:42px;
           height:42px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorGrey700};
           top:50%;
           right:-10px;
@@ -148,7 +148,7 @@ export const Default = () => `
           top:50%;
           left:50%;
           transform:translate(-50%, -50%);
-          z-index:2;
+          z-index:var(--vv-z-sticky);
         "></div>
       </div>
 
@@ -158,8 +158,8 @@ export const Default = () => `
         width:59px;
         height:100px;
         background:${tokens.colorSurfaceInverse};
-        border-radius:8px;
-        z-index:3;
+        border-radius:var(--vv-radius-xs);
+        z-index:var(--vv-z-overlay);
         top:50%;
         left:50%;
         transform:translate(-50%, -95%);
@@ -178,7 +178,7 @@ export const Default = () => `
           justify-content:center;
         ">
           <!-- App Icon on Screen -->
-          <span style="font-size:17px;color:${tokens.colorActionPrimary};">&#9889;</span>
+          <span style="font-size:var(--vv-text-heading-md-size);color:${tokens.colorActionPrimary};">&#9889;</span>
         </div>
       </div>
 
@@ -189,17 +189,17 @@ export const Default = () => `
         left:50%;
         transform:translateX(-50%);
         background:${tokens.colorSurfaceInverse};
-        color:#ffffff;
-        padding:4px 10px;
+        color:var(--vv-color-text-on-inverse);
+        padding:var(--vv-space-2) 10px;
         border-radius:${tokens.radiusFull}px;
         display:inline-flex;
         align-items:center;
-        gap:4px;
+        gap:var(--vv-space-2);
         white-space:nowrap;
-        z-index:4;
+        z-index:var(--vv-z-drawer);
       ">
-        <span style="font-size:10px;">&#128274;</span>
-        <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#ffffff;">Secured</span>
+        <span style="font-size:var(--vv-text-overline-size);">&#128274;</span>
+        <span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:var(--vv-color-text-on-inverse);">Secured</span>
       </div>
     </div>
 
@@ -207,8 +207,8 @@ export const Default = () => `
     <div style="
       background:${tokens.colorGrey050};
       border-radius:${tokens.radiusLg}px;
-      margin:16px;
-      padding:16px;
+      margin:var(--vv-space-5);
+      padding:var(--vv-space-5);
       box-sizing:border-box;
       flex-shrink:0;
     ">
@@ -223,15 +223,15 @@ export const Default = () => `
 
     <!-- Confirmation Area -->
     <div style="
-      padding:0 16px 32px;
+      padding:0 var(--vv-space-5) var(--vv-space-8);
       display:flex;
       flex-direction:column;
-      gap:16px;
+      gap:var(--vv-space-5);
       box-sizing:border-box;
       flex-shrink:0;
     ">
       <!-- Checkbox Row -->
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div style="display:flex;align-items:center;gap:var(--vv-space-4);">
         <div style="
           width:22px;
           height:22px;
@@ -243,7 +243,7 @@ export const Default = () => `
           flex-shrink:0;
           cursor:pointer;
         ">
-          <span style="font-size:13px;color:#0f0f0f;font-weight:600;line-height:1;">&#10003;</span>
+          <span style="font-size:var(--vv-text-body-sm-size);color:var(--vv-color-text-primary);font-weight:var(--ds-font-weight-heading);line-height:1;">&#10003;</span>
         </div>
         <span style="
           font-family:Inter,sans-serif;
@@ -276,7 +276,7 @@ export const Default = () => `
           position:absolute;
           width:44px;
           height:44px;
-          border-radius:50%;
+          border-radius:var(--vv-radius-full);
           background:${tokens.colorSurfaceInverse};
           left:4px;
           top:-7px;
@@ -301,7 +301,7 @@ export const Default = () => `
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeHeadingSm}px;
           font-weight:${tokens.fontWeightHeadingSm};
-          color:#0f0f0f;
+          color:var(--vv-color-text-primary);
         ">&#128737; Proceed to Scan</span>
       </div>
     </div>
@@ -313,25 +313,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -347,27 +347,27 @@ export const Interactive = () => {
 
   // Status bar (light)
   const statusBar = document.createElement('div');
-  statusBar.style.cssText = `flex-shrink:0;height:62px;background:${tokens.colorSurfaceBase};display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-sizing:border-box;`;
-  statusBar.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span><span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>`;
+  statusBar.style.cssText = `flex-shrink:0;height:62px;background:${tokens.colorSurfaceBase};display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-6);box-sizing:border-box;`;
+  statusBar.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span><span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>`;
 
   // Header Section
   const headerSection = document.createElement('div');
-  headerSection.style.cssText = 'padding:20px 16px 16px;box-sizing:border-box;flex-shrink:0;';
+  headerSection.style.cssText = 'padding:var(--vv-space-6) var(--vv-space-5) var(--vv-space-5);box-sizing:border-box;flex-shrink:0;';
 
   // Safety Badge pill
   const safetyBadge = document.createElement('div');
-  safetyBadge.style.cssText = `display:inline-flex;align-items:center;background:${tokens.colorSurfaceInverse};padding:4px 12px;border-radius:${tokens.radiusFull}px;margin-bottom:12px;`;
+  safetyBadge.style.cssText = `display:inline-flex;align-items:center;background:${tokens.colorSurfaceInverse};padding:var(--vv-space-2) var(--vv-space-4);border-radius:${tokens.radiusFull}px;margin-bottom:var(--vv-space-4);`;
   const safetyBadgeText = document.createElement('span');
-  safetyBadgeText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#ffffff;`;
+  safetyBadgeText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:var(--vv-color-text-on-inverse);`;
   safetyBadgeText.textContent = '\u{1F6E1} Safety Step';
   safetyBadge.appendChild(safetyBadgeText);
 
   // Step Dots
   const stepDots = document.createElement('div');
-  stepDots.style.cssText = 'display:flex;gap:6px;margin-bottom:16px;';
+  stepDots.style.cssText = 'display:flex;gap:6px;margin-bottom:var(--vv-space-5);';
   [tokens.colorSurfaceInverse, tokens.colorSurfaceInverse, tokens.colorGrey300].forEach(bg => {
     const dot = document.createElement('div');
-    dot.style.cssText = `width:8px;height:8px;border-radius:50%;background:${bg};`;
+    dot.style.cssText = `width:8px;height:8px;border-radius:var(--vv-radius-full);background:${bg};`;
     stepDots.appendChild(dot);
   });
 
@@ -388,43 +388,43 @@ export const Interactive = () => {
 
   // Mount Illustration
   const illustration = document.createElement('div');
-  illustration.style.cssText = `background:${tokens.colorGrey100};padding:24px 0;display:flex;align-items:center;justify-content:center;position:relative;height:220px;flex-shrink:0;`;
+  illustration.style.cssText = `background:${tokens.colorGrey100};padding:var(--vv-space-7) 0;display:flex;align-items:center;justify-content:center;position:relative;height:220px;flex-shrink:0;`;
 
   // BG Circle
   const bgCircle = document.createElement('div');
-  bgCircle.style.cssText = `position:absolute;width:148px;height:148px;border-radius:50%;background:${tokens.colorGrey200};z-index:0;`;
+  bgCircle.style.cssText = `position:absolute;width:148px;height:148px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey200};z-index:var(--vv-z-base);`;
   illustration.appendChild(bgCircle);
 
   // Handlebar wrapper (285x22)
   const handlebar = document.createElement('div');
-  handlebar.style.cssText = `position:absolute;width:285px;height:22px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusMd}px;z-index:1;top:50%;left:50%;transform:translate(-50%,-50%);`;
+  handlebar.style.cssText = `position:absolute;width:285px;height:22px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusMd}px;z-index:var(--vv-z-raised);top:50%;left:50%;transform:translate(-50%,-50%);`;
 
   // Left Grip
   const leftGrip = document.createElement('div');
-  leftGrip.style.cssText = `position:absolute;width:42px;height:42px;border-radius:50%;background:${tokens.colorGrey700};top:50%;left:-10px;transform:translateY(-50%);`;
+  leftGrip.style.cssText = `position:absolute;width:42px;height:42px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey700};top:50%;left:-10px;transform:translateY(-50%);`;
   handlebar.appendChild(leftGrip);
 
   // Right Grip
   const rightGrip = document.createElement('div');
-  rightGrip.style.cssText = `position:absolute;width:42px;height:42px;border-radius:50%;background:${tokens.colorGrey700};top:50%;right:-10px;transform:translateY(-50%);`;
+  rightGrip.style.cssText = `position:absolute;width:42px;height:42px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey700};top:50%;right:-10px;transform:translateY(-50%);`;
   handlebar.appendChild(rightGrip);
 
   // Mount Clamp (47x36) centered
   const mountClamp = document.createElement('div');
-  mountClamp.style.cssText = `position:absolute;width:47px;height:36px;background:${tokens.colorGrey800};border-radius:6px;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;`;
+  mountClamp.style.cssText = `position:absolute;width:47px;height:36px;background:${tokens.colorGrey800};border-radius:6px;top:50%;left:50%;transform:translate(-50%,-50%);z-index:var(--vv-z-sticky);`;
   handlebar.appendChild(mountClamp);
 
   illustration.appendChild(handlebar);
 
   // Phone Body (59x100) above clamp
   const phoneBody = document.createElement('div');
-  phoneBody.style.cssText = `position:absolute;width:59px;height:100px;background:${tokens.colorSurfaceInverse};border-radius:8px;z-index:3;top:50%;left:50%;transform:translate(-50%,-95%);display:flex;align-items:center;justify-content:center;`;
+  phoneBody.style.cssText = `position:absolute;width:59px;height:100px;background:${tokens.colorSurfaceInverse};border-radius:var(--vv-radius-xs);z-index:var(--vv-z-overlay);top:50%;left:50%;transform:translate(-50%,-95%);display:flex;align-items:center;justify-content:center;`;
 
   // Phone Screen (49x74)
   const phoneScreen = document.createElement('div');
   phoneScreen.style.cssText = `width:49px;height:74px;background:${tokens.colorGrey900};border-radius:4px;display:flex;align-items:center;justify-content:center;`;
   const appIcon = document.createElement('span');
-  appIcon.style.cssText = `font-size:17px;color:${tokens.colorActionPrimary};`;
+  appIcon.style.cssText = `font-size:var(--vv-text-heading-md-size);color:${tokens.colorActionPrimary};`;
   appIcon.innerHTML = '&#9889;';
   phoneScreen.appendChild(appIcon);
   phoneBody.appendChild(phoneScreen);
@@ -432,13 +432,13 @@ export const Interactive = () => {
 
   // Secure Label
   const secureLabel = document.createElement('div');
-  secureLabel.style.cssText = `position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:${tokens.colorSurfaceInverse};color:#ffffff;padding:4px 10px;border-radius:${tokens.radiusFull}px;display:inline-flex;align-items:center;gap:4px;white-space:nowrap;z-index:4;`;
-  secureLabel.innerHTML = `<span style="font-size:10px;">&#128274;</span><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#ffffff;">Secured</span>`;
+  secureLabel.style.cssText = `position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:${tokens.colorSurfaceInverse};color:var(--vv-color-text-on-inverse);padding:var(--vv-space-2) 10px;border-radius:${tokens.radiusFull}px;display:inline-flex;align-items:center;gap:var(--vv-space-2);white-space:nowrap;z-index:var(--vv-z-drawer);`;
+  secureLabel.innerHTML = `<span style="font-size:var(--vv-text-overline-size);">&#128274;</span><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:var(--vv-color-text-on-inverse);">Secured</span>`;
   illustration.appendChild(secureLabel);
 
   // Warning Card
   const warningCard = document.createElement('div');
-  warningCard.style.cssText = `background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;margin:16px;padding:16px;box-sizing:border-box;flex-shrink:0;`;
+  warningCard.style.cssText = `background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;margin:var(--vv-space-5);padding:var(--vv-space-5);box-sizing:border-box;flex-shrink:0;`;
   const warningText = document.createElement('span');
   warningText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodySm}px;font-weight:${tokens.fontWeightBodySm};color:${tokens.colorTextSecondary};line-height:1.5;`;
   warningText.textContent = '\u26A0 Do not ride without securing your phone. Unsecured phones can be a hazard.';
@@ -446,16 +446,16 @@ export const Interactive = () => {
 
   // Confirmation Area
   const confirmArea = document.createElement('div');
-  confirmArea.style.cssText = 'padding:0 16px 32px;display:flex;flex-direction:column;gap:16px;box-sizing:border-box;flex-shrink:0;';
+  confirmArea.style.cssText = 'padding:0 var(--vv-space-5) var(--vv-space-8);display:flex;flex-direction:column;gap:var(--vv-space-5);box-sizing:border-box;flex-shrink:0;';
 
   // Checkbox Row
   const checkboxRow = document.createElement('div');
-  checkboxRow.style.cssText = 'display:flex;align-items:center;gap:12px;';
+  checkboxRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-4);';
 
   const checkbox = document.createElement('div');
   checkbox.style.cssText = `width:22px;height:22px;border-radius:4px;background:${tokens.colorActionPrimary};display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;`;
   const checkmark = document.createElement('span');
-  checkmark.style.cssText = 'font-size:13px;color:#0f0f0f;font-weight:600;line-height:1;';
+  checkmark.style.cssText = 'font-size:var(--vv-text-body-sm-size);color:var(--vv-color-text-primary);font-weight:var(--ds-font-weight-heading);line-height:1;';
   checkmark.innerHTML = '&#10003;';
   checkbox.appendChild(checkmark);
 
@@ -482,7 +482,7 @@ export const Interactive = () => {
   sliderTrack.appendChild(trackLabel);
 
   const sliderThumb = document.createElement('div');
-  sliderThumb.style.cssText = `position:absolute;width:44px;height:44px;border-radius:50%;background:${tokens.colorSurfaceInverse};left:4px;top:-7px;cursor:pointer;transition:left 200ms ease;`;
+  sliderThumb.style.cssText = `position:absolute;width:44px;height:44px;border-radius:var(--vv-radius-full);background:${tokens.colorSurfaceInverse};left:4px;top:-7px;cursor:pointer;transition:left var(--vv-duration-standard) var(--vv-easing-standard);`;
   sliderTrack.appendChild(sliderThumb);
 
   sliderThumb.addEventListener('pointerdown', () => {
@@ -496,9 +496,9 @@ export const Interactive = () => {
 
   // CTA Button (disabled until slider moves)
   const ctaBtn = document.createElement('div');
-  ctaBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;opacity:0.5;transition:transform 100ms ease,opacity 200ms ease;`;
+  ctaBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-sizing:border-box;opacity:0.5;transition:transform var(--vv-duration-fast) var(--vv-easing-standard),opacity var(--vv-duration-standard) var(--vv-easing-standard);`;
   const ctaBtnText = document.createElement('span');
-  ctaBtnText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};color:#0f0f0f;`;
+  ctaBtnText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:${tokens.fontWeightHeadingSm};color:var(--vv-color-text-primary);`;
   ctaBtnText.innerHTML = '&#128737; Proceed to Scan';
   ctaBtn.appendChild(ctaBtnText);
 
@@ -526,7 +526,7 @@ export const Interactive = () => {
 // ── Source code panel ──────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_SAFETYMOUNT_JSX = `// SafetyMount Screen — React Native Paper
@@ -676,4 +676,4 @@ const styles = StyleSheet.create({
 
 export default SafetyMountScreen;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// SafetyMount — React Native Paper</div>${_blk('SafetyMountScreen', RN_SAFETYMOUNT_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// SafetyMount — React Native Paper</div>${_blk('SafetyMountScreen', RN_SAFETYMOUNT_JSX)}</div>`;

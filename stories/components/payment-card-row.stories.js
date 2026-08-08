@@ -6,25 +6,25 @@ export default { title: 'Components/PaymentCardRow' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -32,15 +32,15 @@ function makePhoneFrame() {
 
 // ── HTML helpers ────────────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
 
 // ── Selected state ─────────────────────────────────────────────────────────────
 export const Selected = () => `
   <div style="
     display:flex;
     align-items:center;
-    padding:12px 16px;
-    gap:12px;
+    padding:var(--vv-space-4) var(--vv-space-5);
+    gap:var(--vv-space-4);
     background:${tokens.colorGreen100};
     box-sizing:border-box;
     min-height:56px;
@@ -49,18 +49,18 @@ export const Selected = () => `
     <div style="
       width:40px;height:40px;
       border-radius:${tokens.radiusMd}px;
-      background:#ffffff;
+      background:var(--vv-color-surface-base);
       display:flex;align-items:center;justify-content:center;
       flex-shrink:0;
     ">
-      <span style="font-size:20px;">&#x1F4B3;</span>
+      <span style="font-size:var(--vv-text-heading-lg-size);">&#x1F4B3;</span>
     </div>
     <div style="flex:1;min-width:0;">
       <div style="
         font-family:Inter,sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
         line-height:${tokens.typeBodyMd.lineHeight}px;
-        font-weight:600;
+        font-weight:var(--ds-font-weight-heading);
         color:${tokens.colorTextPrimary};
       ">Credit / Debit Card</div>
       <div style="
@@ -69,17 +69,17 @@ export const Selected = () => `
         line-height:${tokens.typeLabelSm.lineHeight}px;
         font-weight:${tokens.typeLabelSm.fontWeight};
         color:${tokens.colorTextSecondary};
-        margin-top:2px;
+        margin-top:var(--vv-space-1);
       ">Visa ending in 4829</div>
     </div>
     <div style="
       width:24px;height:24px;
-      border-radius:50%;
+      border-radius:var(--vv-radius-full);
       background:${tokens.colorActionPrimary};
       display:flex;align-items:center;justify-content:center;
       flex-shrink:0;
     ">
-      <span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>
+      <span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-display);">&#10003;</span>
     </div>
   </div>
 `;
@@ -89,8 +89,8 @@ export const Unselected = () => `
   <div style="
     display:flex;
     align-items:center;
-    padding:12px 16px;
-    gap:12px;
+    padding:var(--vv-space-4) var(--vv-space-5);
+    gap:var(--vv-space-4);
     background:${tokens.colorSurfaceBase};
     box-sizing:border-box;
     min-height:56px;
@@ -103,14 +103,14 @@ export const Unselected = () => `
       display:flex;align-items:center;justify-content:center;
       flex-shrink:0;
     ">
-      <span style="font-size:20px;">&#x1F4B3;</span>
+      <span style="font-size:var(--vv-text-heading-lg-size);">&#x1F4B3;</span>
     </div>
     <div style="flex:1;min-width:0;">
       <div style="
         font-family:Inter,sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
         line-height:${tokens.typeBodyMd.lineHeight}px;
-        font-weight:600;
+        font-weight:var(--ds-font-weight-heading);
         color:${tokens.colorTextPrimary};
       ">Credit / Debit Card</div>
       <div style="
@@ -119,13 +119,13 @@ export const Unselected = () => `
         line-height:${tokens.typeLabelSm.lineHeight}px;
         font-weight:${tokens.typeLabelSm.fontWeight};
         color:${tokens.colorTextSecondary};
-        margin-top:2px;
+        margin-top:var(--vv-space-1);
       ">Visa ending in 4829</div>
     </div>
     <div style="
       width:24px;height:24px;
-      border-radius:50%;
-      background:#ffffff;
+      border-radius:var(--vv-radius-full);
+      background:var(--vv-color-surface-base);
       border:2px solid ${tokens.colorGrey200};
       box-sizing:border-box;
       flex-shrink:0;
@@ -139,11 +139,11 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;padding:16px;box-sizing:border-box;overflow-y:auto;';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;padding:var(--vv-space-5);box-sizing:border-box;overflow-y:auto;';
 
   // Section label
   const label = document.createElement('div');
-  label.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};margin-bottom:16px;`;
+  label.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};margin-bottom:var(--vv-space-5);`;
   label.textContent = 'Select Payment Method';
   content.appendChild(label);
 
@@ -162,14 +162,14 @@ export const Interactive = () => {
     const radio = el._radio;
     if (isSelected) {
       el.style.background = tokens.colorGreen100;
-      chip.style.background = '#ffffff';
+      chip.style.background = 'var(--vv-color-surface-base)';
       radio.style.background = tokens.colorActionPrimary;
       radio.style.border = 'none';
-      radio.innerHTML = '<span style="font-size:12px;color:' + tokens.colorTextPrimary + ';font-weight:700;">&#10003;</span>';
+      radio.innerHTML = '<span style="font-size:12px;color:' + tokens.colorTextPrimary + ';font-weight:var(--ds-font-weight-display);">&#10003;</span>';
     } else {
       el.style.background = tokens.colorSurfaceBase;
       chip.style.background = tokens.colorGrey100;
-      radio.style.background = '#ffffff';
+      radio.style.background = 'var(--vv-color-surface-base)';
       radio.style.border = '2px solid ' + tokens.colorGrey200;
       radio.innerHTML = '';
     }
@@ -178,11 +178,11 @@ export const Interactive = () => {
   rows.forEach((data, idx) => {
     const row = document.createElement('div');
     row.style.cssText = `
-      display:flex;align-items:center;padding:12px 16px;gap:12px;
+      display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);
       box-sizing:border-box;min-height:56px;cursor:pointer;
-      border-radius:${tokens.radiusMd}px;margin-bottom:4px;
+      border-radius:${tokens.radiusMd}px;margin-bottom:var(--vv-space-2);
       background:${data.selected ? tokens.colorGreen100 : tokens.colorSurfaceBase};
-      transition:background 120ms ease;
+      transition:background 120ms var(--vv-easing-standard);
     `;
 
     const chip = document.createElement('div');
@@ -191,24 +191,24 @@ export const Interactive = () => {
       display:flex;align-items:center;justify-content:center;flex-shrink:0;
       background:${data.selected ? '#ffffff' : tokens.colorGrey100};
     `;
-    chip.innerHTML = `<span style="font-size:20px;">${data.icon}</span>`;
+    chip.innerHTML = `<span style="font-size:var(--vv-text-heading-lg-size);">${data.icon}</span>`;
 
     const textCol = document.createElement('div');
     textCol.style.cssText = 'flex:1;min-width:0;';
     textCol.innerHTML = `
-      <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:600;color:${tokens.colorTextPrimary};">${data.title}</div>
-      <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:2px;">${data.sub}</div>
+      <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">${data.title}</div>
+      <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">${data.sub}</div>
     `;
 
     const radio = document.createElement('div');
     radio.style.cssText = `
-      width:24px;height:24px;border-radius:50%;flex-shrink:0;
+      width:24px;height:24px;border-radius:var(--vv-radius-full);flex-shrink:0;
       display:flex;align-items:center;justify-content:center;box-sizing:border-box;
       background:${data.selected ? tokens.colorActionPrimary : '#ffffff'};
       ${data.selected ? '' : 'border:2px solid ' + tokens.colorGrey200 + ';'}
     `;
     if (data.selected) {
-      radio.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>`;
+      radio.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-display);">&#10003;</span>`;
     }
 
     row._chip = chip;
@@ -305,4 +305,4 @@ export function PaymentCardRow({ selected = false, title, sub }) {
 }
 `;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// PaymentCardRow — React Native Paper Source</div>${_blk('PaymentCardRow (Selected / Unselected)',_selectedJSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// PaymentCardRow — React Native Paper Source</div>${_blk('PaymentCardRow (Selected / Unselected)',_selectedJSX)}</div>`;

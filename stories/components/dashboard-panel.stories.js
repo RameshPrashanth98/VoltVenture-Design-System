@@ -6,25 +6,25 @@ export default { title: 'Components/DashboardPanel' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -49,7 +49,7 @@ export const Default = () => `
   <div style="
     width:393px;background:${tokens.colorSurfaceBase};
     border-radius:${tokens.radiusXl}px ${tokens.radiusXl}px 0 0;
-    padding:0 0 16px;box-sizing:border-box;
+    padding:0 0 var(--vv-space-5);box-sizing:border-box;
     display:flex;flex-direction:column;
     font-family:Inter,sans-serif;
     box-shadow:${shadowFromToken(tokens.elevationOverlay)};
@@ -59,32 +59,32 @@ export const Default = () => `
       <div style="width:36px;height:4px;background:${tokens.colorGrey300};border-radius:4px;"></div>
     </div>
     <!-- Timer Row -->
-    <div style="height:48px;display:flex;align-items:center;padding:0 16px;gap:8px;flex-shrink:0;">
+    <div style="height:48px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-3);flex-shrink:0;">
       <span style="font-size:16px;color:${tokens.colorGrey500};">&#9201;</span>
-      <span style="font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">00:23:41</span>
+      <span style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">00:23:41</span>
       <div style="flex:1;"></div>
       <!-- Live Badge -->
-      <div style="display:flex;align-items:center;gap:4px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;padding:4px 10px;">
-        <div style="width:6px;height:6px;background:${tokens.colorTextPrimary};border-radius:50%;"></div>
-        <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:700;color:${tokens.colorTextPrimary};">LIVE</span>
+      <div style="display:flex;align-items:center;gap:var(--vv-space-2);background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;">
+        <div style="width:6px;height:6px;background:${tokens.colorTextPrimary};border-radius:var(--vv-radius-full);"></div>
+        <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">LIVE</span>
       </div>
     </div>
     <div style="height:1px;background:${tokens.colorGrey100};"></div>
     <!-- Telemetry Row -->
     <div style="height:110px;display:flex;align-items:center;">
       <div style="flex:1;text-align:center;">
-        <div style="font-size:40px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">24</div>
+        <div style="font-size:var(--vv-text-display-xl-size);font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">24</div>
         <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">km/h</div>
       </div>
       <div style="width:1px;height:80px;background:${tokens.colorGrey200};"></div>
       <div style="flex:1;text-align:center;">
-        <div style="font-size:40px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">18.3</div>
+        <div style="font-size:var(--vv-text-display-xl-size);font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">18.3</div>
         <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">km left</div>
       </div>
     </div>
     <div style="height:1px;background:${tokens.colorGrey100};"></div>
     <!-- Billing Section -->
-    <div style="padding:12px 16px;display:flex;flex-direction:column;gap:6px;">
+    <div style="padding:var(--vv-space-4) var(--vv-space-5);display:flex;flex-direction:column;gap:6px;">
       <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">Billing</div>
       <div style="display:flex;align-items:center;justify-content:space-between;">
         <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">&#9679; Base Rental</span>
@@ -96,17 +96,17 @@ export const Default = () => `
       </div>
       <div style="height:1px;background:${tokens.colorGrey100};"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;">
-        <span style="font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:${tokens.colorTextPrimary};">Total</span>
-        <span style="font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:${tokens.colorTextPrimary};">&#8377; 18.20</span>
+        <span style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Total</span>
+        <span style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">&#8377; 18.20</span>
       </div>
     </div>
     <div style="height:1px;background:${tokens.colorGrey100};"></div>
     <!-- Action Row -->
-    <div style="padding:12px 16px;display:flex;gap:12px;">
+    <div style="padding:var(--vv-space-4) var(--vv-space-5);display:flex;gap:var(--vv-space-4);">
       <!-- SOS: 80x56px, #EF4444 — SOS brand exception, no VV token -->
-      <button style="width:80px;height:56px;background:#EF4444;border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:#ffffff;">SOS</button>
+      <button style="width:80px;height:56px;background:#EF4444;border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);">SOS</button>
       <!-- End Ride -->
-      <button style="flex:1;height:56px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};">End Ride</button>
+      <button style="flex:1;height:56px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">End Ride</button>
     </div>
   </div>
 `;
@@ -123,7 +123,7 @@ export const Interactive = () => {
 
   // Dashboard panel pushed to bottom via margin-top:auto
   const panel = document.createElement('div');
-  panel.style.cssText = `background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusXl}px ${tokens.radiusXl}px 0 0;padding:0 0 16px;box-sizing:border-box;display:flex;flex-direction:column;flex-shrink:0;`;
+  panel.style.cssText = `background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusXl}px ${tokens.radiusXl}px 0 0;padding:0 0 var(--vv-space-5);box-sizing:border-box;display:flex;flex-direction:column;flex-shrink:0;`;
 
   // Handle
   const handleRow = document.createElement('div');
@@ -135,21 +135,21 @@ export const Interactive = () => {
 
   // Timer row
   const timerRow = document.createElement('div');
-  timerRow.style.cssText = 'height:48px;display:flex;align-items:center;padding:0 16px;gap:8px;flex-shrink:0;';
+  timerRow.style.cssText = 'height:48px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-3);flex-shrink:0;';
   const timerIcon = document.createElement('span');
   timerIcon.style.cssText = `font-size:16px;color:${tokens.colorGrey500};`;
   timerIcon.textContent = '\u23F1';
   const timerText = document.createElement('span');
-  timerText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  timerText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   timerText.textContent = '00:23:41';
   const timerSpacer = document.createElement('div');
   timerSpacer.style.cssText = 'flex:1;';
   const liveBadge = document.createElement('div');
-  liveBadge.style.cssText = `display:flex;align-items:center;gap:4px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;padding:4px 10px;`;
+  liveBadge.style.cssText = `display:flex;align-items:center;gap:var(--vv-space-2);background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2) 10px;`;
   const liveDot = document.createElement('div');
-  liveDot.style.cssText = `width:6px;height:6px;background:${tokens.colorTextPrimary};border-radius:50%;`;
+  liveDot.style.cssText = `width:6px;height:6px;background:${tokens.colorTextPrimary};border-radius:var(--vv-radius-full);`;
   const liveText = document.createElement('span');
-  liveText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  liveText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   liveText.textContent = 'LIVE';
   liveBadge.appendChild(liveDot);
   liveBadge.appendChild(liveText);
@@ -169,12 +169,12 @@ export const Interactive = () => {
   teleRow.style.cssText = 'height:110px;display:flex;align-items:center;';
   const speedBlock = document.createElement('div');
   speedBlock.style.cssText = 'flex:1;text-align:center;';
-  speedBlock.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:40px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">24</div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">km/h</div>`;
+  speedBlock.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:var(--vv-text-display-xl-size);font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">24</div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">km/h</div>`;
   const teleDivider = document.createElement('div');
   teleDivider.style.cssText = `width:1px;height:80px;background:${tokens.colorGrey200};`;
   const rangeBlock = document.createElement('div');
   rangeBlock.style.cssText = 'flex:1;text-align:center;';
-  rangeBlock.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:40px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">18.3</div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">km left</div>`;
+  rangeBlock.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:var(--vv-text-display-xl-size);font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">18.3</div><div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};">km left</div>`;
   teleRow.appendChild(speedBlock);
   teleRow.appendChild(teleDivider);
   teleRow.appendChild(rangeBlock);
@@ -186,13 +186,13 @@ export const Interactive = () => {
 
   // Billing section
   const billing = document.createElement('div');
-  billing.style.cssText = 'padding:12px 16px;display:flex;flex-direction:column;gap:6px;';
+  billing.style.cssText = 'padding:var(--vv-space-4) var(--vv-space-5);display:flex;flex-direction:column;gap:6px;';
   billing.innerHTML = `
     <div style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">Billing</div>
     <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorGrey500};">\u25CF Base Rental</span><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorTextSecondary};">\u20B9 2.50/min</span></div>
     <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorActionPrimary};">\u25CF Electricity Charge</span><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;color:${tokens.colorTextSecondary};">\u20B9 0.80</span></div>
     <div style="height:1px;background:${tokens.colorGrey100};"></div>
-    <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:${tokens.colorTextPrimary};">Total</span><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:${tokens.colorTextPrimary};">\u20B9 18.20</span></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;"><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Total</span><span style="font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">\u20B9 18.20</span></div>
   `;
   panel.appendChild(billing);
 
@@ -202,11 +202,11 @@ export const Interactive = () => {
 
   // Action row
   const actionRow = document.createElement('div');
-  actionRow.style.cssText = 'padding:12px 16px;display:flex;gap:12px;';
+  actionRow.style.cssText = 'padding:var(--vv-space-4) var(--vv-space-5);display:flex;gap:var(--vv-space-4);';
 
   // SOS button — #EF4444 brand exception, no VV token
   const sosBtn = document.createElement('button');
-  sosBtn.style.cssText = `width:80px;height:56px;background:#EF4444;border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:700;color:#ffffff;`;
+  sosBtn.style.cssText = `width:80px;height:56px;background:#EF4444;border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-on-inverse);`;
   sosBtn.textContent = 'SOS';
   sosBtn.addEventListener('pointerdown', () => { sosBtn.style.background = '#c83a3a'; sosBtn.style.transform = 'scale(0.97)'; });
   sosBtn.addEventListener('pointerup', () => { sosBtn.style.background = '#EF4444'; sosBtn.style.transform = ''; });
@@ -214,7 +214,7 @@ export const Interactive = () => {
 
   // End Ride button
   const endBtn = document.createElement('button');
-  endBtn.style.cssText = `flex:1;height:56px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  endBtn.style.cssText = `flex:1;height:56px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusMd}px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   endBtn.textContent = 'End Ride';
   endBtn.addEventListener('pointerdown', () => { endBtn.style.background = tokens.colorGreen600; endBtn.style.transform = 'scale(0.97)'; });
   endBtn.addEventListener('pointerup', () => { endBtn.style.background = tokens.colorActionPrimary; endBtn.style.transform = ''; });
@@ -231,7 +231,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `import React from 'react';
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
 export default DashboardPanel;`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// DashboardPanel — React Native Paper (C-02)</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// DashboardPanel — React Native Paper (C-02)</div>` +
   _blk('DashboardPanel.tsx', RN_JSX) +
   `</div>`;

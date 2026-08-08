@@ -4,30 +4,30 @@ export default { title: 'Screens/PrivacyPolicy' };
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
 
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -77,11 +77,11 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 20px;
+      padding:0 var(--vv-space-6);
       box-sizing:border-box;
     ">
-      <span style="font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+      <span style="font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
 
     <!-- Header Row (44px) -->
@@ -90,15 +90,15 @@ export const Default = () => `
       height:44px;
       display:flex;
       align-items:center;
-      padding:0 16px;
-      gap:12px;
+      padding:0 var(--vv-space-5);
+      gap:var(--vv-space-4);
       box-sizing:border-box;
     ">
       <!-- Back Button -->
       <div style="
         width:36px;
         height:36px;
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         background:${tokens.colorGrey100};
         display:flex;
         align-items:center;
@@ -121,7 +121,7 @@ export const Default = () => `
     <!-- Meta Row -->
     <div style="
       flex-shrink:0;
-      padding:4px 20px 12px;
+      padding:var(--vv-space-2) var(--vv-space-6) var(--vv-space-4);
       border-bottom:1px solid ${tokens.colorGrey100};
       box-sizing:border-box;
     ">
@@ -137,93 +137,93 @@ export const Default = () => `
     <div style="
       flex:1;
       overflow-y:auto;
-      padding:20px;
+      padding:var(--vv-space-6);
       box-sizing:border-box;
     ">
       <!-- Section 1 -->
       <div style="
         font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         line-height:${tokens.typeBodyMd.lineHeight}px;
         color:${tokens.colorTextPrimary};
-        margin-bottom:8px;
+        margin-bottom:var(--vv-space-3);
       ">1. Information We Collect</div>
       <div style="
-        font-size:13px;
+        font-size:var(--vv-text-body-sm-size);
         line-height:1.6;
         color:${tokens.colorGrey700};
-        margin-bottom:24px;
+        margin-bottom:var(--vv-space-7);
       ">We collect information you provide directly (name, email, phone), information generated during rides (location, speed, duration), and device information (device type, OS version, app usage patterns).</div>
 
       <!-- Section 2 -->
       <div style="
         font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         line-height:${tokens.typeBodyMd.lineHeight}px;
         color:${tokens.colorTextPrimary};
-        margin-bottom:8px;
+        margin-bottom:var(--vv-space-3);
       ">2. How We Use Your Data</div>
       <div style="
-        font-size:13px;
+        font-size:var(--vv-text-body-sm-size);
         line-height:1.6;
         color:${tokens.colorGrey700};
-        margin-bottom:24px;
+        margin-bottom:var(--vv-space-7);
       ">Your data is used to provide and improve our services, process payments, ensure rider safety, personalise your experience, and communicate service updates. We do not sell your personal data to third parties.</div>
 
       <!-- Section 3 -->
       <div style="
         font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         line-height:${tokens.typeBodyMd.lineHeight}px;
         color:${tokens.colorTextPrimary};
-        margin-bottom:8px;
+        margin-bottom:var(--vv-space-3);
       ">3. Location &amp; Ride Data</div>
       <div style="
-        font-size:13px;
+        font-size:var(--vv-text-body-sm-size);
         line-height:1.6;
         color:${tokens.colorGrey700};
-        margin-bottom:24px;
+        margin-bottom:var(--vv-space-7);
       ">GPS data is collected during active rides to enable navigation, safety monitoring, and billing. Historical ride data is retained for 24 months and may be anonymised for service improvement purposes.</div>
 
       <!-- Section 4 -->
       <div style="
         font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         line-height:${tokens.typeBodyMd.lineHeight}px;
         color:${tokens.colorTextPrimary};
-        margin-bottom:8px;
+        margin-bottom:var(--vv-space-3);
       ">4. Data Sharing &amp; Third Parties</div>
       <div style="
-        font-size:13px;
+        font-size:var(--vv-text-body-sm-size);
         line-height:1.6;
         color:${tokens.colorGrey700};
-        margin-bottom:24px;
+        margin-bottom:var(--vv-space-7);
       ">We share data with payment processors (Stripe), map services, and regulatory authorities where required by law. All third-party processors are bound by data processing agreements aligned with applicable privacy law.</div>
 
       <!-- Section 5 -->
       <div style="
         font-family:'${tokens.typeBodyMd.fontFamily}',sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         line-height:${tokens.typeBodyMd.lineHeight}px;
         color:${tokens.colorTextPrimary};
-        margin-bottom:8px;
+        margin-bottom:var(--vv-space-3);
       ">5. Your Rights &amp; Contact</div>
       <div style="
-        font-size:13px;
+        font-size:var(--vv-text-body-sm-size);
         line-height:1.6;
         color:${tokens.colorGrey700};
-        margin-bottom:24px;
+        margin-bottom:var(--vv-space-7);
       ">You have the right to access, correct, or delete your personal data. Submit requests via the Account Settings section or email privacy@voltventure.com. Responses are provided within 30 days.</div>
 
       <!-- Footer note -->
       <div style="
-        margin-top:8px;
-        padding-bottom:16px;
+        margin-top:var(--vv-space-3);
+        padding-bottom:var(--vv-space-5);
         font-family:'${tokens.typeLabelSm.fontFamily}',sans-serif;
         font-size:${tokens.typeLabelSm.fontSize}px;
         color:${tokens.colorTextSecondary};
@@ -234,7 +234,7 @@ export const Default = () => `
     <!-- Sticky Footer: I Agree button -->
     <div style="
       flex-shrink:0;
-      padding:16px 20px;
+      padding:var(--vv-space-5) var(--vv-space-6);
       background:${tokens.colorSurfaceBase};
       border-top:1px solid ${tokens.colorGrey100};
       box-sizing:border-box;
@@ -248,7 +248,7 @@ export const Default = () => `
         border-radius:${tokens.radiusFull}px;
         font-family:'${tokens.typeHeadingSm.fontFamily}',sans-serif;
         font-size:${tokens.typeHeadingSm.fontSize}px;
-        font-weight:600;
+        font-weight:var(--ds-font-weight-heading);
         color:${tokens.colorTextPrimary};
         cursor:pointer;
         box-sizing:border-box;
@@ -265,14 +265,14 @@ export const Interactive = () => {
 
   // Inner content wrapper: height:100%, overflow:hidden at screen level — body scrolls
   const container = document.createElement('div');
-  container.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow:hidden;background:#ffffff;font-family:Inter,sans-serif';
+  container.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--vv-color-surface-base);font-family:Inter,sans-serif';
 
   // Header Row
   const headerRow = document.createElement('div');
-  headerRow.style.cssText = 'flex-shrink:0;height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;box-sizing:border-box;background:#ffffff';
+  headerRow.style.cssText = 'flex-shrink:0;height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);box-sizing:border-box;background:var(--vv-color-surface-base)';
 
   const backBtn = document.createElement('div');
-  backBtn.style.cssText = `width:36px;height:36px;border-radius:50%;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0`;
+  backBtn.style.cssText = `width:36px;height:36px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0`;
   backBtn.innerHTML = `<span style="font-size:18px;color:${tokens.colorTextPrimary};line-height:1;">&#8592;</span>`;
 
   const titleEl = document.createElement('span');
@@ -284,7 +284,7 @@ export const Interactive = () => {
 
   // Meta Row
   const metaRow = document.createElement('div');
-  metaRow.style.cssText = `flex-shrink:0;padding:4px 20px 12px;border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;background:#ffffff`;
+  metaRow.style.cssText = `flex-shrink:0;padding:var(--vv-space-2) var(--vv-space-6) var(--vv-space-4);border-bottom:1px solid ${tokens.colorGrey100};box-sizing:border-box;background:var(--vv-color-surface-base)`;
   const metaText = document.createElement('span');
   metaText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary}`;
   metaText.textContent = 'Last updated: 1 January 2025';
@@ -292,15 +292,15 @@ export const Interactive = () => {
 
   // Scrollable Body Area
   const bodyArea = document.createElement('div');
-  bodyArea.style.cssText = 'flex:1;overflow-y:auto;padding:20px;box-sizing:border-box;background:#ffffff';
+  bodyArea.style.cssText = 'flex:1;overflow-y:auto;padding:var(--vv-space-6);box-sizing:border-box;background:var(--vv-color-surface-base)';
 
   PRIVACY_SECTIONS.forEach(section => {
     const heading = document.createElement('div');
-    heading.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:700;line-height:${tokens.typeBodyMd.lineHeight}px;color:${tokens.colorTextPrimary};margin-bottom:8px`;
+    heading.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-display);line-height:${tokens.typeBodyMd.lineHeight}px;color:${tokens.colorTextPrimary};margin-bottom:var(--vv-space-3)`;
     heading.textContent = section.heading;
 
     const body = document.createElement('div');
-    body.style.cssText = `font-family:Inter,sans-serif;font-size:13px;line-height:1.6;color:${tokens.colorGrey700};margin-bottom:24px`;
+    body.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-body-sm-size);line-height:1.6;color:${tokens.colorGrey700};margin-bottom:var(--vv-space-7)`;
     body.textContent = section.body;
 
     bodyArea.appendChild(heading);
@@ -309,16 +309,16 @@ export const Interactive = () => {
 
   // Footer note inside body
   const footerNote = document.createElement('div');
-  footerNote.style.cssText = `margin-top:8px;padding-bottom:16px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};text-align:center`;
+  footerNote.style.cssText = `margin-top:var(--vv-space-3);padding-bottom:var(--vv-space-5);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};text-align:center`;
   footerNote.textContent = '© 2025 VoltVenture. All rights reserved.';
   bodyArea.appendChild(footerNote);
 
   // Sticky Footer with I Agree button
   const stickyFooter = document.createElement('div');
-  stickyFooter.style.cssText = `flex-shrink:0;padding:16px 20px;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};box-sizing:border-box`;
+  stickyFooter.style.cssText = `flex-shrink:0;padding:var(--vv-space-5) var(--vv-space-6);background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};box-sizing:border-box`;
 
   const agreeBtn = document.createElement('button');
-  agreeBtn.style.cssText = `display:block;width:100%;height:56px;background:${tokens.colorActionPrimary};border:none;border-radius:${tokens.radiusFull}px;font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};cursor:pointer;box-sizing:border-box;transition:transform 100ms ease,background-color 100ms ease`;
+  agreeBtn.style.cssText = `display:block;width:100%;height:56px;background:${tokens.colorActionPrimary};border:none;border-radius:${tokens.radiusFull}px;font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};cursor:pointer;box-sizing:border-box;transition:transform var(--vv-duration-fast) var(--vv-easing-standard),background-color var(--vv-duration-fast) var(--vv-easing-standard)`;
   agreeBtn.textContent = 'I Agree';
   agreeBtn.addEventListener('pointerdown', () => {
     agreeBtn.style.backgroundColor = tokens.colorGreen600;
@@ -455,9 +455,9 @@ const styles = StyleSheet.create({
 
 export const SourceCode = () => {
   const wrap = document.createElement('div');
-  wrap.style.cssText = 'padding:24px;background:#0f0f0f;min-height:400px';
+  wrap.style.cssText = 'padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px';
   const heading = document.createElement('div');
-  heading.style.cssText = "margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d";
+  heading.style.cssText = "margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)";
   heading.textContent = '// PrivacyPolicy — HTML Source';
   wrap.appendChild(heading);
   wrap.innerHTML += _blk('Default', Default());

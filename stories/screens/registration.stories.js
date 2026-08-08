@@ -6,25 +6,25 @@ export default { title: 'Screens/Registration' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -38,7 +38,7 @@ export const Default = () => `
   display:flex;
   flex-direction:column;
   background:${tokens.colorSurfaceBase};
-  padding:0 20px;
+  padding:0 var(--vv-space-6);
   box-sizing:border-box;
 ">
   <!-- Status Bar (light surface) -->
@@ -52,8 +52,8 @@ export const Default = () => `
     padding:0;
     box-sizing:border-box;
   ">
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-    <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#9646; WiFi &#9650;</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};letter-spacing:2px;">&#9646; WiFi &#9650;</span>
   </div>
 
   <!-- Back Navigation (44px) -->
@@ -63,13 +63,13 @@ export const Default = () => `
     display:flex;
     align-items:center;
   ">
-    <span style="font-size:20px;color:${tokens.colorTextPrimary};cursor:pointer;line-height:1;">&#8592;</span>
+    <span style="font-size:var(--vv-text-heading-lg-size);color:${tokens.colorTextPrimary};cursor:pointer;line-height:1;">&#8592;</span>
   </div>
 
   <!-- Logo Section (text-align:center) -->
   <div style="
     text-align:center;
-    padding:24px 0 16px;
+    padding:var(--vv-space-7) 0 var(--vv-space-5);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -79,44 +79,44 @@ export const Default = () => `
       width:44px;
       height:44px;
       background:${tokens.colorActionPrimary};
-      border-radius:50%;
+      border-radius:var(--vv-radius-full);
       display:flex;
       align-items:center;
       justify-content:center;
     ">
-      <span style="font-family:Manjari,sans-serif;font-size:22px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">V</span>
+      <span style="font-family:Manjari,sans-serif;font-size:var(--vv-text-numeric-md-size);font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">V</span>
     </div>
     <!-- Brand name -->
     <div style="
       font-family:Inter,sans-serif;
-      font-size:17px;
-      font-weight:700;
+      font-size:var(--vv-text-heading-md-size);
+      font-weight:var(--ds-font-weight-display);
       color:${tokens.colorTextPrimary};
-      margin-top:8px;
+      margin-top:var(--vv-space-3);
     ">VoltVenture</div>
   </div>
 
   <!-- Header Section -->
-  <div style="margin-bottom:24px;">
+  <div style="margin-bottom:var(--vv-space-7);">
     <div style="
       font-family:Manjari,sans-serif;
       font-size:24px;
-      font-weight:700;
+      font-weight:var(--ds-font-weight-display);
       color:${tokens.colorTextPrimary};
       line-height:1.2;
       margin-bottom:6px;
     ">Create Account</div>
     <div style="
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:400;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-body);
       color:${tokens.colorTextSecondary};
       line-height:22px;
     ">Join VoltVenture to start your first ride.</div>
   </div>
 
   <!-- Social Buttons Section -->
-  <div style="display:flex;flex-direction:column;gap:12px;">
+  <div style="display:flex;flex-direction:column;gap:var(--vv-space-4);">
     <!-- Apple Button -->
     <button style="
       height:56px;
@@ -128,11 +128,11 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
+      gap:var(--vv-space-3);
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:600;
-      color:#ffffff;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-heading);
+      color:var(--vv-color-text-on-inverse);
       box-sizing:border-box;
     ">&#63743;  Continue with Apple</button>
     <!-- Google Button -->
@@ -146,19 +146,19 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
+      gap:var(--vv-space-3);
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:600;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-heading);
       color:${tokens.colorTextPrimary};
       box-sizing:border-box;
     ">G  Continue with Google</button>
   </div>
 
   <!-- OR Divider -->
-  <div style="display:flex;align-items:center;gap:12px;margin:20px 0;">
+  <div style="display:flex;align-items:center;gap:var(--vv-space-4);margin:var(--vv-space-6) 0;">
     <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
-    <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">OR</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">OR</span>
     <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
   </div>
 
@@ -174,11 +174,11 @@ export const Default = () => `
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:8px;
+    gap:var(--vv-space-3);
     font-family:Inter,sans-serif;
-    font-size:15px;
-    font-weight:600;
-    color:#ffffff;
+    font-size:var(--vv-text-body-md-size);
+    font-weight:var(--ds-font-weight-heading);
+    color:var(--vv-color-text-on-inverse);
     box-sizing:border-box;
   ">&#128241;  Continue with WhatsApp</button>
 
@@ -192,8 +192,8 @@ export const Default = () => `
   ">
     <span style="
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:400;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-body);
       color:${tokens.colorTextSecondary};
       text-decoration:underline;
     ">Continue with email</span>
@@ -207,16 +207,16 @@ export const Default = () => `
     justify-content:center;
     text-align:center;
   ">
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};">Already have an account? </span>
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextAccent};margin-left:4px;">Sign In</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};">Already have an account? </span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextAccent};margin-left:var(--vv-space-2);">Sign In</span>
   </div>
 
   <!-- Terms Section -->
   <div style="
     display:flex;
     align-items:flex-start;
-    gap:12px;
-    margin-top:16px;
+    gap:var(--vv-space-4);
+    margin-top:var(--vv-space-5);
     padding-bottom:34px;
   ">
     <!-- Checkbox: checked = colorActionPrimary -->
@@ -231,12 +231,12 @@ export const Default = () => `
       flex-shrink:0;
       cursor:pointer;
     ">
-      <span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>
+      <span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-display);">&#10003;</span>
     </div>
     <span style="
       font-family:Inter,sans-serif;
-      font-size:13px;
-      font-weight:400;
+      font-size:var(--vv-text-body-sm-size);
+      font-weight:var(--ds-font-weight-body);
       color:${tokens.colorTextSecondary};
       line-height:1.5;
     ">By continuing, you agree to our Terms of Service and Privacy Policy</span>
@@ -255,23 +255,23 @@ export const Interactive = () => {
 
   // Scrollable content area
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;overflow-y:auto;padding:0 20px 34px;box-sizing:border-box;background:#ffffff;';
+  content.style.cssText = 'flex:1;overflow-y:auto;padding:0 var(--vv-space-6) 34px;box-sizing:border-box;background:var(--vv-color-surface-base);';
 
   // Back nav
   const backNav = document.createElement('div');
   backNav.style.cssText = 'height:44px;display:flex;align-items:center;';
-  backNav.innerHTML = '<span style="font-size:20px;color:#0f0f0f;cursor:pointer;line-height:1;">&#8592;</span>';
+  backNav.innerHTML = '<span style="font-size:var(--vv-text-heading-lg-size);color:var(--vv-color-text-primary);cursor:pointer;line-height:1;">&#8592;</span>';
 
   // Logo section
   const logoSection = document.createElement('div');
-  logoSection.style.cssText = 'text-align:center;padding:24px 0 16px;display:flex;flex-direction:column;align-items:center;';
+  logoSection.style.cssText = 'text-align:center;padding:var(--vv-space-7) 0 var(--vv-space-5);display:flex;flex-direction:column;align-items:center;';
 
   const logoCircle = document.createElement('div');
-  logoCircle.style.cssText = `width:44px;height:44px;background:${tokens.colorActionPrimary};border-radius:50%;display:flex;align-items:center;justify-content:center;`;
-  logoCircle.innerHTML = `<span style="font-family:Manjari,sans-serif;font-size:22px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;">V</span>`;
+  logoCircle.style.cssText = `width:44px;height:44px;background:${tokens.colorActionPrimary};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;`;
+  logoCircle.innerHTML = `<span style="font-family:Manjari,sans-serif;font-size:var(--vv-text-numeric-md-size);font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;">V</span>`;
 
   const brandName = document.createElement('div');
-  brandName.style.cssText = 'font-family:Inter,sans-serif;font-size:17px;font-weight:700;color:#0f0f0f;margin-top:8px;';
+  brandName.style.cssText = 'font-family:Inter,sans-serif;font-size:var(--vv-text-heading-md-size);font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-primary);margin-top:var(--vv-space-3);';
   brandName.textContent = 'VoltVenture';
 
   logoSection.appendChild(logoCircle);
@@ -279,19 +279,19 @@ export const Interactive = () => {
 
   // Header
   const header = document.createElement('div');
-  header.style.cssText = 'margin-bottom:24px;';
+  header.style.cssText = 'margin-bottom:var(--vv-space-7);';
   header.innerHTML = `
-    <div style="font-family:Manjari,sans-serif;font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1.2;margin-bottom:6px;">Create Account</div>
-    <div style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};line-height:22px;">Join VoltVenture to start your first ride.</div>
+    <div style="font-family:Manjari,sans-serif;font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1.2;margin-bottom:6px;">Create Account</div>
+    <div style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};line-height:22px;">Join VoltVenture to start your first ride.</div>
   `;
 
   // Social buttons wrapper
   const socialWrap = document.createElement('div');
-  socialWrap.style.cssText = 'display:flex;flex-direction:column;gap:12px;';
+  socialWrap.style.cssText = 'display:flex;flex-direction:column;gap:var(--vv-space-4);';
 
   // Apple button
   const appleBtn = document.createElement('button');
-  appleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;box-sizing:border-box;transition:transform 100ms ease;`;
+  appleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);box-sizing:border-box;transition:transform var(--vv-duration-fast) var(--vv-easing-standard);`;
   appleBtn.innerHTML = '&#63743;  Continue with Apple';
   appleBtn.addEventListener('pointerdown', () => { appleBtn.style.backgroundColor = tokens.colorGrey900; appleBtn.style.transform = 'scale(0.97)'; });
   appleBtn.addEventListener('pointerup', () => { appleBtn.style.backgroundColor = tokens.colorSurfaceInverse; appleBtn.style.transform = 'scale(1)'; });
@@ -299,7 +299,7 @@ export const Interactive = () => {
 
   // Google button
   const googleBtn = document.createElement('button');
-  googleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};box-sizing:border-box;transition:transform 100ms ease;`;
+  googleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};box-sizing:border-box;transition:transform var(--vv-duration-fast) var(--vv-easing-standard);`;
   googleBtn.innerHTML = 'G  Continue with Google';
   googleBtn.addEventListener('pointerdown', () => { googleBtn.style.backgroundColor = tokens.colorGrey050; });
   googleBtn.addEventListener('pointerup', () => { googleBtn.style.backgroundColor = tokens.colorSurfaceBase; });
@@ -310,16 +310,16 @@ export const Interactive = () => {
 
   // OR divider
   const orDiv = document.createElement('div');
-  orDiv.style.cssText = 'display:flex;align-items:center;gap:12px;margin:20px 0;';
+  orDiv.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-4);margin:var(--vv-space-6) 0;';
   orDiv.innerHTML = `
     <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
-    <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">OR</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">OR</span>
     <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
   `;
 
   // WhatsApp button — #25D366 brand green, no VoltVenture token
   const waBtn = document.createElement('button');
-  waBtn.style.cssText = 'height:56px;width:100%;background:#25D366;border-radius:999px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;box-sizing:border-box;transition:transform 100ms ease;';
+  waBtn.style.cssText = 'height:56px;width:100%;background:#25D366;border-radius:var(--vv-radius-full);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);box-sizing:border-box;transition:transform var(--vv-duration-fast) var(--vv-easing-standard);';
   waBtn.innerHTML = '&#128241;  Continue with WhatsApp';
   waBtn.addEventListener('pointerdown', () => { waBtn.style.backgroundColor = '#1eb858'; waBtn.style.transform = 'scale(0.97)'; });
   waBtn.addEventListener('pointerup', () => { waBtn.style.backgroundColor = '#25D366'; waBtn.style.transform = 'scale(1)'; });
@@ -328,26 +328,26 @@ export const Interactive = () => {
   // Email link row
   const emailRow = document.createElement('div');
   emailRow.style.cssText = `height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;`;
-  emailRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};text-decoration:underline;">Continue with email</span>`;
+  emailRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};text-decoration:underline;">Continue with email</span>`;
 
   // Sign In row
   const signInRow = document.createElement('div');
   signInRow.style.cssText = 'height:44px;display:flex;align-items:center;justify-content:center;';
-  signInRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};">Already have an account?&nbsp;</span><span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextAccent};cursor:pointer;">Sign In</span>`;
+  signInRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};">Already have an account?&nbsp;</span><span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextAccent};cursor:pointer;">Sign In</span>`;
 
   // Terms section with checkbox toggle
   let checked = true;
   const termsSection = document.createElement('div');
-  termsSection.style.cssText = 'display:flex;align-items:flex-start;gap:12px;margin-top:16px;';
+  termsSection.style.cssText = 'display:flex;align-items:flex-start;gap:var(--vv-space-4);margin-top:var(--vv-space-5);';
 
   const checkbox = document.createElement('div');
   checkbox.style.cssText = `width:22px;height:22px;background:${tokens.colorActionPrimary};border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;`;
-  checkbox.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>`;
+  checkbox.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-display);">&#10003;</span>`;
   checkbox.addEventListener('pointerdown', () => {
     checked = !checked;
     if (checked) {
       checkbox.style.background = tokens.colorActionPrimary;
-      checkbox.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:700;">&#10003;</span>`;
+      checkbox.innerHTML = `<span style="font-size:12px;color:${tokens.colorTextPrimary};font-weight:var(--ds-font-weight-display);">&#10003;</span>`;
     } else {
       checkbox.style.background = tokens.colorGrey200;
       checkbox.innerHTML = '';
@@ -355,7 +355,7 @@ export const Interactive = () => {
   });
 
   const termsText = document.createElement('span');
-  termsText.style.cssText = `font-family:Inter,sans-serif;font-size:13px;font-weight:400;color:${tokens.colorTextSecondary};line-height:1.5;`;
+  termsText.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};line-height:1.5;`;
   termsText.textContent = 'By continuing, you agree to our Terms of Service and Privacy Policy';
 
   termsSection.appendChild(checkbox);
@@ -380,7 +380,7 @@ export const Interactive = () => {
 // ── SourceCode export: React Native Paper JSX ────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_REGISTRATION = `
@@ -530,4 +530,4 @@ const styles = StyleSheet.create({
 `.trim();
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Registration — React Native Paper</div>${_blk('RegistrationScreen.tsx', RN_REGISTRATION)}</div>`;
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// Registration — React Native Paper</div>${_blk('RegistrationScreen.tsx', RN_REGISTRATION)}</div>`;

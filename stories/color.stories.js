@@ -7,11 +7,11 @@ const mono = "font-family:'JetBrains Mono','Courier New',monospace";
 
 function pageHeader(title, sub) {
   return `
-    <div style="background:#0f0f0f;padding:36px 44px 30px;">
-      <div style="${mono};font-size:10px;color:#c6ff2d;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px;">
+    <div style="background:var(--vv-color-surface-inverse);padding:36px 44px 30px;">
+      <div style="${mono};font-size:var(--vv-text-overline-size);color:var(--vv-color-action-primary);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:var(--vv-space-4);">
         Foundation · VoltVenture Design System
       </div>
-      <h1 style="margin:0 0 8px;${sans};font-size:38px;font-weight:800;color:#ffffff;letter-spacing:-0.02em;line-height:1;">
+      <h1 style="margin:0 0 var(--vv-space-3);${sans};font-size:38px;font-weight:800;color:var(--vv-color-text-on-inverse);letter-spacing:-0.02em;line-height:1;">
         ${title}
       </h1>
       <p style="margin:0;${sans};font-size:14px;color:#666;line-height:1.5;">${sub}</p>
@@ -51,11 +51,11 @@ function colorCard(name, hex, usage) {
         box-sizing:border-box;
         flex-shrink:0;
       ">
-        <span style="${mono};font-size:10px;color:${hexLabel};font-weight:500;">${hex}</span>
+        <span style="${mono};font-size:var(--vv-text-overline-size);color:${hexLabel};font-weight:var(--ds-font-weight-label-sm);">${hex}</span>
       </div>
-      <div style="padding:14px 16px;flex:1;">
-        <div style="${mono};font-size:11px;font-weight:700;color:#0f0f0f;margin-bottom:4px;">${name}</div>
-        <div style="${sans};font-size:11px;color:#888;line-height:1.45;">${usage}</div>
+      <div style="padding:14px var(--vv-space-5);flex:1;">
+        <div style="${mono};font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-display);color:var(--vv-color-text-primary);margin-bottom:var(--vv-space-2);">${name}</div>
+        <div style="${sans};font-size:var(--vv-text-label-sm-size);color:#888;line-height:1.45;">${usage}</div>
       </div>
     </div>
   `;
@@ -80,8 +80,8 @@ function rampCell(label, hex, desc, onDark) {
       ">
         <span style="${mono};font-size:9px;color:${fg};opacity:0.65;">${hex}</span>
       </div>
-      <div style="${mono};font-size:10px;font-weight:700;color:${nameCol};margin-bottom:3px;">${label}</div>
-      <div style="${sans};font-size:10px;color:${descCol};line-height:1.35;">${desc}</div>
+      <div style="${mono};font-size:var(--vv-text-overline-size);font-weight:var(--ds-font-weight-display);color:${nameCol};margin-bottom:3px;">${label}</div>
+      <div style="${sans};font-size:var(--vv-text-overline-size);color:${descCol};line-height:1.35;">${desc}</div>
     </div>
   `;
 }
@@ -89,8 +89,8 @@ function rampCell(label, hex, desc, onDark) {
 export const SemanticColors = () => `
   <div style="${sans};max-width:980px;margin:0 auto;background:#f2f2f2;min-height:100vh;">
     ${pageHeader('Semantic Colors', '8 design-decision tokens — reference these in all components, never primitives')}
-    <div style="padding:36px 44px 48px;">
-      <div style="display:flex;flex-wrap:wrap;gap:16px;">
+    <div style="padding:36px 44px var(--vv-space-10);">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--vv-space-5);">
         ${colorCard('colorActionPrimary',  tokens.colorActionPrimary,  'Primary CTA — Electric Green')}
         ${colorCard('colorTextPrimary',    tokens.colorTextPrimary,    'Primary text — Volt Black')}
         ${colorCard('colorTextSecondary',  tokens.colorTextSecondary,  'Secondary / muted text')}
@@ -107,8 +107,8 @@ export const SemanticColors = () => `
 export const PrimitiveGreyRamp = () => `
   <div style="${sans};max-width:980px;margin:0 auto;background:#f2f2f2;min-height:100vh;">
     ${pageHeader('Grey Ramp', 'Primitive grey scale — 9 steps from White to Volt Black')}
-    <div style="padding:36px 44px 48px;">
-      <div style="display:flex;gap:12px;align-items:flex-start;overflow-x:auto;padding-bottom:4px;">
+    <div style="padding:36px 44px var(--vv-space-10);">
+      <div style="display:flex;gap:var(--vv-space-4);align-items:flex-start;overflow-x:auto;padding-bottom:var(--vv-space-2);">
         ${rampCell('050', tokens.colorGrey050, 'Lightest')}
         ${rampCell('100', tokens.colorGrey100, 'List row fill')}
         ${rampCell('200', tokens.colorGrey200, 'Dividers')}
@@ -124,10 +124,10 @@ export const PrimitiveGreyRamp = () => `
 `;
 
 export const PrimitiveGreenRamp = () => `
-  <div style="${sans};max-width:980px;margin:0 auto;background:#0f0f0f;min-height:100vh;">
+  <div style="${sans};max-width:980px;margin:0 auto;background:var(--vv-color-surface-inverse);min-height:100vh;">
     ${pageHeader('Electric Green Ramp', 'Brand energy scale — foreground-safe on dark backgrounds only')}
-    <div style="padding:36px 44px 48px;">
-      <div style="display:flex;gap:12px;align-items:flex-start;overflow-x:auto;padding-bottom:4px;">
+    <div style="padding:36px 44px var(--vv-space-10);">
+      <div style="display:flex;gap:var(--vv-space-4);align-items:flex-start;overflow-x:auto;padding-bottom:var(--vv-space-2);">
         ${rampCell('100', tokens.colorGreen100, 'Tint bg', true)}
         ${rampCell('300', tokens.colorGreen300, 'Hover wash', true)}
         ${rampCell('500', tokens.colorGreen500, 'Electric Green', true)}
@@ -142,9 +142,9 @@ export const PrimitiveGreenRamp = () => `
         border-radius:10px;
         ${sans};font-size:12px;color:#888;line-height:1.65;
       ">
-        <span style="color:#c6ff2d;font-weight:700;">Electric Green (#C6FF2D)</span>
+        <span style="color:var(--vv-color-action-primary);font-weight:var(--ds-font-weight-display);">Electric Green (#C6FF2D)</span>
         — WCAG AA pass on dark only. Use
-        <span style="color:#c6ff2d;font-weight:700;">Green 700</span>
+        <span style="color:var(--vv-color-action-primary);font-weight:var(--ds-font-weight-display);">Green 700</span>
         for accessible body text on white backgrounds.
       </div>
     </div>

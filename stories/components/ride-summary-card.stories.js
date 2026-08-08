@@ -6,25 +6,25 @@ export default { title: 'Components/RideSummaryCard' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -32,17 +32,17 @@ function makePhoneFrame() {
 
 // ── HTML helpers ────────────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
 
 // ── Default (HTML string) ──────────────────────────────────────────────────────
 export const Default = () => `
   <div style="
     background:${tokens.colorSurfaceInverse};
     border-radius:${tokens.radiusLg}px;
-    padding:16px 20px;
+    padding:var(--vv-space-5) var(--vv-space-6);
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:var(--vv-space-4);
     box-sizing:border-box;
     font-family:Inter,sans-serif;
   ">
@@ -53,15 +53,15 @@ export const Default = () => `
       display:flex;align-items:center;justify-content:center;
       flex-shrink:0;
     ">
-      <span style="font-size:20px;color:${tokens.colorActionPrimary};">&#x26A1;</span>
+      <span style="font-size:var(--vv-text-heading-lg-size);color:${tokens.colorActionPrimary};">&#x26A1;</span>
     </div>
     <div style="flex:1;min-width:0;">
       <div style="
         font-family:Inter,sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
         line-height:${tokens.typeBodyMd.lineHeight}px;
-        font-weight:600;
-        color:#ffffff;
+        font-weight:var(--ds-font-weight-heading);
+        color:var(--vv-color-text-on-inverse);
       ">VoltVenture Ride</div>
       <div style="
         font-family:Inter,sans-serif;
@@ -69,7 +69,7 @@ export const Default = () => `
         line-height:${tokens.typeLabelSm.lineHeight}px;
         font-weight:${tokens.typeLabelSm.fontWeight};
         color:${tokens.colorTextSecondary};
-        margin-top:2px;
+        margin-top:var(--vv-space-1);
       ">Electric e-bike rental</div>
     </div>
     <div style="text-align:right;flex-shrink:0;">
@@ -77,8 +77,8 @@ export const Default = () => `
         font-family:Inter,sans-serif;
         font-size:${tokens.typeBodyMd.fontSize}px;
         line-height:${tokens.typeBodyMd.lineHeight}px;
-        font-weight:600;
-        color:#ffffff;
+        font-weight:var(--ds-font-weight-heading);
+        color:var(--vv-color-text-on-inverse);
       ">&#x20B9; 2.50/min</div>
       <div style="
         font-family:Inter,sans-serif;
@@ -86,7 +86,7 @@ export const Default = () => `
         line-height:${tokens.typeLabelSm.lineHeight}px;
         font-weight:${tokens.typeLabelSm.fontWeight};
         color:${tokens.colorTextSecondary};
-        margin-top:2px;
+        margin-top:var(--vv-space-1);
       ">+ &#x20B9; 200 deposit</div>
     </div>
   </div>
@@ -98,11 +98,11 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px;box-sizing:border-box;';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;justify-content:center;padding:var(--vv-space-6);box-sizing:border-box;';
 
   // Context label
   const label = document.createElement('div');
-  label.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};margin-bottom:16px;`;
+  label.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};margin-bottom:var(--vv-space-5);`;
   label.textContent = 'Your Ride';
   content.appendChild(label);
 
@@ -111,13 +111,13 @@ export const Interactive = () => {
   card.style.cssText = `
     background:${tokens.colorSurfaceInverse};
     border-radius:${tokens.radiusLg}px;
-    padding:16px 20px;
+    padding:var(--vv-space-5) var(--vv-space-6);
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:var(--vv-space-4);
     box-sizing:border-box;
     cursor:pointer;
-    transition:background 120ms ease;
+    transition:background 120ms var(--vv-easing-standard);
   `;
 
   const chip = document.createElement('div');
@@ -128,20 +128,20 @@ export const Interactive = () => {
     display:flex;align-items:center;justify-content:center;
     flex-shrink:0;
   `;
-  chip.innerHTML = `<span style="font-size:20px;color:${tokens.colorActionPrimary};">&#x26A1;</span>`;
+  chip.innerHTML = `<span style="font-size:var(--vv-text-heading-lg-size);color:${tokens.colorActionPrimary};">&#x26A1;</span>`;
 
   const textCol = document.createElement('div');
   textCol.style.cssText = 'flex:1;min-width:0;';
   textCol.innerHTML = `
-    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:600;color:#ffffff;">VoltVenture Ride</div>
-    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:2px;">Electric e-bike rental</div>
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">VoltVenture Ride</div>
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Electric e-bike rental</div>
   `;
 
   const rateCol = document.createElement('div');
   rateCol.style.cssText = 'text-align:right;flex-shrink:0;';
   rateCol.innerHTML = `
-    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:600;color:#ffffff;">&#x20B9; 2.50/min</div>
-    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:2px;">+ &#x20B9; 200 deposit</div>
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;line-height:${tokens.typeBodyMd.lineHeight}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">&#x20B9; 2.50/min</div>
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;line-height:${tokens.typeLabelSm.lineHeight}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">+ &#x20B9; 200 deposit</div>
   `;
 
   card.appendChild(chip);
@@ -247,4 +247,4 @@ export function RideSummaryCard({ title, sub, rate, rateSub, onPress }) {
 }
 `;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// RideSummaryCard — React Native Paper Source</div>${_blk('RideSummaryCard',_cardJSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// RideSummaryCard — React Native Paper Source</div>${_blk('RideSummaryCard',_cardJSX)}</div>`;

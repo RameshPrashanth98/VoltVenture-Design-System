@@ -19,25 +19,25 @@ function shadowFromToken(t) {
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -52,7 +52,7 @@ export const Default = () => `
   display:flex;
   align-items:flex-start;
   justify-content:center;
-  padding:24px 16px;
+  padding:var(--vv-space-7) var(--vv-space-5);
   box-sizing:border-box;
   font-family:Inter,sans-serif;
 ">
@@ -61,21 +61,21 @@ export const Default = () => `
     width:100%;
     background:${tokens.colorSurfaceBase};
     border-radius:${tokens.radiusLg}px;
-    padding:16px;
+    padding:var(--vv-space-5);
     box-sizing:border-box;
     display:flex;
     flex-direction:column;
-    gap:12px;
-    box-shadow:0 2px 8px 0 rgba(15,15,15,0.06);
+    gap:var(--vv-space-4);
+    box-shadow:var(--vv-elevation-raised);
   ">
     <!-- Card Top Row: icon chip + station info -->
-    <div style="display:flex;align-items:center;gap:12px;">
+    <div style="display:flex;align-items:center;gap:var(--vv-space-4);">
       <!-- Station Icon Chip -->
       <div style="
         width:34px;
         height:34px;
         background:${tokens.colorGrey100};
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         display:flex;
         align-items:center;
         justify-content:center;
@@ -83,11 +83,11 @@ export const Default = () => `
         flex-shrink:0;
       ">&#9889;</div>
       <!-- Station Info -->
-      <div style="display:flex;flex-direction:column;gap:4px;">
+      <div style="display:flex;flex-direction:column;gap:var(--vv-space-2);">
         <div style="
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeBodyMd}px;
-          font-weight:600;
+          font-weight:var(--ds-font-weight-heading);
           color:${tokens.colorTextPrimary};
           line-height:${tokens.fontLineHeightBodyMd}px;
         ">VoltHub Central</div>
@@ -95,7 +95,7 @@ export const Default = () => `
           display:inline-block;
           background:${tokens.colorGrey100};
           border-radius:${tokens.radiusFull}px;
-          padding:2px 8px;
+          padding:var(--vv-space-1) var(--vv-space-3);
           font-family:Inter,sans-serif;
           font-size:${tokens.fontSizeLabelSm}px;
           font-weight:${tokens.fontWeightLabelSm};
@@ -111,11 +111,11 @@ export const Default = () => `
       align-items:center;
       background:${tokens.colorGreen100};
       border-radius:${tokens.radiusFull}px;
-      padding:4px 12px;
-      gap:4px;
+      padding:var(--vv-space-2) var(--vv-space-4);
+      gap:var(--vv-space-2);
       align-self:flex-start;
     ">
-      <span style="color:${tokens.colorTextAccent};font-size:12px;font-weight:600;">&#10003;</span>
+      <span style="color:${tokens.colorTextAccent};font-size:12px;font-weight:var(--ds-font-weight-heading);">&#10003;</span>
       <span style="
         font-family:Inter,sans-serif;
         font-size:${tokens.fontSizeLabelSm}px;
@@ -150,7 +150,7 @@ export const Default = () => `
       cursor:pointer;
       font-family:Inter,sans-serif;
       font-size:${tokens.fontSizeHeadingSm}px;
-      font-weight:600;
+      font-weight:var(--ds-font-weight-heading);
       color:${tokens.colorTextPrimary};
       display:flex;
       align-items:center;
@@ -162,7 +162,7 @@ export const Default = () => `
     <!-- Resume Ride Link -->
     <div style="
       text-align:center;
-      margin-top:4px;
+      margin-top:var(--vv-space-2);
       font-family:Inter,sans-serif;
       font-size:${tokens.fontSizeBodyMd}px;
       font-weight:${tokens.fontWeightBodyMd};
@@ -181,7 +181,7 @@ export const Interactive = () => {
   const content = document.createElement('div');
   content.style.cssText = [
     'flex:1', 'overflow-y:auto', 'display:flex', 'flex-direction:column',
-    'align-items:center', 'padding:24px 16px', 'box-sizing:border-box',
+    'align-items:center', 'padding:var(--vv-space-7) var(--vv-space-5)', 'box-sizing:border-box',
     `background:${tokens.colorSurfaceBase}`
   ].join(';');
 
@@ -191,13 +191,13 @@ export const Interactive = () => {
     'width:100%',
     `background:${tokens.colorSurfaceBase}`,
     `border-radius:${tokens.radiusLg}px`,
-    'padding:16px',
+    'padding:var(--vv-space-5)',
     'box-sizing:border-box',
     'display:flex', 'flex-direction:column',
-    'gap:12px',
+    'gap:var(--vv-space-4)',
     `box-shadow:${shadowFromToken(tokens.elevationRaised)}`,
     'cursor:pointer',
-    'transition:background-color 100ms ease'
+    'transition:background-color var(--vv-duration-fast) var(--vv-easing-standard)'
   ].join(';');
 
   // Card press feedback
@@ -207,26 +207,26 @@ export const Interactive = () => {
 
   // ── Top row: icon chip + station info ──
   const topRow = document.createElement('div');
-  topRow.style.cssText = 'display:flex;align-items:center;gap:12px;';
+  topRow.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-4);';
 
   const iconChip = document.createElement('div');
   iconChip.style.cssText = [
     'width:34px', 'height:34px',
     `background:${tokens.colorGrey100}`,
-    'border-radius:50%',
+    'border-radius:var(--vv-radius-full)',
     'display:flex', 'align-items:center', 'justify-content:center',
     'font-size:16px', 'flex-shrink:0'
   ].join(';');
   iconChip.textContent = '⚡';
 
   const stationInfo = document.createElement('div');
-  stationInfo.style.cssText = 'display:flex;flex-direction:column;gap:4px;';
+  stationInfo.style.cssText = 'display:flex;flex-direction:column;gap:var(--vv-space-2);';
 
   const stationName = document.createElement('div');
   stationName.style.cssText = [
     'font-family:Inter,sans-serif',
     `font-size:${tokens.fontSizeBodyMd}px`,
-    'font-weight:600',
+    'font-weight:var(--ds-font-weight-heading)',
     `color:${tokens.colorTextPrimary}`,
     `line-height:${tokens.fontLineHeightBodyMd}px`
   ].join(';');
@@ -237,7 +237,7 @@ export const Interactive = () => {
     'display:inline-block',
     `background:${tokens.colorGrey100}`,
     `border-radius:${tokens.radiusFull}px`,
-    'padding:2px 8px',
+    'padding:var(--vv-space-1) var(--vv-space-3)',
     'font-family:Inter,sans-serif',
     `font-size:${tokens.fontSizeLabelSm}px`,
     `font-weight:${tokens.fontWeightLabelSm}`,
@@ -257,11 +257,11 @@ export const Interactive = () => {
     'display:inline-flex', 'align-items:center',
     `background:${tokens.colorGreen100}`,
     `border-radius:${tokens.radiusFull}px`,
-    'padding:4px 12px', 'gap:4px', 'align-self:flex-start'
+    'padding:var(--vv-space-2) var(--vv-space-4)', 'gap:var(--vv-space-2)', 'align-self:flex-start'
   ].join(';');
 
   const checkIcon = document.createElement('span');
-  checkIcon.style.cssText = `color:${tokens.colorTextAccent};font-size:12px;font-weight:600;`;
+  checkIcon.style.cssText = `color:${tokens.colorTextAccent};font-size:12px;font-weight:var(--ds-font-weight-heading);`;
   checkIcon.textContent = '✓';
 
   const slotsText = document.createElement('span');
@@ -311,11 +311,11 @@ export const Interactive = () => {
     'border:none', 'cursor:pointer',
     'font-family:Inter,sans-serif',
     `font-size:${tokens.fontSizeHeadingSm}px`,
-    'font-weight:600',
+    'font-weight:var(--ds-font-weight-heading)',
     `color:${tokens.colorTextPrimary}`,
     'display:flex', 'align-items:center', 'justify-content:center',
     'gap:6px', 'box-sizing:border-box',
-    'transition:background-color 100ms ease,transform 100ms ease'
+    'transition:background-color var(--vv-duration-fast) var(--vv-easing-standard),transform var(--vv-duration-fast) var(--vv-easing-standard)'
   ].join(';');
   navBtn.textContent = '🧭 Navigate to Station';
 
@@ -339,7 +339,7 @@ export const Interactive = () => {
   const resumeLink = document.createElement('div');
   resumeLink.style.cssText = [
     'text-align:center',
-    'margin-top:4px',
+    'margin-top:var(--vv-space-2)',
     'font-family:Inter,sans-serif',
     `font-size:${tokens.fontSizeBodyMd}px`,
     `font-weight:${tokens.fontWeightBodyMd}`,
@@ -365,7 +365,7 @@ export const Interactive = () => {
 // ── SourceCode ─────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `import React from 'react';
@@ -546,4 +546,4 @@ const styles = StyleSheet.create({
 
 export default StationInfoCard;`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// StationInfoCard — React Native Paper</div>${_blk('StationInfoCard.tsx', RN_JSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// StationInfoCard — React Native Paper</div>${_blk('StationInfoCard.tsx', RN_JSX)}</div>`;

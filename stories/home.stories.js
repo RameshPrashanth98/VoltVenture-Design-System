@@ -6,7 +6,7 @@ export const DesignSystem = () => `
   <div style="font-family:'Inter',sans-serif;min-height:100vh;background:${tokens.colorSurfaceBase};margin:0">
 
     <!-- Hero: Volt Black bg with electric green branding -->
-    <div style="background:${tokens.colorTextPrimary};padding:64px 48px 48px;text-align:center">
+    <div style="background:${tokens.colorTextPrimary};padding:var(--vv-space-11) var(--vv-space-10) var(--vv-space-10);text-align:center">
 
       <!-- V logo badge -->
       <div style="
@@ -16,7 +16,7 @@ export const DesignSystem = () => `
         display:inline-flex;align-items:center;justify-content:center;
         margin-bottom:${tokens.space400}px;
       ">
-        <span style="font-family:'Manjari',sans-serif;font-size:36px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1">V</span>
+        <span style="font-family:'Manjari',sans-serif;font-size:36px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1">V</span>
       </div>
 
       <!-- Brand wordmark -->
@@ -139,7 +139,7 @@ export const DesignSystem = () => `
             padding:${tokens.space100}px ${tokens.space300}px;
             font-family:'JetBrains Mono',monospace;
             font-size:${tokens.typeLabelSm.fontSize}px;
-            font-weight:500;
+            font-weight:var(--ds-font-weight-label-sm);
           ">${t}</div>
         `).join('')}
       </div>

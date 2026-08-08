@@ -6,25 +6,25 @@ export default { title: 'Screens/Support' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -46,74 +46,74 @@ export const Default = () => `
     background:${tokens.colorSurfaceBase};box-sizing:border-box;font-family:Inter,sans-serif;
   ">
     <!-- Status Bar (62px) -->
-    <div style="height:62px;background:${tokens.colorSurfaceBase};display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-sizing:border-box;flex-shrink:0;">
-      <span style="font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+    <div style="height:62px;background:${tokens.colorSurfaceBase};display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-6);box-sizing:border-box;flex-shrink:0;">
+      <span style="font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
     <!-- Header Row (44px) -->
-    <div style="height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;">
+    <div style="height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);flex-shrink:0;">
       <div style="width:36px;height:36px;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-sizing:border-box;flex-shrink:0;">&#8592;</div>
-      <span style="font-size:${tokens.fontSizeHeadingMd}px;font-weight:700;color:${tokens.colorTextPrimary};">Support</span>
+      <span style="font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Support</span>
     </div>
     <!-- Pricing Banner -->
-    <div style="margin:16px 16px 0;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-sizing:border-box;">
+    <div style="margin:var(--vv-space-5) var(--vv-space-5) 0;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
       <div style="width:34px;height:34px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">&#8505;</div>
-      <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">View Pricing Policies</span>
-      <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+      <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">View Pricing Policies</span>
+      <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
     </div>
     <!-- WhatsApp CTA — #25D366 brand green, no VV token -->
-    <div style="margin:8px 16px 0;height:56px;display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;border-radius:${tokens.radiusFull}px;cursor:pointer;box-sizing:border-box;">
-      <span style="font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:#ffffff;">&#128172; Contact Support via WhatsApp</span>
+    <div style="margin:var(--vv-space-3) var(--vv-space-5) 0;height:56px;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);background:#25D366;border-radius:${tokens.radiusFull}px;cursor:pointer;box-sizing:border-box;">
+      <span style="font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">&#128172; Contact Support via WhatsApp</span>
     </div>
     <!-- Dropoff Card -->
-    <div style="margin:8px 16px 0;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-sizing:border-box;">
+    <div style="margin:var(--vv-space-3) var(--vv-space-5) 0;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);box-sizing:border-box;">
       <div style="width:34px;height:34px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">&#128757;</div>
       <div style="flex:1;">
-        <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Allow Dropoff Anywhere</div>
-        <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:2px;">Rebalancing zone (&#8377;5 fee applies)</div>
+        <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Allow Dropoff Anywhere</div>
+        <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Rebalancing zone (&#8377;5 fee applies)</div>
       </div>
       <!-- Toggle OFF (50x29px) -->
-      <div style="width:50px;height:29px;background:${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;position:relative;display:inline-flex;align-items:center;padding:0 4px;box-sizing:border-box;flex-shrink:0;cursor:pointer;">
-        <div style="width:21px;height:21px;background:#ffffff;border-radius:50%;position:absolute;left:4px;transition:left 150ms ease;"></div>
+      <div style="width:50px;height:29px;background:${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;position:relative;display:inline-flex;align-items:center;padding:0 var(--vv-space-2);box-sizing:border-box;flex-shrink:0;cursor:pointer;">
+        <div style="width:21px;height:21px;background:var(--vv-color-surface-base);border-radius:var(--vv-radius-full);position:absolute;left:4px;transition:left var(--vv-duration-quick) var(--vv-easing-standard);"></div>
       </div>
     </div>
     <!-- FAQ Section -->
-    <div style="padding:16px 16px 8px;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">FAQ</div>
-    <div style="margin:0 16px 16px;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;overflow:hidden;padding:0 16px;box-sizing:border-box;">
+    <div style="padding:var(--vv-space-5) var(--vv-space-5) var(--vv-space-3);font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">FAQ</div>
+    <div style="margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;overflow:hidden;padding:0 var(--vv-space-5);box-sizing:border-box;">
       <!-- Row 1 — pre-expanded -->
-      <div style="padding:16px 0;box-sizing:border-box;">
+      <div style="padding:var(--vv-space-5) 0;box-sizing:border-box;">
         <div style="display:flex;align-items:center;cursor:pointer;">
-          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">How is the price calculated?</span>
-          <span style="font-size:20px;line-height:1;display:inline-block;transform:rotate(90deg);color:${tokens.colorTextPrimary};flex-shrink:0;margin-left:8px;">&#8250;</span>
+          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">How is the price calculated?</span>
+          <span style="font-size:var(--vv-text-heading-lg-size);line-height:1;display:inline-block;transform:rotate(90deg);color:${tokens.colorTextPrimary};flex-shrink:0;margin-left:var(--vv-space-3);">&#8250;</span>
         </div>
-        <div style="margin-top:8px;font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};color:${tokens.colorTextSecondary};line-height:1.5;">Rides are billed per minute at the rate shown at ride start. Electricity surcharges may apply. Final bill on Ride Complete screen.</div>
+        <div style="margin-top:var(--vv-space-3);font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};color:${tokens.colorTextSecondary};line-height:1.5;">Rides are billed per minute at the rate shown at ride start. Electricity surcharges may apply. Final bill on Ride Complete screen.</div>
       </div>
       <div style="height:1px;background:${tokens.colorGrey100};"></div>
       <!-- Row 2 — collapsed -->
-      <div style="padding:16px 0;display:flex;align-items:center;cursor:pointer;">
-        <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">What if I can't find a charging hub?</span>
-        <span style="font-size:20px;line-height:1;display:inline-block;transform:rotate(0deg);color:${tokens.colorGrey300};flex-shrink:0;margin-left:8px;">&#8250;</span>
+      <div style="padding:var(--vv-space-5) 0;display:flex;align-items:center;cursor:pointer;">
+        <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">What if I can't find a charging hub?</span>
+        <span style="font-size:var(--vv-text-heading-lg-size);line-height:1;display:inline-block;transform:rotate(0deg);color:${tokens.colorGrey300};flex-shrink:0;margin-left:var(--vv-space-3);">&#8250;</span>
       </div>
       <div style="height:1px;background:${tokens.colorGrey100};"></div>
       <!-- Row 3 — collapsed -->
-      <div style="padding:16px 0;display:flex;align-items:center;cursor:pointer;">
-        <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Is my deposit refundable?</span>
-        <span style="font-size:20px;line-height:1;display:inline-block;transform:rotate(0deg);color:${tokens.colorGrey300};flex-shrink:0;margin-left:8px;">&#8250;</span>
+      <div style="padding:var(--vv-space-5) 0;display:flex;align-items:center;cursor:pointer;">
+        <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Is my deposit refundable?</span>
+        <span style="font-size:var(--vv-text-heading-lg-size);line-height:1;display:inline-block;transform:rotate(0deg);color:${tokens.colorGrey300};flex-shrink:0;margin-left:var(--vv-space-3);">&#8250;</span>
       </div>
       <div style="height:1px;background:${tokens.colorGrey100};"></div>
       <!-- Row 4 — collapsed -->
-      <div style="padding:16px 0;display:flex;align-items:center;cursor:pointer;">
-        <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">What happens if I'm in an accident?</span>
-        <span style="font-size:20px;line-height:1;display:inline-block;transform:rotate(0deg);color:${tokens.colorGrey300};flex-shrink:0;margin-left:8px;">&#8250;</span>
+      <div style="padding:var(--vv-space-5) 0;display:flex;align-items:center;cursor:pointer;">
+        <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">What happens if I'm in an accident?</span>
+        <span style="font-size:var(--vv-text-heading-lg-size);line-height:1;display:inline-block;transform:rotate(0deg);color:${tokens.colorGrey300};flex-shrink:0;margin-left:var(--vv-space-3);">&#8250;</span>
       </div>
     </div>
     <!-- Spacer -->
     <div style="flex:1;"></div>
     <!-- Tab Bar — Account active -->
-    <div style="display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:8px 0 24px;flex-shrink:0;">
+    <div style="display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:var(--vv-space-3) 0 var(--vv-space-7);flex-shrink:0;">
       ${TABS.map((label, i) => {
         const isActive = i === 3;
-        return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;">
+        return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;">
           <div style="width:40px;height:26px;border-radius:${tokens.radiusFull}px;background:${isActive ? tokens.colorSurfaceInverse : tokens.colorGrey200};"></div>
           <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${isActive ? tokens.colorTextPrimary : tokens.colorTextSecondary};">${label}</span>
         </div>`;
@@ -137,12 +137,12 @@ export const Interactive = () => {
 
   // Header
   const header = document.createElement('div');
-  header.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;';
+  header.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);flex-shrink:0;';
   const backBtn = document.createElement('div');
   backBtn.style.cssText = `width:36px;height:36px;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-sizing:border-box;flex-shrink:0;`;
   backBtn.textContent = '\u2190';
   const titleEl = document.createElement('span');
-  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   titleEl.textContent = 'Support';
   header.appendChild(backBtn);
   header.appendChild(titleEl);
@@ -150,7 +150,7 @@ export const Interactive = () => {
 
   // Pricing Banner
   const priceBanner = document.createElement('div');
-  priceBanner.style.cssText = `margin:16px 16px 0;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-sizing:border-box;`;
+  priceBanner.style.cssText = `margin:var(--vv-space-5) var(--vv-space-5) 0;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;`;
   priceBanner.addEventListener('pointerdown', () => { priceBanner.style.background = tokens.colorGrey100; });
   priceBanner.addEventListener('pointerup', () => { priceBanner.style.background = tokens.colorGrey050; });
   priceBanner.addEventListener('pointerleave', () => { priceBanner.style.background = tokens.colorGrey050; });
@@ -158,10 +158,10 @@ export const Interactive = () => {
   priceChip.style.cssText = `width:34px;height:34px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;`;
   priceChip.textContent = '\u2139';
   const priceText = document.createElement('span');
-  priceText.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  priceText.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   priceText.textContent = 'View Pricing Policies';
   const priceChev = document.createElement('span');
-  priceChev.style.cssText = `color:${tokens.colorGrey300};font-size:20px;line-height:1;`;
+  priceChev.style.cssText = `color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;`;
   priceChev.textContent = '\u203a';
   priceBanner.appendChild(priceChip);
   priceBanner.appendChild(priceText);
@@ -170,38 +170,38 @@ export const Interactive = () => {
 
   // WhatsApp CTA — #25D366 brand green, no VV token
   const waCta = document.createElement('div');
-  waCta.style.cssText = 'margin:8px 16px 0;height:56px;display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;border-radius:' + tokens.radiusFull + 'px;cursor:pointer;box-sizing:border-box;';
+  waCta.style.cssText = 'margin:var(--vv-space-3) var(--vv-space-5) 0;height:56px;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);background:#25D366;border-radius:' + tokens.radiusFull + 'px;cursor:pointer;box-sizing:border-box;';
   waCta.addEventListener('pointerdown', () => { waCta.style.background = '#1eb858'; waCta.style.transform = 'scale(0.97)'; });
   waCta.addEventListener('pointerup', () => { waCta.style.background = '#25D366'; waCta.style.transform = ''; });
   waCta.addEventListener('pointerleave', () => { waCta.style.background = '#25D366'; waCta.style.transform = ''; });
   const waText = document.createElement('span');
-  waText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:600;color:#ffffff;`;
+  waText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingSm}px;font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);`;
   waText.textContent = '\uD83D\uDCAC Contact Support via WhatsApp';
   waCta.appendChild(waText);
   content.appendChild(waCta);
 
   // Dropoff Card with toggle
   const dropCard = document.createElement('div');
-  dropCard.style.cssText = `margin:8px 16px 0;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-sizing:border-box;`;
+  dropCard.style.cssText = `margin:var(--vv-space-3) var(--vv-space-5) 0;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);box-sizing:border-box;`;
   const dropChip = document.createElement('div');
   dropChip.style.cssText = `width:34px;height:34px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;`;
   dropChip.textContent = '\uD83D\uDEF5';
   const dropCol = document.createElement('div');
   dropCol.style.cssText = 'flex:1;';
   const dropTitle = document.createElement('div');
-  dropTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  dropTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   dropTitle.textContent = 'Allow Dropoff Anywhere';
   const dropSub = document.createElement('div');
-  dropSub.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:2px;`;
+  dropSub.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);`;
   dropSub.textContent = 'Rebalancing zone (\u20B95 fee applies)';
   dropCol.appendChild(dropTitle);
   dropCol.appendChild(dropSub);
 
   let dropoffOn = false;
   const dropPill = document.createElement('div');
-  dropPill.style.cssText = `width:50px;height:29px;background:${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;position:relative;display:inline-flex;align-items:center;padding:0 4px;box-sizing:border-box;flex-shrink:0;cursor:pointer;`;
+  dropPill.style.cssText = `width:50px;height:29px;background:${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;position:relative;display:inline-flex;align-items:center;padding:0 var(--vv-space-2);box-sizing:border-box;flex-shrink:0;cursor:pointer;`;
   const dropKnob = document.createElement('div');
-  dropKnob.style.cssText = 'width:21px;height:21px;background:#ffffff;border-radius:50%;position:absolute;left:4px;transition:left 150ms ease;';
+  dropKnob.style.cssText = 'width:21px;height:21px;background:var(--vv-color-surface-base);border-radius:var(--vv-radius-full);position:absolute;left:4px;transition:left var(--vv-duration-quick) var(--vv-easing-standard);';
   dropPill.appendChild(dropKnob);
 
   dropPill.addEventListener('pointerdown', (e) => {
@@ -225,13 +225,13 @@ export const Interactive = () => {
 
   // FAQ Section label
   const faqLbl = document.createElement('div');
-  faqLbl.style.cssText = `padding:16px 16px 8px;font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;`;
+  faqLbl.style.cssText = `padding:var(--vv-space-5) var(--vv-space-5) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;`;
   faqLbl.textContent = 'FAQ';
   content.appendChild(faqLbl);
 
   // FAQ Accordion Card
   const faqCard = document.createElement('div');
-  faqCard.style.cssText = `margin:0 16px 16px;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;overflow:hidden;padding:0 16px;box-sizing:border-box;`;
+  faqCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey100};border-radius:${tokens.radiusLg}px;overflow:hidden;padding:0 var(--vv-space-5);box-sizing:border-box;`;
 
   FAQ_DATA.forEach(({ q, a, startExpanded }, i) => {
     if (i > 0) {
@@ -245,18 +245,18 @@ export const Interactive = () => {
     rowWrap.style.cssText = 'padding:0;box-sizing:border-box;';
 
     const qRow = document.createElement('div');
-    qRow.style.cssText = 'display:flex;align-items:center;padding:16px 0 0;cursor:pointer;user-select:none;';
+    qRow.style.cssText = 'display:flex;align-items:center;padding:var(--vv-space-5) 0 0;cursor:pointer;user-select:none;';
 
     const qText = document.createElement('span');
-    qText.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;line-height:${tokens.fontLineHeightBodyMd}px;color:${tokens.colorTextPrimary};`;
+    qText.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);line-height:${tokens.fontLineHeightBodyMd}px;color:${tokens.colorTextPrimary};`;
     qText.textContent = q;
 
     const chevron = document.createElement('span');
-    chevron.style.cssText = 'font-size:20px;line-height:1;display:inline-block;flex-shrink:0;margin-left:8px;transition:transform 200ms ease;';
+    chevron.style.cssText = 'font-size:var(--vv-text-heading-lg-size);line-height:1;display:inline-block;flex-shrink:0;margin-left:var(--vv-space-3);transition:transform var(--vv-duration-standard) var(--vv-easing-standard);';
     chevron.textContent = '\u203a';
 
     const answerEl = document.createElement('div');
-    answerEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};line-height:1.5;color:${tokens.colorTextSecondary};padding:8px 0 16px;`;
+    answerEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:${tokens.fontWeightBodyMd};line-height:1.5;color:${tokens.colorTextSecondary};padding:var(--vv-space-3) 0 var(--vv-space-5);`;
     answerEl.textContent = a;
 
     if (expanded) {
@@ -300,13 +300,13 @@ export const Interactive = () => {
 
   // Tab Bar — Account active (index 3)
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:8px 0 24px;flex-shrink:0;`;
+  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:var(--vv-space-3) 0 var(--vv-space-7);flex-shrink:0;`;
 
   let activeTab = 3;
   const tabEls = [];
   TABS.forEach((label, i) => {
     const tab = document.createElement('div');
-    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;';
+    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;';
     const pill = document.createElement('div');
     pill.style.cssText = `width:40px;height:26px;border-radius:${tokens.radiusFull}px;background:${i === activeTab ? tokens.colorSurfaceInverse : tokens.colorGrey200};`;
     const lbl = document.createElement('span');
@@ -331,7 +331,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `import React, { useState } from 'react';
@@ -396,7 +396,7 @@ const SupportScreen = () => {
 export default SupportScreen;`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Support — React Native Paper</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// Support — React Native Paper</div>` +
   _blk('SupportScreen.tsx', RN_JSX) +
   `</div>`;

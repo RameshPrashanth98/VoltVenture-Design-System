@@ -31,12 +31,12 @@ export const Default = () => `
       <div style="position:absolute;top:700px;left:90px;width:3px;height:40px;background:${tokens.colorGrey200};transform:rotate(70deg)"></div>
       <div style="position:absolute;top:760px;left:300px;width:3px;height:40px;background:${tokens.colorGrey200};transform:rotate(-25deg)"></div>
       <!-- 6 small grey dots (6x6px circles, colorGrey300) -->
-      <div style="position:absolute;top:80px;left:180px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey300}"></div>
-      <div style="position:absolute;top:160px;left:320px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey300}"></div>
-      <div style="position:absolute;top:380px;left:50px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey300}"></div>
-      <div style="position:absolute;top:450px;left:370px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey300}"></div>
-      <div style="position:absolute;top:560px;left:200px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey300}"></div>
-      <div style="position:absolute;top:680px;left:130px;width:6px;height:6px;border-radius:50%;background:${tokens.colorGrey300}"></div>
+      <div style="position:absolute;top:80px;left:180px;width:6px;height:6px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey300}"></div>
+      <div style="position:absolute;top:160px;left:320px;width:6px;height:6px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey300}"></div>
+      <div style="position:absolute;top:380px;left:50px;width:6px;height:6px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey300}"></div>
+      <div style="position:absolute;top:450px;left:370px;width:6px;height:6px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey300}"></div>
+      <div style="position:absolute;top:560px;left:200px;width:6px;height:6px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey300}"></div>
+      <div style="position:absolute;top:680px;left:130px;width:6px;height:6px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey300}"></div>
     </div>
 
     <!-- Center content (absolutely centered) -->
@@ -64,7 +64,7 @@ export const Default = () => `
         <span style="
           font-family:Inter,sans-serif;
           font-size:48px;
-          font-weight:700;
+          font-weight:var(--ds-font-weight-display);
           color:${tokens.colorTextPrimary};
           line-height:1;
         ">V</span>
@@ -72,10 +72,10 @@ export const Default = () => `
 
       <!-- Brand Name -->
       <div style="
-        margin-top:16px;
+        margin-top:var(--vv-space-5);
         font-family:Inter,sans-serif;
-        font-size:28px;
-        font-weight:700;
+        font-size:var(--vv-text-display-md-size);
+        font-weight:var(--ds-font-weight-display);
         line-height:36px;
         color:${tokens.colorTextPrimary};
         letter-spacing:-0.02em;
@@ -86,14 +86,14 @@ export const Default = () => `
         width:48px;
         height:2px;
         background:${tokens.colorGrey200};
-        margin:16px auto;
+        margin:var(--vv-space-5) auto;
       "></div>
 
       <!-- Tagline -->
       <div style="
         font-family:Inter,sans-serif;
         font-size:14px;
-        font-weight:400;
+        font-weight:var(--ds-font-weight-body);
         line-height:20px;
         color:${tokens.colorTextSecondary};
       ">Ride. Explore. Repeat.</div>
@@ -135,8 +135,8 @@ export const Default = () => `
       left:50%;
       transform:translateX(-50%);
       font-family:Inter,sans-serif;
-      font-size:11px;
-      font-weight:400;
+      font-size:var(--vv-text-label-sm-size);
+      font-weight:var(--ds-font-weight-body);
       line-height:16px;
       color:${tokens.colorGrey300};
       white-space:nowrap;
@@ -148,25 +148,25 @@ export const Default = () => `
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -214,7 +214,7 @@ export const Interactive = () => {
   ];
   dots.forEach(function(d) {
     const el = document.createElement('div');
-    el.style.cssText = 'position:absolute;width:6px;height:6px;border-radius:50%;background:'
+    el.style.cssText = 'position:absolute;width:6px;height:6px;border-radius:var(--vv-radius-full);background:'
       + tokens.colorGrey300 + ';top:' + d.top + 'px;left:' + d.left + 'px';
     patternLayer.appendChild(el);
   });
@@ -237,25 +237,25 @@ export const Interactive = () => {
     'display:flex', 'align-items:center', 'justify-content:center'
   ].join(';');
   const vLetter = document.createElement('span');
-  vLetter.style.cssText = 'font-family:Inter,sans-serif;font-size:48px;font-weight:700;color:' + tokens.colorTextPrimary + ';line-height:1';
+  vLetter.style.cssText = 'font-family:Inter,sans-serif;font-size:48px;font-weight:var(--ds-font-weight-display);color:' + tokens.colorTextPrimary + ';line-height:1';
   vLetter.textContent = 'V';
   badge.appendChild(vLetter);
   centerWrap.appendChild(badge);
 
   // Brand name
   const brandName = document.createElement('div');
-  brandName.style.cssText = 'margin-top:16px;font-family:Inter,sans-serif;font-size:28px;font-weight:700;line-height:36px;color:' + tokens.colorTextPrimary + ';letter-spacing:-0.02em';
+  brandName.style.cssText = 'margin-top:var(--vv-space-5);font-family:Inter,sans-serif;font-size:var(--vv-text-display-md-size);font-weight:var(--ds-font-weight-display);line-height:36px;color:' + tokens.colorTextPrimary + ';letter-spacing:-0.02em';
   brandName.textContent = 'VoltVenture';
   centerWrap.appendChild(brandName);
 
   // Divider
   const divider = document.createElement('div');
-  divider.style.cssText = 'width:48px;height:2px;background:' + tokens.colorGrey200 + ';margin:16px auto';
+  divider.style.cssText = 'width:48px;height:2px;background:' + tokens.colorGrey200 + ';margin:var(--vv-space-5) auto';
   centerWrap.appendChild(divider);
 
   // Tagline
   const tagline = document.createElement('div');
-  tagline.style.cssText = 'font-family:Inter,sans-serif;font-size:14px;font-weight:400;line-height:20px;color:' + tokens.colorTextSecondary;
+  tagline.style.cssText = 'font-family:Inter,sans-serif;font-size:14px;font-weight:var(--ds-font-weight-body);line-height:20px;color:' + tokens.colorTextSecondary;
   tagline.textContent = 'Ride. Explore. Repeat.';
   centerWrap.appendChild(tagline);
 
@@ -282,7 +282,7 @@ export const Interactive = () => {
   const version = document.createElement('div');
   version.style.cssText = [
     'position:absolute', 'bottom:24px', 'left:50%', 'transform:translateX(-50%)',
-    'font-family:Inter,sans-serif', 'font-size:11px', 'font-weight:400',
+    'font-family:Inter,sans-serif', 'font-size:var(--vv-text-label-sm-size)', 'font-weight:var(--ds-font-weight-body)',
     'line-height:16px', 'color:' + tokens.colorGrey300, 'white-space:nowrap'
   ].join(';');
   version.textContent = 'v1.0.0';
@@ -294,7 +294,7 @@ export const Interactive = () => {
 
 // ── Source code panel ─────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
 
 const _rnSource = `import React from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
@@ -418,4 +418,4 @@ const styles = StyleSheet.create({
   },
 });`;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Screens/Splash — React Native Paper JSX</div>${_blk('SplashScreen.tsx',_rnSource)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// Screens/Splash — React Native Paper JSX</div>${_blk('SplashScreen.tsx',_rnSource)}</div>`;

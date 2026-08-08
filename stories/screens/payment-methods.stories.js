@@ -6,25 +6,25 @@ export default { title: 'Screens/PaymentMethods' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -32,7 +32,7 @@ function makePhoneFrame() {
 
 // ── HTML helpers ────────────────────────────────────────────────────────────────
 function _esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-function _blk(label,html){return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
+function _blk(label,html){return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(html)}</pre></div>`;}
 
 // ── Default export (static HTML) ────────────────────────────────────────────────
 export const Default = () => `
@@ -46,29 +46,29 @@ export const Default = () => `
   box-sizing:border-box;
 ">
   <!-- Status Bar -->
-  <div style="height:62px;background:#0f0f0f;display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-sizing:border-box;">
-    <span style="font-size:15px;font-weight:600;color:#ffffff;">9:41</span>
-    <span style="font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>
+  <div style="height:62px;background:var(--vv-color-surface-inverse);display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-6);box-sizing:border-box;">
+    <span style="font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">9:41</span>
+    <span style="font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>
   </div>
 
   <!-- Header Row -->
-  <div style="height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;box-sizing:border-box;">
-    <div style="width:36px;height:36px;border-radius:50%;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#8592;</div>
-    <div style="font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};">Payment Methods</div>
+  <div style="height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);box-sizing:border-box;">
+    <div style="width:36px;height:36px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">&#8592;</div>
+    <div style="font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};">Payment Methods</div>
   </div>
 
   <!-- Subtitle -->
-  <div style="padding:4px 16px 16px;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};">Manage your saved payment methods.</div>
+  <div style="padding:var(--vv-space-2) var(--vv-space-5) var(--vv-space-5);font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};">Manage your saved payment methods.</div>
 
   <!-- Default Payment Card (visual credit card) -->
-  <div style="margin:0 16px 16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:20px;box-sizing:border-box;">
+  <div style="margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-6);box-sizing:border-box;">
     <!-- Card Top Row -->
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--vv-space-6);">
       <div style="font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">Default Card</div>
-      <div style="background:#ffffff;border-radius:6px;padding:2px 8px;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">Visa</div>
+      <div style="background:var(--vv-color-surface-base);border-radius:6px;padding:var(--vv-space-1) var(--vv-space-3);font-size:${tokens.typeLabelSm.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Visa</div>
     </div>
     <!-- Card Number -->
-    <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:500;color:#ffffff;letter-spacing:4px;margin-bottom:20px;">&#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; 4829</div>
+    <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-label-sm);color:var(--vv-color-text-on-inverse);letter-spacing:4px;margin-bottom:var(--vv-space-6);">&#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; 4829</div>
     <!-- Card Bottom Row -->
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <div style="font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">Expires 12/27</div>
@@ -77,73 +77,73 @@ export const Default = () => `
   </div>
 
   <!-- Add New Button -->
-  <div style="margin:0 16px 16px;box-sizing:border-box;">
+  <div style="margin:0 var(--vv-space-5) var(--vv-space-5);box-sizing:border-box;">
     <button style="
       width:100%;height:56px;background:${tokens.colorActionPrimary};
       border-radius:${tokens.radiusFull}px;border:none;
       font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;
-      font-weight:600;color:${tokens.colorTextPrimary};cursor:pointer;
+      font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};cursor:pointer;
       box-sizing:border-box;
     ">+ Add New Payment Method</button>
   </div>
 
   <!-- Options Label -->
-  <div style="padding:0 16px 8px;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">Payment Options</div>
+  <div style="padding:0 var(--vv-space-5) var(--vv-space-3);font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;">Payment Options</div>
 
   <!-- Options List (reference, all unselected) -->
-  <div style="margin:0 16px 16px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;overflow:hidden;border:1px solid ${tokens.colorGrey100};box-sizing:border-box;">
+  <div style="margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;overflow:hidden;border:1px solid ${tokens.colorGrey100};box-sizing:border-box;">
     <!-- Apple Pay -->
-    <div style="display:flex;align-items:center;padding:12px 16px;gap:12px;background:${tokens.colorSurfaceBase};min-height:56px;box-sizing:border-box;">
-      <div style="width:40px;height:40px;border-radius:${tokens.radiusMd}px;background:${tokens.colorSurfaceInverse};display:flex;align-items:center;justify-content:center;font-size:16px;color:#ffffff;flex-shrink:0;">&#63743;</div>
+    <div style="display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);background:${tokens.colorSurfaceBase};min-height:56px;box-sizing:border-box;">
+      <div style="width:40px;height:40px;border-radius:${tokens.radiusMd}px;background:${tokens.colorSurfaceInverse};display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--vv-color-text-on-inverse);flex-shrink:0;">&#63743;</div>
       <div style="flex:1;min-width:0;">
-        <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">Apple Pay</div>
-        <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:2px;">Touch ID</div>
+        <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Apple Pay</div>
+        <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Touch ID</div>
       </div>
       <div style="font-size:18px;color:${tokens.colorGrey300};">&#8250;</div>
     </div>
-    <div style="height:1px;background:${tokens.colorGrey100};margin:0 16px;"></div>
+    <div style="height:1px;background:${tokens.colorGrey100};margin:0 var(--vv-space-5);"></div>
     <!-- Google Wallet -->
-    <div style="display:flex;align-items:center;padding:12px 16px;gap:12px;background:${tokens.colorSurfaceBase};min-height:56px;box-sizing:border-box;">
-      <div style="width:40px;height:40px;border-radius:${tokens.radiusMd}px;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:${tokens.colorTextPrimary};flex-shrink:0;">G</div>
+    <div style="display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);background:${tokens.colorSurfaceBase};min-height:56px;box-sizing:border-box;">
+      <div style="width:40px;height:40px;border-radius:${tokens.radiusMd}px;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};flex-shrink:0;">G</div>
       <div style="flex:1;min-width:0;">
-        <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">Google Wallet</div>
-        <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:2px;">Pay with Google</div>
+        <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Google Wallet</div>
+        <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Pay with Google</div>
       </div>
       <div style="font-size:18px;color:${tokens.colorGrey300};">&#8250;</div>
     </div>
-    <div style="height:1px;background:${tokens.colorGrey100};margin:0 16px;"></div>
+    <div style="height:1px;background:${tokens.colorGrey100};margin:0 var(--vv-space-5);"></div>
     <!-- Credit/Debit Card -->
-    <div style="display:flex;align-items:center;padding:12px 16px;gap:12px;background:${tokens.colorSurfaceBase};min-height:56px;box-sizing:border-box;">
-      <div style="width:40px;height:40px;border-radius:${tokens.radiusMd}px;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">&#x1F4B3;</div>
+    <div style="display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);background:${tokens.colorSurfaceBase};min-height:56px;box-sizing:border-box;">
+      <div style="width:40px;height:40px;border-radius:${tokens.radiusMd}px;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-heading-lg-size);flex-shrink:0;">&#x1F4B3;</div>
       <div style="flex:1;min-width:0;">
-        <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">Credit / Debit Card</div>
-        <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:2px;">Visa &#8226;&#8226;&#8226;&#8226; 4829</div>
+        <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Credit / Debit Card</div>
+        <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Visa &#8226;&#8226;&#8226;&#8226; 4829</div>
       </div>
       <div style="font-size:18px;color:${tokens.colorGrey300};">&#8250;</div>
     </div>
   </div>
 
   <!-- Trust Card (colorGrey050) -->
-  <div style="margin:0 16px 16px;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:16px;display:flex;gap:12px;box-sizing:border-box;">
+  <div style="margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-5);display:flex;gap:var(--vv-space-4);box-sizing:border-box;">
     <div style="width:34px;height:34px;border-radius:${tokens.radiusMd}px;background:${tokens.colorGreen100};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">&#128274;</div>
     <div style="flex:1;min-width:0;">
-      <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">Bank-grade security</div>
-      <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:2px;">Payments secured by Stripe</div>
+      <div style="font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Bank-grade security</div>
+      <div style="font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Payments secured by Stripe</div>
     </div>
   </div>
 
   <!-- View Billing History Link -->
-  <div style="text-align:center;margin-bottom:16px;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};cursor:pointer;">&#129534; View Billing History</div>
+  <div style="text-align:center;margin-bottom:var(--vv-space-5);font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};cursor:pointer;">&#129534; View Billing History</div>
 
   <!-- Spacer -->
   <div style="flex:1;"></div>
 
   <!-- Tab Bar (Wallet = third tab, active) -->
-  <div style="display:flex;align-items:center;background:#ffffff;border-top:1px solid ${tokens.colorGrey100};height:64px;padding-bottom:8px;box-sizing:border-box;">
+  <div style="display:flex;align-items:center;background:var(--vv-color-surface-base);border-top:1px solid ${tokens.colorGrey100};height:64px;padding-bottom:var(--vv-space-3);box-sizing:border-box;">
     ${['Ride','Discover','Wallet','Account'].map((label, i) => `
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;">
-      <div style="width:36px;height:36px;border-radius:50%;${i===2 ? 'background:'+tokens.colorSurfaceInverse+';' : ''}display:flex;align-items:center;justify-content:center;">
-        <span style="font-size:16px;${i===2 ? 'color:#ffffff;' : 'color:'+tokens.colorGrey300+';'}">${['&#128663;','&#128269;','&#128179;','&#128100;'][i]}</span>
+      <div style="width:36px;height:36px;border-radius:var(--vv-radius-full);${i===2 ? 'background:'+tokens.colorSurfaceInverse+';' : ''}display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:16px;${i===2 ? 'color:var(--vv-color-text-on-inverse);' : 'color:'+tokens.colorGrey300+';'}">${['&#128663;','&#128269;','&#128179;','&#128100;'][i]}</span>
       </div>
       <span style="font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};${i===2 ? 'color:'+tokens.colorTextAccent+';' : 'color:'+tokens.colorGrey300+';'}">${label}</span>
     </div>`).join('')}
@@ -156,16 +156,16 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow-y:auto;background:#ffffff;';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow-y:auto;background:var(--vv-color-surface-base);';
 
   // Header Row
   const header = document.createElement('div');
-  header.style.cssText = `height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;box-sizing:border-box;flex-shrink:0;`;
+  header.style.cssText = `height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);box-sizing:border-box;flex-shrink:0;`;
   const backBtn = document.createElement('div');
-  backBtn.style.cssText = `width:36px;height:36px;border-radius:50%;background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;cursor:pointer;`;
+  backBtn.style.cssText = `width:36px;height:36px;border-radius:var(--vv-radius-full);background:${tokens.colorGrey100};display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;cursor:pointer;`;
   backBtn.innerHTML = '&#8592;';
   const titleEl = document.createElement('div');
-  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   titleEl.textContent = 'Payment Methods';
   header.appendChild(backBtn);
   header.appendChild(titleEl);
@@ -173,19 +173,19 @@ export const Interactive = () => {
 
   // Subtitle
   const subtitle = document.createElement('div');
-  subtitle.style.cssText = `padding:4px 16px 16px;font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};flex-shrink:0;`;
+  subtitle.style.cssText = `padding:var(--vv-space-2) var(--vv-space-5) var(--vv-space-5);font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};flex-shrink:0;`;
   subtitle.textContent = 'Manage your saved payment methods.';
   content.appendChild(subtitle);
 
   // Default Payment Card (visual dark credit card)
   const cardSection = document.createElement('div');
-  cardSection.style.cssText = `margin:0 16px 16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:20px;box-sizing:border-box;flex-shrink:0;`;
+  cardSection.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-6);box-sizing:border-box;flex-shrink:0;`;
   cardSection.innerHTML = `
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--vv-space-6);">
       <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">Default Card</div>
-      <div style="background:#ffffff;border-radius:6px;padding:2px 8px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">Visa</div>
+      <div style="background:var(--vv-color-surface-base);border-radius:6px;padding:var(--vv-space-1) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Visa</div>
     </div>
-    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:500;color:#ffffff;letter-spacing:4px;margin-bottom:20px;">&#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; 4829</div>
+    <div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-label-sm);color:var(--vv-color-text-on-inverse);letter-spacing:4px;margin-bottom:var(--vv-space-6);">&#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; 4829</div>
     <div style="display:flex;align-items:center;justify-content:space-between;">
       <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">Expires 12/27</div>
       <div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};">John Doe</div>
@@ -195,9 +195,9 @@ export const Interactive = () => {
 
   // Add New Button
   const addNewWrapper = document.createElement('div');
-  addNewWrapper.style.cssText = 'margin:0 16px 16px;box-sizing:border-box;flex-shrink:0;';
+  addNewWrapper.style.cssText = 'margin:0 var(--vv-space-5) var(--vv-space-5);box-sizing:border-box;flex-shrink:0;';
   const addNewBtn = document.createElement('button');
-  addNewBtn.style.cssText = `width:100%;height:56px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};cursor:pointer;box-sizing:border-box;transition:background 120ms ease,transform 100ms ease;`;
+  addNewBtn.style.cssText = `width:100%;height:56px;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;font-family:Inter,sans-serif;font-size:${tokens.typeHeadingSm.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};cursor:pointer;box-sizing:border-box;transition:background 120ms var(--vv-easing-standard),transform var(--vv-duration-fast) var(--vv-easing-standard);`;
   addNewBtn.textContent = '+ Add New Payment Method';
   addNewBtn.addEventListener('pointerdown', () => {
     addNewBtn.style.background = tokens.colorGreen600;
@@ -216,13 +216,13 @@ export const Interactive = () => {
 
   // Options Label
   const optLabel = document.createElement('div');
-  optLabel.style.cssText = `padding:0 16px 8px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;`;
+  optLabel.style.cssText = `padding:0 var(--vv-space-5) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;`;
   optLabel.textContent = 'Payment Options';
   content.appendChild(optLabel);
 
   // Options List (reference rows, press feedback)
   const optList = document.createElement('div');
-  optList.style.cssText = `margin:0 16px 16px;background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;overflow:hidden;border:1px solid ${tokens.colorGrey100};box-sizing:border-box;flex-shrink:0;`;
+  optList.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;overflow:hidden;border:1px solid ${tokens.colorGrey100};box-sizing:border-box;flex-shrink:0;`;
 
   const optionItems = [
     { icon: '&#63743;', iconBg: tokens.colorSurfaceInverse, iconColor: '#ffffff', title: 'Apple Pay', sub: 'Touch ID' },
@@ -233,21 +233,21 @@ export const Interactive = () => {
   optionItems.forEach((item, idx) => {
     if (idx > 0) {
       const div = document.createElement('div');
-      div.style.cssText = `height:1px;background:${tokens.colorGrey100};margin:0 16px;`;
+      div.style.cssText = `height:1px;background:${tokens.colorGrey100};margin:0 var(--vv-space-5);`;
       optList.appendChild(div);
     }
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;padding:12px 16px;gap:12px;min-height:56px;box-sizing:border-box;cursor:pointer;background:${tokens.colorSurfaceBase};transition:background 100ms ease;`;
+    row.style.cssText = `display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);min-height:56px;box-sizing:border-box;cursor:pointer;background:${tokens.colorSurfaceBase};transition:background var(--vv-duration-fast) var(--vv-easing-standard);`;
     const chip = document.createElement('div');
     chip.style.cssText = `width:40px;height:40px;border-radius:${tokens.radiusMd}px;background:${item.iconBg};display:flex;align-items:center;justify-content:center;flex-shrink:0;`;
     if (item.iconColor) {
-      chip.innerHTML = `<span style="font-size:${item.icon.length > 3 ? '20' : '16'}px;color:${item.iconColor};font-weight:700;">${item.icon}</span>`;
+      chip.innerHTML = `<span style="font-size:${item.icon.length > 3 ? '20' : '16'}px;color:${item.iconColor};font-weight:var(--ds-font-weight-display);">${item.icon}</span>`;
     } else {
-      chip.innerHTML = `<span style="font-size:20px;">${item.icon}</span>`;
+      chip.innerHTML = `<span style="font-size:var(--vv-text-heading-lg-size);">${item.icon}</span>`;
     }
     const textCol = document.createElement('div');
     textCol.style.cssText = 'flex:1;min-width:0;';
-    textCol.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">${item.title}</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:2px;">${item.sub}</div>`;
+    textCol.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">${item.title}</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">${item.sub}</div>`;
     const chevron = document.createElement('div');
     chevron.style.cssText = `font-family:Inter,sans-serif;font-size:18px;color:${tokens.colorGrey300};`;
     chevron.innerHTML = '&#8250;';
@@ -264,20 +264,20 @@ export const Interactive = () => {
 
   // Trust Card (colorGrey050)
   const trustCard = document.createElement('div');
-  trustCard.style.cssText = `margin:0 16px 16px;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:16px;display:flex;gap:12px;box-sizing:border-box;flex-shrink:0;`;
+  trustCard.style.cssText = `margin:0 var(--vv-space-5) var(--vv-space-5);background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-5);display:flex;gap:var(--vv-space-4);box-sizing:border-box;flex-shrink:0;`;
   const lockChip = document.createElement('div');
   lockChip.style.cssText = `width:34px;height:34px;border-radius:${tokens.radiusMd}px;background:${tokens.colorGreen100};display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;`;
   lockChip.innerHTML = '&#128274;';
   const trustText = document.createElement('div');
   trustText.style.cssText = 'flex:1;min-width:0;';
-  trustText.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};">Bank-grade security</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:2px;">Payments secured by Stripe</div>`;
+  trustText.innerHTML = `<div style="font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Bank-grade security</div><div style="font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Payments secured by Stripe</div>`;
   trustCard.appendChild(lockChip);
   trustCard.appendChild(trustText);
   content.appendChild(trustCard);
 
   // Billing History Link
   const billingLink = document.createElement('div');
-  billingLink.style.cssText = `text-align:center;margin-bottom:16px;font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};cursor:pointer;flex-shrink:0;`;
+  billingLink.style.cssText = `text-align:center;margin-bottom:var(--vv-space-5);font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;color:${tokens.colorTextSecondary};cursor:pointer;flex-shrink:0;`;
   billingLink.innerHTML = '&#129534; View Billing History';
   billingLink.addEventListener('pointerdown', () => { billingLink.style.opacity = '0.6'; });
   billingLink.addEventListener('pointerup', () => { billingLink.style.opacity = '1'; });
@@ -297,7 +297,7 @@ export const Interactive = () => {
   let activeTab = 2; // Wallet
 
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `flex-shrink:0;display:flex;align-items:center;background:#ffffff;border-top:1px solid ${tokens.colorGrey100};height:64px;padding-bottom:8px;box-sizing:border-box;`;
+  tabBar.style.cssText = `flex-shrink:0;display:flex;align-items:center;background:var(--vv-color-surface-base);border-top:1px solid ${tokens.colorGrey100};height:64px;padding-bottom:var(--vv-space-3);box-sizing:border-box;`;
 
   const tabEls = [];
 
@@ -315,7 +315,7 @@ export const Interactive = () => {
     tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;';
 
     const circle = document.createElement('div');
-    circle.style.cssText = `width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:${i === activeTab ? tokens.colorSurfaceInverse : 'transparent'};`;
+    circle.style.cssText = `width:36px;height:36px;border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;background:${i === activeTab ? tokens.colorSurfaceInverse : 'transparent'};`;
 
     const icon = document.createElement('span');
     icon.style.cssText = `font-size:16px;color:${i === activeTab ? '#ffffff' : tokens.colorGrey300};`;
@@ -520,4 +520,4 @@ export function PaymentMethodsScreen() {
 }
 `;
 
-export const SourceCode = () => `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// PaymentMethods — React Native Paper</div>${_blk('PaymentMethodsScreen',_rnJSX)}</div>`;
+export const SourceCode = () => `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// PaymentMethods — React Native Paper</div>${_blk('PaymentMethodsScreen',_rnJSX)}</div>`;

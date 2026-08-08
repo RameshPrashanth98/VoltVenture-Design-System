@@ -6,25 +6,25 @@ export default { title: 'Screens/RideHistoryStats' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -58,12 +58,12 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0 20px;
+      padding:0 var(--vv-space-6);
       box-sizing:border-box;
       flex-shrink:0;
     ">
-      <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
 
     <!-- Header Row -->
@@ -71,8 +71,8 @@ export const Default = () => `
       height:44px;
       display:flex;
       align-items:center;
-      padding:0 16px;
-      gap:12px;
+      padding:0 var(--vv-space-5);
+      gap:var(--vv-space-4);
       flex-shrink:0;
     ">
       <div style="
@@ -85,7 +85,7 @@ export const Default = () => `
       <span style="
         font-family:Manjari,sans-serif;
         font-size:${tokens.typeHeadingMd.fontSize}px;
-        font-weight:700;
+        font-weight:var(--ds-font-weight-display);
         color:${tokens.colorTextPrimary};
         flex:1;
       ">Ride History &amp; Stats</span>
@@ -93,10 +93,10 @@ export const Default = () => `
 
     <!-- Stats Overview Card — dark surface -->
     <div style="
-      margin:16px;
+      margin:var(--vv-space-5);
       background:${tokens.colorSurfaceInverse};
       border-radius:${tokens.radiusXl}px;
-      padding:20px 0;
+      padding:var(--vv-space-6) 0;
       display:flex;
       flex-shrink:0;
       box-sizing:border-box;
@@ -106,8 +106,8 @@ export const Default = () => `
         <div style="
           font-family:Manjari,sans-serif;
           font-size:${tokens.typeHeadingMd.fontSize}px;
-          font-weight:700;
-          color:#ffffff;
+          font-weight:var(--ds-font-weight-display);
+          color:var(--vv-color-text-on-inverse);
           line-height:1.2;
         ">24</div>
         <div style="
@@ -115,7 +115,7 @@ export const Default = () => `
           font-size:${tokens.typeLabelSm.fontSize}px;
           font-weight:${tokens.typeLabelSm.fontWeight};
           color:${tokens.colorGrey500};
-          margin-top:4px;
+          margin-top:var(--vv-space-2);
         ">Total Rides</div>
       </div>
       <!-- Divider -->
@@ -125,8 +125,8 @@ export const Default = () => `
         <div style="
           font-family:Manjari,sans-serif;
           font-size:${tokens.typeHeadingMd.fontSize}px;
-          font-weight:700;
-          color:#ffffff;
+          font-weight:var(--ds-font-weight-display);
+          color:var(--vv-color-text-on-inverse);
           line-height:1.2;
         ">87.3 km</div>
         <div style="
@@ -134,7 +134,7 @@ export const Default = () => `
           font-size:${tokens.typeLabelSm.fontSize}px;
           font-weight:${tokens.typeLabelSm.fontWeight};
           color:${tokens.colorGrey500};
-          margin-top:4px;
+          margin-top:var(--vv-space-2);
         ">Distance</div>
       </div>
       <!-- Divider -->
@@ -144,7 +144,7 @@ export const Default = () => `
         <div style="
           font-family:Manjari,sans-serif;
           font-size:${tokens.typeHeadingMd.fontSize}px;
-          font-weight:700;
+          font-weight:var(--ds-font-weight-display);
           color:${tokens.colorActionPrimary};
           line-height:1.2;
         ">289</div>
@@ -153,14 +153,14 @@ export const Default = () => `
           font-size:${tokens.typeLabelSm.fontSize}px;
           font-weight:${tokens.typeLabelSm.fontWeight};
           color:${tokens.colorGrey500};
-          margin-top:4px;
+          margin-top:var(--vv-space-2);
         ">VoltCoins</div>
       </div>
     </div>
 
     <!-- History Label -->
     <div style="
-      padding:0 16px 8px;
+      padding:0 var(--vv-space-5) var(--vv-space-3);
       font-family:Inter,sans-serif;
       font-size:${tokens.typeLabelSm.fontSize}px;
       font-weight:${tokens.typeLabelSm.fontWeight};
@@ -172,7 +172,7 @@ export const Default = () => `
 
     <!-- History List -->
     <div style="
-      margin:0 16px;
+      margin:0 var(--vv-space-5);
       border-radius:${tokens.radiusLg}px;
       border:1px solid ${tokens.colorGrey100};
       overflow:hidden;
@@ -182,8 +182,8 @@ export const Default = () => `
         <div style="
           display:flex;
           align-items:center;
-          padding:12px 16px;
-          gap:12px;
+          padding:var(--vv-space-4) var(--vv-space-5);
+          gap:var(--vv-space-4);
           background:${tokens.colorSurfaceBase};
           cursor:pointer;
           min-height:56px;
@@ -201,7 +201,7 @@ export const Default = () => `
             <div style="
               font-family:Inter,sans-serif;
               font-size:${tokens.typeBodyMd.fontSize}px;
-              font-weight:600;
+              font-weight:var(--ds-font-weight-heading);
               color:${tokens.colorTextPrimary};
             ">${ride.name}</div>
             <div style="
@@ -209,7 +209,7 @@ export const Default = () => `
               font-size:${tokens.typeLabelSm.fontSize}px;
               font-weight:${tokens.typeLabelSm.fontWeight};
               color:${tokens.colorTextSecondary};
-              margin-top:2px;
+              margin-top:var(--vv-space-1);
             ">${ride.meta}</div>
           </div>
           <span style="
@@ -219,7 +219,7 @@ export const Default = () => `
             color:${tokens.colorGrey500};
             flex-shrink:0;
           ">${ride.date}</span>
-          <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;flex-shrink:0;">&#8250;</span>
+          <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;flex-shrink:0;">&#8250;</span>
         </div>
       `).join('')}
     </div>
@@ -232,7 +232,7 @@ export const Default = () => `
       display:flex;
       background:${tokens.colorSurfaceBase};
       border-top:1px solid ${tokens.colorGrey100};
-      padding:8px 0 24px;
+      padding:var(--vv-space-3) 0 var(--vv-space-7);
       flex-shrink:0;
     ">
       ${TABS.map((label, i) => {
@@ -242,7 +242,7 @@ export const Default = () => `
           display:flex;
           flex-direction:column;
           align-items:center;
-          gap:4px;
+          gap:var(--vv-space-2);
           cursor:pointer;
         ">
           <div style="
@@ -269,18 +269,18 @@ export const Interactive = () => {
   const { frame, screen } = makePhoneFrame();
 
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow:auto;background:#ffffff;';
+  content.style.cssText = 'flex:1;display:flex;flex-direction:column;overflow:auto;background:var(--vv-color-surface-base);';
 
   // Header Row
   const header = document.createElement('div');
-  header.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;';
+  header.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);flex-shrink:0;';
 
   const backBtn = document.createElement('div');
   backBtn.style.cssText = `width:36px;height:36px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;flex-shrink:0;`;
   backBtn.textContent = '\u2190';
 
   const headerTitle = document.createElement('span');
-  headerTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${tokens.colorTextPrimary};flex:1;`;
+  headerTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};flex:1;`;
   headerTitle.textContent = 'Ride History & Stats';
 
   header.appendChild(backBtn);
@@ -289,16 +289,16 @@ export const Interactive = () => {
 
   // Stats Overview Card
   const statsCard = document.createElement('div');
-  statsCard.style.cssText = `margin:16px;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:20px 0;display:flex;flex-shrink:0;box-sizing:border-box;`;
+  statsCard.style.cssText = `margin:var(--vv-space-5);background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusXl}px;padding:var(--vv-space-6) 0;display:flex;flex-shrink:0;box-sizing:border-box;`;
 
   function makeStatBlock(value, label, valueColor) {
     const block = document.createElement('div');
     block.style.cssText = 'flex:1;text-align:center;';
     const num = document.createElement('div');
-    num.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:700;color:${valueColor || '#ffffff'};line-height:1.2;`;
+    num.style.cssText = `font-family:Manjari,sans-serif;font-size:${tokens.typeHeadingMd.fontSize}px;font-weight:var(--ds-font-weight-display);color:${valueColor || '#ffffff'};line-height:1.2;`;
     num.textContent = value;
     const lbl = document.createElement('div');
-    lbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};margin-top:4px;`;
+    lbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};margin-top:var(--vv-space-2);`;
     lbl.textContent = label;
     block.appendChild(num);
     block.appendChild(lbl);
@@ -320,17 +320,17 @@ export const Interactive = () => {
 
   // History Label
   const historyLabel = document.createElement('div');
-  historyLabel.style.cssText = `padding:0 16px 8px;font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;`;
+  historyLabel.style.cssText = `padding:0 var(--vv-space-5) var(--vv-space-3);font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;`;
   historyLabel.textContent = 'Recent Rides';
   content.appendChild(historyLabel);
 
   // History List
   const historyList = document.createElement('div');
-  historyList.style.cssText = `margin:0 16px;border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};overflow:hidden;flex-shrink:0;`;
+  historyList.style.cssText = `margin:0 var(--vv-space-5);border-radius:${tokens.radiusLg}px;border:1px solid ${tokens.colorGrey100};overflow:hidden;flex-shrink:0;`;
 
   RIDES.forEach((ride, i) => {
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;padding:12px 16px;gap:12px;background:${tokens.colorSurfaceBase};cursor:pointer;min-height:56px;box-sizing:border-box;`;
+    row.style.cssText = `display:flex;align-items:center;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);background:${tokens.colorSurfaceBase};cursor:pointer;min-height:56px;box-sizing:border-box;`;
 
     // Press feedback
     row.addEventListener('pointerdown', () => { row.style.backgroundColor = tokens.colorGrey100; });
@@ -344,10 +344,10 @@ export const Interactive = () => {
     const info = document.createElement('div');
     info.style.cssText = 'flex:1;min-width:0;';
     const rideName = document.createElement('div');
-    rideName.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+    rideName.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeBodyMd.fontSize}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
     rideName.textContent = ride.name;
     const rideMeta = document.createElement('div');
-    rideMeta.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:2px;`;
+    rideMeta.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.typeLabelSm.fontSize}px;font-weight:${tokens.typeLabelSm.fontWeight};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);`;
     rideMeta.textContent = ride.meta;
     info.appendChild(rideName);
     info.appendChild(rideMeta);
@@ -357,7 +357,7 @@ export const Interactive = () => {
     dateEl.textContent = ride.date;
 
     const chevron = document.createElement('span');
-    chevron.style.cssText = `color:${tokens.colorGrey300};font-size:20px;line-height:1;flex-shrink:0;`;
+    chevron.style.cssText = `color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;flex-shrink:0;`;
     chevron.textContent = '\u203A';
 
     row.appendChild(chip);
@@ -385,14 +385,14 @@ export const Interactive = () => {
 
   // Tab Bar
   const tabBar = document.createElement('div');
-  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:8px 0 24px;flex-shrink:0;`;
+  tabBar.style.cssText = `display:flex;background:${tokens.colorSurfaceBase};border-top:1px solid ${tokens.colorGrey100};padding:var(--vv-space-3) 0 var(--vv-space-7);flex-shrink:0;`;
 
   let activeTab = 3; // Account
   const tabEls = [];
 
   TABS.forEach((label, i) => {
     const tab = document.createElement('div');
-    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;';
+    tab.style.cssText = 'flex:1;display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-2);cursor:pointer;';
 
     const pill = document.createElement('div');
     pill.style.cssText = `width:40px;height:26px;border-radius:${tokens.radiusFull}px;background:${i === activeTab ? tokens.colorSurfaceInverse : tokens.colorGrey200};display:flex;align-items:center;justify-content:center;`;
@@ -424,7 +424,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const _rideHistorySnippet = `import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
@@ -532,7 +532,7 @@ export default function RideHistoryStatsScreen() {
 }`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// RideHistoryStats Screen — React Native Paper</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// RideHistoryStats Screen — React Native Paper</div>` +
   _blk('Ride History & Stats Screen (frame PNaMF)', _rideHistorySnippet) +
   `</div>`;

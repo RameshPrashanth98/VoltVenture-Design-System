@@ -6,25 +6,25 @@ export default { title: 'Screens/EditProfile' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -48,11 +48,11 @@ export const Default = () => `
     align-items:center;
     justify-content:space-between;
     background:${tokens.colorSurfaceBase};
-    padding:0 20px;
+    padding:0 var(--vv-space-6);
     box-sizing:border-box;
   ">
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-    <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#9646; WiFi &#9650;</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};letter-spacing:2px;">&#9646; WiFi &#9650;</span>
   </div>
 
   <!-- Header Row (44px) -->
@@ -61,8 +61,8 @@ export const Default = () => `
     height:44px;
     display:flex;
     align-items:center;
-    padding:0 16px;
-    gap:12px;
+    padding:0 var(--vv-space-5);
+    gap:var(--vv-space-4);
     box-sizing:border-box;
   ">
     <!-- Back Button 36×36px -->
@@ -70,7 +70,7 @@ export const Default = () => `
       width:36px;
       height:36px;
       background:${tokens.colorGrey100};
-      border-radius:50%;
+      border-radius:var(--vv-radius-full);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -82,8 +82,8 @@ export const Default = () => `
     <!-- Title -->
     <span style="
       font-family:Manjari,sans-serif;
-      font-size:20px;
-      font-weight:700;
+      font-size:var(--vv-text-heading-lg-size);
+      font-weight:var(--ds-font-weight-display);
       color:${tokens.colorTextPrimary};
       line-height:1;
     ">Edit Profile</span>
@@ -91,11 +91,11 @@ export const Default = () => `
 
   <!-- Avatar Section -->
   <div style="
-    padding:24px 20px;
+    padding:var(--vv-space-7) var(--vv-space-6);
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:12px;
+    gap:var(--vv-space-4);
   ">
     <!-- Avatar Wrap: position:relative, 88×88 container -->
     <div style="
@@ -111,12 +111,12 @@ export const Default = () => `
         width:76px;
         height:76px;
         background:${tokens.colorSurfaceInverse};
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         display:flex;
         align-items:center;
         justify-content:center;
       ">
-        <span style="font-size:34px;color:#ffffff;line-height:1;">&#128100;</span>
+        <span style="font-size:34px;color:var(--vv-color-text-on-inverse);line-height:1;">&#128100;</span>
       </div>
       <!-- Camera Button: 28×28px, position:absolute bottom-right -->
       <div style="
@@ -126,20 +126,20 @@ export const Default = () => `
         width:28px;
         height:28px;
         background:${tokens.colorActionPrimary};
-        border-radius:50%;
+        border-radius:var(--vv-radius-full);
         display:flex;
         align-items:center;
         justify-content:center;
         cursor:pointer;
       ">
-        <span style="font-size:13px;line-height:1;">&#128247;</span>
+        <span style="font-size:var(--vv-text-body-sm-size);line-height:1;">&#128247;</span>
       </div>
     </div>
     <!-- Change photo text -->
     <span style="
       font-family:Inter,sans-serif;
-      font-size:11px;
-      font-weight:500;
+      font-size:var(--vv-text-label-sm-size);
+      font-weight:var(--ds-font-weight-label-sm);
       color:${tokens.colorTextAccent};
       cursor:pointer;
     ">Change photo</span>
@@ -147,10 +147,10 @@ export const Default = () => `
 
   <!-- Form Section -->
   <div style="
-    padding:0 16px;
+    padding:0 var(--vv-space-5);
     display:flex;
     flex-direction:column;
-    gap:16px;
+    gap:var(--vv-space-5);
     box-sizing:border-box;
   ">
 
@@ -165,8 +165,8 @@ export const Default = () => `
       ">
         <span style="
           font-family:Inter,sans-serif;
-          font-size:11px;
-          font-weight:500;
+          font-size:var(--vv-text-label-sm-size);
+          font-weight:var(--ds-font-weight-label-sm);
           color:${tokens.colorGrey500};
           text-transform:uppercase;
           letter-spacing:0.5px;
@@ -176,16 +176,16 @@ export const Default = () => `
       <div style="
         background:${tokens.colorGrey050};
         border-radius:${tokens.radiusMd}px;
-        padding:12px 16px;
+        padding:var(--vv-space-4) var(--vv-space-5);
         border:1px solid ${tokens.colorGrey200};
         display:flex;
         align-items:center;
-        gap:8px;
+        gap:var(--vv-space-3);
         cursor:text;
         box-sizing:border-box;
       ">
         <span style="font-size:16px;color:${tokens.colorGrey300};line-height:1;">&#128100;</span>
-        <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextPrimary};">Alex Johnson</span>
+        <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextPrimary};">Alex Johnson</span>
       </div>
     </div>
 
@@ -200,8 +200,8 @@ export const Default = () => `
       ">
         <span style="
           font-family:Inter,sans-serif;
-          font-size:11px;
-          font-weight:500;
+          font-size:var(--vv-text-label-sm-size);
+          font-weight:var(--ds-font-weight-label-sm);
           color:${tokens.colorGrey500};
           text-transform:uppercase;
           letter-spacing:0.5px;
@@ -210,14 +210,14 @@ export const Default = () => `
         <div style="
           background:${tokens.colorGreen100};
           border-radius:${tokens.radiusFull}px;
-          padding:2px 8px;
+          padding:var(--vv-space-1) var(--vv-space-3);
           display:inline-flex;
           align-items:center;
         ">
           <span style="
             font-family:Inter,sans-serif;
-            font-size:11px;
-            font-weight:500;
+            font-size:var(--vv-text-label-sm-size);
+            font-weight:var(--ds-font-weight-label-sm);
             color:${tokens.colorTextAccent};
           ">&#10003; Verified</span>
         </div>
@@ -226,16 +226,16 @@ export const Default = () => `
       <div style="
         background:${tokens.colorGrey050};
         border-radius:${tokens.radiusMd}px;
-        padding:12px 16px;
+        padding:var(--vv-space-4) var(--vv-space-5);
         border:1px solid ${tokens.colorGrey200};
         display:flex;
         align-items:center;
-        gap:8px;
+        gap:var(--vv-space-3);
         cursor:text;
         box-sizing:border-box;
       ">
         <span style="font-size:16px;color:${tokens.colorGrey300};line-height:1;">&#9993;</span>
-        <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextPrimary};">alex.johnson@email.com</span>
+        <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextPrimary};">alex.johnson@email.com</span>
       </div>
     </div>
 
@@ -250,8 +250,8 @@ export const Default = () => `
       ">
         <span style="
           font-family:Inter,sans-serif;
-          font-size:11px;
-          font-weight:500;
+          font-size:var(--vv-text-label-sm-size);
+          font-weight:var(--ds-font-weight-label-sm);
           color:${tokens.colorGrey500};
           text-transform:uppercase;
           letter-spacing:0.5px;
@@ -260,14 +260,14 @@ export const Default = () => `
         <div style="
           background:${tokens.colorGreen100};
           border-radius:${tokens.radiusFull}px;
-          padding:2px 8px;
+          padding:var(--vv-space-1) var(--vv-space-3);
           display:inline-flex;
           align-items:center;
         ">
           <span style="
             font-family:Inter,sans-serif;
-            font-size:11px;
-            font-weight:500;
+            font-size:var(--vv-text-label-sm-size);
+            font-weight:var(--ds-font-weight-label-sm);
             color:${tokens.colorTextAccent};
           ">&#10003; Verified</span>
         </div>
@@ -276,16 +276,16 @@ export const Default = () => `
       <div style="
         background:${tokens.colorGrey050};
         border-radius:${tokens.radiusMd}px;
-        padding:12px 16px;
+        padding:var(--vv-space-4) var(--vv-space-5);
         border:1px solid ${tokens.colorGrey200};
         display:flex;
         align-items:center;
-        gap:8px;
+        gap:var(--vv-space-3);
         cursor:text;
         box-sizing:border-box;
       ">
         <span style="font-size:16px;color:${tokens.colorGrey300};line-height:1;">&#128241;</span>
-        <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextPrimary};">+91 98XXXXXXXX</span>
+        <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextPrimary};">+91 98XXXXXXXX</span>
       </div>
     </div>
 
@@ -295,7 +295,7 @@ export const Default = () => `
   <div style="flex:1;"></div>
 
   <!-- CTA Wrap -->
-  <div style="padding:16px;box-sizing:border-box;padding-bottom:34px;">
+  <div style="padding:var(--vv-space-5);box-sizing:border-box;padding-bottom:34px;">
     <button style="
       height:56px;
       width:100%;
@@ -306,14 +306,14 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
+      gap:var(--vv-space-3);
       box-sizing:border-box;
     ">
       <span style="font-size:16px;line-height:1;">&#10003;</span>
       <span style="
         font-family:Inter,sans-serif;
-        font-size:15px;
-        font-weight:600;
+        font-size:var(--vv-text-body-md-size);
+        font-weight:var(--ds-font-weight-heading);
         color:${tokens.colorTextPrimary};
       ">Save Changes</span>
     </button>
@@ -327,21 +327,21 @@ export const Interactive = () => {
 
   // Scrollable content area (white bg to match spec)
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;overflow-y:auto;display:flex;flex-direction:column;background:#ffffff;box-sizing:border-box;';
+  content.style.cssText = 'flex:1;overflow-y:auto;display:flex;flex-direction:column;background:var(--vv-color-surface-base);box-sizing:border-box;';
 
   // ── Header Row ──────────────────────────────────────────────────────────────
   const headerRow = document.createElement('div');
-  headerRow.style.cssText = 'flex-shrink:0;height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;box-sizing:border-box;';
+  headerRow.style.cssText = 'flex-shrink:0;height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);box-sizing:border-box;';
 
   const backBtn = document.createElement('div');
-  backBtn.style.cssText = `width:36px;height:36px;background:${tokens.colorGrey100};border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background-color 100ms ease;`;
-  backBtn.innerHTML = '<span style="font-size:18px;color:#0f0f0f;line-height:1;">&#8592;</span>';
+  backBtn.style.cssText = `width:36px;height:36px;background:${tokens.colorGrey100};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background-color var(--vv-duration-fast) var(--vv-easing-standard);`;
+  backBtn.innerHTML = '<span style="font-size:18px;color:var(--vv-color-text-primary);line-height:1;">&#8592;</span>';
   backBtn.addEventListener('pointerdown', () => { backBtn.style.backgroundColor = tokens.colorGrey200; });
   backBtn.addEventListener('pointerup', () => { backBtn.style.backgroundColor = tokens.colorGrey100; });
   backBtn.addEventListener('pointerleave', () => { backBtn.style.backgroundColor = tokens.colorGrey100; });
 
   const pageTitle = document.createElement('span');
-  pageTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:20px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1;`;
+  pageTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:var(--vv-text-heading-lg-size);font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1;`;
   pageTitle.textContent = 'Edit Profile';
 
   headerRow.appendChild(backBtn);
@@ -349,18 +349,18 @@ export const Interactive = () => {
 
   // ── Avatar Section ──────────────────────────────────────────────────────────
   const avatarSection = document.createElement('div');
-  avatarSection.style.cssText = 'padding:24px 20px;display:flex;flex-direction:column;align-items:center;gap:12px;';
+  avatarSection.style.cssText = 'padding:var(--vv-space-7) var(--vv-space-6);display:flex;flex-direction:column;align-items:center;gap:var(--vv-space-4);';
 
   const avatarWrap = document.createElement('div');
   avatarWrap.style.cssText = 'position:relative;width:88px;height:88px;display:flex;align-items:center;justify-content:center;';
 
   const avatarCircle = document.createElement('div');
-  avatarCircle.style.cssText = `width:76px;height:76px;background:${tokens.colorSurfaceInverse};border-radius:50%;display:flex;align-items:center;justify-content:center;`;
-  avatarCircle.innerHTML = '<span style="font-size:34px;color:#ffffff;line-height:1;">&#128100;</span>';
+  avatarCircle.style.cssText = `width:76px;height:76px;background:${tokens.colorSurfaceInverse};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;`;
+  avatarCircle.innerHTML = '<span style="font-size:34px;color:var(--vv-color-text-on-inverse);line-height:1;">&#128100;</span>';
 
   const cameraBtn = document.createElement('div');
-  cameraBtn.style.cssText = `position:absolute;bottom:0;right:0;width:28px;height:28px;background:${tokens.colorActionPrimary};border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 100ms ease;`;
-  cameraBtn.innerHTML = '<span style="font-size:13px;line-height:1;">&#128247;</span>';
+  cameraBtn.style.cssText = `position:absolute;bottom:0;right:0;width:28px;height:28px;background:${tokens.colorActionPrimary};border-radius:var(--vv-radius-full);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform var(--vv-duration-fast) var(--vv-easing-standard);`;
+  cameraBtn.innerHTML = '<span style="font-size:var(--vv-text-body-sm-size);line-height:1;">&#128247;</span>';
   cameraBtn.addEventListener('pointerdown', () => { cameraBtn.style.transform = 'scale(0.90)'; });
   cameraBtn.addEventListener('pointerup', () => { cameraBtn.style.transform = 'scale(1)'; });
   cameraBtn.addEventListener('pointerleave', () => { cameraBtn.style.transform = 'scale(1)'; });
@@ -369,7 +369,7 @@ export const Interactive = () => {
   avatarWrap.appendChild(cameraBtn);
 
   const changePhotoText = document.createElement('span');
-  changePhotoText.style.cssText = `font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextAccent};cursor:pointer;`;
+  changePhotoText.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextAccent};cursor:pointer;`;
   changePhotoText.textContent = 'Change photo';
 
   avatarSection.appendChild(avatarWrap);
@@ -377,7 +377,7 @@ export const Interactive = () => {
 
   // ── Form Section ────────────────────────────────────────────────────────────
   const formSection = document.createElement('div');
-  formSection.style.cssText = 'padding:0 16px;display:flex;flex-direction:column;gap:16px;box-sizing:border-box;';
+  formSection.style.cssText = 'padding:0 var(--vv-space-5);display:flex;flex-direction:column;gap:var(--vv-space-5);box-sizing:border-box;';
 
   // Helper: create a form field with optional VerifiedChip and hidden input
   function makeField(labelText, iconHtml, valueText, inputType, hasVerifiedChip) {
@@ -388,34 +388,34 @@ export const Interactive = () => {
     labelRow.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;';
 
     const label = document.createElement('span');
-    label.style.cssText = `font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;`;
+    label.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;`;
     label.textContent = labelText;
     labelRow.appendChild(label);
 
     if (hasVerifiedChip) {
       const chip = document.createElement('div');
-      chip.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:2px 8px;display:inline-flex;align-items:center;`;
-      chip.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextAccent};">&#10003; Verified</span>`;
+      chip.style.cssText = `background:${tokens.colorGreen100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-1) var(--vv-space-3);display:inline-flex;align-items:center;`;
+      chip.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextAccent};">&#10003; Verified</span>`;
       labelRow.appendChild(chip);
     }
 
     // Input Row (visible styled container)
     const inputRow = document.createElement('div');
-    inputRow.style.cssText = `position:relative;background:${tokens.colorGrey050};border-radius:${tokens.radiusMd}px;padding:12px 16px;border:1px solid ${tokens.colorGrey200};display:flex;align-items:center;gap:8px;cursor:text;box-sizing:border-box;`;
+    inputRow.style.cssText = `position:relative;background:${tokens.colorGrey050};border-radius:${tokens.radiusMd}px;padding:var(--vv-space-4) var(--vv-space-5);border:1px solid ${tokens.colorGrey200};display:flex;align-items:center;gap:var(--vv-space-3);cursor:text;box-sizing:border-box;`;
 
     const iconSpan = document.createElement('span');
     iconSpan.style.cssText = `font-size:16px;color:${tokens.colorGrey300};line-height:1;flex-shrink:0;`;
     iconSpan.innerHTML = iconHtml;
 
     const valueSpan = document.createElement('span');
-    valueSpan.style.cssText = `font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextPrimary};flex:1;`;
+    valueSpan.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextPrimary};flex:1;`;
     valueSpan.textContent = valueText;
 
     // Hidden native input for keyboard capture (opacity:0 overlay)
     const hiddenInput = document.createElement('input');
     hiddenInput.type = inputType || 'text';
     hiddenInput.value = valueText;
-    hiddenInput.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:text;border:none;background:transparent;font-size:15px;padding:12px 16px 12px 44px;box-sizing:border-box;';
+    hiddenInput.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:text;border:none;background:transparent;font-size:var(--vv-text-body-md-size);padding:var(--vv-space-4) var(--vv-space-5) var(--vv-space-4) 44px;box-sizing:border-box;';
 
     // Focus / blur state changes on the visible inputRow border
     hiddenInput.addEventListener('focus', () => {
@@ -453,11 +453,11 @@ export const Interactive = () => {
 
   // ── CTA Wrap ────────────────────────────────────────────────────────────────
   const ctaWrap = document.createElement('div');
-  ctaWrap.style.cssText = 'padding:16px;padding-bottom:34px;box-sizing:border-box;';
+  ctaWrap.style.cssText = 'padding:var(--vv-space-5);padding-bottom:34px;box-sizing:border-box;';
 
   const saveBtn = document.createElement('button');
-  saveBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;transition:transform 100ms ease,background-color 100ms ease;`;
-  saveBtn.innerHTML = `<span style="font-size:16px;line-height:1;">&#10003;</span><span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">Save Changes</span>`;
+  saveBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorActionPrimary};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);box-sizing:border-box;transition:transform var(--vv-duration-fast) var(--vv-easing-standard),background-color var(--vv-duration-fast) var(--vv-easing-standard);`;
+  saveBtn.innerHTML = `<span style="font-size:16px;line-height:1;">&#10003;</span><span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Save Changes</span>`;
   saveBtn.addEventListener('pointerdown', () => {
     saveBtn.style.backgroundColor = tokens.colorGreen600;
     saveBtn.style.transform = 'scale(0.97)';
@@ -487,7 +487,7 @@ export const Interactive = () => {
 // ── SourceCode export: React Native Paper JSX ────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_EDIT_PROFILE = `
@@ -692,4 +692,4 @@ const styles = StyleSheet.create({
 `.trim();
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// EditProfile — React Native Paper</div>${_blk('EditProfileScreen.tsx', RN_EDIT_PROFILE)}</div>`;
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// EditProfile — React Native Paper</div>${_blk('EditProfileScreen.tsx', RN_EDIT_PROFILE)}</div>`;

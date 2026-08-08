@@ -6,25 +6,25 @@ export default { title: 'Screens/Settings' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;line-height:20px;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);line-height:20px;color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -37,76 +37,76 @@ export const Default = () => `
     background:${tokens.colorGrey050};box-sizing:border-box;font-family:Inter,sans-serif;
   ">
     <!-- Status Bar (62px) — light surface on colorGrey050 -->
-    <div style="height:62px;background:${tokens.colorGrey050};display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-sizing:border-box;flex-shrink:0;">
-      <span style="font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-      <span style="font-size:11px;color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
+    <div style="height:62px;background:${tokens.colorGrey050};display:flex;align-items:center;justify-content:space-between;padding:0 var(--vv-space-6);box-sizing:border-box;flex-shrink:0;">
+      <span style="font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+      <span style="font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};">&#9646; WiFi &#9650;</span>
     </div>
     <!-- Header Row (44px) -->
-    <div style="height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;">
+    <div style="height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);flex-shrink:0;">
       <div style="width:36px;height:36px;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-sizing:border-box;flex-shrink:0;">&#8592;</div>
-      <span style="font-size:${tokens.fontSizeHeadingMd}px;font-weight:700;line-height:${tokens.fontLineHeightHeadingMd}px;color:${tokens.colorTextPrimary};">Settings</span>
+      <span style="font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-display);line-height:${tokens.fontLineHeightHeadingMd}px;color:${tokens.colorTextPrimary};">Settings</span>
     </div>
     <!-- ACCOUNT Section -->
-    <div style="margin:16px 16px 0;">
-      <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">ACCOUNT</div>
+    <div style="margin:var(--vv-space-5) var(--vv-space-5) 0;">
+      <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:var(--vv-space-3);">ACCOUNT</div>
       <div style="background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;overflow:hidden;">
-        <div style="display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
-          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">&#9881;</div>
-          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Preferences</span>
-          <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+        <div style="display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
+          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-body-md-size);flex-shrink:0;">&#9881;</div>
+          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Preferences</span>
+          <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
         </div>
         <div style="height:1px;background:${tokens.colorGrey100};"></div>
-        <div style="display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
-          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">&#128272;</div>
-          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Login &amp; Security</span>
-          <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+        <div style="display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
+          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-body-md-size);flex-shrink:0;">&#128272;</div>
+          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Login &amp; Security</span>
+          <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
         </div>
       </div>
     </div>
     <!-- SUPPORT & LEGAL Section -->
-    <div style="margin:16px 16px 0;">
-      <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">SUPPORT &amp; LEGAL</div>
+    <div style="margin:var(--vv-space-5) var(--vv-space-5) 0;">
+      <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:var(--vv-space-3);">SUPPORT &amp; LEGAL</div>
       <div style="background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;overflow:hidden;">
-        <div style="display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
-          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">&#127911;</div>
-          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Help &amp; Support</span>
-          <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+        <div style="display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
+          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-body-md-size);flex-shrink:0;">&#127911;</div>
+          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Help &amp; Support</span>
+          <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
         </div>
         <div style="height:1px;background:${tokens.colorGrey100};"></div>
-        <div style="display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
-          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">&#128196;</div>
-          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Terms of Service</span>
-          <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+        <div style="display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
+          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-body-md-size);flex-shrink:0;">&#128196;</div>
+          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Terms of Service</span>
+          <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
         </div>
         <div style="height:1px;background:${tokens.colorGrey100};"></div>
-        <div style="display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;">
-          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;">&#128737;</div>
-          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Privacy Policy</span>
-          <span style="color:${tokens.colorGrey300};font-size:20px;line-height:1;">&#8250;</span>
+        <div style="display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
+          <div style="width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-body-md-size);flex-shrink:0;">&#128737;</div>
+          <span style="flex:1;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Privacy Policy</span>
+          <span style="color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
         </div>
       </div>
     </div>
     <!-- Danger Zone Section -->
-    <div style="margin:16px 16px 0;">
-      <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#D64545;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">
+    <div style="margin:var(--vv-space-5) var(--vv-space-5) 0;">
+      <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#D64545;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:var(--vv-space-3);">
         DANGER ZONE <!-- #D64545 — destructive red, no VV token -->
       </div>
-      <div style="background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-sizing:border-box;">
+      <div style="background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;">
         <div style="width:34px;height:34px;background:#FDECEC;border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">
           <!-- #FDECEC — pale red, no VV token -->
           &#128465;
         </div>
         <div style="flex:1;">
-          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};">Delete Account</div>
-          <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:2px;">Permanent action, cannot be undone</div>
+          <div style="font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">Delete Account</div>
+          <div style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);">Permanent action, cannot be undone</div>
         </div>
-        <span style="color:#D64545;font-size:20px;line-height:1;">&#8250;</span>
+        <span style="color:#D64545;font-size:var(--vv-text-heading-lg-size);line-height:1;">&#8250;</span>
       </div>
     </div>
     <!-- Spacer -->
     <div style="flex:1;"></div>
     <!-- Footer -->
-    <div style="text-align:center;margin:16px 16px 24px;">
+    <div style="text-align:center;margin:var(--vv-space-5) var(--vv-space-5) var(--vv-space-7);">
       <span style="font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey300};">VoltVenture v1.0.0</span>
     </div>
   </div>
@@ -128,12 +128,12 @@ export const Interactive = () => {
 
   // Header
   const header = document.createElement('div');
-  header.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 16px;gap:12px;flex-shrink:0;';
+  header.style.cssText = 'height:44px;display:flex;align-items:center;padding:0 var(--vv-space-5);gap:var(--vv-space-4);flex-shrink:0;';
   const backBtn = document.createElement('div');
   backBtn.style.cssText = `width:36px;height:36px;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;box-sizing:border-box;flex-shrink:0;`;
   backBtn.textContent = '\u2190';
   const titleEl = document.createElement('span');
-  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:700;color:${tokens.colorTextPrimary};`;
+  titleEl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeHeadingMd}px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};`;
   titleEl.textContent = 'Settings';
   header.appendChild(backBtn);
   header.appendChild(titleEl);
@@ -147,18 +147,18 @@ export const Interactive = () => {
 
   function makeChevronRow(icon, label) {
     const row = document.createElement('div');
-    row.style.cssText = `display:flex;align-items:center;min-height:48px;padding:12px 16px;gap:12px;cursor:pointer;box-sizing:border-box;background:${tokens.colorSurfaceBase};`;
+    row.style.cssText = `display:flex;align-items:center;min-height:48px;padding:var(--vv-space-4) var(--vv-space-5);gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;background:${tokens.colorSurfaceBase};`;
     row.addEventListener('pointerdown', () => { row.style.background = tokens.colorGrey050; });
     row.addEventListener('pointerup', () => { row.style.background = tokens.colorSurfaceBase; });
     row.addEventListener('pointerleave', () => { row.style.background = tokens.colorSurfaceBase; });
     const chip = document.createElement('div');
-    chip.style.cssText = `width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;`;
+    chip.style.cssText = `width:30px;height:30px;background:${tokens.colorGrey100};border-radius:${tokens.radiusSm}px;display:flex;align-items:center;justify-content:center;font-size:var(--vv-text-body-md-size);flex-shrink:0;`;
     chip.textContent = icon;
     const text = document.createElement('span');
-    text.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+    text.style.cssText = `flex:1;font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
     text.textContent = label;
     const chev = document.createElement('span');
-    chev.style.cssText = `color:${tokens.colorGrey300};font-size:20px;line-height:1;`;
+    chev.style.cssText = `color:${tokens.colorGrey300};font-size:var(--vv-text-heading-lg-size);line-height:1;`;
     chev.textContent = '\u203a';
     row.appendChild(chip);
     row.appendChild(text);
@@ -168,9 +168,9 @@ export const Interactive = () => {
 
   // ACCOUNT section
   const accWrap = document.createElement('div');
-  accWrap.style.cssText = 'margin:16px 16px 0;';
+  accWrap.style.cssText = 'margin:var(--vv-space-5) var(--vv-space-5) 0;';
   const accLbl = document.createElement('div');
-  accLbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;`;
+  accLbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:var(--vv-space-3);`;
   accLbl.textContent = 'ACCOUNT';
   accWrap.appendChild(accLbl);
   const accCard = document.createElement('div');
@@ -183,9 +183,9 @@ export const Interactive = () => {
 
   // SUPPORT & LEGAL section
   const suppWrap = document.createElement('div');
-  suppWrap.style.cssText = 'margin:16px 16px 0;';
+  suppWrap.style.cssText = 'margin:var(--vv-space-5) var(--vv-space-5) 0;';
   const suppLbl = document.createElement('div');
-  suppLbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;`;
+  suppLbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey500};text-transform:uppercase;letter-spacing:0.5px;margin-bottom:var(--vv-space-3);`;
   suppLbl.textContent = 'SUPPORT & LEGAL';
   suppWrap.appendChild(suppLbl);
   const suppCard = document.createElement('div');
@@ -200,15 +200,15 @@ export const Interactive = () => {
 
   // Danger Zone
   const dangerWrap = document.createElement('div');
-  dangerWrap.style.cssText = 'margin:16px 16px 0;';
+  dangerWrap.style.cssText = 'margin:var(--vv-space-5) var(--vv-space-5) 0;';
   const dangerLbl = document.createElement('div');
-  dangerLbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#D64545;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;`;
+  dangerLbl.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:#D64545;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:var(--vv-space-3);`;
   /* #D64545 — destructive red, no VV token */
   dangerLbl.textContent = 'DANGER ZONE';
   dangerWrap.appendChild(dangerLbl);
 
   const deleteRow = document.createElement('div');
-  deleteRow.style.cssText = `background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;box-sizing:border-box;`;
+  deleteRow.style.cssText = `background:${tokens.colorSurfaceBase};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-4);cursor:pointer;box-sizing:border-box;`;
   deleteRow.addEventListener('pointerdown', () => { deleteRow.style.backgroundColor = '#FEF2F2'; });
   deleteRow.addEventListener('pointerup', () => { deleteRow.style.backgroundColor = tokens.colorSurfaceBase; });
   deleteRow.addEventListener('pointerleave', () => { deleteRow.style.backgroundColor = tokens.colorSurfaceBase; });
@@ -221,16 +221,16 @@ export const Interactive = () => {
   const deleteCol = document.createElement('div');
   deleteCol.style.cssText = 'flex:1;';
   const deleteTitle = document.createElement('div');
-  deleteTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:600;color:${tokens.colorTextPrimary};`;
+  deleteTitle.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeBodyMd}px;font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};`;
   deleteTitle.textContent = 'Delete Account';
   const deleteSub = document.createElement('div');
-  deleteSub.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:2px;`;
+  deleteSub.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorTextSecondary};margin-top:var(--vv-space-1);`;
   deleteSub.textContent = 'Permanent action, cannot be undone';
   deleteCol.appendChild(deleteTitle);
   deleteCol.appendChild(deleteSub);
 
   const deleteChev = document.createElement('span');
-  deleteChev.style.cssText = 'color:#D64545;font-size:20px;line-height:1;';
+  deleteChev.style.cssText = 'color:#D64545;font-size:var(--vv-text-heading-lg-size);line-height:1;';
   deleteChev.textContent = '\u203a';
 
   deleteRow.appendChild(deleteChip);
@@ -245,7 +245,7 @@ export const Interactive = () => {
   content.appendChild(spacer);
 
   const footer = document.createElement('div');
-  footer.style.cssText = 'text-align:center;margin:16px 16px 24px;';
+  footer.style.cssText = 'text-align:center;margin:var(--vv-space-5) var(--vv-space-5) var(--vv-space-7);';
   const footerText = document.createElement('span');
   footerText.style.cssText = `font-family:Inter,sans-serif;font-size:${tokens.fontSizeLabelSm}px;font-weight:${tokens.fontWeightLabelSm};color:${tokens.colorGrey300};`;
   footerText.textContent = 'VoltVenture v1.0.0';
@@ -259,7 +259,7 @@ export const Interactive = () => {
 // ── Source Code ────────────────────────────────────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_JSX = `import React from 'react';
@@ -316,7 +316,7 @@ const SettingsScreen = () => (
 export default SettingsScreen;`;
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px">` +
-  `<div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Settings — React Native Paper</div>` +
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px">` +
+  `<div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// Settings — React Native Paper</div>` +
   _blk('SettingsScreen.tsx', RN_JSX) +
   `</div>`;

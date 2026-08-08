@@ -6,25 +6,25 @@ export default { title: 'Screens/Login' };
 function makePhoneFrame() {
   const frame = document.createElement('div');
   frame.style.cssText = [
-    'width:402px', 'height:874px', 'background:#0f0f0f',
+    'width:402px', 'height:874px', 'background:var(--vv-color-surface-inverse)',
     'border-radius:44px', 'padding:6px', 'box-sizing:border-box',
     'position:relative', 'overflow:hidden', 'display:inline-block',
     'font-family:Inter,sans-serif'
   ].join(';');
   const screen = document.createElement('div');
   screen.style.cssText = [
-    'width:100%', 'height:100%', 'background:#ffffff',
+    'width:100%', 'height:100%', 'background:var(--vv-color-surface-base)',
     'border-radius:38px', 'overflow:hidden', 'position:relative',
     'display:flex', 'flex-direction:column'
   ].join(';');
   const bar = document.createElement('div');
   bar.style.cssText = [
-    'flex-shrink:0', 'height:54px', 'background:#0f0f0f',
+    'flex-shrink:0', 'height:54px', 'background:var(--vv-color-surface-inverse)',
     'display:flex', 'align-items:center', 'justify-content:space-between',
-    'padding:0 20px', 'box-sizing:border-box'
+    'padding:0 var(--vv-space-6)', 'box-sizing:border-box'
   ].join(';');
-  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;">9:41</span>'
-    + '<span style="font-family:Inter,sans-serif;font-size:11px;color:#ffffff;">&#9646; WiFi &#9650;</span>';
+  bar.innerHTML = '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);">9:41</span>'
+    + '<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-text-on-inverse);">&#9646; WiFi &#9650;</span>';
   screen.appendChild(bar);
   frame.appendChild(screen);
   return { frame, screen };
@@ -38,7 +38,7 @@ export const Default = () => `
   display:flex;
   flex-direction:column;
   background:${tokens.colorSurfaceBase};
-  padding:0 20px;
+  padding:0 var(--vv-space-6);
   box-sizing:border-box;
 ">
   <!-- Status Bar (light surface) -->
@@ -51,8 +51,8 @@ export const Default = () => `
     background:${tokens.colorSurfaceBase};
     box-sizing:border-box;
   ">
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};">9:41</span>
-    <span style="font-family:Inter,sans-serif;font-size:11px;color:${tokens.colorTextPrimary};letter-spacing:2px;">&#9646; WiFi &#9650;</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};">9:41</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);color:${tokens.colorTextPrimary};letter-spacing:2px;">&#9646; WiFi &#9650;</span>
   </div>
 
   <!-- Back Navigation (44px) -->
@@ -62,36 +62,36 @@ export const Default = () => `
     display:flex;
     align-items:center;
   ">
-    <span style="font-size:20px;color:${tokens.colorTextPrimary};cursor:pointer;line-height:1;">&#8592;</span>
+    <span style="font-size:var(--vv-text-heading-lg-size);color:${tokens.colorTextPrimary};cursor:pointer;line-height:1;">&#8592;</span>
   </div>
 
   <!-- Main Content / Top Section -->
-  <div style="padding:24px 0 0;">
+  <div style="padding:var(--vv-space-7) 0 0;">
     <!-- Header: Welcome back -->
     <div style="
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:400;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-body);
       color:${tokens.colorTextSecondary};
-      margin-bottom:4px;
+      margin-bottom:var(--vv-space-2);
     ">Welcome back</div>
     <!-- Brand Title -->
     <div style="
       font-family:Manjari,sans-serif;
       font-size:24px;
-      font-weight:700;
+      font-weight:var(--ds-font-weight-display);
       color:${tokens.colorTextPrimary};
       line-height:1.2;
-      margin-bottom:4px;
+      margin-bottom:var(--vv-space-2);
     ">VoltVenture</div>
     <!-- Subtitle -->
     <div style="
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:400;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-body);
       color:${tokens.colorTextSecondary};
       line-height:22px;
-      margin-bottom:24px;
+      margin-bottom:var(--vv-space-7);
     ">Sign in to continue your journey.</div>
 
     <!-- Social Buttons -->
@@ -106,13 +106,13 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
+      gap:var(--vv-space-3);
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:600;
-      color:#ffffff;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-heading);
+      color:var(--vv-color-text-on-inverse);
       box-sizing:border-box;
-      margin-bottom:12px;
+      margin-bottom:var(--vv-space-4);
     ">&#63743;  Sign in with Apple</button>
     <!-- Google Button -->
     <button style="
@@ -125,18 +125,18 @@ export const Default = () => `
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:8px;
+      gap:var(--vv-space-3);
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:600;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-heading);
       color:${tokens.colorTextPrimary};
       box-sizing:border-box;
     ">G  Sign in with Google</button>
 
     <!-- OR Divider -->
-    <div style="display:flex;align-items:center;gap:12px;margin:20px 0;">
+    <div style="display:flex;align-items:center;gap:var(--vv-space-4);margin:var(--vv-space-6) 0;">
       <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
-      <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">OR</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">OR</span>
       <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
     </div>
 
@@ -146,20 +146,20 @@ export const Default = () => `
       display:flex;
       background:${tokens.colorGrey100};
       border-radius:${tokens.radiusFull}px;
-      padding:4px;
-      gap:4px;
+      padding:var(--vv-space-2);
+      gap:var(--vv-space-2);
     ">
       <!-- Email tab (active) -->
       <div style="
         flex:1;
         background:${tokens.colorSurfaceInverse};
-        color:#ffffff;
+        color:var(--vv-color-text-on-inverse);
         border-radius:${tokens.radiusFull}px;
-        padding:8px 24px;
+        padding:var(--vv-space-3) var(--vv-space-7);
         text-align:center;
         font-family:Inter,sans-serif;
-        font-size:15px;
-        font-weight:600;
+        font-size:var(--vv-text-body-md-size);
+        font-weight:var(--ds-font-weight-heading);
         cursor:pointer;
       ">Email</div>
       <!-- Phone tab (inactive) -->
@@ -168,45 +168,45 @@ export const Default = () => `
         background:transparent;
         color:${tokens.colorTextSecondary};
         border-radius:${tokens.radiusFull}px;
-        padding:8px 24px;
+        padding:var(--vv-space-3) var(--vv-space-7);
         text-align:center;
         font-family:Inter,sans-serif;
-        font-size:15px;
-        font-weight:600;
+        font-size:var(--vv-text-body-md-size);
+        font-weight:var(--ds-font-weight-heading);
         cursor:pointer;
       ">Phone</div>
     </div>
 
     <!-- Phone Input Row (colorGrey050 background) -->
     <div style="
-      margin-top:16px;
+      margin-top:var(--vv-space-5);
       background:${tokens.colorGrey050};
       border-radius:${tokens.radiusLg}px;
-      padding:12px 16px;
+      padding:var(--vv-space-4) var(--vv-space-5);
       display:flex;
       align-items:center;
-      gap:8px;
+      gap:var(--vv-space-3);
       box-sizing:border-box;
     ">
-      <span style="font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:${tokens.colorTextSecondary};">&#127470;&#127475; +91</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">&#127470;&#127475; +91</span>
       <div style="width:1px;height:24px;background:${tokens.colorGrey200};flex-shrink:0;"></div>
-      <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextPrimary};">98XXXXXXXX</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextPrimary};">98XXXXXXXX</span>
     </div>
 
     <!-- Cached Hint row -->
     <div style="
-      margin-top:8px;
+      margin-top:var(--vv-space-3);
       display:flex;
       align-items:center;
       gap:6px;
     ">
       <span style="font-size:12px;">&#9203;</span>
-      <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">Last used: phone ending in 29</span>
+      <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">Last used: phone ending in 29</span>
     </div>
 
     <!-- Continue Login Button: colorSurfaceInverse (BLACK — not green) -->
     <button style="
-      margin-top:24px;
+      margin-top:var(--vv-space-7);
       height:56px;
       width:100%;
       background:${tokens.colorSurfaceInverse};
@@ -217,9 +217,9 @@ export const Default = () => `
       align-items:center;
       justify-content:center;
       font-family:Inter,sans-serif;
-      font-size:15px;
-      font-weight:600;
-      color:#ffffff;
+      font-size:var(--vv-text-body-md-size);
+      font-weight:var(--ds-font-weight-heading);
+      color:var(--vv-color-text-on-inverse);
       box-sizing:border-box;
     ">Continue &#8594;</button>
   </div>
@@ -227,11 +227,11 @@ export const Default = () => `
   <!-- Sign Up Anchor -->
   <div style="
     text-align:center;
-    margin-top:16px;
+    margin-top:var(--vv-space-5);
     padding-bottom:34px;
   ">
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};">Don&apos;t have an account? </span>
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextAccent};">Sign Up</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};">Don&apos;t have an account? </span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextAccent};">Sign Up</span>
   </div>
 </div>
 `;
@@ -242,7 +242,7 @@ export const Interactive = () => {
 
   // Scrollable content area
   const content = document.createElement('div');
-  content.style.cssText = 'flex:1;overflow-y:auto;padding:0 20px 34px;box-sizing:border-box;background:#ffffff;position:relative;';
+  content.style.cssText = 'flex:1;overflow-y:auto;padding:0 var(--vv-space-6) 34px;box-sizing:border-box;background:var(--vv-color-surface-base);position:relative;';
 
   // Hidden phone input for keyboard capture
   const hiddenInput = document.createElement('input');
@@ -252,28 +252,28 @@ export const Interactive = () => {
   // Back nav
   const backNav = document.createElement('div');
   backNav.style.cssText = 'height:44px;display:flex;align-items:center;';
-  backNav.innerHTML = '<span style="font-size:20px;color:#0f0f0f;cursor:pointer;line-height:1;">&#8592;</span>';
+  backNav.innerHTML = '<span style="font-size:var(--vv-text-heading-lg-size);color:var(--vv-color-text-primary);cursor:pointer;line-height:1;">&#8592;</span>';
 
   // Top section
   const topSection = document.createElement('div');
-  topSection.style.cssText = 'padding:24px 0 0;';
+  topSection.style.cssText = 'padding:var(--vv-space-7) 0 0;';
 
   // Header
   const headerWelcome = document.createElement('div');
-  headerWelcome.style.cssText = `font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};margin-bottom:4px;`;
+  headerWelcome.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};margin-bottom:var(--vv-space-2);`;
   headerWelcome.textContent = 'Welcome back';
 
   const headerTitle = document.createElement('div');
-  headerTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:24px;font-weight:700;color:${tokens.colorTextPrimary};line-height:1.2;margin-bottom:4px;`;
+  headerTitle.style.cssText = `font-family:Manjari,sans-serif;font-size:24px;font-weight:var(--ds-font-weight-display);color:${tokens.colorTextPrimary};line-height:1.2;margin-bottom:var(--vv-space-2);`;
   headerTitle.textContent = 'VoltVenture';
 
   const headerSubtitle = document.createElement('div');
-  headerSubtitle.style.cssText = `font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};line-height:22px;margin-bottom:24px;`;
+  headerSubtitle.style.cssText = `font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};line-height:22px;margin-bottom:var(--vv-space-7);`;
   headerSubtitle.textContent = 'Sign in to continue your journey.';
 
   // Apple button
   const appleBtn = document.createElement('button');
-  appleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;box-sizing:border-box;margin-bottom:12px;transition:transform 100ms ease;`;
+  appleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);box-sizing:border-box;margin-bottom:var(--vv-space-4);transition:transform var(--vv-duration-fast) var(--vv-easing-standard);`;
   appleBtn.innerHTML = '&#63743;  Sign in with Apple';
   appleBtn.addEventListener('pointerdown', () => { appleBtn.style.backgroundColor = tokens.colorGrey900; appleBtn.style.transform = 'scale(0.97)'; });
   appleBtn.addEventListener('pointerup', () => { appleBtn.style.backgroundColor = tokens.colorSurfaceInverse; appleBtn.style.transform = 'scale(1)'; });
@@ -281,7 +281,7 @@ export const Interactive = () => {
 
   // Google button
   const googleBtn = document.createElement('button');
-  googleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:${tokens.colorTextPrimary};box-sizing:border-box;`;
+  googleBtn.style.cssText = `height:56px;width:100%;background:${tokens.colorSurfaceBase};border:1px solid ${tokens.colorGrey200};border-radius:${tokens.radiusFull}px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--vv-space-3);font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:${tokens.colorTextPrimary};box-sizing:border-box;`;
   googleBtn.innerHTML = 'G  Sign in with Google';
   googleBtn.addEventListener('pointerdown', () => { googleBtn.style.backgroundColor = tokens.colorGrey050; });
   googleBtn.addEventListener('pointerup', () => { googleBtn.style.backgroundColor = tokens.colorSurfaceBase; });
@@ -289,10 +289,10 @@ export const Interactive = () => {
 
   // OR divider
   const orDiv = document.createElement('div');
-  orDiv.style.cssText = 'display:flex;align-items:center;gap:12px;margin:20px 0;';
+  orDiv.style.cssText = 'display:flex;align-items:center;gap:var(--vv-space-4);margin:var(--vv-space-6) 0;';
   orDiv.innerHTML = `
     <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
-    <span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">OR</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">OR</span>
     <div style="flex:1;height:1px;background:${tokens.colorGrey200};"></div>
   `;
 
@@ -300,26 +300,26 @@ export const Interactive = () => {
   let activeMethod = 'email';
 
   const toggleWrap = document.createElement('div');
-  toggleWrap.style.cssText = `display:flex;background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:4px;gap:4px;`;
+  toggleWrap.style.cssText = `display:flex;background:${tokens.colorGrey100};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-2);gap:var(--vv-space-2);`;
 
   const emailTab = document.createElement('div');
-  emailTab.style.cssText = `flex:1;background:${tokens.colorSurfaceInverse};color:#ffffff;border-radius:${tokens.radiusFull}px;padding:8px 24px;text-align:center;font-family:Inter,sans-serif;font-size:15px;font-weight:600;cursor:pointer;`;
+  emailTab.style.cssText = `flex:1;background:${tokens.colorSurfaceInverse};color:var(--vv-color-text-on-inverse);border-radius:${tokens.radiusFull}px;padding:var(--vv-space-3) var(--vv-space-7);text-align:center;font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);cursor:pointer;`;
   emailTab.textContent = 'Email';
 
   const phoneTab = document.createElement('div');
-  phoneTab.style.cssText = `flex:1;background:transparent;color:${tokens.colorTextSecondary};border-radius:${tokens.radiusFull}px;padding:8px 24px;text-align:center;font-family:Inter,sans-serif;font-size:15px;font-weight:600;cursor:pointer;`;
+  phoneTab.style.cssText = `flex:1;background:transparent;color:${tokens.colorTextSecondary};border-radius:${tokens.radiusFull}px;padding:var(--vv-space-3) var(--vv-space-7);text-align:center;font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);cursor:pointer;`;
   phoneTab.textContent = 'Phone';
 
   function setActiveTab(method) {
     activeMethod = method;
     if (method === 'email') {
       emailTab.style.background = tokens.colorSurfaceInverse;
-      emailTab.style.color = '#ffffff';
+      emailTab.style.color = 'var(--vv-color-text-on-inverse)';
       phoneTab.style.background = 'transparent';
       phoneTab.style.color = tokens.colorTextSecondary;
     } else {
       phoneTab.style.background = tokens.colorSurfaceInverse;
-      phoneTab.style.color = '#ffffff';
+      phoneTab.style.color = 'var(--vv-color-text-on-inverse)';
       emailTab.style.background = 'transparent';
       emailTab.style.color = tokens.colorTextSecondary;
     }
@@ -333,21 +333,21 @@ export const Interactive = () => {
 
   // Phone input row (colorGrey050 background)
   const inputRow = document.createElement('div');
-  inputRow.style.cssText = `margin-top:16px;background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:12px 16px;display:flex;align-items:center;gap:8px;box-sizing:border-box;`;
+  inputRow.style.cssText = `margin-top:var(--vv-space-5);background:${tokens.colorGrey050};border-radius:${tokens.radiusLg}px;padding:var(--vv-space-4) var(--vv-space-5);display:flex;align-items:center;gap:var(--vv-space-3);box-sizing:border-box;`;
   inputRow.innerHTML = `
-    <span style="font-family:Inter,sans-serif;font-size:13px;font-weight:500;color:${tokens.colorTextSecondary};">&#127470;&#127475; +91</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">&#127470;&#127475; +91</span>
     <div style="width:1px;height:24px;background:${tokens.colorGrey200};flex-shrink:0;"></div>
-    <span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextPrimary};">98XXXXXXXX</span>
+    <span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextPrimary};">98XXXXXXXX</span>
   `;
 
   // Cached hint
   const cachedHint = document.createElement('div');
-  cachedHint.style.cssText = 'margin-top:8px;display:flex;align-items:center;gap:6px;';
-  cachedHint.innerHTML = `<span style="font-size:12px;">&#9203;</span><span style="font-family:Inter,sans-serif;font-size:11px;font-weight:500;color:${tokens.colorTextSecondary};">Last used: phone ending in 29</span>`;
+  cachedHint.style.cssText = 'margin-top:var(--vv-space-3);display:flex;align-items:center;gap:6px;';
+  cachedHint.innerHTML = `<span style="font-size:12px;">&#9203;</span><span style="font-family:Inter,sans-serif;font-size:var(--vv-text-label-sm-size);font-weight:var(--ds-font-weight-label-sm);color:${tokens.colorTextSecondary};">Last used: phone ending in 29</span>`;
 
   // Continue button: colorSurfaceInverse = black, NOT green
   const continueBtn = document.createElement('button');
-  continueBtn.style.cssText = `margin-top:24px;height:56px;width:100%;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:15px;font-weight:600;color:#ffffff;box-sizing:border-box;transition:transform 100ms ease;`;
+  continueBtn.style.cssText = `margin-top:var(--vv-space-7);height:56px;width:100%;background:${tokens.colorSurfaceInverse};border-radius:${tokens.radiusFull}px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-text-on-inverse);box-sizing:border-box;transition:transform var(--vv-duration-fast) var(--vv-easing-standard);`;
   continueBtn.innerHTML = 'Continue &#8594;';
   continueBtn.addEventListener('pointerdown', () => { continueBtn.style.backgroundColor = tokens.colorGrey800; continueBtn.style.transform = 'scale(0.97)'; });
   continueBtn.addEventListener('pointerup', () => { continueBtn.style.backgroundColor = tokens.colorSurfaceInverse; continueBtn.style.transform = 'scale(1)'; });
@@ -355,8 +355,8 @@ export const Interactive = () => {
 
   // Sign Up anchor
   const signUpRow = document.createElement('div');
-  signUpRow.style.cssText = 'text-align:center;margin-top:16px;';
-  signUpRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextSecondary};">Don't have an account? </span><span style="font-family:Inter,sans-serif;font-size:15px;font-weight:400;color:${tokens.colorTextAccent};cursor:pointer;">Sign Up</span>`;
+  signUpRow.style.cssText = 'text-align:center;margin-top:var(--vv-space-5);';
+  signUpRow.innerHTML = `<span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextSecondary};">Don't have an account? </span><span style="font-family:Inter,sans-serif;font-size:var(--vv-text-body-md-size);font-weight:var(--ds-font-weight-body);color:${tokens.colorTextAccent};cursor:pointer;">Sign Up</span>`;
 
   // Assemble top section
   topSection.appendChild(headerWelcome);
@@ -383,7 +383,7 @@ export const Interactive = () => {
 // ── SourceCode export: React Native Paper JSX ────────────────────────────────
 function _esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 function _blk(label, code) {
-  return `<div style="margin-bottom:20px"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c6ff2d;letter-spacing:.5px">${label}</div><pre style="margin:0;padding:16px;background:#1a1a1a;border-radius:8px;overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
+  return `<div style="margin-bottom:var(--vv-space-6)"><div style="margin:0 0 6px;font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-label-sm-size);color:var(--vv-color-action-primary);letter-spacing:.5px">${label}</div><pre style="margin:0;padding:var(--vv-space-5);background:var(--ds-color-grey-900);border-radius:var(--vv-radius-xs);overflow:auto;font-family:'JetBrains Mono',monospace;font-size:12px;color:#d4d4d4;line-height:1.5;white-space:pre">${_esc(code)}</pre></div>`;
 }
 
 const RN_LOGIN = `
@@ -557,4 +557,4 @@ const styles = StyleSheet.create({
 `.trim();
 
 export const SourceCode = () =>
-  `<div style="padding:24px;background:#0f0f0f;min-height:400px"><div style="margin:0 0 20px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;color:#c6ff2d">// Login — React Native Paper</div>${_blk('LoginScreen.tsx', RN_LOGIN)}</div>`;
+  `<div style="padding:var(--vv-space-7);background:var(--vv-color-surface-inverse);min-height:400px"><div style="margin:0 0 var(--vv-space-6);font-family:'JetBrains Mono',monospace;font-size:var(--vv-text-body-sm-size);font-weight:var(--ds-font-weight-heading);color:var(--vv-color-action-primary)">// Login — React Native Paper</div>${_blk('LoginScreen.tsx', RN_LOGIN)}</div>`;
